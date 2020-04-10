@@ -1,0 +1,35 @@
+<div *ngIf="player">
+  <h4>{{ player.firstName }} {{ player.lastName }}</h4>
+  <div class="row">
+    <div class="col-md-4">
+      <img
+        [src]="
+          '../../../assets/img/players/' +
+          player.firstName +
+          '_' +
+          player.lastName +
+          '.png'
+        "
+        class="img-responsive img-thumbnail"
+        onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
+      />
+    </div>
+    <div class="col-md-8">
+      <ul class="list-unstyled">
+        <li>{{ player.position }}</li>
+        <li *ngIf="player.nickname != null">Alias {{ player.nickname }}</li>
+        <li *ngIf="playerAge != 0">
+          {{ player.dateOfBirth | frDate: 'dd/MM/yyyy' }} ({{ playerAge }} ans)
+        </li>
+        <li *ngIf="player.height != null && player.height != 0">
+          {{ player.height / 100 }} m
+        </li>
+        <li *ngIf="player.weight != null && player.weight != 0">
+          {{ player.weight }} kg
+        </li>
+        <li>{{ player.nationality }}</li>
+        <!--| number : '1.2-2' -->
+      </ul>
+    </div>
+  </div>
+</div>

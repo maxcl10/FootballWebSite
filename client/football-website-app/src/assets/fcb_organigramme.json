@@ -1,0 +1,172 @@
+[
+  {
+    "title": "Administratifs",
+    "persons": [
+      {
+        "firstName": "Eric",
+        "lastName": "Soulage",
+        "title": "Président"
+      },
+      {
+        "firstName": "Georges",
+        "lastName": "Mendes",
+        "title": "Président des Jeunes"
+      },
+      {
+        "firstName": "Olivier",
+        "lastName": "Loll",
+        "title": "Vice-Président"
+      },
+      {
+        "firstName": "Yves",
+        "lastName": "Winterberg",
+        "title": "Trésorier"
+      },
+      {
+        "firstName": "Audrey",
+        "lastName": "Maurer",
+        "title": "Secrétaire"
+      }
+    ]
+  },
+  {
+    "title": "Comité Directeur",
+    "persons": [
+      {
+        "firstName": "Eric",
+        "lastName": "Soulage"
+      },
+      {
+        "firstName": "Jean-Michel",
+        "lastName": "Loll"
+      },
+      {
+        "firstName": "Marc",
+        "lastName": "Willmann"
+      },
+      {
+        "firstName": "Georges",
+        "lastName": "Mendes"
+      },
+      {
+        "firstName": "Yves",
+        "lastName": "Winterberg"
+      },
+      {
+        "firstName": "Olivier",
+        "lastName": "Loll"
+      },
+      {
+        "firstName": "Dany",
+        "lastName": "Schneberger"
+      }
+    ]
+  },
+  {
+    "title": "Cellule Sportive",
+    "persons": [
+      {
+        "firstName": "Anthony",
+        "lastName": "Behra"
+      },
+
+      {
+        "firstName": "Georges",
+        "lastName": "Mendes"
+      }
+    ]
+  },
+  {
+    "title": "Cellule Arbitrage",
+    "persons": [
+      {
+        "firstName": "Didier",
+        "lastName": "Salber"
+      }
+    ]
+  },
+  {
+    "title": "Cellule Manifestations",
+    "persons": [
+      {
+        "firstName": "Emil",
+        "lastName": "Wisselmann"
+      },
+      {
+        "firstName": "Anthony",
+        "lastName": "Behra"
+      },
+      {
+        "firstName": "Dominique",
+        "lastName": "Léonardo"
+      },
+      {
+        "firstName": "Pascal",
+        "lastName": "Muller"
+      },
+      {
+        "firstName": "Dany",
+        "lastName": "Schneberger"
+      },
+      {
+        "firstName": "Evelyne",
+        "lastName": "Willmann"
+      }
+    ]
+  },
+  {
+    "title": "Cellule Communication",
+    "persons": [
+      {
+        "firstName": "Anthony",
+        "lastName": "Behra"
+      },
+      {
+        "firstName": "Fernand",
+        "lastName": "Vanobbergen"
+      },
+      {
+        "firstName": "Jean-Luc",
+        "lastName": "Wendling"
+      }
+    ]
+  },
+  {
+    "title": "Cellule Intentance",
+    "persons": [
+      {
+        "firstName": "Yves",
+        "lastName": "Winterberg"
+      },
+      {
+        "firstName": "Pascal",
+        "lastName": "Muller"
+      },
+      {
+        "firstName": "Evelyne",
+        "lastName": "Willmann"
+      },
+      {
+        "firstName": "Dominique",
+        "lastName": "Léonardo"
+      }
+    ]
+  },
+  {
+    "title": "Cellule Sponsoring",
+    "persons": [
+      {
+        "firstName": "Olivier",
+        "lastName": "Di Lorenzo"
+      },
+      {
+        "firstName": "Olivier",
+        "lastName": "Loll"
+      },
+      {
+        "firstName": "Yves",
+        "lastName": "Winterberg"
+      }
+    ]
+  }
+]

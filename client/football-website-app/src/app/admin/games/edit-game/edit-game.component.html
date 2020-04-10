@@ -1,0 +1,189 @@
+<div *ngIf="game">
+  <h3>{{ title }} match</h3>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group ">
+            <label>Domicile</label>
+            <select class="form-control" [(ngModel)]="game.HomeTeamId">
+              <option value="" disabled>Equipe domicile</option>
+              <option *ngFor="let team of teams" [value]="team.id">{{
+                team.name
+              }}</option>
+            </select>
+            <br />
+            <input
+              class="form-control"
+              placeholder="Score domicile"
+              [(ngModel)]="game.HomeTeamScore"
+              type="number"
+            />
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group ">
+            <label>Exterieur</label>
+            <select class="form-control" [(ngModel)]="game.AwayTeamId">
+              <option value="" disabled>Equipe exterieur</option>
+              <option *ngFor="let team of teams" [value]="team.id">{{
+                team.name
+              }}</option>
+            </select>
+            <br />
+            <input
+              class="form-control"
+              placeholder="score exterieur"
+              [(ngModel)]="game.AwayTeamScore"
+              type="number"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="
+          game.HomeTeamScore != null &&
+          game.AwayTeamScore != null &&
+          game.HomeTeamScore === game.AwayTeamScore
+        "
+      >
+        <label>Prolongations</label>
+        <div class="row">
+          <div class="col-md-6">
+            <input
+              class="form-control"
+              placeholder="prolongation domicile"
+              [(ngModel)]="game.HomeExtraTimeScore"
+              type="number"
+            />
+          </div>
+          <div class="col-md-6">
+            <input
+              class="form-control"
+              placeholder="prolongation exterieur"
+              [(ngModel)]="game.AwayExtraTimeScore"
+              type="number"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="
+          game.HomeExtraTimeScore != null &&
+          game.AwayExtraTimeScore != null &&
+          game.HomeExtraTimeScore === game.AwayExtraTimeScore
+        "
+      >
+        <label>Pénalties</label>
+        <div class="row">
+          <div class="col-md-6">
+            <input
+              class="form-control"
+              placeholder="pénalties domicile"
+              [(ngModel)]="game.HomePenaltyScore"
+              type="number"
+            />
+          </div>
+          <div class="col-md-6">
+            <input
+              class="form-control"
+              placeholder="pénalties exterieur"
+              [(ngModel)]="game.AwayPenaltyScore"
+              type="number"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="form-group ">
+        <label>Date</label>
+        <input
+          class="form-control"
+          placeholder="Date du match"
+          [(ngModel)]="game.MatchDate"
+          type="datetime-local"
+        />
+      </div>
+      <div class="form-group">
+          <label>Competition</label>
+          <select class="form-control" [(ngModel)]="game.CompetitionId">
+            <option *ngFor="let competition of competitions" [ngValue]="competition.CompetitionId">
+              {{ competition.Name }}
+            </option>
+          </select>
+        </div>
+
+      <div class="form-group ">
+        <label>Info supplémentaires</label>
+        <input
+          class="form-control"
+          placeholder="Tour"
+          [(ngModel)]="game.Championship"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+  <div>
+    <button (click)="goBack()" class="btn btn-default ">
+      <span class="glyphicon glyphicon-arrow-left"></span> Retour
+    </button>
+    <a
+      href=""
+      [routerLink]="['/admin/games', game.Id, 'players']"
+      class="btn btn-default"
+      >Edit Players</a
+    >
+    <div class="pull-right btn-toolbar">
+      <button
+        (click)="openModal(template)"
+        class="btn btn-danger"
+        *ngIf="game.Id"
+      >
+        <span class="glyphicon  glyphicon-remove"></span> Supprimer
+      </button>
+
+      <button
+        (click)="saveGame()"
+        type="submit "
+        class="btn btn-success  "
+        *ngIf="game.Id"
+      >
+        <span class="glyphicon  glyphicon-floppy-save"></span>
+        Sauvegarder
+      </button>
+      <button
+        (click)="createGame()"
+        type="submit "
+        class="btn btn-success pull-right "
+        *ngIf="!saving && !game.Id"
+      >
+        <span class="glyphicon  glyphicon-plus-sign"></span> Ajouter
+      </button>
+    </div>
+  </div>
+
+  <ng-template #template>
+    <div class="modal-header">
+      <div class="modal-title">
+        <span class="glyphicon glyphicon-trash>"></span> Delete
+      </div>
+    </div>
+    <div class="modal-body ">
+      <p>
+        Etes-vous sûr de vouloir supprimer le match
+        <b>{{ game.HomeTeam }} - {{ game.AwayTeam }}?</b>
+      </p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="cancel()">
+          Non
+        </button>
+        <button type="button" class="btn btn-danger" (click)="deleteGame()">
+          Supprimer
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,29 @@
+Goal1:
+Code reviews:
+ SRS: reviewed by Microsoft 100%. Next release will be reviewed by Achilleas end of this month
+ SCP: was reviewed by Microsoft. New PNR part has been reviewed by Achilleas. I reviewed the PAI part. Next version will be reviewd by Achilleas.
+ PPDB: No new code to review
+ SoaLogging: Has to be reviewed by Achilleas
+
+30.09.2015
+Goal2: Technology Leadership
+•	Wrote MVC Web applications guideline
+•	Currently working on the Security Chapter
+•	Followed some tutorials and presentations about
+	o	ASP.Net 5 => there are lot of changes with the current ASP.NET 4.
+	o	Angular JS => Single page application that are more responsive.
+	o	MVC6 => No big changes but some small improvements that are interesting
+
+01.04.2016
+Goal2: Technology Leadership
+•	Security Chapter of the Web Application Guideline is almost finished.
+•	Attend to the Microsoft Tech Days
+•	Plan to follow the Angular Typescript Workshop
+•	Still following ASP.NET Core 1.0
+
+10.05.2016
+Goal2: 
+•	Followed Angular Typescript Workshop
+•	Security Chapter is finished
+
+

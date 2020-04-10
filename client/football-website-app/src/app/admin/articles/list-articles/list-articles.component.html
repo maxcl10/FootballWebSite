@@ -1,0 +1,42 @@
+<h2>Articles</h2>
+<div id="articles" *ngIf="articles$ | async as articles; else loading">
+  <div class="card">
+    <div class="card-header">
+      <a
+        class="btn btn-success pull-right"
+        href=""
+        [routerLink]="['/admin/articles/0/edit']"
+      >
+        <span class="glyphicon glyphicon-plus"></span> Article
+      </a>
+      <h4>{{ articles.length }} articles</h4>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover table-clickable">
+        <thead>
+          <tr>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let article of articles" (click)="onselect(article)">
+            <td>
+              {{ article.title }}
+            </td>
+            <td>
+              {{ article.publisher }}
+            </td>
+            <td>
+              {{ article.publishedDate | date: 'dd/MM/yyyy' }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<ng-template #loading>
+  Chargement des articles...
+</ng-template>

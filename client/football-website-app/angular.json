@@ -1,0 +1,209 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "fc-uffheim-ng": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "polyfills": "src/polyfills.ts",
+            "assets": [
+              "src/assets",
+              "src/favicon.ico",
+              "src/manifest.json",
+              "src/web.config",
+              "src/sitemap.xml",
+              "src/humans.txt",
+              "src/robots.txt"
+            ],
+            "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles/fcb_site.scss",
+              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/animate.css/animate.min.css",
+              "node_modules/hover.css/css/hover.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/html2canvas/dist/html2canvas.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "serviceWorker": true
+            },
+            "fcb": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": true,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.fcb.ts"
+                },
+                {
+                  "replace": "src/index.html",
+                  "with": "src/index.fcb.html"
+                },
+                {
+                  "replace": "src/favicon.ico",
+                  "with": "src/favicon.fcb.ico"
+                },
+                {
+                  "replace": "src/manifest.json",
+                  "with": "src/manifest.fcb.json"
+                },
+                {
+                  "replace": "src/sitemap.xml",
+                  "with": "src/sitemap.fcb.xml"
+                }
+              ],
+              "serviceWorker": true
+            },
+            "fcu": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.fcu.ts"
+                },
+                {
+                  "replace": "src/index.html",
+                  "with": "src/index.fcu.html"
+                },
+                {
+                  "replace": "src/styles/fcb_site.scss",
+                  "with": "src/styles/fcu_site.scss"
+                },
+                {
+                  "replace": "src/assets/fcb_organigramme.json",
+                  "with": "src/assets/fcu_organigramme.json"
+                },
+                {
+                  "replace": "src/assets/img/players/default.png",
+                  "with": "src/assets/img/players/default_fcu.png"
+                }
+              ],
+              "serviceWorker": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "fc-uffheim-ng:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "fc-uffheim-ng:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "fc-uffheim-ng:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "karmaConfig": "./karma.conf.js",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ],
+            "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles/bootstrap/css/styles.css",
+              "src/styles/site.css",
+              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/animate.css/animate.min.css"
+            ],
+            "assets": ["src/assets", "src/favicon.ico", "src/manifest.json"]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "fc-uffheim-ng-e2e": {
+      "root": "",
+      "sourceRoot": "",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "./protractor.conf.js",
+            "devServerTarget": "fc-uffheim-ng:serve"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "fc-uffheim-ng",
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "fws",
+      "styleext": "scss"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "fws"
+    }
+  }
+}

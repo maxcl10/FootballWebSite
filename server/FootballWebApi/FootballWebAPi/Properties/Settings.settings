@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FootballWebSiteApi.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="LafaUffheim1Url" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://lgef.fff.fr/competitions/?id=351895&amp;poule=6&amp;phase=1&amp;type=ch&amp;tab=resultat</Value>
+    </Setting>
+    <Setting Name="OwnerId" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">316B0560-7310-4D95-B5F1-A64B629C5C94</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

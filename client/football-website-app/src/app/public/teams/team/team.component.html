@@ -1,0 +1,55 @@
+<div class="container">
+  <h2>Staff</h2>
+
+  <div class="row">
+    <div class="col-md-4 col-sm-6 col-xs-6" *ngFor="let player of coaches">
+      <fws-player-details [player]="player"></fws-player-details>
+    </div>
+  </div>
+
+  <h2>Effectif</h2>
+
+  <h4>GARDIENS</h4>
+  <hr />
+  <div class="row">
+    <div
+      class="col-md-4 col-sm-6 col-xs-6"
+      *ngFor="let player of goalkeeperPlayers"
+    >
+      <fws-player-details [player]="player"></fws-player-details>
+    </div>
+  </div>
+
+  <h4>DEFENSEURS</h4>
+  <hr />
+  <div class="row">
+    <div
+      class="col-md-4 col-sm-6 col-xs-6"
+      *ngFor="let player of defenderPlayers"
+    >
+      <fws-player-details [player]="player"></fws-player-details>
+    </div>
+  </div>
+
+  <h4>MILIEUX</h4>
+  <hr />
+  <div class="row">
+    <div
+      class="col-md-4 col-sm-6 col-xs-6"
+      *ngFor="let player of midfieldPlayers"
+    >
+      <fws-player-details [player]="player"></fws-player-details>
+    </div>
+  </div>
+
+  <h4>ATTAQUANTS</h4>
+  <hr />
+  <div class="row">
+    <div
+      class="col-md-4 col-sm-6 col-xs-6"
+      *ngFor="let player of attackerPlayers"
+    >
+      <fws-player-details [player]="player"></fws-player-details>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+  <h2 class="pageHeader">Partenaires</h2>
+
+  <div class="row">
+    <div
+      *ngFor="let sponsor of sponsors$ | async"
+      class="col-md-2 col-sm-3 col-xs-6 p-1"
+      title="{{ sponsor.name }}"
+    >
+      <div class="card shadow p-2">
+        <a
+          href="{{ sponsor.siteUrl }}"
+          target="_blank"
+          title="{{ sponsor.name }}"
+        >
+          <div class="md-3-square">
+            <img
+              class="img-fluid"
+              src="../../../assets/img/sponsors/{{ sponsor.logoUrl }}"
+            />
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

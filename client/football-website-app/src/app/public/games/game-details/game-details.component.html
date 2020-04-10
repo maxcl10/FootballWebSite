@@ -1,0 +1,117 @@
+<div
+  *ngIf="game"
+  style="background-color: white; margin-top: -19px; margin-bottom: 0px; padding-top: 15px; padding-bottom: 15px"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <img [src]="game.homeTeamLogoUrl" />
+        <span class="heading">{{ game.HomeTeam }}</span>
+      </div>
+      <div class="col-md-4 text-center align-bottom">
+        <div class="text-muted">
+          {{ game.MatchDate | frDate: 'longDateTime' }}
+        </div>
+        <div><fws-game-score [game]="game"></fws-game-score></div>
+        <div class="text-muted">
+          <fws-competition [game]="game"></fws-competition>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <span class="heading"> {{ game.AwayTeam }}</span
+        ><img [src]="game.awayTeamLogoUrl" />
+      </div>
+    </div>
+  </div>
+</div>
+<div style="margin-top: 20px;">
+  <div class="container" *ngIf="goals?.length > 0">
+    <h4><i class="fa fa-soccer-ball-o"></i> But(s)</h4>
+    <!-- <ul class="list-inline">
+      <li *ngFor="let event of goals" style="margin-left: 10px;">
+        {{ event.playerFirstName.slice(0, 1) }}. {{ event.playerLastName }} :
+        {{ event.time }}'
+      </li>
+    </ul>
+    <h3>Test</h3> -->
+    <ul class="list-inline" *ngIf="groupByPlayer">
+      <li *ngFor="let player of groupByPlayer" style="margin-left: 10px;">
+        {{ player.firstName.slice(0, 1) }}. {{ player.lastName }}
+        <span *ngFor="let event of player.goals" class="text-muted">
+          {{ event.time }}'
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- <div class="container">
+    <div *ngIf="article" class="card-body">
+      <span [innerHTML]="article.body"></span>
+    </div>
+  </div> -->
+
+  <div class="container" *ngIf="players">
+    <h4><i class="fa fa-bars"></i> Composition</h4>
+    <div class="row">
+      <div class="col-md-4">
+        <div *ngIf="players">
+          <table class="table">
+            <tr *ngFor="let player of players; let i = index">
+              <td>{{ i + 1 }}</td>
+              <!-- <td>
+                {{ player.position }}
+              </td> -->
+              <td>
+                {{ player.playerFirstName.slice(0, 1) }}.
+                {{ player.playerLastName }}
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="football-pitch">
+          <div class="outline marking"></div>
+          <div class="box left marking"></div>
+          <div class="box-d left marking"></div>
+          <div class="box left small marking"></div>
+          <div class="box right marking"></div>
+          <div class="box-d right marking"></div>
+          <div class="box right small marking"></div>
+          <div class="spot left marking"></div>
+          <div class="spot right marking"></div>
+          <div class="spot center marking"></div>
+          <div class="center-line marking"></div>
+          <div class="center-circle marking"></div>
+          <div class="corner top left marking"></div>
+          <div class="corner top right marking"></div>
+          <div class="corner bottom left marking"></div>
+          <div class="corner bottom right marking"></div>
+          <div class="grass"></div>
+          <div
+            *ngFor="let player of players"
+            class="{{ player.position }} player"
+          >
+            <div class="text-center" style="width: 120px">
+              <img
+                [src]="
+                  '../../../assets/img/players/' +
+                  player.playerFirstName +
+                  '_' +
+                  player.playerLastName +
+                  '.png'
+                "
+                style="height: 50px"
+                class="img-circle"
+              />
+              <br />
+              {{ player.playerFirstName.slice(0, 1) }}.
+              {{ player.playerLastName }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button (click)="goBack()" class="btn btn-default">Retour</button>
+  </div>
+</div>

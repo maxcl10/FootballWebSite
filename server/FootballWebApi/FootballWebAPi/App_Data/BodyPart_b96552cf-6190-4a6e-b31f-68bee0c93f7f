@@ -1,0 +1,28 @@
+<Services>
+  <Service ServiceID="1999" Status="R" ServiceName="GEDO Test" >
+     <Message MessageID="1" SeverityID="1" PayloadType="?" LogLevel="ERR">
+        <MessageName>Unknown Error</MessageName>
+      </Message>
+      <Message MessageID="2" SeverityID="1" PayloadType="?" LogLevel="ERR">
+        <MessageName>Ems Connection or Session Error</MessageName>
+      </Message>
+      <Message MessageID="3" SeverityID="1" PayloadType="?" LogLevel="ERR">
+        <MessageName>Send Error</MessageName>
+      </Message>
+      <Message MessageID="4" SeverityID="4" PayloadType="?" LogLevel="ERR">
+        <MessageName>Deserialization Error</MessageName>
+      </Message>
+      <Message MessageID="5" SeverityID="4" PayloadType="?" LogLevel="ERR">
+        <MessageName>Body null or empty Error</MessageName>
+      </Message>
+      <Message MessageID="6" SeverityID="1" PayloadType="?" LogLevel="ERR">
+        <MessageName>EmsApiError</MessageName>
+      </Message>
+      <Message MessageID="7" SeverityID="1" PayloadType="?" LogLevel="ERR">
+        <MessageName>MaximumRetriesReachedError</MessageName>
+      </Message>
+      <Message MessageID="8" SeverityID="1" PayloadType="?" LogLevel="ERR">
+        <MessageName>ConfigurationError</MessageName>
+      </Message>
+  </Service>
+</Services>

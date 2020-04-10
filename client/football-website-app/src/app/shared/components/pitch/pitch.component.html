@@ -1,0 +1,37 @@
+<div class="football-pitch">
+  <div class="outline marking"></div>
+  <div class="box left marking"></div>
+  <div class="box-d left marking"></div>
+  <div class="box left small marking"></div>
+  <div class="box right marking"></div>
+  <div class="box-d right marking"></div>
+  <div class="box right small marking"></div>
+  <div class="spot left marking"></div>
+  <div class="spot right marking"></div>
+  <div class="spot center marking"></div>
+  <div class="center-line marking"></div>
+  <div class="center-circle marking"></div>
+  <div class="corner top left marking"></div>
+  <div class="corner top right marking"></div>
+  <div class="corner bottom left marking"></div>
+  <div class="corner bottom right marking"></div>
+  <div class="grass"></div>
+  <div *ngFor="let player of players" class="{{ player.position }} player">
+    <div class="text-center" style="width: 120px">
+      <img
+        [src]="
+          '../../../assets/img/players/' +
+          player.playerFirstName +
+          '_' +
+          player.playerLastName +
+          '.png'
+        "
+        style="height: 50px"
+        class="img-circle"
+      />
+      <br />
+      {{ player.playerFirstName.slice(0, 1) }}.
+      {{ player.playerLastName }}
+    </div>
+  </div>
+</div>

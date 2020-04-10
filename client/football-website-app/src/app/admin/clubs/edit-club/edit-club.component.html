@@ -1,0 +1,87 @@
+<div *ngIf="team">
+  <h2>{{ title }} Equipe {{ team.name }}</h2>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="form-group">
+        <label>Nom</label>
+        <input
+          required
+          class="form-control"
+          placeholder="Nom"
+          [(ngModel)]="team.name"
+          type="text"
+          ngControl="name"
+        />
+      </div>
+      <div class="form-group">
+        <label>Nom court</label>
+        <input
+          required
+          class="form-control"
+          placeholder="Nom court"
+          [(ngModel)]="team.shortName"
+          type="text"
+          ngControl="shortName"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="alert alert-danger" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+  <div>
+    <button (click)="goBack()" class="btn btn-default">
+      <span class="glyphicon glyphicon-arrow-left"></span> Retour
+    </button>
+    <div class="pull-right btn-toolbar">
+      <button
+        class="btn btn-danger "
+        (click)="openModal(template)"
+        *ngIf="team.id"
+      >
+        <span class="glyphicon  glyphicon-remove"></span> Supprimer
+      </button>
+
+      <button
+        (click)="saveTeam()"
+        type="submit"
+        class="btn btn-success"
+        *ngIf="team.id"
+      >
+        <span class="glyphicon  glyphicon-floppy-save"></span>
+        Sauvegarder
+      </button>
+      <button
+        (click)="createTeam()"
+        type="submit"
+        class="btn pull-right btn-success"
+        *ngIf="!team.id"
+      >
+        <span class="glyphicon  glyphicon-plus-sign"></span>
+        Ajouter
+      </button>
+    </div>
+  </div>
+
+  <ng-template #template>
+    <div class="modal-header">
+      <div class="modal-title">
+        <span class="glyphicon glyphicon-trash>"></span> Delete
+      </div>
+    </div>
+    <div class="modal-body ">
+      <p>
+        Etes-vous sûr de vouloir supprimer le club <b>{{ team.name }} ?</b>
+      </p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="cancel()">
+          Non
+        </button>
+        <button type="button" class="btn btn-danger" (click)="deleteTeam()">
+          Supprimer
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</div>

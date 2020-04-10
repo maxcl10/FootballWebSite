@@ -1,0 +1,14 @@
+<fws-poster-base *ngIf="games != null">
+  <div class="text-center title">
+    RESULTATS
+  </div>
+  <div *ngFor="let game of games" class="row" style="margin-bottom: 20px;">
+    <div class="col-md-10">
+      {{ game.HomeTeam }} / {{ game.AwayTeam }} <br />
+      <span class="subInfo">{{ game.Championship }}</span>
+    </div>
+    <div class="col-md-2">
+      <fws-game-score [game]="game"></fws-game-score>
+    </div>
+  </div>
+</fws-poster-base>

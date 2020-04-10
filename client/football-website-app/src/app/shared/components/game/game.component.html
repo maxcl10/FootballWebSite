@@ -1,0 +1,57 @@
+<!-- medium  and large -->
+<div class="hidden-xs ">
+  <div class="row">
+    <div class="col-md-3 col-sm-3">
+      <b> {{ game.MatchDate | frDate: 'shortDate' }}</b> <br />
+      <span class="glyphicon glyphicon-time"></span>
+      {{ game.MatchDate | frDate: 'time' }} <br /><br />
+      <div class="text-muted">
+        <fws-competition [game]="game"></fws-competition>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-4 text-center">
+      <img [src]="game.homeTeamLogoUrl" />
+      <br />
+      <b>{{ game.HomeTeam }}</b>
+    </div>
+    <div class="col-md-1 col-sm-1 text-center align-middle">
+      <div style="margin-top: 10px; margin-bottom: 5px">
+        <fws-game-score [game]="game"></fws-game-score>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-4 text-center">
+      <img [src]="game.awayTeamLogoUrl" /> <br />
+      <b>{{ game.AwayTeam }}</b>
+    </div>
+  </div>
+</div>
+
+<!-- small and extra small -->
+
+<div class=" visible-xs">
+  <div class="text-center" style="margin-bottom: 10px">
+    <b> {{ game.MatchDate | frDate: 'shortDate' }}</b> &nbsp;<span
+      class="glyphicon glyphicon-time "
+    ></span>
+    {{ game.MatchDate | frDate: 'time' }}
+    <div class="text-muted">
+      <fws-competition [game]="game"></fws-competition>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 text-center">
+        <img [src]="game.homeTeamLogoUrl" />
+        <br />
+        <b>{{ game.HomeTeam }}</b>
+      </div>
+      <div class="col-xs-6 text-center">
+        <img [src]="game.awayTeamLogoUrl" /> <br />
+        <b>{{ game.AwayTeam }}</b>
+      </div>
+    </div>
+    <div class="text-center align-middle">
+      <div style="margin-top: 10px; margin-bottom: 5px">
+        <fws-game-score [game]="game"></fws-game-score>
+      </div>
+    </div>
+  </div>
+</div>

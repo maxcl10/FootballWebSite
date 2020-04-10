@@ -1,0 +1,11 @@
+<div class="container">
+  <h2 class="pageHeader">Histoire</h2>
+  <div
+    class="card"
+    *ngIf="(clubHistory$ | async)?.history as clubHistory"
+  >
+    <div class="card-body">
+      <span [innerHTML]="clubHistory"></span>
+    </div>
+  </div>
+</div>

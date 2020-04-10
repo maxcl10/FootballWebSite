@@ -1,0 +1,720 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="body" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="publishedDate" Type="datetime" />
+    <Property Name="modifiedDate" Type="datetime" />
+    <Property Name="deletedDate" Type="datetime" />
+    <Property Name="creationDate" Type="datetime" Nullable="false" />
+    <Property Name="ownerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="userId" Type="uniqueidentifier" />
+    <Property Name="gameId" Type="uniqueidentifier" />
+    <Property Name="seasonId" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="ChampionshipTeam">
+    <Key>
+      <PropertyRef Name="championshipTeamId" />
+    </Key>
+    <Property Name="championshipTeamId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="championshipId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="teamId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Competition">
+    <Key>
+      <PropertyRef Name="competitionId" />
+    </Key>
+    <Property Name="competitionId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="competitionType" Type="int" />
+    <Property Name="shortName" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="CompetitionSeason">
+    <Key>
+      <PropertyRef Name="competitionSeasonId" />
+    </Key>
+    <Property Name="competitionSeasonId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="competitionId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="seasonId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="lafaUrl" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CompetitionType">
+    <Key>
+      <PropertyRef Name="competitionTypeId" />
+    </Key>
+    <Property Name="competitionTypeId" Type="int" Nullable="false" />
+    <Property Name="description" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventType">
+    <Key>
+      <PropertyRef Name="EventTypeId" />
+    </Key>
+    <Property Name="EventTypeId" Type="int" Nullable="false" />
+    <Property Name="EventName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Game">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="HomeTeam" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AwayTeam" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="MatchDate" Type="datetime" Nullable="false" />
+    <Property Name="SeasonId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Championship" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HomeTeamScore" Type="int" />
+    <Property Name="AwayTeamScore" Type="int" />
+    <Property Name="ProlongHomeTeamScore" Type="int" />
+    <Property Name="ProlongAwayTeamScore" Type="int" />
+    <Property Name="PenaltyHomeTeamScore" Type="int" />
+    <Property Name="PenaltyAwayTeamScore" Type="int" />
+    <Property Name="ownerId" Type="uniqueidentifier" />
+    <Property Name="CompetitionId" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="GameEvent">
+    <Key>
+      <PropertyRef Name="GameEventId" />
+    </Key>
+    <Property Name="GameEventId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EventTypeId" Type="int" Nullable="false" />
+    <Property Name="PlayeGameId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Time" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LazyRanking">
+    <Key>
+      <PropertyRef Name="rankingId" />
+    </Key>
+    <Property Name="team" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="position" Type="int" />
+    <Property Name="points" Type="int" />
+    <Property Name="matchPlayed" Type="int" />
+    <Property Name="matchWon" Type="int" />
+    <Property Name="matchDraw" Type="int" />
+    <Property Name="matchLost" Type="int" />
+    <Property Name="goalsScored" Type="int" />
+    <Property Name="goalsAgainst" Type="int" />
+    <Property Name="goalDifference" Type="int" />
+    <Property Name="withdaw" Type="int" />
+    <Property Name="penality" Type="int" />
+    <Property Name="rankingId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="updatedDate" Type="datetime" />
+    <Property Name="uploadDate" Type="datetime" />
+    <Property Name="competitionSeasonId" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="Owner">
+    <Key>
+      <PropertyRef Name="ownerId" />
+    </Key>
+    <Property Name="ownerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="address" Type="nvarchar" MaxLength="50" />
+    <Property Name="zipCode" Type="nchar" MaxLength="5" />
+    <Property Name="city" Type="nvarchar" MaxLength="30" />
+    <Property Name="phoneNumber" Type="nchar" MaxLength="14" />
+    <Property Name="emailAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="facebook" Type="nvarchar" MaxLength="100" />
+    <Property Name="youtube" Type="nvarchar" MaxLength="100" />
+    <Property Name="stadium" Type="nvarchar" MaxLength="50" />
+    <Property Name="history" Type="nvarchar(max)" />
+    <Property Name="googleMap" Type="nvarchar" MaxLength="100" />
+    <Property Name="longName" Type="nvarchar" MaxLength="100" />
+    <Property Name="logoUrl" Type="nvarchar" MaxLength="200" />
+    <Property Name="facebookLikeUrl" Type="nvarchar" MaxLength="100" />
+    <Property Name="nickname" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="lastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dateOfBirth" Type="datetime" />
+    <Property Name="height" Type="int" />
+    <Property Name="weight" Type="int" />
+    <Property Name="nationality" Type="nvarchar" MaxLength="50" />
+    <Property Name="position" Type="nvarchar" MaxLength="50" />
+    <Property Name="previousClubs" Type="nvarchar" MaxLength="500" />
+    <Property Name="nickname" Type="nvarchar" MaxLength="50" />
+    <Property Name="favoritePlayer" Type="nvarchar" MaxLength="50" />
+    <Property Name="favoriteTeam" Type="nvarchar" MaxLength="50" />
+    <Property Name="favoriteNumber" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="PlayerGame">
+    <Key>
+      <PropertyRef Name="PlayerGameId" />
+    </Key>
+    <Property Name="PlayerGameId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Position" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlayerTeam">
+    <Key>
+      <PropertyRef Name="playerTeamId" />
+    </Key>
+    <Property Name="playerTeamId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="playerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="teamId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="seasonId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="championshipGoals" Type="int" />
+    <Property Name="nationalCupGoals" Type="int" />
+    <Property Name="regionalCupGoals" Type="int" />
+    <Property Name="otherCupGoals" Type="int" />
+    <Property Name="championshipAssists" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Ranking">
+    <Key>
+      <PropertyRef Name="championshipId" />
+      <PropertyRef Name="teamId" />
+      <PropertyRef Name="position" />
+      <PropertyRef Name="points" />
+      <PropertyRef Name="matchPlayed" />
+      <PropertyRef Name="matchWon" />
+      <PropertyRef Name="matchDraw" />
+      <PropertyRef Name="matchLost" />
+      <PropertyRef Name="goalsScored" />
+      <PropertyRef Name="goalsAgainst" />
+      <PropertyRef Name="goalDifference" />
+      <PropertyRef Name="withdraw" />
+      <PropertyRef Name="penality" />
+    </Key>
+    <Property Name="championshipId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="teamId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="position" Type="int" Nullable="false" />
+    <Property Name="points" Type="int" Nullable="false" />
+    <Property Name="matchPlayed" Type="int" Nullable="false" />
+    <Property Name="matchWon" Type="int" Nullable="false" />
+    <Property Name="matchDraw" Type="int" Nullable="false" />
+    <Property Name="matchLost" Type="int" Nullable="false" />
+    <Property Name="goalsScored" Type="int" Nullable="false" />
+    <Property Name="goalsAgainst" Type="int" Nullable="false" />
+    <Property Name="goalDifference" Type="int" Nullable="false" />
+    <Property Name="withdraw" Type="int" Nullable="false" />
+    <Property Name="penality" Type="int" Nullable="false" />
+    <Property Name="SeasonId" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="Season">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="startDate" Type="date" Nullable="false" />
+    <Property Name="endDate" Type="date" Nullable="false" />
+    <Property Name="currentSeason" Type="bit" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Sponsor">
+    <Key>
+      <PropertyRef Name="sponsorId" />
+    </Key>
+    <Property Name="sponsorId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="logoUrl" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="siteUrl" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="orderIndex" Type="int" Nullable="false" />
+    <Property Name="ownerId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="lastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dateOfBirth" Type="datetime" Nullable="false" />
+    <Property Name="position" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="shortName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="homeTeam" Type="bit" />
+    <Property Name="displayOrder" Type="int" />
+    <Property Name="displayName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ownerId" Type="uniqueidentifier" />
+    <Property Name="calendarUrl" Type="nvarchar" MaxLength="300" />
+    <Property Name="rankingUrl" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="TeamCompetitionSeason">
+    <Key>
+      <PropertyRef Name="teamCompetitionSeasonId" />
+    </Key>
+    <Property Name="teamCompetitionSeasonId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="teamId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="competitionSeasonId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="lafaName" Type="nvarchar" MaxLength="50" />
+    <Property Name="competitionGroup" Type="nvarchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="alias" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="emailAddress" Type="nchar" MaxLength="70" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ownerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="lastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Article_Game">
+    <End Role="Game" Type="Self.Game" Multiplicity="0..1" />
+    <End Role="Article" Type="Self.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="gameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Article_Owner">
+    <End Role="Owner" Type="Self.Owner" Multiplicity="1" />
+    <End Role="Article" Type="Self.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owner">
+        <PropertyRef Name="ownerId" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="ownerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Article_Season">
+    <End Role="Season" Type="Self.Season" Multiplicity="0..1" />
+    <End Role="Article" Type="Self.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Season">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="seasonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Article_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Article" Type="Self.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Competition_CompetitionType">
+    <End Role="CompetitionType" Type="Self.CompetitionType" Multiplicity="0..1" />
+    <End Role="Competition" Type="Self.Competition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompetitionType">
+        <PropertyRef Name="competitionTypeId" />
+      </Principal>
+      <Dependent Role="Competition">
+        <PropertyRef Name="competitionType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompetitionSeason_Competition">
+    <End Role="Competition" Type="Self.Competition" Multiplicity="1" />
+    <End Role="CompetitionSeason" Type="Self.CompetitionSeason" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competition">
+        <PropertyRef Name="competitionId" />
+      </Principal>
+      <Dependent Role="CompetitionSeason">
+        <PropertyRef Name="competitionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompetitionSeason_Season">
+    <End Role="Season" Type="Self.Season" Multiplicity="1" />
+    <End Role="CompetitionSeason" Type="Self.CompetitionSeason" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Season">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CompetitionSeason">
+        <PropertyRef Name="seasonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Game_Competition">
+    <End Role="Competition" Type="Self.Competition" Multiplicity="0..1" />
+    <End Role="Game" Type="Self.Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competition">
+        <PropertyRef Name="competitionId" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="CompetitionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Game_Competition1">
+    <End Role="Competition" Type="Self.Competition" Multiplicity="0..1" />
+    <End Role="Game" Type="Self.Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competition">
+        <PropertyRef Name="competitionId" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="CompetitionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Game_Owner">
+    <End Role="Owner" Type="Self.Owner" Multiplicity="0..1" />
+    <End Role="Game" Type="Self.Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owner">
+        <PropertyRef Name="ownerId" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="ownerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Game_Team">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="Game" Type="Self.Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="HomeTeam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Game_Team1">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="Game" Type="Self.Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="AwayTeam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GameEvent_EventType">
+    <End Role="EventType" Type="Self.EventType" Multiplicity="1" />
+    <End Role="GameEvent" Type="Self.GameEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventType">
+        <PropertyRef Name="EventTypeId" />
+      </Principal>
+      <Dependent Role="GameEvent">
+        <PropertyRef Name="EventTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GameEvent_Playergame">
+    <End Role="PlayerGame" Type="Self.PlayerGame" Multiplicity="1" />
+    <End Role="GameEvent" Type="Self.GameEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PlayerGame">
+        <PropertyRef Name="PlayerGameId" />
+      </Principal>
+      <Dependent Role="GameEvent">
+        <PropertyRef Name="PlayeGameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LazyRanking_CompetitionSeason">
+    <End Role="CompetitionSeason" Type="Self.CompetitionSeason" Multiplicity="0..1" />
+    <End Role="LazyRanking" Type="Self.LazyRanking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompetitionSeason">
+        <PropertyRef Name="competitionSeasonId" />
+      </Principal>
+      <Dependent Role="LazyRanking">
+        <PropertyRef Name="competitionSeasonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Playergame_Game">
+    <End Role="Game" Type="Self.Game" Multiplicity="1" />
+    <End Role="PlayerGame" Type="Self.PlayerGame" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PlayerGame">
+        <PropertyRef Name="GameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Playergame_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="PlayerGame" Type="Self.PlayerGame" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PlayerGame">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerTeam_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="PlayerTeam" Type="Self.PlayerTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PlayerTeam">
+        <PropertyRef Name="playerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerTeam_Season">
+    <End Role="Season" Type="Self.Season" Multiplicity="1" />
+    <End Role="PlayerTeam" Type="Self.PlayerTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Season">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PlayerTeam">
+        <PropertyRef Name="seasonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerTeam_Team">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="PlayerTeam" Type="Self.PlayerTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PlayerTeam">
+        <PropertyRef Name="teamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sponsor_Owner">
+    <End Role="Owner" Type="Self.Owner" Multiplicity="1" />
+    <End Role="Sponsor" Type="Self.Sponsor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owner">
+        <PropertyRef Name="ownerId" />
+      </Principal>
+      <Dependent Role="Sponsor">
+        <PropertyRef Name="ownerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Team_Owner">
+    <End Role="Owner" Type="Self.Owner" Multiplicity="0..1" />
+    <End Role="Team" Type="Self.Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owner">
+        <PropertyRef Name="ownerId" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="ownerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeamCompetitionSeason_CompetitionSeason">
+    <End Role="CompetitionSeason" Type="Self.CompetitionSeason" Multiplicity="1" />
+    <End Role="TeamCompetitionSeason" Type="Self.TeamCompetitionSeason" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompetitionSeason">
+        <PropertyRef Name="competitionSeasonId" />
+      </Principal>
+      <Dependent Role="TeamCompetitionSeason">
+        <PropertyRef Name="competitionSeasonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeamCompetitionSeason_Team">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="TeamCompetitionSeason" Type="Self.TeamCompetitionSeason" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TeamCompetitionSeason">
+        <PropertyRef Name="teamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Owner">
+    <End Role="Owner" Type="Self.Owner" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owner">
+        <PropertyRef Name="ownerId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="ownerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="StoreContainer">
+    <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChampionshipTeam" EntityType="Self.ChampionshipTeam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Competition" EntityType="Self.Competition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CompetitionSeason" EntityType="Self.CompetitionSeason" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CompetitionType" EntityType="Self.CompetitionType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventType" EntityType="Self.EventType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GameEvent" EntityType="Self.GameEvent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LazyRanking" EntityType="Self.LazyRanking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Owner" EntityType="Self.Owner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Player" EntityType="Self.Player" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlayerGame" EntityType="Self.PlayerGame" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlayerTeam" EntityType="Self.PlayerTeam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Season" EntityType="Self.Season" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sponsor" EntityType="Self.Sponsor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TeamCompetitionSeason" EntityType="Self.TeamCompetitionSeason" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ranking" EntityType="Self.Ranking" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Ranking].[championshipId] AS [championshipId], 
+    [Ranking].[teamId] AS [teamId], 
+    [Ranking].[position] AS [position], 
+    [Ranking].[points] AS [points], 
+    [Ranking].[matchPlayed] AS [matchPlayed], 
+    [Ranking].[matchWon] AS [matchWon], 
+    [Ranking].[matchDraw] AS [matchDraw], 
+    [Ranking].[matchLost] AS [matchLost], 
+    [Ranking].[goalsScored] AS [goalsScored], 
+    [Ranking].[goalsAgainst] AS [goalsAgainst], 
+    [Ranking].[goalDifference] AS [goalDifference], 
+    [Ranking].[withdraw] AS [withdraw], 
+    [Ranking].[penality] AS [penality], 
+    [Ranking].[SeasonId] AS [SeasonId]
+    FROM [dbo].[Ranking] AS [Ranking]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Article_Game" Association="Self.FK_Article_Game">
+      <End Role="Game" EntitySet="Game" />
+      <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Article_Owner" Association="Self.FK_Article_Owner">
+      <End Role="Owner" EntitySet="Owner" />
+      <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Article_Season" Association="Self.FK_Article_Season">
+      <End Role="Season" EntitySet="Season" />
+      <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Article_User" Association="Self.FK_Article_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Competition_CompetitionType" Association="Self.FK_Competition_CompetitionType">
+      <End Role="CompetitionType" EntitySet="CompetitionType" />
+      <End Role="Competition" EntitySet="Competition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompetitionSeason_Competition" Association="Self.FK_CompetitionSeason_Competition">
+      <End Role="Competition" EntitySet="Competition" />
+      <End Role="CompetitionSeason" EntitySet="CompetitionSeason" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompetitionSeason_Season" Association="Self.FK_CompetitionSeason_Season">
+      <End Role="Season" EntitySet="Season" />
+      <End Role="CompetitionSeason" EntitySet="CompetitionSeason" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Game_Competition" Association="Self.FK_Game_Competition">
+      <End Role="Competition" EntitySet="Competition" />
+      <End Role="Game" EntitySet="Game" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Game_Competition1" Association="Self.FK_Game_Competition1">
+      <End Role="Competition" EntitySet="Competition" />
+      <End Role="Game" EntitySet="Game" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Game_Owner" Association="Self.FK_Game_Owner">
+      <End Role="Owner" EntitySet="Owner" />
+      <End Role="Game" EntitySet="Game" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Game_Team" Association="Self.FK_Game_Team">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="Game" EntitySet="Game" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Game_Team1" Association="Self.FK_Game_Team1">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="Game" EntitySet="Game" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GameEvent_EventType" Association="Self.FK_GameEvent_EventType">
+      <End Role="EventType" EntitySet="EventType" />
+      <End Role="GameEvent" EntitySet="GameEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GameEvent_Playergame" Association="Self.FK_GameEvent_Playergame">
+      <End Role="PlayerGame" EntitySet="PlayerGame" />
+      <End Role="GameEvent" EntitySet="GameEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LazyRanking_CompetitionSeason" Association="Self.FK_LazyRanking_CompetitionSeason">
+      <End Role="CompetitionSeason" EntitySet="CompetitionSeason" />
+      <End Role="LazyRanking" EntitySet="LazyRanking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Playergame_Game" Association="Self.FK_Playergame_Game">
+      <End Role="Game" EntitySet="Game" />
+      <End Role="PlayerGame" EntitySet="PlayerGame" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Playergame_Player" Association="Self.FK_Playergame_Player">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="PlayerGame" EntitySet="PlayerGame" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerTeam_Player" Association="Self.FK_PlayerTeam_Player">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="PlayerTeam" EntitySet="PlayerTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerTeam_Season" Association="Self.FK_PlayerTeam_Season">
+      <End Role="Season" EntitySet="Season" />
+      <End Role="PlayerTeam" EntitySet="PlayerTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerTeam_Team" Association="Self.FK_PlayerTeam_Team">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="PlayerTeam" EntitySet="PlayerTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sponsor_Owner" Association="Self.FK_Sponsor_Owner">
+      <End Role="Owner" EntitySet="Owner" />
+      <End Role="Sponsor" EntitySet="Sponsor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Team_Owner" Association="Self.FK_Team_Owner">
+      <End Role="Owner" EntitySet="Owner" />
+      <End Role="Team" EntitySet="Team" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeamCompetitionSeason_CompetitionSeason" Association="Self.FK_TeamCompetitionSeason_CompetitionSeason">
+      <End Role="CompetitionSeason" EntitySet="CompetitionSeason" />
+      <End Role="TeamCompetitionSeason" EntitySet="TeamCompetitionSeason" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeamCompetitionSeason_Team" Association="Self.FK_TeamCompetitionSeason_Team">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="TeamCompetitionSeason" EntitySet="TeamCompetitionSeason" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Owner" Association="Self.FK_User_Owner">
+      <End Role="Owner" EntitySet="Owner" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

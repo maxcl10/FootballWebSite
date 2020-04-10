@@ -1,0 +1,9 @@
+<span *ngIf="game.Competition && game.Championship">
+  {{ game.Competition }} - {{ game.Championship }}
+</span>
+<span *ngIf="game.Championship && !game.Competition">{{
+  game.Championship
+}}</span>
+<span *ngIf="!game.Championship && game.Competition">{{
+  game.Championship
+}}</span>

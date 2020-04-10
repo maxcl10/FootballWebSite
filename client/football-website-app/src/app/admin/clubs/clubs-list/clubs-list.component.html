@@ -1,0 +1,23 @@
+<h3>Clubs</h3>
+
+<div class="card">
+  <div class="card-header">
+    <a
+      class="btn btn-success pull-right"
+      href=""
+      [routerLink]="['/admin/clubs/0/edit']"
+    >
+      <span class="glyphicon glyphicon-plus"></span> Club
+    </a>
+    <h4>{{ teams.length }} clubs</h4>
+  </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li *ngFor="let team of teams" class="list-group-item">
+        <a [routerLink]="[team.id, 'edit']">
+          {{ team.name }} / {{ team.shortName }}</a
+        >
+      </li>
+    </ul>
+  </div>
+</div>

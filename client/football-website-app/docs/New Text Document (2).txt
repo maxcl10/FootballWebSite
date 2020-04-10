@@ -1,0 +1,35 @@
+GK	Goalkeeper					Gardien
+GSW	Sweeper Goalkeeper
+SW	Sweeper
+RB	Right Back					Défenseur droit
+RCB	Right Centre Back				Défenseur central droit
+CB	Centre Back					Défenseur central
+LCB	Left Centre Back				Défenseur central gauche
+LB	Left Back					Défenseur gauche
+RWB	Right Wing-back					Latéral droit
+RDM	Right Defensive Midfielder			Milieu défensif droit
+DM	Defensive Midfielder				Milieu défensif 
+LDM	Left Defensive Midfielder			Milieu défensif droit
+LWB	Left Wing-back					Latéral gauche
+RM	Right Midfielder				Milieu droit
+RCM	Right Centre Midfielder				Milieu axial droit
+CM	Centre Midfielder				Milieu axial
+LCM	Left Centre Midfielder				Milieu axial gauche
+LM	Left Midfield					Milieu gauche
+RWM	Right Wing Midfielder				Milieu défensif gauche
+IR	Inside Right					
+AM	Attacking Midfielder
+IL	Inside Left
+LWM	Left Wing Midfielder
+RW	Rigth Wing
+RSS	Right Second Striker
+SS	Second Striker
+LSS	Left Second Striker
+LW	Left Wing
+RCF	Rigth Centre Forward
+CF	Centre Forward
+LCF	Left Centre Forward
+
+
+maxime.matter@gmail.com
+Password:r3g-4+HJ

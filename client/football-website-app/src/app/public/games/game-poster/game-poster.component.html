@@ -1,0 +1,298 @@
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Lexend+Tera|Montserrat&display=swap');
+</style>
+<div class="container">
+  <!-- <fws-game-poster-generator></fws-game-poster-generator>
+  <br /> -->
+  <button (click)="downloadNextGameImage()" class="btn btn-default">
+    Prochain match
+  </button>
+  <button (click)="downloadPreviousGameImage()" class="btn btn-default">
+    Match précédent
+  </button>
+  <button (click)="downloadScheduleImage()" class="btn btn-default">
+    Programme
+  </button>
+  <button (click)="downloadGroupImage()" class="btn btn-default">
+    Groupe
+  </button>
+
+  <div style="width: 800px;" #nextGameDiv>
+    <fws-poster-base *ngIf="nextgame != null">
+      <div class="text-center part subInfo">
+        {{ nextgame.MatchDate | frDate: 'longDateTimeSep' | uppercase }}
+      </div>
+
+      <div class="row">
+        <div class="col-md-6  text-center">
+          <img
+            [src]="nextgame.homeTeamLogoUrl"
+            [title]="nextgame.HomeTeam"
+          /><br />
+        </div>
+
+        <div class="col-md-6  text-center">
+          <img
+            [src]="nextgame.awayTeamLogoUrl"
+            [title]="nextgame.AwayTeam"
+          /><br />
+        </div>
+      </div>
+      <div class="row" style="margin-top: 20px">
+        <div class="col-md-12 text-center teamName">
+          <span class="hidden-sm bold">{{
+            nextgame.HomeTeam | teamName | uppercase
+          }}</span>
+          /
+          <span class="hidden-sm bold">{{
+            nextgame.AwayTeam | teamName | uppercase
+          }}</span>
+        </div>
+      </div>
+      <div class="gameChampionship text-center">
+        <img src="../../../../assets/img/{{ nextgame.CompetitionShort }}.png" />
+        <fws-competition [game]="nextgame"></fws-competition>
+      </div>
+    </fws-poster-base>
+  </div>
+  <br />
+
+  <!-- <fws-poster-base *ngIf="game != null">-->
+  <!-- <div class="text-center title">TIRAGE COUPE DE FRANCE</div> -->
+  <!-- <div class="text-center part subInfo">
+      {{ game.MatchDate | frDate: 'longDateTimeSep' | uppercase }}
+    </div>
+
+    <div class="row">
+      <div class="col-md-6  text-center">
+        <img [src]="game.homeTeamLogoUrl" [title]="game.HomeTeam" /><br />
+      </div>
+
+      <div class="col-md-6  text-center">
+        <img [src]="game.awayTeamLogoUrl" [title]="game.AwayTeam" /><br />
+      </div>
+    </div>
+    <div class="row" style="margin-top: 20px">
+      <div class="col-md-12 text-center teamName">
+        <span class="hidden-sm bold">{{
+          game.HomeTeam | teamName | uppercase
+        }}</span>
+        /
+        <span class="hidden-sm bold">{{
+          game.AwayTeam | teamName | uppercase
+        }}</span>
+      </div>
+    </div>
+    <div class="gameChampionship text-center">
+      <img src="../../../../assets/img/{{ game.CompetitionShort }}.png" />
+      <fws-competition [game]="game"></fws-competition>
+    </div>
+  </fws-poster-base>  -->
+
+  <br />
+  <div #lastGameDiv style="width: 800px">
+    <fws-poster-base *ngIf="lastgame != null">
+      <!-- <div class="text-center title">
+      FIN DU MATCH
+    </div> -->
+
+      <div class="row">
+        <div class="col-md-6  text-center">
+          <img
+            [src]="lastgame.homeTeamLogoUrl"
+            [title]="lastgame.HomeTeam"
+          /><br />
+        </div>
+
+        <div class="col-md-6  text-center">
+          <img
+            [src]="lastgame.awayTeamLogoUrl"
+            [title]="lastgame.AwayTeam"
+          /><br />
+        </div>
+      </div>
+      <div class="row" style="margin-top: 20px">
+        <div class="col-md-12 text-center teamName">
+          <span class="hidden-sm bold">{{
+            lastgame.HomeTeam | teamName | uppercase
+          }}</span>
+          /
+          <span class="hidden-sm bold">{{
+            lastgame.AwayTeam | teamName | uppercase
+          }}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center score">
+          <fws-game-score [game]="lastgame"></fws-game-score>
+        </div>
+      </div>
+      <div class="row">
+        <ul>
+          <li *ngFor="let goal of goals">
+            {{ goal.playerLastName }} {{ goal.playerFirstName.slice(0, 1) }}.
+            <span class="subInfo"> {{ goal.time }}'</span>
+          </li>
+        </ul>
+      </div>
+      <div class="gameChampionship text-center">
+        <img src="../../../../assets/img/{{ lastgame.CompetitionShort }}.png" />
+        <fws-competition [game]="lastgame"></fws-competition>
+      </div>
+    </fws-poster-base>
+  </div>
+
+  <br />
+
+  <div #scheduleDiv style="width: 800px">
+    <fws-poster-base *ngIf="nextgames != null">
+      <!-- <div class="text-center title">
+      PROGRAMME DU WEEK-END
+    </div> -->
+      <div
+        *ngFor="let game of nextgames"
+        class="row"
+        style="margin-bottom: 20px;"
+      >
+        <div class="col-md-4">
+          {{ game.CompetitionShort }}
+        </div>
+        <div class="col-md-8">
+          {{ game.HomeTeam }} / {{ game.AwayTeam }} <br />
+          <span class="subInfo">
+            {{ game.MatchDate | frDate: 'longDateTimeSep' | uppercase }}
+          </span>
+        </div>
+      </div>
+    </fws-poster-base>
+  </div>
+
+  <!-- <br /> -->
+  <!-- <fws-poster-base>
+    <div class="text-center title">
+      BOURSE AUX JOUETS & VETEMENTS
+    </div>
+    <div class="part">
+      DIMANCHE 1 SEPTEMBRE | ESPACE 2000 <br />
+      <span class="subInfo"> DE 8H à 13H</span>
+    </div>
+    <div class="row part">
+      <div class="col-md-4">
+        <img
+          class="img-responsive"
+          src="../../../../assets/img/bourse/bear.png"
+        />
+      </div>
+      <div class="col-md-4">
+        <img
+          class="img-responsive"
+          src="../../../../assets/img/bourse/clothe.png"
+        />
+      </div>
+      <div class="col-md-4">
+        <img
+          class="img-responsive"
+          src="../../../../assets/img/bourse/puzzle.png"
+        />
+      </div>
+    </div>
+    <div class="part">
+      RESERVATIONS | https://www.mybrocante.fr/m/822/home
+      <br />
+      <span class="subInfo">1 emplacement, 1 table, 2 chaises</span>
+    </div>
+    <div class="part">
+      TARIF | 14€ et une patisserie ou 18€
+    </div>
+  </fws-poster-base> -->
+
+  <br />
+  <div #groupeDiv style="width: 800px">
+    <fws-poster-base *ngIf="nextgame != null">
+      <div class="text-center title">LE GROUPE</div>
+      <div class="text-center part subInfo">
+        {{ nextgame.MatchDate | frDate: 'longDateTimeSep' | uppercase }}
+      </div>
+
+      <!-- <div class="row">
+        <div class="col-md-6  text-center">
+          <img
+            [src]="nextgame.homeTeamLogoUrl"
+            [title]="nextgame.HomeTeam"
+          /><br />
+        </div>
+
+        <div class="col-md-6  text-center">
+          <img
+            [src]="nextgame.awayTeamLogoUrl"
+            [title]="nextgame.AwayTeam"
+          /><br />
+        </div>
+      </div> -->
+      <div class="row part" style="margin-top: 20px">
+        <div class="col-md-12 text-center teamName">
+          <span class="hidden-sm bold">{{
+            nextgame.HomeTeam | teamName | uppercase
+          }}</span>
+          /
+          <span class="hidden-sm bold">{{
+            nextgame.AwayTeam | teamName | uppercase
+          }}</span>
+        </div>
+      </div>
+      <div *ngIf="players" class="row">
+        <div class="col-md-6">
+          <ul>
+            <li *ngFor="let player of players.slice(0, 7)">
+              <img
+                width="40px"
+                style="display: inline-block"
+                [src]="
+                  '../../../assets/img/players/' +
+                  player.playerFirstName +
+                  '_' +
+                  player.playerLastName +
+                  '.png'
+                "
+                class="img-responsive img-circle "
+                onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
+              />
+              <span style="font-size: 18px">
+                {{ player.playerLastName }}
+                {{ player.playerFirstName.slice(0, 1) }}.
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <ul>
+            <li *ngFor="let player of players.slice(7)">
+              <img
+                width="40px"
+                style="display: inline-block"
+                [src]="
+                  '../../../assets/img/players/' +
+                  player.playerFirstName +
+                  '_' +
+                  player.playerLastName +
+                  '.png'
+                "
+                class="img-responsive img-circle"
+                onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
+              />
+              <span style="font-size: 18px">
+                {{ player.playerLastName }}
+                {{ player.playerFirstName.slice(0, 1) }}.
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="gameChampionship text-center">
+        <img src="../../../../assets/img/{{ nextgame.CompetitionShort }}.png" />
+        <fws-competition [game]="nextgame"></fws-competition>
+      </div>
+    </fws-poster-base>
+  </div>
+  <br />
+</div>

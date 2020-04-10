@@ -1,0 +1,132 @@
+<div *ngIf="strickers">
+  <table class="table hidden-xs">
+    <tr>
+      <td></td>
+      <td></td>
+      <!-- <td></td> -->
+      <td class="text-center" title="Total">Tot</td>
+      <td class="text-center" title="Championnat">Champ</td>
+      <td class="text-center" title="Coupe de France">CDF</td>
+      <td class="text-center" title="Coupe Grand Est">CGE</td>
+      <td class="text-center" title="Coupe Credit Mutuel">CCM</td>
+    </tr>
+    <tr *ngFor="let stricker of strickers">
+      <td>
+        <img
+          [src]="
+            '../../../assets/img/players/' +
+            stricker.playerFirstName +
+            '_' +
+            stricker.playerLastName +
+            '.png'
+          "
+          class="img-circle"
+          style="width: 40px ; margin: 2px"
+        />
+      </td>
+      <td class="bold">
+        <a href="" [routerLink]="['/player', stricker.playerId]">{{
+          stricker.playerName
+        }}</a>
+      </td>
+      <!-- <td>
+        {{ stricker.totalGames }}
+      </td> -->
+
+      <td class="text-center">
+        <b>{{ stricker.totalGoals }}</b>
+      </td>
+      <td class="text-center">{{ stricker.championshipGoals }}</td>
+      <td class="text-center">{{ stricker.nationalCupGoals }}</td>
+      <td class="text-center">{{ stricker.regionalCupGoals }}</td>
+      <td class="text-center">{{ stricker.otherCupGoals }}</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td class="text-center">{{ totalGoals }}</td>
+      <td class="text-center">{{ totalChampionshipGoals }}</td>
+      <td class="text-center">{{ totalNationalCupGoals }}</td>
+      <td class="text-center">{{ totalRegionalCupGoals }}</td>
+      <td class="text-center">{{ totalOtherCupGoals }}</td>
+    </tr>
+  </table>
+
+  <!-- Design for mobile -->
+  <div class="d-block d-sm-none">
+    <div id="divStricker" *ngFor="let stricker of strickers">
+      <div class="row">
+        <div class="col-xs-2 col-md-1">
+          <img
+            [src]="
+              '../../../assets/img/players/' +
+              stricker.playerFirstName +
+              '_' +
+              stricker.playerLastName +
+              '.png'
+            "
+            class="img-responsive img-circle"
+          />
+        </div>
+        <div class="col-xs-10 col-md-11">
+          <div class="row">
+            <div class="col-xs-8 bold ">
+              <a href="" [routerLink]="['/player', stricker.playerId]">
+                <span class="text-uppercase">
+                  {{ stricker.playerLastName }}</span
+                >
+                <span> {{ stricker.playerFirstName.slice(0, 1) }}.</span>
+              </a>
+            </div>
+            <div class="col-xs-4 bold">
+              <div class="pull-right">{{ stricker.totalGoals }} buts</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-3 text-center">
+              <span class="light-text item" title="Championnat">Champ</span>
+              <span class="item"> {{ stricker.championshipGoals }}</span>
+            </div>
+            <div class="col-xs-3 text-center">
+              <span class="light-text item" title="Coupe de France">CDF</span>
+              <span class="item"> {{ stricker.nationalCupGoals }}</span>
+            </div>
+            <div class="col-xs-3 text-center">
+              <span class="light-text item" title="Coupe Grand Est">CGE</span>
+              <span class="item"> {{ stricker.regionalCupGoals }}</span>
+            </div>
+            <div class="col-xs-3 text-center">
+              <span class="light-text item" title="Coupe Crédit Mutuel"
+                >CCM</span
+              >
+              <span class="item"> {{ stricker.otherCupGoals }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <!-- Total div -->
+    <div class="row bold">
+      <div class="col-xs-2">
+        {{ totalGoals }}
+      </div>
+      <div class="col-xs-10">
+        <div class="row">
+          <div class="col-xs-3 text-center">
+            {{ totalChampionshipGoals }}
+          </div>
+          <div class="col-xs-3 text-center">
+            {{ totalNationalCupGoals }}
+          </div>
+          <div class="col-xs-3 text-center">
+            {{ totalRegionalCupGoals }}
+          </div>
+          <div class="col-xs-3 text-center">
+            {{ totalOtherCupGoals }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

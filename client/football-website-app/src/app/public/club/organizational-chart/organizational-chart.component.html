@@ -1,0 +1,56 @@
+<div class="container">
+  <h2 class="pageHeader">Organigramme</h2>
+  <div *ngIf="(organizationChart$ | async) as organizationChart">
+    <div
+      *ngFor="let group of organizationChart; let i = index"
+      class="card-block"
+    >
+      <div class="heading">
+        <a
+          [attr.href]="'#' + group.title.replace(' ', '')"
+          data-toggle="collapse"
+          [ngClass]="i == 0 ? 'collapsed' : ''"
+        >
+          {{ group.title }}
+        </a>
+      </div>
+      <div
+        [ngClass]="
+          i == 0
+            ? 'row card-container collapse in'
+            : 'row card-container collapse'
+        "
+        [attr.id]="group.title.replace(' ', '')"
+      >
+        <div
+          *ngFor="let person of group.persons"
+          class="col-md-2 col-sm-6 col-xs-8 card col-xs-offset-2 col-sm-offset-0"
+          [ngClass]="group.persons.lenth == 2 ? 'col-offset-md-2' : ''"
+        >
+          <div class="content">
+            <img
+              [src]="
+                '../../../assets/img/players/' +
+                person.firstName +
+                '_' +
+                person.lastName +
+                '.png'
+              "
+              onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
+              class="img img-responsive"
+            />
+            <div class="text-center">
+              <div class="title">
+                {{ person.lastName | uppercase }}
+                {{ person.firstName }}
+              </div>
+              <div class="subtitle">
+                {{ person.title }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

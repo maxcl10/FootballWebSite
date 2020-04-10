@@ -1,0 +1,20 @@
+<span
+  *ngIf="game.HomeTeamScore != null && game.AwayTeamScore != null"
+  class="badge"
+  [ngClass]="{
+    'badge-success': game.Result == 'W',
+    'badge-danger': game.Result == 'L',
+    'badge-default': game.Result == 'D'
+  }"
+>
+  <span style="font-size: 18px;"
+    >{{ game.HomeTeamScore }} - {{ game.AwayTeamScore }}</span
+  >
+
+  <div
+    style="margin-top: 5px"
+    *ngIf="game.HomePenaltyScore != null && game.AwayPenaltyScore != null"
+  >
+    TAB {{ game.HomePenaltyScore }} - {{ game.AwayPenaltyScore }}
+  </div>
+</span>

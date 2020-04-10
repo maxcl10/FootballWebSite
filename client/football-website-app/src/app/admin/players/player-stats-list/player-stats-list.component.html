@@ -1,0 +1,52 @@
+<h2>Statistiques Saison</h2>
+
+<div class="card">
+  <div class="card-body">
+    <table class="table">
+      <tr>
+        <th>
+          Joueur
+        </th>
+        <th>
+          Buts Championnat
+        </th>
+        <th>
+          Passes Championnat
+        </th>
+        <th>
+          Buts Coupe de France
+        </th>
+        <th>
+          Buts Coupe Grand Est
+        </th>
+        <th>
+          Buts Coupe Credit Mutuel
+        </th>
+      </tr>
+      <tr *ngFor="let stricker of strickers">
+        <td>
+          <a
+            href=""
+            [routerLink]="['/admin/players', stricker.playerId, 'editstats']"
+            >{{ stricker.playerName }}</a
+          >
+        </td>
+        <td>
+          {{ stricker.championshipGoals }}
+        </td>
+        <td>
+          {{ stricker.championshipAssists }}
+        </td>
+        <td>
+          {{ stricker.nationalCupGoals }}
+        </td>
+        <td>
+          {{ stricker.regionalCupGoals }}
+        </td>
+        <td>
+          {{ stricker.otherCupGoals }}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

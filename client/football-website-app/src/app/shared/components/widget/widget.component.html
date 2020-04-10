@@ -1,0 +1,27 @@
+<div class="card shadow mb-3">
+  <h5 class="card-header">{{ headerText }}</h5>
+
+  <div
+    [ngClass]="{
+      'card-body': contentMargin == true,
+      '': contentMargin == false
+    }"
+  >
+    <ng-content *ngIf="!loading"></ng-content>
+    <div *ngIf="loading" class="text-center card-body">
+      <i class="fas fa-cog fa-spin"></i>
+      {{ loadingText }}
+    </div>
+  </div>
+  <div *ngIf="error">
+    <div
+      class="alert alert-danger"
+      [ngClass]="{
+        '': contentMargin == false,
+        ' alert-margin ': contentMargin == true
+      }"
+    >
+      {{ error }}
+    </div>
+  </div>
+</div>

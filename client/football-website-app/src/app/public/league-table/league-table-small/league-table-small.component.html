@@ -1,0 +1,35 @@
+<table class="table table-striped ranking">
+  <thead>
+    <tr>
+      <th>Pos</th>
+      <th>Equipe</th>
+      <th>Pts</th>
+      <!-- <th class="hidden-sm">J</th>
+      <th class="hidden-sm">G</th>
+      <th class="hidden-sm">N</th>
+      <th class="hidden-sm">D</th>
+      <th class="hidden-sm">+/-</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let item of rankings"
+      [ngClass]="{
+        mauve: item.team == homeTeam,
+        'border-bottom': item.position == 1,
+        'border-top': item.position == 12
+      }"
+    >
+      <td>{{ item.position }}</td>
+      <td>{{ item.team }}</td>
+      <td>
+        <b>{{ item.points }}</b>
+      </td>
+      <!-- <td class="hidden-sm">{{ item.matchPlayed }}</td>
+      <td class="hidden-sm">{{ item.matchWon }}</td>
+      <td class="hidden-sm">{{ item.matchDraw }}</td>
+      <td class="hidden-sm">{{ item.matchLost }}</td>
+      <td class="hidden-sm">{{ item.goalDifference }}</td> -->
+    </tr>
+  </tbody>
+</table>

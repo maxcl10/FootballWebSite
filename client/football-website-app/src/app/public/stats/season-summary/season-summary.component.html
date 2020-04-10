@@ -1,0 +1,47 @@
+<div *ngIf="teamStat">
+  <!-- <strong class="overallRanking">{{ teamStat.position }} er</strong> -->
+  <div class="rankingLine">
+    <div class="text-left">
+      <div class="statContainer text-center">
+        <div class="titleStat">
+          Points
+        </div>
+        <div class="stat teamPoint">
+          {{ teamStat.points }}
+        </div>
+      </div>
+      <div class="statContainer text-center">
+        <div class="titleStat">
+          Joués
+        </div>
+        <div class="stat teamPoint">
+          {{ teamStat.matchPlayed }}
+        </div>
+      </div>
+      <div class="statContainer text-center">
+        <div class="titleStat">
+          Gagnés
+        </div>
+        <div class="stat teamPoint">
+          {{ teamStat.matchWon }}
+        </div>
+      </div>
+      <div class="statContainer text-center">
+        <div class="titleStat">
+          Nuls
+        </div>
+        <div class="stat teamPoint">
+          {{ teamStat.matchDraw }}
+        </div>
+      </div>
+      <div class="statContainer text-center">
+        <div class="titleStat">
+          Perdus
+        </div>
+        <div class="stat teamPoint">
+          {{ teamStat.matchLost }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

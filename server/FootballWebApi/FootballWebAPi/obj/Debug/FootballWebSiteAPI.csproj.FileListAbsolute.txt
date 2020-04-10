@@ -1,0 +1,530 @@
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\ApplicationInsights.config
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\roslyn\csc.exe
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\roslyn\vbc.exe
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\roslyn\VBCSCompiler.exe
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\WebApplication14.dll.config
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\WebApplication14.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\WebApplication14.pdb
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\EntityFramework.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\EntityFramework.SqlServer.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\Microsoft.AI.Web.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\Microsoft.ApplicationInsights.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\Newtonsoft.Json.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\System.Net.Http.Formatting.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\System.Web.Cors.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\System.Web.Http.Cors.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\System.Web.Http.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\System.Web.Http.WebHost.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\EntityFramework.xml
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\EntityFramework.SqlServer.xml
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\Microsoft.AI.Web.xml
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\Microsoft.ApplicationInsights.xml
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\System.Web.Http.Cors.xml
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\Newtonsoft.Json.xml
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\System.Net.Http.Formatting.xml
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\System.Web.Http.xml
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\bin\System.Web.Http.WebHost.xml
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\obj\Debug\WebApplication14.dll
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\obj\Debug\WebApplication14.pdb
+C:\Users\mmax\Documents\Visual Studio 2015\Projects\WebApplication14\WebApplication14\obj\Debug\FootballWebSiteAPI.csprojResolveAssemblyReference.cache
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\ApplicationInsights.config
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\roslyn\csc.exe
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\roslyn\vbc.exe
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\roslyn\VBCSCompiler.exe
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\WebApplication14.dll.config
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\WebApplication14.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\WebApplication14.pdb
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\EntityFramework.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\EntityFramework.SqlServer.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\Microsoft.AI.Web.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\Microsoft.ApplicationInsights.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\Newtonsoft.Json.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\System.Net.Http.Formatting.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\System.Web.Cors.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\System.Web.Http.Cors.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\System.Web.Http.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\System.Web.Http.WebHost.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\EntityFramework.xml
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\EntityFramework.SqlServer.xml
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\Microsoft.AI.Web.xml
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\Microsoft.ApplicationInsights.xml
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\System.Web.Http.Cors.xml
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\Newtonsoft.Json.xml
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\System.Net.Http.Formatting.xml
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\System.Web.Http.xml
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\bin\System.Web.Http.WebHost.xml
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\obj\Debug\FootballWebSiteAPI.csprojResolveAssemblyReference.cache
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\obj\Debug\WebApplication14.dll
+C:\Users\mmax\OneDrive\Development\New folder (2)\WebApplication14\WebApplication14\obj\Debug\WebApplication14.pdb
+D:\Git\FootballWebApi\FootballWebApi\bin\ApplicationInsights.config
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\csc.exe
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Collections.Immutable.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Reflection.Metadata.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\vbc.exe
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\VBCSCompiler.exe
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\VBCSCompiler.exe.config
+D:\Git\FootballWebApi\FootballWebApi\bin\EntityFramework.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\EntityFramework.SqlServer.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\Microsoft.AI.DependencyCollector.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\Microsoft.AI.Web.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\Microsoft.AI.WindowsServer.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\Microsoft.ApplicationInsights.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\Newtonsoft.Json.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\System.Net.Http.Formatting.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\System.Web.Cors.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\System.Web.Http.Cors.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\System.Web.Http.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\System.Web.Http.WebHost.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\EntityFramework.xml
+D:\Git\FootballWebApi\FootballWebApi\bin\EntityFramework.SqlServer.xml
+D:\Git\FootballWebApi\FootballWebApi\bin\Microsoft.AI.DependencyCollector.xml
+D:\Git\FootballWebApi\FootballWebApi\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Git\FootballWebApi\FootballWebApi\bin\Microsoft.AI.Web.xml
+D:\Git\FootballWebApi\FootballWebApi\bin\Microsoft.AI.WindowsServer.xml
+D:\Git\FootballWebApi\FootballWebApi\bin\Microsoft.ApplicationInsights.xml
+D:\Git\FootballWebApi\FootballWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Git\FootballWebApi\FootballWebApi\bin\System.Web.Http.Cors.xml
+D:\Git\FootballWebApi\FootballWebApi\bin\Newtonsoft.Json.xml
+D:\Git\FootballWebApi\FootballWebApi\bin\System.Net.Http.Formatting.xml
+D:\Git\FootballWebApi\FootballWebApi\bin\System.Web.Http.xml
+D:\Git\FootballWebApi\FootballWebApi\bin\System.Web.Http.WebHost.xml
+D:\Git\FootballWebApi\FootballWebApi\bin\FootballWebSiteApi.dll.config
+D:\Git\FootballWebApi\FootballWebApi\bin\FootballWebSiteApi.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\FootballWebSiteApi.pdb
+D:\Git\FootballWebApi\FootballWebApi\obj\Debug\FootballWebSiteApi.dll
+D:\Git\FootballWebApi\FootballWebApi\obj\Debug\FootballWebSiteApi.pdb
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\ApplicationInsights.config
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\roslyn\csc.exe
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\roslyn\vbc.exe
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\roslyn\VBCSCompiler.exe
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\FootballWebSiteApi.dll.config
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\FootballWebSiteApi.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\FootballWebSiteApi.pdb
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\EntityFramework.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\EntityFramework.SqlServer.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\Microsoft.AI.Web.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\Newtonsoft.Json.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\System.Net.Http.Formatting.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\System.Web.Cors.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\System.Web.Http.Cors.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\System.Web.Http.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\System.Web.Http.WebHost.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\EntityFramework.xml
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\EntityFramework.SqlServer.xml
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\Microsoft.AI.Web.xml
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\System.Web.Http.Cors.xml
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\Newtonsoft.Json.xml
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\System.Net.Http.Formatting.xml
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\System.Web.Http.xml
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\bin\System.Web.Http.WebHost.xml
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\obj\Debug\FootballWebSiteApi.dll
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\obj\Debug\FootballWebSiteApi.pdb
+D:\Git\FootballWebApi\FootballWebApi\obj\Debug\FootballWebSiteAPI.csprojResolveAssemblyReference.cache
+C:\Users\Maxime\Documents\Git\FootballWebApi\FootballWebApi\obj\Debug\FootballWebSiteAPI.csprojResolveAssemblyReference.cache
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\csc.exe.config
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\csc.rsp
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\csi.exe
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\csi.exe.config
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\csi.rsp
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.AppContext.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Console.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Diagnostics.Process.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.IO.Compression.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.IO.FileSystem.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.IO.Pipes.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.AccessControl.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Claims.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Threading.Thread.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.ValueTuple.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Xml.XPath.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\vbc.exe.config
+D:\Git\FootballWebApi\FootballWebApi\bin\roslyn\vbc.rsp
+D:\Git\FootballWebApi\FootballWebApi\bin\HtmlAgilityPack.dll
+D:\Git\FootballWebApi\FootballWebApi\bin\HtmlAgilityPack.pdb
+D:\Git\FootballWebApi\FootballWebApi\bin\HtmlAgilityPack.xml
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\ApplicationInsights.config
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\csc.exe
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\csc.exe.config
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\csc.rsp
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\csi.exe
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\csi.exe.config
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\csi.rsp
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.AppContext.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Console.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Diagnostics.Process.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.IO.Compression.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.IO.Pipes.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Claims.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Threading.Thread.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.ValueTuple.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Xml.XPath.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\vbc.exe
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\vbc.exe.config
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\vbc.rsp
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\VBCSCompiler.exe
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\FootballWebSiteApi.dll.config
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\FootballWebSiteApi.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\FootballWebSiteApi.pdb
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\EntityFramework.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\EntityFramework.SqlServer.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\HtmlAgilityPack.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.Web.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.ApplicationInsights.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\Newtonsoft.Json.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Net.Http.Formatting.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Cors.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Http.Cors.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Http.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Http.WebHost.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\EntityFramework.xml
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\EntityFramework.SqlServer.xml
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\HtmlAgilityPack.pdb
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\HtmlAgilityPack.xml
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.Web.xml
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.ApplicationInsights.xml
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\Newtonsoft.Json.xml
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Http.Cors.xml
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Net.Http.Formatting.xml
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Http.xml
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Http.WebHost.xml
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\obj\Debug\FootballWebSiteApi.dll
+C:\Users\maxim\Source\Repos\FootballWebApi\FootballWebApi\obj\Debug\FootballWebSiteApi.pdb
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebAPi\obj\Debug\FootballWebSiteAPI.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebAPi\obj\Debug\FootballWebSiteApi.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebAPi\obj\Debug\FootballWebSiteApi.pdb
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\ApplicationInsights.config
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\csc.exe
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\csc.exe.config
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\csc.rsp
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\csi.exe
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\csi.exe.config
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\csi.rsp
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.AppContext.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Console.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Diagnostics.Process.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.IO.Compression.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Claims.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Threading.Thread.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.ValueTuple.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\vbc.exe
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\vbc.exe.config
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\vbc.rsp
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\VBCSCompiler.exe
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\FootballWebSiteApi.dll.config
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\FootballWebSiteApi.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\FootballWebSiteApi.pdb
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\EntityFramework.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\EntityFramework.SqlServer.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\HtmlAgilityPack.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.Web.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\Newtonsoft.Json.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Net.Http.Formatting.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Cors.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Http.Cors.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Http.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Http.WebHost.dll
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\EntityFramework.xml
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\EntityFramework.SqlServer.xml
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\HtmlAgilityPack.pdb
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\HtmlAgilityPack.xml
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.Web.xml
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\Newtonsoft.Json.xml
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Http.Cors.xml
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Net.Http.Formatting.xml
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Http.xml
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Http.WebHost.xml
+C:\Users\Admin\source\repos\FootballWebApi\FootballWebApi\bin\Antlr3.Runtime.dll
+C:\Users\Admin\source\repos\FootballWebApi\FootballWebApi\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Admin\source\repos\FootballWebApi\FootballWebApi\bin\System.Web.Helpers.dll
+C:\Users\Admin\source\repos\FootballWebApi\FootballWebApi\bin\System.Web.Mvc.dll
+C:\Users\Admin\source\repos\FootballWebApi\FootballWebApi\bin\System.Web.Optimization.dll
+C:\Users\Admin\source\repos\FootballWebApi\FootballWebApi\bin\System.Web.Razor.dll
+C:\Users\Admin\source\repos\FootballWebApi\FootballWebApi\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Admin\source\repos\FootballWebApi\FootballWebApi\bin\System.Web.WebPages.dll
+C:\Users\Admin\source\repos\FootballWebApi\FootballWebApi\bin\System.Web.WebPages.Razor.dll
+C:\Users\Admin\source\repos\FootballWebApi\FootballWebApi\bin\WebGrease.dll
+C:\Users\Admin\source\repos\FootballWebApi\FootballWebApi\bin\Antlr3.Runtime.pdb
+C:\Users\Admin\source\repos\FootballWebApi\FootballWebApi\bin\System.Web.Helpers.xml
+C:\Users\Admin\source\repos\FootballWebApi\FootballWebApi\bin\System.Web.Mvc.xml
+C:\Users\Admin\source\repos\FootballWebApi\FootballWebApi\bin\System.Web.Optimization.xml
+C:\Users\Admin\source\repos\FootballWebApi\FootballWebApi\bin\System.Web.Razor.xml
+C:\Users\Admin\source\repos\FootballWebApi\FootballWebApi\bin\System.Web.WebPages.xml
+C:\Users\Admin\source\repos\FootballWebApi\FootballWebApi\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Admin\source\repos\FootballWebApi\FootballWebApi\bin\System.Web.WebPages.Razor.xml
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\obj\Debug\FootballWebSiteAPI.csproj.CopyComplete
+C:\Users\Admin\Source\Repos\FootballWebApi\FootballWebApi\obj\Debug\FootballWebSiteAPI.csprojAssemblyReference.cache
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\ApplicationInsights.config
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\csc.exe
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\csc.exe.config
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\csc.rsp
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\csi.exe
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\csi.exe.config
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\csi.rsp
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.AppContext.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Console.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Diagnostics.Process.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.IO.Compression.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.IO.Pipes.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Claims.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Threading.Thread.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.ValueTuple.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Xml.XPath.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\vbc.exe
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\vbc.exe.config
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\vbc.rsp
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\VBCSCompiler.exe
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\FootballWebSiteApi.dll.config
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\FootballWebSiteApi.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\FootballWebSiteApi.pdb
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\Antlr3.Runtime.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\EntityFramework.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\EntityFramework.SqlServer.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\HtmlAgilityPack.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.Web.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.ApplicationInsights.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\Newtonsoft.Json.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Net.Http.Formatting.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Cors.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Helpers.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Http.Cors.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Http.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Http.WebHost.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Mvc.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Optimization.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Razor.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.WebPages.Deployment.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.WebPages.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.WebPages.Razor.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\WebGrease.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\Antlr3.Runtime.pdb
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\EntityFramework.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\EntityFramework.SqlServer.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\HtmlAgilityPack.pdb
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\HtmlAgilityPack.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.Web.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.ApplicationInsights.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\Newtonsoft.Json.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Helpers.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Http.Cors.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Mvc.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Optimization.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Razor.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.WebPages.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.WebPages.Deployment.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.WebPages.Razor.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Net.Http.Formatting.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Http.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\bin\System.Web.Http.WebHost.xml
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\obj\Debug\FootballWebSiteAPI.csproj.CopyComplete
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\obj\Debug\FootballWebSiteApi.dll
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\obj\Debug\FootballWebSiteApi.pdb
+C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\obj\Debug\FootballWebSiteAPI.csprojAssemblyReference.cache

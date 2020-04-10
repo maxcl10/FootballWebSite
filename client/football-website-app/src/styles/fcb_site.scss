@@ -1,0 +1,479 @@
+@import './fcb_variables.scss';
+
+html {
+  position: relative;
+  min-height: 100%;
+  overflow-y: scroll; /* in order to fix the jumping scrollbar issue*/
+}
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.42857143;
+  color: $black-1;
+  background-color: $grey-1;
+  padding-bottom: 60px;
+}
+
+// body {
+//   min-height: 100vh;
+//   position: relative;
+//   margin: 0;
+// }
+
+// footer {
+//   position: absolute;
+//   bottom: 0;
+//   background-color: green;
+// }
+
+.card {
+  border-width: 0;
+  border-radius: 1px;
+}
+
+// .table-clickable > tbody > tr :hover {
+//   cursor: pointer !important;
+// }
+
+/*Used to hide a part of the article*/
+.partialHidden {
+  position: relative;
+  max-height: 400px;
+  overflow-y: hidden;
+  background-color: white;
+}
+
+.partialHidden:after {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  content: '';
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 70%,
+    rgba(255, 255, 255, 1) 90%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  pointer-events: none; /* so the text is still selectable */
+}
+
+.card-header {
+  background-color: white;
+}
+
+h5.card-header {
+  color: $green-1;
+}
+
+// input[type='date'].form-control,
+// input[type='time'].form-control,
+// input[type='datetime-local'].form-control,
+// input[type='month'].form-control {
+//   line-height: 22px;
+// }
+
+// // img {
+// //   padding: 2px;
+// // }
+
+// table.ranking {
+//   border-collapse: separate !important;
+// }
+
+// article * table {
+//   font-size: 15px;
+// }
+
+// .table-smaller {
+//   font-size: 11px;
+// }
+
+// .heading {
+//   color: $grey-5;
+//   font-weight: bold;
+//   font-size: 20px;
+// }
+
+// .bold {
+//   font-weight: bold;
+// }
+
+// .chart {
+//   display: block;
+//   width: 100%;
+// }
+
+.page-header {
+  background-color: #fff;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.siteTitle {
+  padding-left: 120px;
+}
+
+.siteTitle h1 {
+  font-size: 27px;
+  // margin-top: 18px;
+}
+
+.menuTitle {
+  padding-left: 106px;
+}
+
+.subHeader {
+  display: block;
+  margin-top: -12px;
+  // margin-bottom: 10px;
+  color: $grey-3;
+}
+
+#logo {
+  position: absolute;
+  width: 120px;
+  top: 10px;
+  z-index: 1500;
+}
+
+// .table > tbody > tr.mauve {
+//   background-color: $green-4;
+//   color: $white-1;
+//   font-weight: bold;
+// }
+
+// .light-text {
+//   font-size: 10px;
+//   color: $grey-3;
+// }
+
+// .grey-text {
+//   color: $grey-3;
+// }
+
+// .affix + .container {
+//   padding-top: 65px;
+// }
+
+// .footer {
+//   position: absolute;
+//   bottom: 0;
+//   width: 100%;
+//   height: 60px;
+//   background-color: $grey-5;
+//   color: $white-1;
+// }
+
+// .footer a {
+//   color: $white-1;
+// }
+
+// .footer .panel {
+//   vertical-align: middle;
+// }
+
+// .emphasize {
+//   font-size: 25px;
+// }
+
+// .fb-share-button {
+//   display: inline-block;
+//   padding-top: 10px;
+//   padding: 5px;
+//   background-color: #4267b2;
+//   cursor: pointer;
+//   border-radius: 2px;
+// }
+
+// .fb-share-button:hover {
+//   background-color: #365899;
+//   border-color: #365899;
+// }
+
+// .fb-share-button > a {
+//   text-decoration: none;
+//   font-weight: bold;
+// }
+
+// .marginBottom-0 {
+//   margin-bottom: 0;
+// }
+
+.md-3-square {
+  height: 160px;
+  line-height: 160px;
+}
+
+.md-3-square img {
+  vertical-align: middle;
+}
+
+// .vcenter {
+//   display: inline-block;
+//   vertical-align: middle;
+//   float: none;
+// }
+
+article img {
+  max-width: 100%;
+  height: auto;
+}
+
+// @media (max-width: 767px) {
+//   .panel-body {
+//     padding: 5px;
+//   }
+// }
+
+// // router-outlet ~ * {
+// //   position: absolute;
+// //   height: 100%;
+// //   width: 100%;
+// // }
+
+// .accordion-toggle:after {
+//   font-family: 'Glyphicons Halflings';
+//   content: '\e114';
+//   float: right;
+//   transition: all 0.5s;
+// }
+
+// .accordion-toggle.collapsed:after {
+//   -webkit-transform: rotate(180deg);
+//   -moz-transform: rotate(180deg);
+//   transform: rotate(180deg);
+// }
+
+// div.heading {
+//   background-color: $green-3;
+//   font-weight: bold;
+//   color: $white-1;
+//   text-align: center;
+//   padding: 5px;
+// }
+
+// div.heading a {
+//   color: $white-1;
+// }
+
+// .card {
+//   padding-top: 10px;
+//   padding-bottom: 10px;
+// }
+
+// .card .content {
+//   background-color: $grey-2;
+// }
+
+// .card .title {
+//   margin-top: 10px;
+//   color: $grey-5;
+//   font-weight: bold;
+//   font-size: 16px;
+// }
+
+// .card .subtitle {
+//   color: $grey-3;
+//   padding-bottom: 10px;
+// }
+
+// .card-block {
+//   border: solid 1px $border-color;
+//   margin-top: 30px;
+// }
+
+// .card-container {
+//   background-color: $white-1;
+// }
+
+// .row.card-container {
+//   margin-left: 0;
+//   margin-right: 0;
+// }
+
+// #divStricker .item {
+//   display: block;
+//   margin-top: -3px;
+// }
+
+// .statContainer {
+//   display: inline-block;
+//   padding-right: 10px;
+// }
+
+// .rankingLine {
+//   width: max-content;
+// }
+
+// .game-summary a {
+//   color: $black-1;
+// }
+
+// .panel-body.game-summary a:hover {
+//   color: $green-3;
+// }
+
+// .titleStat {
+//   font-size: 17px;
+//   line-height: 20px;
+//   text-transform: uppercase;
+// }
+
+// .teamPoint {
+//   font-size: 30px;
+//   line-height: 30px;
+//   margin-top: 5px;
+// }
+
+// .overallRanking {
+//   font-size: 45px;
+//   color: $green-1;
+// }
+
+// /**/
+// #wrapper {
+//   padding-left: 0;
+//   -webkit-transition: all 0.5s ease;
+//   -moz-transition: all 0.5s ease;
+//   -o-transition: all 0.5s ease;
+//   transition: all 0.5s ease;
+// }
+
+.pageHeader {
+  margin-top: -90px;
+  color: $white-1;
+  margin-bottom: 50px;
+}
+
+// @media (max-width: 767px) {
+//   .pageHeader {
+//     margin-top: 0;
+//     color: inherit;
+//     margin-bottom: 20px;
+//   }
+// }
+
+// #wrapper.toggled {
+//   padding-left: 250px;
+// }
+
+// #sidebar-wrapper h4 {
+//   margin-left: 20px;
+// }
+
+// #sidebar-wrapper {
+//   z-index: 1000;
+//   position: fixed;
+//   left: 250px;
+//   width: 0;
+//   height: 100%;
+//   margin-left: -250px;
+//   overflow-y: auto;
+//   // background: $green-3;
+//   -webkit-transition: all 0.5s ease;
+//   -moz-transition: all 0.5s ease;
+//   -o-transition: all 0.5s ease;
+//   transition: all 0.5s ease;
+//   color: $green-3;
+// }
+
+// #wrapper.toggled #sidebar-wrapper {
+//   width: 250px;
+// }
+
+// #page-content-wrapper {
+//   width: 100%;
+//   position: absolute;
+//   padding: 15px;
+// }
+
+// #wrapper.toggled #page-content-wrapper {
+//   position: absolute;
+//   margin-right: -250px;
+// }
+
+// /* Sidebar Styles */
+
+// .sidebar-nav {
+//   position: absolute;
+//   top: 0;
+//   width: 250px;
+//   margin: 0;
+//   padding: 0;
+//   list-style: none;
+//   margin-top: 40px;
+// }
+
+// .sidebar-nav li {
+//   text-indent: 20px;
+//   line-height: 40px;
+// }
+
+// .sidebar-nav li a {
+//   display: block;
+//   text-decoration: none;
+//   color: $green-3;
+// }
+
+// .sidebar-nav li a span {
+//   margin-right: 20px;
+//   width: 30px;
+// }
+
+// .sidebar-nav li a:hover {
+//   text-decoration: none;
+//   color: $white-1;
+//   background: $green-3;
+// }
+
+// .sidebar-nav li a:active,
+// .sidebar-nav li a:focus {
+//   text-decoration: none;
+// }
+
+// .sidebar-nav > .sidebar-brand {
+//   height: 65px;
+//   font-size: 18px;
+//   line-height: 60px;
+// }
+
+// .sidebar-nav > .sidebar-brand a {
+//   color: #999999;
+// }
+
+// .sidebar-nav > .sidebar-brand a:hover {
+//   color: #fff;
+//   background: none;
+// }
+
+// @media (min-width: 768px) {
+//   #wrapper {
+//     padding-left: 250px;
+//     margin-top: -20px;
+//   }
+
+//   #wrapper.toggled {
+//     padding-left: 0;
+//   }
+
+//   #sidebar-wrapper {
+//     width: 250px;
+//   }
+
+//   #wrapper.toggled #sidebar-wrapper {
+//     width: 0;
+//   }
+
+//   #page-content-wrapper {
+//     padding: 20px;
+//     position: relative;
+//   }
+
+//   #wrapper.toggled #page-content-wrapper {
+//     position: relative;
+//     margin-right: 0;
+//   }
+// }

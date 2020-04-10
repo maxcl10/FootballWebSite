@@ -1,0 +1,5 @@
+<div *ngIf="doughnutChartData != null" style="display: block">
+  <canvas baseChart class="chart" [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType"
+    [colors]="doughnutChartColors" [options]="doughnutChartOptions" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"
+    style="height: 180px"></canvas>
+</div>

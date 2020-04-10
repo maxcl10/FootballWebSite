@@ -1,0 +1,257 @@
+<!-- Website Header -->
+<div class="page-header">
+  <div class="container">
+    <div class="header">
+      <a href="" [routerLink]="['/admin']">
+        <img id="logo" *ngIf="club" src="{{ club.logoUrl }}" />
+      </a>
+      <div class="header-title siteTitle">
+        <div class="d-none d-sm-inline">
+          <div
+            class="fb-like  pull-right"
+            data-href="https://fcbartenheim.com/"
+            data-layout="button_count"
+            data-action="like"
+            data-size="large"
+            data-show-faces="true"
+            data-share="true"
+          ></div>
+          <h1 *ngIf="club">{{ club.longName }}</h1>
+          <span class="subHeader">Site officiel</span>
+        </div>
+        <div class="d-block d-sm-none">
+          <h1 *ngIf="club">{{ club.name }}</h1>
+          <!-- <div class="fb-like pull-right" style="margin-bottom: 5px; margin-right: 10px" data-href="https://fcuffheim.com/"
+            data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div> -->
+          <div
+            class="fb-like pull-right"
+            style="margin-bottom: 5px; margin-right: 10px"
+            data-href="https://fcbartenheim.com/"
+            data-layout="button_count"
+            data-action="like"
+            data-size="large"
+            data-show-faces="true"
+            data-share="false"
+          ></div>
+          <span>Site officiel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <!-- <a class="navbar-brand" href="#">
+      <img id="logo" *ngIf="club" src="{{ club.logoUrl }}"
+    /></a> -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto" style="margin-left: 110px;">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href=""
+            routerLinkActive="active"
+            [routerLink]="['home']"
+            >Accueil</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href=""
+            routerLinkActive="active"
+            [routerLink]="['league-table']"
+            >Classement</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['games']"
+            >Calendrier</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['stats']"
+            >Stats</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLink]="['sponsors']"
+            >Partenaires</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLink]="['contact']"
+            >Contact</a
+          >
+        </li>
+
+        <!-- <li class="nav-item active">
+          <a class="nav-link" href="#"
+            >Home <span class="sr-only">(current)</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li> -->
+      </ul>
+      <!-- <form class="form-inline my-2 my-lg-0">
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form> -->
+    </div>
+  </div>
+</nav>
+<!-- <nav id="nav" class="navbar navbar-default container-fluid">
+  <div class="navbar-header">
+    <button
+      type="button"
+      class="navbar-toggle"
+      data-toggle="collapse"
+      data-target=".navbar-collapse"
+    >
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+  <div class="navbar-collapse collapse js-navbar-collapse">
+    <div class="container">
+      <ul class="nav navbar-nav menuTitle ">
+        <li><a href="" [routerLink]="['home']">Accueil</a></li>
+        <li class="dropdown dropdown-lg">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+            >Equipes <b class="caret"></b
+          ></a>
+          <ul class="dropdown-menu dropdown-menu-lg row">
+            <li class="col-sm-4" *ngFor="let team of teams; let i = index">
+              <ul>
+                <li class="dropdown-header">Equipe {{ i + 1 }}</li>
+                <li>
+                  <a href="" [routerLink]="['team', team.id]">Effectif</a>
+                </li>
+                <li *ngIf="i == 0">
+                  <a href="" [routerLink]="['league-table']">Classement</a>
+                </li>
+                <li *ngIf="i == 0">
+                  <a href="" [routerLink]="['games']">Calendrier</a>
+                </li>
+                <li *ngIf="i != 0" class="divider"></li>
+                <li *ngIf="i != 0" class="dropdown-header">LGEF</li>
+                <li *ngIf="i != 0">
+                  <a href="{{ team.rankingUrl }}" target="_blank">Classement</a>
+                </li>
+                <li *ngIf="i != 0">
+                  <a href="{{ team.calendarUrl }}" target="_blank"
+                    >Calendrier</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="" [routerLink]="['league-table']">Classement</a></li>
+        <li><a href="" [routerLink]="['games']">Calendrier</a></li>
+        <li><a href="" [routerLink]="['stats']">stats</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+            >Club <b class="caret"></b
+          ></a>
+          <ul class="dropdown-menu">
+            <li><a href="" [routerLink]="['club/history']">Histoire</a></li>
+            <li>
+              <a href="" [routerLink]="['club/organizational-chart']"
+                >Organigramme</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li><a href="" [routerLink]="['sponsors']">Partenaires</a></li>
+        <li><a href="" [routerLink]="['contact']">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav> -->
+
+<div
+  style="margin-top: -20px; margin-bottom: 20px;"
+  *ngIf="club && club.name == 'F.C Bartenheim'"
+>
+  <img src="../../../assets/img/ban.png" class="img-responsive" />
+</div>
+<!-- Not too much sense <breadcrumb [allowBootstrap]="true"></breadcrumb> -->
+<!--Body-->
+
+<!-- <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''"> -->
+<main>
+  <router-outlet #o="outlet"></router-outlet>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div style="margin-top: 10px">
+      <a href="" [routerLink]="['admin']">Admin</a>
+      <span class="pull-right">
+        @Copyright
+        <a href="mailto:maxime.matter@hotmail.fr?subject=Football WebSite"
+          >Marez</a
+        >
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!--Footer-->
+<!-- <footer class="footer" style="margin-top: 20px">
+    <div class="container">
+
+    </div>
+  </footer> -->

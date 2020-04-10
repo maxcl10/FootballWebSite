@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FootballWebSiteDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="FootballWebSiteDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Articles" EntityType="FootballWebSiteDbModel.Article" />
+    <EntitySet Name="Championships" EntityType="FootballWebSiteDbModel.Championship" />
+    <EntitySet Name="ChampionshipTeams" EntityType="FootballWebSiteDbModel.ChampionshipTeam" />
+    <EntitySet Name="Games" EntityType="FootballWebSiteDbModel.Game" />
+    <EntitySet Name="LazyRankings" EntityType="FootballWebSiteDbModel.LazyRanking" />
+    <EntitySet Name="Owners" EntityType="FootballWebSiteDbModel.Owner" />
+    <EntitySet Name="Players" EntityType="FootballWebSiteDbModel.Player" />
+    <EntitySet Name="PlayerTeams" EntityType="FootballWebSiteDbModel.PlayerTeam" />
+    <EntitySet Name="Seasons" EntityType="FootballWebSiteDbModel.Season" />
+    <EntitySet Name="Staffs" EntityType="FootballWebSiteDbModel.Staff" />
+    <EntitySet Name="Teams" EntityType="FootballWebSiteDbModel.Team" />
+    <EntitySet Name="Users" EntityType="FootballWebSiteDbModel.User" />
+    <EntitySet Name="Rankings" EntityType="FootballWebSiteDbModel.Ranking" />
+    <AssociationSet Name="FK_Article_Owner" Association="FootballWebSiteDbModel.FK_Article_Owner">
+      <End Role="Owner" EntitySet="Owners" />
+      <End Role="Article" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Championship_Season" Association="FootballWebSiteDbModel.FK_Championship_Season">
+      <End Role="Season" EntitySet="Seasons" />
+      <End Role="Championship" EntitySet="Championships" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Game_Owner" Association="FootballWebSiteDbModel.FK_Game_Owner">
+      <End Role="Owner" EntitySet="Owners" />
+      <End Role="Game" EntitySet="Games" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Game_Team" Association="FootballWebSiteDbModel.FK_Game_Team">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="Game" EntitySet="Games" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Game_Team1" Association="FootballWebSiteDbModel.FK_Game_Team1">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="Game" EntitySet="Games" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Team_Owner" Association="FootballWebSiteDbModel.FK_Team_Owner">
+      <End Role="Owner" EntitySet="Owners" />
+      <End Role="Team" EntitySet="Teams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Owner" Association="FootballWebSiteDbModel.FK_User_Owner">
+      <End Role="Owner" EntitySet="Owners" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerTeam_Player" Association="FootballWebSiteDbModel.FK_PlayerTeam_Player">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="PlayerTeam" EntitySet="PlayerTeams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerTeam_Season" Association="FootballWebSiteDbModel.FK_PlayerTeam_Season">
+      <End Role="Season" EntitySet="Seasons" />
+      <End Role="PlayerTeam" EntitySet="PlayerTeams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerTeam_Team" Association="FootballWebSiteDbModel.FK_PlayerTeam_Team">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="PlayerTeam" EntitySet="PlayerTeams" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="body" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="publisher" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="publishedDate" Type="DateTime" Precision="3" />
+    <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="deletedDate" Type="DateTime" Precision="3" />
+    <Property Name="creationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="draft" Type="Boolean" />
+    <Property Name="ownerId" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="Owner" Relationship="FootballWebSiteDbModel.FK_Article_Owner" FromRole="Article" ToRole="Owner" />
+  </EntityType>
+  <EntityType Name="Championship">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="seasonId" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="Season" Relationship="FootballWebSiteDbModel.FK_Championship_Season" FromRole="Championship" ToRole="Season" />
+  </EntityType>
+  <EntityType Name="ChampionshipTeam">
+    <Key>
+      <PropertyRef Name="championshipTeamId" />
+    </Key>
+    <Property Name="championshipTeamId" Type="Guid" Nullable="false" />
+    <Property Name="championshipId" Type="Guid" Nullable="false" />
+    <Property Name="teamId" Type="Guid" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Game">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="HomeTeam" Type="Guid" Nullable="false" />
+    <Property Name="AwayTeam" Type="Guid" Nullable="false" />
+    <Property Name="MatchDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SeasonId" Type="Guid" Nullable="false" />
+    <Property Name="Championship" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HomeTeamScore" Type="Int32" />
+    <Property Name="AwayTeamScore" Type="Int32" />
+    <Property Name="ProlongHomeTeamScore" Type="Int32" />
+    <Property Name="ProlongAwayTeamScore" Type="Int32" />
+    <Property Name="PenaltyHomeTeamScore" Type="Int32" />
+    <Property Name="PenaltyAwayTeamScore" Type="Int32" />
+    <Property Name="ownerId" Type="Guid" />
+    <NavigationProperty Name="Owner" Relationship="FootballWebSiteDbModel.FK_Game_Owner" FromRole="Game" ToRole="Owner" />
+    <NavigationProperty Name="Team" Relationship="FootballWebSiteDbModel.FK_Game_Team" FromRole="Game" ToRole="Team" />
+    <NavigationProperty Name="Team1" Relationship="FootballWebSiteDbModel.FK_Game_Team1" FromRole="Game" ToRole="Team" />
+  </EntityType>
+  <EntityType Name="LazyRanking">
+    <Key>
+      <PropertyRef Name="rankingId" />
+    </Key>
+    <Property Name="team" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="position" Type="Int32" />
+    <Property Name="points" Type="Int32" />
+    <Property Name="matchPlayed" Type="Int32" />
+    <Property Name="matchWon" Type="Int32" />
+    <Property Name="matchDraw" Type="Int32" />
+    <Property Name="matchLost" Type="Int32" />
+    <Property Name="goalsScored" Type="Int32" />
+    <Property Name="goalsAgainst" Type="Int32" />
+    <Property Name="goalDifference" Type="Int32" />
+    <Property Name="withdaw" Type="Int32" />
+    <Property Name="penality" Type="Int32" />
+    <Property Name="rankingId" Type="Guid" Nullable="false" />
+    <Property Name="updatedDate" Type="DateTime" Precision="3" />
+    <Property Name="uploadDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Owner">
+    <Key>
+      <PropertyRef Name="ownerId" />
+    </Key>
+    <Property Name="ownerId" Type="Guid" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Articles" Relationship="FootballWebSiteDbModel.FK_Article_Owner" FromRole="Owner" ToRole="Article" />
+    <NavigationProperty Name="Games" Relationship="FootballWebSiteDbModel.FK_Game_Owner" FromRole="Owner" ToRole="Game" />
+    <NavigationProperty Name="Teams" Relationship="FootballWebSiteDbModel.FK_Team_Owner" FromRole="Owner" ToRole="Team" />
+    <NavigationProperty Name="Users" Relationship="FootballWebSiteDbModel.FK_User_Owner" FromRole="Owner" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="firstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dateOfBirth" Type="DateTime" Precision="3" />
+    <Property Name="height" Type="Int32" />
+    <Property Name="weight" Type="Int32" />
+    <Property Name="nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="previousClubs" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="nickname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="favoritePlayer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="favoriteTeam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="favoriteNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="PlayerTeams" Relationship="FootballWebSiteDbModel.FK_PlayerTeam_Player" FromRole="Player" ToRole="PlayerTeam" />
+  </EntityType>
+  <EntityType Name="PlayerTeam">
+    <Key>
+      <PropertyRef Name="playerTeamId" />
+    </Key>
+    <Property Name="playerTeamId" Type="Guid" Nullable="false" />
+    <Property Name="playerId" Type="Guid" Nullable="false" />
+    <Property Name="teamId" Type="Guid" Nullable="false" />
+    <Property Name="seasonId" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="Player" Relationship="FootballWebSiteDbModel.FK_PlayerTeam_Player" FromRole="PlayerTeam" ToRole="Player" />
+    <NavigationProperty Name="Season" Relationship="FootballWebSiteDbModel.FK_PlayerTeam_Season" FromRole="PlayerTeam" ToRole="Season" />
+    <NavigationProperty Name="Team" Relationship="FootballWebSiteDbModel.FK_PlayerTeam_Team" FromRole="PlayerTeam" ToRole="Team" />
+  </EntityType>
+  <EntityType Name="Season">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="startDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="endDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="currentSeason" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Championships" Relationship="FootballWebSiteDbModel.FK_Championship_Season" FromRole="Season" ToRole="Championship" />
+    <NavigationProperty Name="PlayerTeams" Relationship="FootballWebSiteDbModel.FK_PlayerTeam_Season" FromRole="Season" ToRole="PlayerTeam" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="firstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dateOfBirth" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="position" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="shortName" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="homeTeam" Type="Boolean" />
+    <Property Name="displayOrder" Type="Int32" />
+    <Property Name="displayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ownerId" Type="Guid" />
+    <NavigationProperty Name="Games" Relationship="FootballWebSiteDbModel.FK_Game_Team" FromRole="Team" ToRole="Game" />
+    <NavigationProperty Name="Games1" Relationship="FootballWebSiteDbModel.FK_Game_Team1" FromRole="Team" ToRole="Game" />
+    <NavigationProperty Name="Owner" Relationship="FootballWebSiteDbModel.FK_Team_Owner" FromRole="Team" ToRole="Owner" />
+    <NavigationProperty Name="PlayerTeams" Relationship="FootballWebSiteDbModel.FK_PlayerTeam_Team" FromRole="Team" ToRole="PlayerTeam" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="alias" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="emailAddress" Type="String" Nullable="false" MaxLength="70" FixedLength="true" Unicode="true" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ownerId" Type="Guid" />
+    <NavigationProperty Name="Owner" Relationship="FootballWebSiteDbModel.FK_User_Owner" FromRole="User" ToRole="Owner" />
+  </EntityType>
+  <EntityType Name="Ranking">
+    <Key>
+      <PropertyRef Name="championshipId" />
+      <PropertyRef Name="teamId" />
+      <PropertyRef Name="position" />
+      <PropertyRef Name="points" />
+      <PropertyRef Name="matchPlayed" />
+      <PropertyRef Name="matchWon" />
+      <PropertyRef Name="matchDraw" />
+      <PropertyRef Name="matchLost" />
+      <PropertyRef Name="goalsScored" />
+      <PropertyRef Name="goalsAgainst" />
+      <PropertyRef Name="goalDifference" />
+      <PropertyRef Name="withdraw" />
+      <PropertyRef Name="penality" />
+    </Key>
+    <Property Name="championshipId" Type="Guid" Nullable="false" />
+    <Property Name="teamId" Type="Guid" Nullable="false" />
+    <Property Name="position" Type="Int32" Nullable="false" />
+    <Property Name="points" Type="Int32" Nullable="false" />
+    <Property Name="matchPlayed" Type="Int32" Nullable="false" />
+    <Property Name="matchWon" Type="Int32" Nullable="false" />
+    <Property Name="matchDraw" Type="Int32" Nullable="false" />
+    <Property Name="matchLost" Type="Int32" Nullable="false" />
+    <Property Name="goalsScored" Type="Int32" Nullable="false" />
+    <Property Name="goalsAgainst" Type="Int32" Nullable="false" />
+    <Property Name="goalDifference" Type="Int32" Nullable="false" />
+    <Property Name="withdraw" Type="Int32" Nullable="false" />
+    <Property Name="penality" Type="Int32" Nullable="false" />
+    <Property Name="SeasonId" Type="Guid" />
+  </EntityType>
+  <Association Name="FK_Article_Owner">
+    <End Type="FootballWebSiteDbModel.Owner" Role="Owner" Multiplicity="1" />
+    <End Type="FootballWebSiteDbModel.Article" Role="Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owner">
+        <PropertyRef Name="ownerId" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="ownerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Championship_Season">
+    <End Type="FootballWebSiteDbModel.Season" Role="Season" Multiplicity="1" />
+    <End Type="FootballWebSiteDbModel.Championship" Role="Championship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Season">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Championship">
+        <PropertyRef Name="seasonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Game_Owner">
+    <End Type="FootballWebSiteDbModel.Owner" Role="Owner" Multiplicity="0..1" />
+    <End Type="FootballWebSiteDbModel.Game" Role="Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owner">
+        <PropertyRef Name="ownerId" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="ownerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Game_Team">
+    <End Type="FootballWebSiteDbModel.Team" Role="Team" Multiplicity="1" />
+    <End Type="FootballWebSiteDbModel.Game" Role="Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="HomeTeam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Game_Team1">
+    <End Type="FootballWebSiteDbModel.Team" Role="Team" Multiplicity="1" />
+    <End Type="FootballWebSiteDbModel.Game" Role="Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="AwayTeam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Team_Owner">
+    <End Type="FootballWebSiteDbModel.Owner" Role="Owner" Multiplicity="0..1" />
+    <End Type="FootballWebSiteDbModel.Team" Role="Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owner">
+        <PropertyRef Name="ownerId" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="ownerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Owner">
+    <End Type="FootballWebSiteDbModel.Owner" Role="Owner" Multiplicity="0..1" />
+    <End Type="FootballWebSiteDbModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owner">
+        <PropertyRef Name="ownerId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="ownerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerTeam_Player">
+    <End Type="FootballWebSiteDbModel.Player" Role="Player" Multiplicity="1" />
+    <End Type="FootballWebSiteDbModel.PlayerTeam" Role="PlayerTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PlayerTeam">
+        <PropertyRef Name="playerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerTeam_Season">
+    <End Type="FootballWebSiteDbModel.Season" Role="Season" Multiplicity="1" />
+    <End Type="FootballWebSiteDbModel.PlayerTeam" Role="PlayerTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Season">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PlayerTeam">
+        <PropertyRef Name="seasonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerTeam_Team">
+    <End Type="FootballWebSiteDbModel.Team" Role="Team" Multiplicity="1" />
+    <End Type="FootballWebSiteDbModel.PlayerTeam" Role="PlayerTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PlayerTeam">
+        <PropertyRef Name="teamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

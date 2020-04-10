@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<teams>
+  <team id="" name="Equipe 1">
+    <players>
+      <player id="">
+        <firstName>Julien</firstName>
+        <lastName>Matter</lastName>
+        <dateOfBirth>19/05/1984</dateOfBirth>
+        <cityOfBirth>Mulhouse</cityOfBirth>
+        <nationality>Français</nationality>
+        <height>179</height>
+        <weight>78</weight>
+      </player>
+    </players>
+    <staff>
+
+    </staff>
+  </team>
+</teams>
