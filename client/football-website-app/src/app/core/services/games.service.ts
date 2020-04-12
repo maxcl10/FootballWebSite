@@ -2,7 +2,7 @@ import { throwError as observableThrowError, Observable } from 'rxjs';
 import {
   HttpClient,
   HttpErrorResponse,
-  HttpHeaders
+  HttpHeaders,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -15,11 +15,13 @@ import { Competition } from '../../shared/models/competition.model';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
+    'Content-Type': 'application/json',
+  }),
 };
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class GamesService {
   private gameUrl = AppConfig.settings.apiServer.url + '/games';
   private competitionsUrl =

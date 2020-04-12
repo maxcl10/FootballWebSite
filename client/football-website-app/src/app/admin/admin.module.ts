@@ -38,7 +38,7 @@ import { EditGamePlayersComponent } from './games/edit-game-players/edit-game-pl
     FormsModule,
     EditorModule,
     AdminRoutingModule,
-    CommonModule
+    CommonModule,
   ],
   declarations: [
     UploadRankingComponent,
@@ -57,8 +57,8 @@ import { EditGamePlayersComponent } from './games/edit-game-players/edit-game-pl
     DashboardComponent,
     ClubsListComponent,
     EditClubComponent,
-    EditGamePlayersComponent
+    EditGamePlayersComponent,
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AdminModule {}

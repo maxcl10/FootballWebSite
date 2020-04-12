@@ -1,0 +1,23 @@
+<div class="container" *ngIf="competition">
+  <h2 class="pageHeader">
+    <img
+      style="margin-top: -8px;"
+      src="../../../assets/img/{{ competition.ShortName }}.png"
+    />
+    <span class="d-none d-sm-inline">
+      Classement {{ competition.Name }} - Poule {{ competition.Group }} -
+      {{ competition.Season }}
+    </span>
+
+    <span class="d-block d-sm-none">
+      Classement
+    </span>
+  </h2>
+
+  <fws-widget [loading]="loading">
+    <fws-ranking-table
+      [ranking]="ranking"
+      [homeTeam]="homeTeam"
+    ></fws-ranking-table>
+  </fws-widget>
+</div>

@@ -1,0 +1,137 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-sm-12 col-xs-12">
+      <div
+        id="carouselExampleIndicators"
+        class="carousel slide shadow"
+        data-ride="carousel"
+      >
+        <ol class="carousel-indicators">
+          <li
+            data-target="#carouselExampleIndicators"
+            *ngFor="let url of imageUrls; let i = index"
+            data-slide-to="i"
+            [ngClass]="i == 0 ? 'active' : ''"
+          ></li>
+        </ol>
+        <div class="carousel-inner">
+          <div
+            *ngFor="let url of imageUrls; let i = index"
+            [ngClass]="i == 0 ? 'carousel-item active' : 'carousel-item'"
+          >
+            <img class="d-block w-100" src="{{ url }}" alt="First slide" />
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          href="#carouselExampleIndicators"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#carouselExampleIndicators"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <!-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+          <ol class="carousel-indicators">
+            <li
+              data-target="#myCarousel"
+              *ngFor="let url of imageUrls; let i = index"
+              data-slide-to="i"
+              [ngClass]="i == 0 ? 'active' : ''"
+            ></li>
+          </ol>
+
+
+          <div class="carousel-inner ">
+            <div
+              *ngFor="let url of imageUrls; let i = index"
+              [ngClass]="i == 0 ? 'item active' : 'item'"
+            >
+              <img class="img-thumbnail" src="{{ url }}" alt="Team Slide" />
+            </div>
+          </div>
+
+          <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a
+            class="carousel-control right"
+            href="#myCarousel"
+            data-slide="next"
+          >
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div>
+      </div>-->
+
+      <div *ngIf="loaded == false">
+        <img
+          src="../../../assets/img/loader_gif.gif"
+          width="150px"
+          class="center-block"
+        />
+        <p class="text-center">Chargement...</p>
+      </div>
+
+      <!-- <fws-today-game></fws-today-game>
+
+      <div class="d-block d-sm-none">
+        <fws-widget headerText="Prochain match">
+          <fws-game [game]="nextGame"></fws-game>
+        </fws-widget>
+
+        <fws-widget headerText="Dernier match">
+          <fws-game [game]="lastGame"></fws-game>
+        </fws-widget>
+      </div>
+
+      <br />
+      <div *ngIf="loaded == true" class="animated fadeIn">
+        <h2 class="d-block d-sm-none">News</h2>
+        <div>
+          <fws-article
+            *ngFor="let article of articles"
+            [article]="article"
+          ></fws-article>
+        </div>
+      </div> -->
+    </div>
+    <!-- Side -->
+    <div class="col-md-4 col-sm-3 hidden-xs hidden-sm">
+      <!-- <fws-widget headerText="Prochain match">
+        <fws-game [game]="nextGame"></fws-game>
+      </fws-widget>
+
+      <fws-widget headerText="Classement">
+        <fws-league-table-small></fws-league-table-small>
+      </fws-widget>
+
+      <fws-widget headerText="Dernier match">
+        <fws-game [game]="lastGame"></fws-game>
+      </fws-widget>
+
+      <fws-widget headerText="Championnat">
+        <fws-season-summary></fws-season-summary>
+      </fws-widget>
+
+      <fws-widget headerText="Présentation joueur">
+        <fws-players-carousel></fws-players-carousel>
+      </fws-widget>
+
+      <fws-widget headerText="Stats">
+        <fws-games-pie-chart></fws-games-pie-chart>
+      </fws-widget> -->
+    </div>
+  </div>
+</div>

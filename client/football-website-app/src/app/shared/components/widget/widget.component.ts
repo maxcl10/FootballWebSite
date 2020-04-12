@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'fws-widget',
   templateUrl: './widget.component.html',
-  styleUrls: ['./widget.component.scss']
+  styleUrls: ['./widget.component.scss'],
 })
 export class WidgetComponent implements OnInit {
   constructor() {}
@@ -14,7 +14,7 @@ export class WidgetComponent implements OnInit {
 
   @Input() loading = false;
 
-  @Input() loadingText = 'Loading';
+  @Input() loadingText = 'Chargement';
 
   @Input() error: string;
 

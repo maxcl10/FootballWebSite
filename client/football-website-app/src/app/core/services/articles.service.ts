@@ -7,11 +7,13 @@ import { AppConfig } from '../../app.config';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
+    'Content-Type': 'application/json',
+  }),
 };
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class ArticlesService {
   private articleUrl = AppConfig.settings.apiServer.url + '/articles';
 

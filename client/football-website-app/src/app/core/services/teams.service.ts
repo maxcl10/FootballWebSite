@@ -8,11 +8,13 @@ import { AppConfig } from '../../app.config';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
+    'Content-Type': 'application/json',
+  }),
 };
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class TeamsService {
   private teamsUrl = AppConfig.settings.apiServer.url + '/teams';
   private teamPlayersUrl = AppConfig.settings.apiServer.url + '/ns/teamplayer';

@@ -1,0 +1,34 @@
+<div class="container">
+  <h2>Staff</h2>
+
+  <fws-team-position-block
+    [players]="coaches"
+    [loading]="loading"
+  ></fws-team-position-block>
+
+  <h2>Effectif</h2>
+
+  <fws-team-position-block
+    title="Gardiens"
+    [players]="goalkeeperPlayers"
+    [loading]="loading"
+  ></fws-team-position-block>
+
+  <fws-team-position-block
+    title="Defenseurs"
+    [players]="defenderPlayers"
+    [loading]="loading"
+  ></fws-team-position-block>
+
+  <fws-team-position-block
+    title="Milieux"
+    [players]="midfieldPlayers"
+    [loading]="loading"
+  ></fws-team-position-block>
+
+  <fws-team-position-block
+    title="Attaquants"
+    [players]="attackerPlayers"
+    [loading]="loading"
+  ></fws-team-position-block>
+</div>

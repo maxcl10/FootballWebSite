@@ -10,9 +10,12 @@ import { CompetitionComponent } from './components/competition/competition.compo
 import { TeamNamePipe } from './pipes/team-name';
 import { PitchComponent } from '../shared/components/pitch/pitch.component';
 import { WidgetComponent } from './components/widget/widget.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule, HttpClientModule, ReactiveFormsModule],
   declarations: [
     SearchPipe,
     FrDatePipe,
@@ -23,7 +26,7 @@ import { WidgetComponent } from './components/widget/widget.component';
     GuideComponent,
     CompetitionComponent,
     PitchComponent,
-    WidgetComponent
+    WidgetComponent,
   ],
   exports: [
     SearchPipe,
@@ -33,8 +36,8 @@ import { WidgetComponent } from './components/widget/widget.component';
     GameScoreComponent,
     CompetitionComponent,
     PitchComponent,
-    WidgetComponent
-  ]
+    WidgetComponent,
+  ],
 })
 
 // Contains components, directives and pipes that are shared accross the modules

@@ -7,11 +7,13 @@ import { Player } from '../../shared/models/player.model';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
+    'Content-Type': 'application/json',
+  }),
 };
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class PlayersService {
   private playerUrl = AppConfig.settings.apiServer.url + '/players';
 

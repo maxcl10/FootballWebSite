@@ -1,0 +1,51 @@
+<div class="container">
+  <fws-widget [headerText]="player.lastName + ' ' + player.firstName">
+    <div class="row">
+      <div class="col-md-4">
+        <img
+          [src]="
+            '../../../assets/img/players/' +
+            player.firstName +
+            '_' +
+            player.lastName +
+            '.png'
+          "
+          class="img-responsive img-thumbnail"
+          onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
+        />
+      </div>
+      <div class="col-md-8">
+        <dl class="dl-horizontal">
+          <dt>Poste</dt>
+          <dd>{{ player.position }}</dd>
+          <dt>Date de naissance</dt>
+          <dd>
+            {{ player.dateOfBirth | frDate: 'dd/MM/yyyy' }} ({{ playerAge }}
+            ans)
+          </dd>
+          <dt>Taille</dt>
+          <dd>{{ player.height / 100 }} m</dd>
+          <dt>Poids</dt>
+          <dd>{{ player.weight }} kg</dd>
+          <dt>Nationalité</dt>
+          <dd>{{ player.nationality }}</dd>
+          <dt>Surnom</dt>
+          <dd>{{ player.nickname }}</dd>
+          <dt>Joueur préféré</dt>
+          <dd>{{ player.favoritePlayer }}</dd>
+          <dt>Equipe préférée</dt>
+          <dd>{{ player.favoriteTeam }}</dd>
+          <dt>Numéro fétiche</dt>
+          <dd>{{ player.favoriteNumber }}</dd>
+          <dt>Clubs précédents</dt>
+          <dd>{{ player.previousClubs }}</dd>
+        </dl>
+      </div>
+    </div>
+  </fws-widget>
+
+  <button (click)="goBack()" class="btn btn-default">Retour</button>
+  <button (click)="goToEdit()" *ngIf="isAuthenticated" class="btn btn-success">
+    Editer
+  </button>
+</div>

@@ -1,5 +1,10 @@
 /*General style valable for all tenants*/
 
+body {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 15px;
+}
+
 .table-clickable > tbody > tr :hover {
   cursor: pointer !important;
 }

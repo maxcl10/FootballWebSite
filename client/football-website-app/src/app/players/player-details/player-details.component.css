@@ -1,0 +1,45 @@
+/* https://nicolaskadis.info/posts/pure-css-flip-cards-using-bootstrap-4-and-css-grid-no-js */
+
+.card-container {
+  display: grid;
+  perspective: 700px;
+}
+
+.card-flip,
+.card-container {
+  transform-style: preserve-3d;
+  transition: all 0.7s ease;
+}
+
+.card-flip div {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+.card-flip {
+  display: grid;
+  grid-template: 1fr / 1fr;
+  grid-template-areas: 'frontAndBack';
+  transform-style: preserve-3d;
+  transition: all 0.7s ease;
+}
+
+.front {
+  grid-area: frontAndBack;
+  /* background-color: #f2f2f2; */
+}
+
+.back {
+  grid-area: frontAndBack;
+  transform: rotateY(-180deg);
+  background: #097343;
+  background: linear-gradient(0deg, #0e9c5b 0%, #097343 100%);
+  color: white;
+}
+
+.back {
+  transform: rotateY(-180deg);
+}
+
+.card-container:hover .card-flip {
+  transform: rotateY(180deg);
+}

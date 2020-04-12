@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class LogoService {
   public getLogoPath(team: string, size: number) {
     const baseUrl = '../../../assets/img/logos/';

@@ -1,0 +1,51 @@
+<table *ngIf="assists" class="table table-borderless">
+  <thead>
+    <tr>
+      <td></td>
+      <td></td>
+      <td class="text-center">Tot</td>
+      <td class="text-center">Champ</td>
+      <td class="text-center">CDF</td>
+      <td class="text-center">CGE</td>
+      <td class="text-center">CCM</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let assist of assists">
+      <td>
+        <img
+          [src]="
+            '../../../assets/img/players/' +
+            assist.playerFirstName +
+            '_' +
+            assist.playerLastName +
+            '.png'
+          "
+          class="rounded-circle"
+          style="width: 40px; margin: 2px;"
+        />
+      </td>
+      <td class="bold">
+        <a href="" [routerLink]="['/player', assist.playerId]">{{
+          assist.playerName
+        }}</a>
+      </td>
+      <td class="text-center">
+        <b>{{ assist.totalAssists }}</b>
+      </td>
+      <td class="text-center">
+        {{ assist.championshipAssists }}
+      </td>
+      <td class="text-center">
+        {{ assist.nationalCupAssists }}
+      </td>
+      <td class="text-center">
+        {{ assist.regionalCupAssists }}
+      </td>
+      <td class="text-center">
+        {{ assist.otherCupAssists }}
+      </td>
+    </tr>
+    <tr></tr>
+  </tbody>
+</table>

@@ -2,7 +2,7 @@ import { throwError as observableThrowError, Observable } from 'rxjs';
 import {
   HttpClient,
   HttpErrorResponse,
-  HttpHeaders
+  HttpHeaders,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Sponsor } from '../../shared/models/sponsor.model';
@@ -10,11 +10,13 @@ import { AppConfig } from '../../app.config';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
+    'Content-Type': 'application/json',
+  }),
 };
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class SponsorsService {
   private sponsorsUrl = AppConfig.settings.apiServer.url + '/sponsors';
 

@@ -2,7 +2,7 @@ import { throwError as observableThrowError, Observable } from 'rxjs';
 import {
   HttpClient,
   HttpErrorResponse,
-  HttpHeaders
+  HttpHeaders,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -12,11 +12,13 @@ import { OrganizationalItem } from '../../shared/models/organizational-item.mode
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
+    'Content-Type': 'application/json',
+  }),
 };
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class ClubService {
   private ownerUrl = AppConfig.settings.apiServer.url + '/owner';
 

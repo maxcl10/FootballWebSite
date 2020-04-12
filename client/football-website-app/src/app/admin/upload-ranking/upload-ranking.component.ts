@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { LeagueRankingsService } from '../../core/services/league-table.service';
+import { RankingsService } from '../../ranking/rankings.service';
 
 @Component({
   selector: 'fws-upload-ranking',
   templateUrl: './upload-ranking.component.html',
-  providers: [LeagueRankingsService]
 })
 export class UploadRankingComponent {
   public uploadFile: any;
@@ -13,10 +12,10 @@ export class UploadRankingComponent {
   public errorMessage: string;
 
   public options: Object = {
-    url: 'https://fcuwebapi.azurewebsites.net/api/ranking'
+    url: 'https://fcuwebapi.azurewebsites.net/api/ranking',
   };
 
-  constructor(private leagueService: LeagueRankingsService) {}
+  constructor(private rankingsService: RankingsService) {}
 
   public handleUpload(data: any): void {
     if (data && data.response) {
@@ -33,11 +32,11 @@ export class UploadRankingComponent {
   }
 
   public updateRankingFromLafa() {
-    this.leagueService.updateRankingFromLafa().subscribe(
-      res => {
+    this.rankingsService.updateRankingFromLafa().subscribe(
+      (res) => {
         this.success = true;
       },
-      error => (this.errorMessage = <any>error)
+      (error) => (this.errorMessage = <any>error)
     );
   }
 

@@ -1,0 +1,188 @@
+<div class="card-container mb-3">
+  <div class="card-flip card">
+    <div class="front">
+      <img
+        [src]="
+          '../../../assets/img/players/' +
+          player.firstName +
+          '_' +
+          player.lastName +
+          '.png'
+        "
+        class="img-fluid card-img-top mb-2"
+        onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
+      />
+      <div class="text-center">
+        <h5 class="card-title">
+          {{ player.firstName }}
+          <label class="text-uppercase bold">{{ player.lastName }}</label>
+        </h5>
+        <h6
+          class="card-subtitle text-muted mb-2"
+          *ngIf="
+            player.position != 'Gardien' &&
+            player.position != 'Defenseur' &&
+            player.position != 'Milieu' &&
+            player.position != 'Attaquant'
+          "
+        >
+          {{ player.position }}
+        </h6>
+      </div>
+    </div>
+    <div class="back">
+      <div class="card-body">
+        <div class="text-center">
+          <h6 class="card-subtitle mb-2">
+            <p *ngIf="player.nickname != null">{{ player.nickname }}</p>
+          </h6>
+          <img
+            [src]="
+              '../../../assets/img/players/' +
+              player.firstName +
+              '_' +
+              player.lastName +
+              '.png'
+            "
+            style="width: 40%;"
+            class="rounded-circle"
+            onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
+          />
+        </div>
+        <div class="card-text">
+          <ul class="list-unstyled">
+            <li *ngIf="playerAge">
+              {{ player.dateOfBirth | frDate: 'dd/MM/yyyy' }} ({{ playerAge }}
+              ans)
+            </li>
+            <li *ngIf="player.height || player.weight">
+              <span *ngIf="player.height">{{ player.height / 100 }} m</span>
+              <span *ngIf="player.height && player.weight"> / </span>
+              <span *ngIf="player.weight">{{ player.weight }} kg</span>
+            </li>
+            <li *ngIf="player.previousClubs" class="mt-2">
+              <b>Clubs précédents: </b> {{ player.previousClubs }}
+            </li>
+          </ul>
+        </div>
+        <a
+          href="#"
+          [routerLink]="['/player', player.id]"
+          class="btn btn-default"
+          >Voir fiche</a
+        >
+        <!-- <a href="#" class="card-link">Voir Fiche</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="card">
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img
+          [src]="
+            '../../../assets/img/players/' +
+            player.firstName +
+            '_' +
+            player.lastName +
+            '.png'
+          "
+          class="img-fluid card-img-top"
+          onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
+        />
+
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ player.firstName }}
+            <label class="text-uppercase bold">{{ player.lastName }}</label>
+          </h5>
+        </div>
+        <h6
+          class="card-subtitle text-muted"
+          *ngIf="
+            player.position != 'Gardien' &&
+            player.position != 'Defenseur' &&
+            player.position != 'Milieu' &&
+            player.position != 'Attaquant'
+          "
+        >
+          <b> {{ player.position }}</b>
+        </h6>
+      </div>
+      <div class="flip-card-back">
+        <div class="card">
+          <h1>
+            {{ player.firstName }}
+            <label class="text-uppercase bold">{{ player.lastName }}</label>
+          </h1>
+          <p *ngIf="player.nickname != null">Alias {{ player.nickname }}</p>
+          <p>We love that guy</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div id="player" class="card">
+  <div class="card-header">
+    <a href="" [routerLink]="['/player', player.id]">
+      <span class="d-none d-sm-inline">
+        {{ player.firstName }}
+        <label class="text-uppercase bold">{{ player.lastName }}</label>
+      </span>
+      <span class="d-block d-sm-none">
+        {{ player.lastName }}
+        {{ player.firstName.slice(0, 1) }}.
+      </span></a
+    >
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-5">
+        <a href="" [routerLink]="['/player', player.id]">
+          <img
+            [src]="
+              '../../../assets/img/players/' +
+              player.firstName +
+              '_' +
+              player.lastName +
+              '.png'
+            "
+            class="img-fluid"
+            onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
+          />
+        </a>
+      </div>
+      <div class="col-md-7 hidden-xs">
+        <ul class="list-unstyled">
+          <li
+            *ngIf="
+              player.position != 'Gardien' &&
+              player.position != 'Defenseur' &&
+              player.position != 'Milieu' &&
+              player.position != 'Attaquant'
+            "
+          >
+            <b> {{ player.position }}</b>
+          </li>
+          <li *ngIf="player.nickname != null">Alias {{ player.nickname }}</li>
+          <li *ngIf="playerAge != 0">
+            {{ player.dateOfBirth | frDate: 'dd/MM/yyyy' }} ({{ playerAge }}
+            ans)
+          </li>
+          <li *ngIf="player.height != null && player.height != 0">
+            {{ player.height / 100 }} m
+          </li>
+          <li *ngIf="player.weight != null && player.weight != 0">
+            {{ player.weight }} kg
+          </li>
+          <li>{{ player.nationality }}</li>
+        </ul>
+      </div>
+    </div>
+    <div style="height: 50px; margin-top: 5px;" class="d-none d-sm-inline">
+      <b>Clubs précédents: </b> {{ player.previousClubs }}
+    </div>
+  </div>
+</div> -->
