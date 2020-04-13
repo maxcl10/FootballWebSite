@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { groupBy, mergeMap, toArray } from 'rxjs/operators';
 import { Observable, from, merge, of } from 'rxjs';
@@ -9,15 +9,17 @@ import { TeamsService } from '../../core/services/teams.service';
 import { Game } from '../../shared/models/game.model';
 import { SeoService } from '../../core/services/seo.service';
 import { AppConfig } from '../../app.config';
+import { SubSink } from 'subsink';
 
 @Component({
   selector: 'fws-fixtures-container',
   templateUrl: './fixtures-container.component.html',
-  providers: [GamesService, LogoService, TeamsService],
 })
-export class FixturesContainerComponent implements OnInit {
+export class FixturesContainerComponent implements OnInit, OnDestroy {
   errorMessage: string;
   homeTeam: string;
+  subs = new SubSink();
+
   gamesPerMonth: Game[][];
   loading: boolean;
   currentMonth =
@@ -40,7 +42,7 @@ export class FixturesContainerComponent implements OnInit {
 
     this.getGames();
 
-    this.teamsService.getHomeTeams().subscribe(
+    this.subs.sink = this.teamsService.getHomeTeams().subscribe(
       (homeTeams) => {
         this.homeTeam = homeTeams[0].name;
       },
@@ -51,7 +53,7 @@ export class FixturesContainerComponent implements OnInit {
   public getGames() {
     this.gamesPerMonth = new Array();
 
-    this.gamesService.getGames().subscribe(
+    this.subs.sink = this.gamesService.getGames().subscribe(
       (games) => {
         games.forEach((element) => {
           element.homeTeamLogoUrl = this.logoService.getLogoPath(
@@ -87,5 +89,9 @@ export class FixturesContainerComponent implements OnInit {
 
   public getWeb(game: Game) {
     return game.MatchDate.getMonth();
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 }

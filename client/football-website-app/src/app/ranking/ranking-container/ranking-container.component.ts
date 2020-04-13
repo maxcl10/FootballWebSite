@@ -53,16 +53,13 @@ export class RankingContainerComponent implements OnInit, OnDestroy {
       (error) => (this.errorMessage = <any>error)
     );
 
-    this.getRankings();
-  }
-
-  public getRankings() {
     this.subs.sink = this.rankingService.getRankings().subscribe(
       (ranking) => {
         ranking.forEach((element) => {
           element.imageUrl = this.logoService.getLogoPath(element.team, 30);
         });
         this.ranking = ranking;
+
         this.loading = false;
       },
       (error) => (this.errorMessage = <any>error)

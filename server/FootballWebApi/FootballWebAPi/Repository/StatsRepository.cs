@@ -136,55 +136,16 @@ namespace FootballWebSiteApi.Repository
             var games = entities.Games.Where(o => o.HomeTeamScore != null
             && o.AwayTeamScore != null
             && o.ownerId.ToString() == Properties.Settings.Default.OwnerId
-            && o.SeasonId == currentSeasonId).OrderBy(o => o.MatchDate);
+            && o.SeasonId == currentSeasonId).OrderBy(o => o.MatchDate).ToList();
 
             //Get team Id
-            var firstTeamId = entities.Teams.Where(o => o.ownerId.ToString() == Properties.Settings.Default.OwnerId)
+            var localTeamId = entities.Teams.Where(o => o.ownerId.ToString() == Properties.Settings.Default.OwnerId)
                 .OrderBy(o => o.displayOrder).First().id;
+
 
             foreach (var game in games)
             {
-                if (game.HomeTeamScore == game.AwayTeamScore) //Draw
-                {
-                    //penalty
-                    if (game.PenaltyAwayTeamScore != null && game.PenaltyHomeTeamScore != null)
-                    {
-                        if (game.Team.id == firstTeamId)
-                        {
-                            //home team
-                            shapes.Add(game.PenaltyHomeTeamScore > game.PenaltyAwayTeamScore ? "G" : "P");
-                        }
-                        else
-                        {
-                            shapes.Add(game.PenaltyHomeTeamScore > game.PenaltyAwayTeamScore ? "P" : "G");
-                        }
-                    }
-                    // prologation
-                    else if (game.ProlongAwayTeamScore != null && game.ProlongHomeTeamScore != null)
-                    {
-                        if (game.Team.id == firstTeamId)    //prolong uffheim home
-                        {
-                            shapes.Add(game.ProlongHomeTeamScore > game.ProlongAwayTeamScore ? "G" : "P");
-                        }
-                        else
-                        {
-                            shapes.Add(game.ProlongHomeTeamScore > game.ProlongAwayTeamScore ? "G" : "P");
-                        }
-                    }
-                    else //no penalty no prolong
-                    {
-                        shapes.Add("N");
-                    }
-                }
-                else if (game.Team.id == firstTeamId)
-                {
-                    //home team
-                    shapes.Add(game.HomeTeamScore > game.AwayTeamScore ? "G" : "P");
-                }
-                else
-                {
-                    shapes.Add(game.HomeTeamScore > game.AwayTeamScore ? "P" : "G");
-                }
+                shapes.Add(BusinessLogic.GetResultChar(game, localTeamId));
             }
 
             return shapes;

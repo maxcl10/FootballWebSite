@@ -27,12 +27,12 @@ namespace FootballWebSiteApi.Repository
             var games = Mapper.Map(entities.Games.Where(o => o.SeasonId == currentSeasonId && o.ownerId.ToString() == Properties.Settings.Default.OwnerId)
             .OrderBy(o => o.MatchDate).Include("Team").Include("Team1"));
 
-            var localTeam = entities.Teams.Where(o => o.ownerId.ToString() == Properties.Settings.Default.OwnerId)
+            var localTeamId = entities.Teams.Where(o => o.ownerId.ToString() == Properties.Settings.Default.OwnerId)
             .OrderBy(o => o.displayOrder).First().id;
 
             foreach (var game in games)
             {
-                game.Result = GetResult(game, localTeam);
+                game.Result = BusinessLogic.GetResultChar(game, localTeamId);
             }
 
             return games;
@@ -54,8 +54,11 @@ namespace FootballWebSiteApi.Repository
                 return null;
             }
 
+            var localTeamId = entities.Teams.Where(o => o.ownerId.ToString() == Properties.Settings.Default.OwnerId)
+            .OrderBy(o => o.displayOrder).First().id;
+
             var game = Mapper.Map(nextGame);
-            game.Result = GetResult(game);
+            game.Result = BusinessLogic.GetResultChar(game, localTeamId);
             return game;
         }
 
@@ -80,8 +83,11 @@ namespace FootballWebSiteApi.Repository
 
             }
 
+            var localTeamId = entities.Teams.Where(o => o.ownerId.ToString() == Properties.Settings.Default.OwnerId)
+            .OrderBy(o => o.displayOrder).First().id;
+
             var game = Mapper.Map(previous);
-            game.Result = GetResult(game);
+            game.Result = BusinessLogic.GetResultChar(game, localTeamId);
             return game;
         }
 
@@ -93,59 +99,17 @@ namespace FootballWebSiteApi.Repository
         /// <exception cref="NotImplementedException"></exception>
         public JGame Get(string id)
         {
+            var localTeamId = entities.Teams.Where(o => o.ownerId.ToString() == Properties.Settings.Default.OwnerId)
+            .OrderBy(o => o.displayOrder).First().id;
+
             JGame game = Mapper.Map(entities.Games.Single(o => o.Id.ToString() == id));
+            game.Result = BusinessLogic.GetResultChar(game, localTeamId);
 
 
-            game.Result = GetResult(game);
             return game;
         }
 
-        private string GetResult(JGame game, Guid? localTeam = null)
-        {
-            if (localTeam == null)
-            {
-                localTeam = entities.Teams.Where(o => o.ownerId.ToString() == Properties.Settings.Default.OwnerId)
-               .OrderBy(o => o.displayOrder).First().id;
 
-            }
-
-            if ((game.HomeTeamScore > game.AwayTeamScore && game.HomeTeamId == localTeam) ||
-     (game.HomeTeamScore < game.AwayTeamScore && game.AwayTeamId == localTeam) ||
-     (game.HomeExtraTimeScore > game.AwayExtraTimeScore &&
-       game.HomeTeamId == localTeam) ||
-     (game.HomeExtraTimeScore < game.AwayExtraTimeScore &&
-       game.AwayTeamId == localTeam) ||
-     (game.HomePenaltyScore > game.AwayPenaltyScore &&
-       game.HomeTeamId == localTeam) ||
-     (game.HomePenaltyScore < game.AwayPenaltyScore &&
-       game.AwayTeamId == localTeam))
-            {
-                return "W";
-            }
-            else if ((game.HomeTeamScore < game.AwayTeamScore && game.HomeTeamId == localTeam) ||
-      (game.HomeTeamScore > game.AwayTeamScore && game.AwayTeamId == localTeam) ||
-      (game.HomeExtraTimeScore < game.AwayExtraTimeScore &&
-        game.HomeTeamId == localTeam) ||
-      (game.HomeExtraTimeScore > game.AwayExtraTimeScore &&
-        game.AwayTeamId == localTeam) ||
-      (game.HomePenaltyScore < game.AwayPenaltyScore &&
-        game.HomeTeamId == localTeam) ||
-      (game.HomePenaltyScore > game.AwayPenaltyScore &&
-        game.AwayTeamId == localTeam))
-            {
-                return "L";
-            }
-            else if (game.HomeTeamScore != null && game.AwayTeamScore != null && game.HomeTeamScore == game.AwayTeamScore &&
-      game.AwayPenaltyScore == null &&
-      game.HomePenaltyScore == null &&
-      game.HomeExtraTimeScore == null &&
-      game.AwayExtraTimeScore == null)
-            {
-                return "D";
-            }
-
-            return null;
-        }
 
         /// <summary>
         /// Create a new game.
@@ -189,7 +153,7 @@ namespace FootballWebSiteApi.Repository
 
             correspondingGame.Team = entities.Teams.Find(jgame.HomeTeamId);
             correspondingGame.Team1 = entities.Teams.Find(jgame.AwayTeamId);
-            correspondingGame.Championship = jgame.Championship;           
+            correspondingGame.Championship = jgame.Championship;
             correspondingGame.MatchDate = jgame.MatchDate;
             correspondingGame.HomeTeamScore = jgame.HomeTeamScore;
             correspondingGame.AwayTeamScore = jgame.AwayTeamScore;
