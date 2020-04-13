@@ -1,0 +1,118 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <!-- <a class="navbar-brand" href="#">
+      <img id="logo" *ngIf="club" src="{{ club.logoUrl }}"
+    /></a> -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto" style="margin-left: 110px;">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href=""
+            routerLinkActive="active"
+            [routerLink]="['home']"
+            >Accueil</a
+          >
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Equipes
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a
+              class="dropdown-item"
+              *ngFor="let team of teams; let i = index"
+              href="#"
+              [routerLink]="['team', team.id]"
+              >Equipe {{ i + 1 }}</a
+            >
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href=""
+            routerLinkActive="active"
+            [routerLink]="['ranking']"
+            >Classement</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLink]="['fixtures']"
+            >Calendrier</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['stats']"
+            >Stats</a
+          >
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Club
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#" [routerLink]="['club', 'history']"
+              >Histoire</a
+            >
+            <a
+              class="dropdown-item"
+              href="#"
+              [routerLink]="['club', 'organizational-chart']"
+              >Organigramme</a
+            >
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLink]="['sponsors']"
+            >Partenaires</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLink]="['contacts']"
+            >Contact</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -22,13 +22,16 @@ export class StatsContainerComponent implements OnInit, OnDestroy {
   public shape: string[];
 
   loadingPlayerStats: boolean;
+  loadingShape: boolean;
+  loadingScoredGoals: boolean;
+  loadingConcededGoals: boolean;
 
   ngOnInit() {
     this.titleService.setTitle(
       AppConfig.settings.properties.siteName + ' - Classement'
     );
 
-    this.loadingPlayerStats = true;
+    this.loadingScoredGoals = this.loadingConcededGoals = this.loadingPlayerStats = this.loadingShape = true;
     this.subs.sink = this.service.getStrickers().subscribe((res) => {
       this.playerStats = res;
       this.loadingPlayerStats = false;
@@ -36,9 +39,16 @@ export class StatsContainerComponent implements OnInit, OnDestroy {
 
     this.subs.sink = this.service.getScoredGoalsPerGame().subscribe((res) => {
       this.scoredGoalsPerGame = res;
+      this.loadingScoredGoals = false;
     });
     this.subs.sink = this.service.getConcededGoalsPerGame().subscribe((res) => {
       this.concededGoalsPerGame = res;
+      this.loadingConcededGoals = false;
+    });
+
+    this.subs.sink = this.service.getShape().subscribe((stats) => {
+      this.shape = stats.slice(stats.length - 5);
+      this.loadingShape = false;
     });
   }
 

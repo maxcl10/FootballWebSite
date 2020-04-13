@@ -1,4 +1,4 @@
-<table id="leagueTable" class="table table-striped ranking">
+<table id="leagueTable" class="table table-striped table-borderless">
   <thead>
     <tr>
       <th></th>
@@ -17,7 +17,7 @@
     <tr
       *ngFor="let item of ranking"
       [ngClass]="{
-        mauve: item.team == homeTeam,
+        'bg-primary text-white': item.team == homeTeam,
         'border-bottom': item.position == 1,
         'border-top': item.position == 12
       }"

@@ -1,6 +1,6 @@
 <div class="container">
   <h2 class="pageHeader">Organigramme</h2>
-  <div *ngIf="(organizationChart$ | async) as organizationChart">
+  <div *ngIf="organizationChart$ | async as organizationChart">
     <div
       *ngFor="let group of organizationChart; let i = index"
       class="card-block"
@@ -25,7 +25,7 @@
         <div
           *ngFor="let person of group.persons"
           class="col-md-2 col-sm-6 col-xs-8 card col-xs-offset-2 col-sm-offset-0"
-          [ngClass]="group.persons.lenth == 2 ? 'col-offset-md-2' : ''"
+          [ngClass]="group.persons.length == 2 ? 'col-offset-md-2' : ''"
         >
           <div class="content">
             <img

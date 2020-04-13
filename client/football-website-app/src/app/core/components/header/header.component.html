@@ -1,0 +1,46 @@
+<div class="page-header">
+  <div class="container">
+    <div class="header">
+      <a href="" [routerLink]="['./admin']">
+        <img id="logo" *ngIf="club" src="{{ club.logoUrl }}" />
+      </a>
+      <div class="header-title siteTitle">
+        <div class="d-none d-sm-inline">
+          <div
+            class="fb-like pull-right"
+            data-href="https://fcbartenheim.com/"
+            data-layout="button_count"
+            data-action="like"
+            data-size="large"
+            data-show-faces="true"
+            data-share="true"
+          ></div>
+          <h1 *ngIf="club" class="text-primary">{{ club.longName }}</h1>
+          <span class="subHeader text-muted">Site officiel</span>
+        </div>
+        <div class="d-block d-sm-none">
+          <h1 *ngIf="club">{{ club.name }}</h1>
+          <!-- <div class="fb-like pull-right" style="margin-bottom: 5px; margin-right: 10px" data-href="https://fcuffheim.com/"
+            data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div> -->
+          <div
+            class="fb-like pull-right"
+            style="margin-bottom: 5px; margin-right: 10px;"
+            data-href="https://fcbartenheim.com/"
+            data-layout="button_count"
+            data-action="like"
+            data-size="large"
+            data-show-faces="true"
+            data-share="false"
+          ></div>
+          <span>Site officiel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<fws-navigation></fws-navigation>
+
+<div style="margin-bottom: 20px;" *ngIf="club && club.name == 'F.C Bartenheim'">
+  <img src="../../../assets/img/ban.png" class="img-fluid" />
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { StatsService } from '../../core/services/stats.service';
 
 @Component({
@@ -7,13 +7,10 @@ import { StatsService } from '../../core/services/stats.service';
   styleUrls: ['./stats-last-results.component.css'],
 })
 export class StatsLastResultsComponent implements OnInit {
-  public stats: string[];
+  @Input()
+  public shape: string[];
 
   constructor(private statsService: StatsService) {}
 
-  ngOnInit() {
-    this.statsService.getShape().subscribe((stats) => {
-      this.stats = stats.slice(stats.length - 5);
-    });
-  }
+  ngOnInit() {}
 }

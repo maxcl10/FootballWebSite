@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { AuthGuard } from './user/auth.guard';
 
@@ -39,6 +39,10 @@ const routes: Routes = [
       import('./sponsors/sponsors.module').then((m) => m.SponsorsModule),
   },
   {
+    path: 'club',
+    loadChildren: () => import('./club/club.module').then((m) => m.ClubModule),
+  },
+  {
     path: 'contacts',
     loadChildren: () =>
       import('./contacts/contacts.module').then((m) => m.ContactsModule),
@@ -52,7 +56,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

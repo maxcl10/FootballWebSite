@@ -16,6 +16,8 @@ export class WidgetComponent implements OnInit {
 
   @Input() loadingText = 'Chargement';
 
+  @Input() transparent = false;
+
   @Input() error: string;
 
   ngOnInit() {}

@@ -1,4 +1,7 @@
-<div class="card shadow mb-3">
+<div
+  class="card shadow mb-3"
+  [ngClass]="{ 'bg-transparent shadow-none': transparent }"
+>
   <h5 class="card-header" *ngIf="headerText">{{ headerText }}</h5>
 
   <div
@@ -9,7 +12,7 @@
   >
     <ng-content *ngIf="!loading"></ng-content>
     <div *ngIf="loading" class="text-center card-body">
-      <i class="fa fa-cog fa-spin"></i>
+      <i class="fa fa-futbol-o fa-spin"></i>
       {{ loadingText }}
     </div>
   </div>

@@ -2,17 +2,17 @@
   <h2 class="pageHeader">Statistiques</h2>
   <div class="row">
     <div class="col-md-6">
-      <fws-widget headerText="Résultat">
-        <fws-stats-pie-chart></fws-stats-pie-chart>
+      <fws-widget headerText="Résultats" [loading]="loadingShape">
+        <fws-stats-pie-chart [shape]="shape"></fws-stats-pie-chart>
       </fws-widget>
     </div>
     <div class="col-md-6">
-      <fws-widget headerText="5 Derniers Matchs">
-        <fws-stats-last-results></fws-stats-last-results>
+      <fws-widget headerText="5 Derniers Matchs" [loading]="loadingShape">
+        <fws-stats-last-results [shape]="shape"></fws-stats-last-results>
       </fws-widget>
       <div class="row">
         <div class="col-md-6">
-          <fws-widget headerText="Défense">
+          <fws-widget headerText="Défense" [loading]="loadingConcededGoals">
             <div class="text-center">
               <b> {{ concededGoalsPerGame | number: '1.1-1' }}</b>
               <br />
@@ -21,7 +21,7 @@
           </fws-widget>
         </div>
         <div class="col-md-6">
-          <fws-widget headerText="Attaque">
+          <fws-widget headerText="Attaque" [loading]="loadingScoredGoals">
             <div class="text-center">
               <b>{{ scoredGoalsPerGame | number: '1.1-1' }} </b> <br />
               buts / match

@@ -12,8 +12,8 @@ import { User } from '../../shared/models/user.model';
     ArticlesService,
     AuthenticationService,
     PlayersService,
-    GamesService
-  ]
+    GamesService,
+  ],
 })
 export class AdminComponent implements OnInit {
   public errorMessage: string;
@@ -26,6 +26,6 @@ export class AdminComponent implements OnInit {
   public ngOnInit() {}
 
   public _toggleSidebar() {
-    $('#wrapper').toggleClass('toggled');
+    // $('#wrapper').toggleClass('toggled');
   }
 }

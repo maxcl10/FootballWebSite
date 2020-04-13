@@ -1,4 +1,21 @@
 @import './fcb_variables.scss';
+// set the variables you wish to change
+
+$theme-colors: (
+  'primary': $green-3,
+  'secondary': $grey-5,
+  'success': $green-5,
+  'danger': $red-1,
+);
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+// import in the bootstrap SASS file
+@import './node_modules/bootstrap/scss/bootstrap';
 
 html {
   position: relative;
@@ -13,25 +30,24 @@ body {
   color: $black-1;
   background-color: $grey-1;
   padding-bottom: 60px;
+  min-height: 100vh;
+  position: relative;
 }
 
-// body {
-//   min-height: 100vh;
-//   position: relative;
-//   margin: 0;
-// }
-
-// footer {
-//   position: absolute;
-//   bottom: 0;
-//   background-color: green;
-// }
+a:hover,
+.btn-link {
+  text-decoration: none;
+}
 
 .card {
   border-width: 0;
   border-radius: 1px;
 }
 
+.table th,
+.table td {
+  padding: 0.6rem;
+}
 // .table-clickable > tbody > tr :hover {
 //   cursor: pointer !important;
 // }
@@ -106,37 +122,10 @@ h5.card-header {
 //   width: 100%;
 // }
 
-.page-header {
-  background-color: #fff;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.siteTitle {
-  padding-left: 120px;
-}
-
-.siteTitle h1 {
-  font-size: 27px;
-  // margin-top: 18px;
-}
-
-.menuTitle {
-  padding-left: 106px;
-}
-
-.subHeader {
-  display: block;
-  margin-top: -12px;
-  // margin-bottom: 10px;
-  color: $grey-3;
-}
-
-#logo {
-  position: absolute;
-  width: 120px;
-  top: 10px;
-  z-index: 1500;
+.pageHeader {
+  margin-top: -90px;
+  color: $white-1;
+  margin-bottom: 50px;
 }
 
 // .table > tbody > tr.mauve {
@@ -341,12 +330,6 @@ article img {
 //   -o-transition: all 0.5s ease;
 //   transition: all 0.5s ease;
 // }
-
-.pageHeader {
-  margin-top: -90px;
-  color: $white-1;
-  margin-bottom: 50px;
-}
 
 // @media (max-width: 767px) {
 //   .pageHeader {

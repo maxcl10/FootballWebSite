@@ -20,7 +20,6 @@ import { AppState } from './app.service';
 
 import { environment } from '../environments/environment';
 import { AppConfig } from './app.config';
-import { PlayersModule } from './players/players.module';
 
 // Application wide providers
 const APP_PROVIDERS = [...APP_RESOLVER_PROVIDERS, AppState];
