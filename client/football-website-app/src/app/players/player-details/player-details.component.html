@@ -1,6 +1,6 @@
 <div class="card-container mb-3">
   <div class="card-flip card">
-    <div class="front">
+    <div class="front bg-grey">
       <img
         [src]="
           '../../../assets/img/players/' +
@@ -13,24 +13,30 @@
         onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
       />
       <div class="text-center">
-        <h5 class="card-title">
+        <h5 class="card-title text-primary">
+          <label class="text-uppercase font-weight-bold">{{
+            player.lastName
+          }}</label
+          ><br />
           {{ player.firstName }}
-          <label class="text-uppercase bold">{{ player.lastName }}</label>
         </h5>
-        <h6
-          class="card-subtitle text-muted mb-2"
-          *ngIf="
-            player.position != 'Gardien' &&
-            player.position != 'Defenseur' &&
-            player.position != 'Milieu' &&
-            player.position != 'Attaquant'
-          "
-        >
-          {{ player.position }}
-        </h6>
+
+        <div class="bg-primary">
+          <h6
+            class="card-subtitle text-white p-2"
+            *ngIf="
+              player.position != 'Gardien' &&
+              player.position != 'Defenseur' &&
+              player.position != 'Milieu' &&
+              player.position != 'Attaquant'
+            "
+          >
+            {{ player.position }}
+          </h6>
+        </div>
       </div>
     </div>
-    <div class="back">
+    <div class="back bg-primary">
       <div class="card-body">
         <div class="text-center">
           <h6 class="card-subtitle mb-2">
@@ -60,7 +66,7 @@
               <span *ngIf="player.height && player.weight"> / </span>
               <span *ngIf="player.weight">{{ player.weight }} kg</span>
             </li>
-            <li *ngIf="player.previousClubs" class="mt-2">
+            <li *ngIf="player.previousClubs" class="mt-2 d-none d-sm-block">
               <b>Clubs précédents: </b> {{ player.previousClubs }}
             </li>
           </ul>

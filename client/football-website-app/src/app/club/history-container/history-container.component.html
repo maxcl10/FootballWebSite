@@ -1,7 +1,11 @@
-<div class="container">
-  <h2 class="pageHeader">Histoire</h2>
+<fws-page-header>
+  Histoire
+</fws-page-header>
 
-  <fws-widget [loading]="loading">
-    <span [innerHTML]="clubHistory?.history"></span>
-  </fws-widget>
+<div class="container mt-3">
+  <div class="row">
+    <fws-widget [loading]="loading">
+      <span [innerHTML]="clubHistory?.history"></span>
+    </fws-widget>
+  </div>
 </div>

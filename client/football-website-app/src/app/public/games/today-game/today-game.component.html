@@ -1,7 +1,11 @@
 <div class="well" *ngIf="isToday">
   <div *ngIf="game != null">
     <h3>
-      <i class="fa fa-futbol-o" aria-hidden="true" style="margin-right:10px"></i
+      <i
+        class="fa fa-futbol-o"
+        aria-hidden="true"
+        style="margin-right: 10px;"
+      ></i
       >Jour de match
     </h3>
     <div class="row" *ngIf="gameType == 'Championnat'">
@@ -13,36 +17,36 @@
         <img src="../../../assets/img/R3.png" />
       </div>
     </div>
-    <div class="row" *ngIf="game.Championship == 'Coupe de France'">
+    <div class="row" *ngIf="game.championship == 'Coupe de France'">
       <div class="text-center">
         <div class="text-uppercase">
-          {{ game.Championship }}
+          {{ game.championship }}
         </div>
         <img src="../../../assets/img/coupe_de_france.png" />
       </div>
     </div>
-    <div class="row" *ngIf="game.Championship == 'Coupe d\'Alsace'">
+    <div class="row" *ngIf="game.championship == 'Coupe d\'Alsace'">
       <div class="text-center">
         <div class="text-uppercase">
-          {{ game.Championship }}
+          {{ game.championship }}
         </div>
         <img src="../../../assets/img/coupe_d_alsace.png" />
       </div>
     </div>
     <div class="row">
       <div class="col-md-6 col-xs-6 text-center">
-        <img [src]="game.homeTeamLogoUrl" [title]="game.HomeTeam" />
+        <img [src]="game.homeTeamLogoUrl" [title]="game.homeTeam" />
         <br />
-        <span>{{ game.HomeTeam }}</span>
+        <span>{{ game.homeTeam }}</span>
       </div>
       <div class="col-md-6 col-xs-6 text-center">
-        <img [src]="game.awayTeamLogoUrl" [title]="game.AwayTeam" />
+        <img [src]="game.awayTeamLogoUrl" [title]="game.awayTeam" />
         <br />
-        <span> {{ game.AwayTeam }}</span>
+        <span> {{ game.awayTeam }}</span>
       </div>
     </div>
-    <div class="text-center" style="margin-top: 20px">
-      Aujourd'hui à <strong>{{ game.MatchDate | frDate: 'time' }}</strong
+    <div class="text-center" style="margin-top: 20px;">
+      Aujourd'hui à <strong>{{ game.matchDate | frDate: 'time' }}</strong
       >!<br />
       Venez nombreux!
     </div>

@@ -15,6 +15,7 @@ import { AppConfig } from '../../app.config';
 export class HomeContainerComponent implements OnInit {
   public articles: Article[];
   public nextGame: Game;
+  loadLastGame: boolean;
   public lastGame: Game;
   public loaded = false;
   public errorMessage: string;
@@ -49,19 +50,24 @@ export class HomeContainerComponent implements OnInit {
   }
 
   public getLastGame() {
+    this.loadLastGame = true;
     this.gamesService.getLastGame().subscribe(
       (game) => {
         this.lastGame = game;
         this.lastGame.awayTeamLogoUrl = this.logoService.getLogoPath(
-          this.lastGame.AwayTeam,
-          60
+          this.lastGame.awayTeam,
+          100
         );
         this.lastGame.homeTeamLogoUrl = this.logoService.getLogoPath(
-          this.lastGame.HomeTeam,
-          60
+          this.lastGame.homeTeam,
+          100
         );
+        this.loadLastGame = false;
       },
-      (error) => (this.errorMessage = <any>error)
+      (error) => {
+        this.errorMessage = <any>error;
+        this.loadLastGame = false;
+      }
     );
   }
 
@@ -71,12 +77,12 @@ export class HomeContainerComponent implements OnInit {
         this.nextGame = game;
         if (this.nextGame != null) {
           this.nextGame.awayTeamLogoUrl = this.logoService.getLogoPath(
-            this.nextGame.AwayTeam,
-            60
+            this.nextGame.awayTeam,
+            100
           );
           this.nextGame.homeTeamLogoUrl = this.logoService.getLogoPath(
-            this.nextGame.HomeTeam,
-            60
+            this.nextGame.homeTeam,
+            100
           );
         }
       },

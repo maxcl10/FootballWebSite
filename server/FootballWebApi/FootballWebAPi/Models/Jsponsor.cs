@@ -1,17 +1,13 @@
-﻿using FootballWebSiteApi.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System;
 
 namespace FootballWebSiteApi.Models
 {
     public class JSponsor
     {
-        public Guid sponsorId { get; set; }
-        public string name { get; set; }
-        public string logoUrl { get; set; }
-        public string siteUrl { get; set; }
-        public int orderIndex { get; set; }
+        public Guid SponsorId { get; set; }
+        public string Name { get; set; }
+        public string LogoUrl { get; set; }
+        public string SiteUrl { get; set; }
+        public int OrderIndex { get; set; }
     }
 }

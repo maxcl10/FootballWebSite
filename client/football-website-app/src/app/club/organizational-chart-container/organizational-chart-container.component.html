@@ -1,5 +1,8 @@
-<div class="container">
-  <h2 class="pageHeader">Organigramme</h2>
+<fws-page-header>
+  Organigramme
+</fws-page-header>
+
+<div class="container mt-3">
   <div *ngIf="organizationChart$ | async as organizationChart">
     <div
       *ngFor="let group of organizationChart; let i = index"

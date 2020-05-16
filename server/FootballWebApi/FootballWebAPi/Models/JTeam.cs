@@ -4,14 +4,14 @@ namespace FootballWebSiteApi.Models
 {
     public class JTeam
     {
-        public Guid id { get; set; }
-        public string name { get; set; }
-        public string shortName { get; set; }
-        public string displayName { get; set; }
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+        public string ShortName { get; set; }
+        public string DisplayName { get; set; }
 
-        public string calendarUrl { get; set; }
+        public string CalendarUrl { get; set; }
 
-        public string rankingUrl { get; set; }
-        public int? displayOrder { get; set; }
+        public string RankingUrl { get; set; }
+        public int? DisplayOrder { get; set; }
     }
 }

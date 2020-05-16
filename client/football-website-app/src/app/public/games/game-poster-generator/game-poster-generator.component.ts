@@ -8,7 +8,7 @@ import { GamePlayer } from '../../../shared/models/game-player.model';
 @Component({
   selector: 'fws-game-poster-generator',
   templateUrl: './game-poster-generator.component.html',
-  styleUrls: ['./game-poster-generator.component.scss']
+  styleUrls: ['./game-poster-generator.component.scss'],
 })
 export class GamePosterGeneratorComponent implements OnInit {
   public games: Game[];
@@ -20,28 +20,28 @@ export class GamePosterGeneratorComponent implements OnInit {
 
   public ngOnInit() {
     const game1 = new Game();
-    game1.HomeTeam = 'BURNHAUPT LE HT';
-    game1.AwayTeam = 'FCB I';
-    game1.HomeTeamScore = 0;
-    game1.AwayTeamScore = 1;
-    game1.Result = 'W';
-    game1.Championship = 'B. Couve';
+    game1.homeTeam = 'BURNHAUPT LE HT';
+    game1.awayTeam = 'FCB I';
+    game1.homeTeamScore = 0;
+    game1.awayTeamScore = 1;
+    game1.result = 'W';
+    game1.championship = 'B. Couve';
 
     const game2 = new Game();
-    game2.HomeTeam = 'FCB II';
-    game2.AwayTeam = 'RAEDERSDORF';
-    game2.HomeTeamScore = 1;
-    game2.AwayTeamScore = 1;
-    game2.Championship = 'E. Mangin';
-    game2.Result = 'D';
+    game2.homeTeam = 'FCB II';
+    game2.awayTeam = 'RAEDERSDORF';
+    game2.homeTeamScore = 1;
+    game2.awayTeamScore = 1;
+    game2.championship = 'E. Mangin';
+    game2.result = 'D';
 
     const game3 = new Game();
-    game3.HomeTeam = 'HOCHSTATT';
-    game3.AwayTeam = 'FCB III';
-    game3.HomeTeamScore = 3;
-    game3.AwayTeamScore = 1;
-    game3.Championship = 'D. Nuzzo';
-    game3.Result = 'L';
+    game3.homeTeam = 'HOCHSTATT';
+    game3.awayTeam = 'FCB III';
+    game3.homeTeamScore = 3;
+    game3.awayTeamScore = 1;
+    game3.championship = 'D. Nuzzo';
+    game3.result = 'L';
 
     this.games = [];
     this.games.push(game1);

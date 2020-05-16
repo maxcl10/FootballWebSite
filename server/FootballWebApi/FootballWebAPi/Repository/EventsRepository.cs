@@ -1,40 +1,41 @@
-﻿using FootballWebSiteApi.Entities;
-using FootballWebSiteApi.Helpers;
-using FootballWebSiteApi.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using FootballWebSiteApi.Entities;
+using FootballWebSiteApi.Helpers;
+using FootballWebSiteApi.Interfaces;
+using FootballWebSiteApi.Models;
 
 namespace FootballWebSiteApi.Repository
 {
-    public class EventsRepository : IDisposable
+    public class EventsRepository : IEventsRepository
     {
-        private FootballWebSiteDbEntities entities;
+        private FootballWebSiteDbEntities _entities;
 
         public EventsRepository()
         {
-            entities = new FootballWebSiteDbEntities();
+            _entities = new FootballWebSiteDbEntities();
         }
 
         public List<JEvent> GetEventsByGame(Guid gameId)
         {
-            var events = entities.GameEvents.Where(o => o.PlayerGame.GameId == gameId);
+            var events = _entities.GameEvents.Where(o => o.PlayerGame.GameId == gameId);
             return Mapper.Map(events);
         }
 
         public JEvent CreateEvent(JEvent gameEvent)
         {
-            gameEvent.eventId = Guid.NewGuid();
+            gameEvent.EventId = Guid.NewGuid();
 
-            entities.GameEvents.Add(new GameEvent
+            _entities.GameEvents.Add(new GameEvent
             {
-                EventTypeId = gameEvent.eventTypeId,
-                GameEventId = gameEvent.eventId,
-                PlayeGameId = gameEvent.gamePlayerId,
-                Time = gameEvent.time
+                EventTypeId = gameEvent.EventTypeId,
+                GameEventId = gameEvent.EventId,
+                PlayeGameId = gameEvent.GamePlayerId,
+                Time = gameEvent.Time
             });
 
-            entities.SaveChanges();
+            _entities.SaveChanges();
 
             return gameEvent;
 
@@ -44,14 +45,44 @@ namespace FootballWebSiteApi.Repository
 
         public void DeleteEvent(Guid eventId)
         {
-            var corresponding = entities.GameEvents.Single(o => o.GameEventId == eventId);
-            entities.GameEvents.Remove(corresponding);
-            entities.SaveChanges();
+            var corresponding = _entities.GameEvents.Single(o => o.GameEventId == eventId);
+            _entities.GameEvents.Remove(corresponding);
+            _entities.SaveChanges();
         }
 
+        #region Dispose 
+
+        // Flag: Has Dispose already been called?
+        bool disposed = false;
+
+        /// <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
         public void Dispose()
         {
-            entities.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
+
+        // Protected implementation of Dispose pattern.
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposed)
+                return;
+
+            if (disposing)
+            {
+                _entities?.Dispose();
+            }
+
+            // Free any unmanaged objects here.
+            //
+            disposed = true;
+        }
+
+        ~EventsRepository()
+        {
+            Dispose(false);
+        }
+
+        #endregion
     }
 }

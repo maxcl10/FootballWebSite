@@ -1,25 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace FootballWebSiteApi.Models
 {
     public class JPlayer
     {
-        public Guid id { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public System.DateTime? dateOfBirth { get; set; }
-        public int? height { get; set; }
-        public int? weight { get; set; }
-        public string nationality { get; set; }
-        public string position { get; set; }
-        public string previousClubs { get; set; }
-        public string nickname { get; set; }
-        public string favoritePlayer { get; set; }
-        public string favoriteNumber { get; set; }
-        public string favoriteTeam { get; set; }
+        public Guid Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public int? Height { get; set; }
+        public int? Weight { get; set; }
+        public string Nationality { get; set; }
+        public string Position { get; set; }
+        public string PreviousClubs { get; set; }
+        public string Nickname { get; set; }
+        public string FavoritePlayer { get; set; }
+        public string FavoriteNumber { get; set; }
+        public string FavoriteTeam { get; set; }
 
     }
 }

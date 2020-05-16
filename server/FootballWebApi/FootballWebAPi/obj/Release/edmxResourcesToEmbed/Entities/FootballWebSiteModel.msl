@@ -4,6 +4,9 @@
     <EntitySetMapping Name="Articles">
       <EntityTypeMapping TypeName="FootballWebSiteDbModel.Article">
         <MappingFragment StoreEntitySet="Article">
+          <ScalarProperty Name="subTitle" ColumnName="subTitle" />
+          <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
+          <ScalarProperty Name="articleTypeId" ColumnName="articleTypeId" />
           <ScalarProperty Name="seasonId" ColumnName="seasonId" />
           <ScalarProperty Name="gameId" ColumnName="gameId" />
           <ScalarProperty Name="userId" ColumnName="userId" />
@@ -282,6 +285,14 @@
           <ScalarProperty Name="position" ColumnName="position" />
           <ScalarProperty Name="teamId" ColumnName="teamId" />
           <ScalarProperty Name="championshipId" ColumnName="championshipId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArticleTypes">
+      <EntityTypeMapping TypeName="FootballWebSiteDbModel.ArticleType">
+        <MappingFragment StoreEntitySet="ArticleType">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ArticleTypeId" ColumnName="ArticleTypeId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

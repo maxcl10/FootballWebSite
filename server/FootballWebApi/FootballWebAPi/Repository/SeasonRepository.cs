@@ -1,49 +1,58 @@
-﻿using FootballWebSiteApi.Entities;
-using FootballWebSiteApi.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using FootballWebSiteApi.Entities;
+using FootballWebSiteApi.Interfaces;
 
 namespace FootballWebSiteApi.Repository
 {
-    public class SeasonRepository : IDatabaseRepository<Season>, IDisposable
+    public class SeasonRepository : ISeasonRepository
     {
-        private FootballWebSiteDbEntities entities;
+        private FootballWebSiteDbEntities _entities;
 
         public SeasonRepository()
         {
-            entities = new FootballWebSiteDbEntities();
+            _entities = new FootballWebSiteDbEntities();
         }
 
-        public void Delete(string id)
+        public IEnumerable<Season> GetSeasons()
         {
-            throw new NotImplementedException();
+            return _entities.Seasons;
         }
 
+        #region Dispose 
+
+        // Flag: Has Dispose already been called?
+        bool disposed = false;
+
+        /// <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
         public void Dispose()
         {
-            throw new NotImplementedException();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
-        public IEnumerable<Season> Get()
+        // Protected implementation of Dispose pattern.
+        protected virtual void Dispose(bool disposing)
         {
-            return entities.Seasons;
+            if (disposed)
+                return;
+
+            if (disposing)
+            {
+                _entities?.Dispose();
+            }
+
+            // Free any unmanaged objects here.
+            //
+            disposed = true;
         }
 
-        public Season Get(string id)
+        ~SeasonRepository()
         {
-            throw new NotImplementedException();
+            Dispose(false);
         }
 
-        public Season Post(Season value)
-        {
-            throw new NotImplementedException();
-        }
+        #endregion
 
-        public Season Put(string id, Season value)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

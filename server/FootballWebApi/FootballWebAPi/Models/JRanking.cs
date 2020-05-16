@@ -1,23 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace FootballWebSiteApi.Models
 {
     public class JRanking
     {
-        public string team { get; set; }
-        public Nullable<int> position { get; set; }
-        public Nullable<int> points { get; set; }
-        public Nullable<int> matchPlayed { get; set; }
-        public Nullable<int> matchWon { get; set; }
-        public Nullable<int> matchDraw { get; set; }
-        public Nullable<int> matchLost { get; set; }
-        public Nullable<int> goalsScored { get; set; }
-        public Nullable<int> goalsAgainst { get; set; }
-        public Nullable<int> goalDifference { get; set; }
-        public Nullable<int> withdaw { get; set; }
-        public Nullable<int> penality { get; set; }
+        public string Team { get; set; }
+        public int? Position { get; set; }
+        public int? Points { get; set; }
+        public int? MatchPlayed { get; set; }
+        public Nullable<int> MatchWon { get; set; }
+        public Nullable<int> MatchDraw { get; set; }
+        public Nullable<int> MatchLost { get; set; }
+        public Nullable<int> GoalsScored { get; set; }
+        public Nullable<int> GoalsAgainst { get; set; }
+        public Nullable<int> GoalDifference { get; set; }
+        public Nullable<int> Withdaw { get; set; }
+        public Nullable<int> Penality { get; set; }
     }
 }

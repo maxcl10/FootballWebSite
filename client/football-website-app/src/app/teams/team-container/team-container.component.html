@@ -1,34 +1,53 @@
-<div class="container">
-  <h2>Staff</h2>
+<!-- <fws-page-header [white]="true">
+  Staff
+</fws-page-header>
 
-  <fws-team-position-block
-    [players]="coaches"
-    [loading]="loading"
-  ></fws-team-position-block>
+<div class="bg-secondary">
+  <div class="container">
+    <div class="row">
+      <fws-team-position-block
+        [players]="coaches"
+        [loading]="loading"
+      ></fws-team-position-block>
+    </div>
+  </div>
+</div> -->
 
-  <h2>Effectif</h2>
+<fws-page-header [white]="true">
+  Equipe
+</fws-page-header>
 
-  <fws-team-position-block
-    title="Gardiens"
-    [players]="goalkeeperPlayers"
-    [loading]="loading"
-  ></fws-team-position-block>
+<div class="bg-secondary">
+  <div class="row">
+    <div class="container">
+      <fws-team-position-block
+        title="Staff"
+        [players]="coaches"
+        [loading]="loading"
+      ></fws-team-position-block>
+      <fws-team-position-block
+        title="Gardiens"
+        [players]="goalkeeperPlayers"
+        [loading]="loading"
+      ></fws-team-position-block>
 
-  <fws-team-position-block
-    title="Defenseurs"
-    [players]="defenderPlayers"
-    [loading]="loading"
-  ></fws-team-position-block>
+      <fws-team-position-block
+        title="Defenseurs"
+        [players]="defenderPlayers"
+        [loading]="loading"
+      ></fws-team-position-block>
 
-  <fws-team-position-block
-    title="Milieux"
-    [players]="midfieldPlayers"
-    [loading]="loading"
-  ></fws-team-position-block>
+      <fws-team-position-block
+        title="Milieux"
+        [players]="midfieldPlayers"
+        [loading]="loading"
+      ></fws-team-position-block>
 
-  <fws-team-position-block
-    title="Attaquants"
-    [players]="attackerPlayers"
-    [loading]="loading"
-  ></fws-team-position-block>
+      <fws-team-position-block
+        title="Attaquants"
+        [players]="attackerPlayers"
+        [loading]="loading"
+      ></fws-team-position-block>
+    </div>
+  </div>
 </div>

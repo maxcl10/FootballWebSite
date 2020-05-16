@@ -5,17 +5,34 @@ namespace FootballWebSiteApi.Models
 
     public class JArticle
     {
-        public Guid id { get; set; }
-        public string title { get; set; }
-        public string body { get; set; }
-        public string publisher { get; set; }
-        public bool published { get; set; }
-        public DateTime? publishedDate { get; set; }
-        public DateTime? modifiedDate { get; set; }
-        public DateTime? deletedDate { get; set; }
-        public DateTime creationDate { get; set; }
-        public Guid userId { get; set; }
-        public Guid? gameId { get; set; }
+        public Guid Id { get; set; }
+
+        public string Title { get; set; }
+
+        public string SubTitle { get; set; }
+
+        public string Body { get; set; }
+
+        public int? ArticleType { get; set; }
+
+        public string Publisher { get; set; }
+
+        public bool Published { get; set; }
+
+        public DateTime? PublishedDate { get; set; }
+
+        public DateTime? ModifiedDate { get; set; }
+
+        public DateTime? DeletedDate { get; set; }
+
+        public DateTime CreationDate { get; set; }
+
+        public Guid UserId { get; set; }
+
+        public Guid? GameId { get; set; }
+
+        public string ImageUrl { get; set; }
+
     }
 
 }

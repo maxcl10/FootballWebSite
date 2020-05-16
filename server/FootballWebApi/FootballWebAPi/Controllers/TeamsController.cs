@@ -1,67 +1,112 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Http;
-using System.Web.Http.Cors;
+using FootballWebSiteApi.Interfaces;
 using FootballWebSiteApi.Models;
-using FootballWebSiteApi.Repository;
+
 
 namespace FootballWebSiteApi.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "GET, POST, PUT, DELETE, OPTIONS")]
-    public class TeamsController : ApiController, ICrudApi<JTeam>
+    [RoutePrefix("api/teams")]
+    public class TeamsController : ApiController
     {
-        public IHttpActionResult Get()
+        private readonly ITeamsRepository _teamsRepository;
+
+        public TeamsController(ITeamsRepository teamsRepository)
         {
-            using (IDatabaseRepository<JTeam> repository = new TeamsRepository())
-            {
-                var teams = repository.Get().ToList();
-                return Json(teams);
-            }
+            this._teamsRepository = teamsRepository;
+        }
+
+        [HttpGet]
+        public IHttpActionResult GetTeams()
+        {
+            var teams = _teamsRepository.GetTeams().ToList();
+            return Ok(teams);
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        public IHttpActionResult GetTeam(string id)
+        {
+            var team = _teamsRepository.Get(id);
+            return Ok(team);
+
+        }
+
+        [HttpGet]
+        [Route("home")]
+        public IHttpActionResult GetHomeTeams()
+        {
+            var teams = _teamsRepository.GetHomeTeams().ToList();
+            return Ok(teams);
         }
 
 
-        public IHttpActionResult Get(string id)
+
+        [HttpGet]
+        [Route("{id}/players")]
+        public IHttpActionResult GetTeamPlayers(Guid id)
         {
-            using (IDatabaseRepository<JTeam> repository = new TeamsRepository())
-            {
-                var team = repository.Get(id);
-                return Json(team);
-            }
+            var teams = _teamsRepository.GetPlayers(id).ToList();
+            return Ok(teams);
         }
 
-        public IHttpActionResult Post([FromBody] JTeam team)
+        [HttpPost]
+        public IHttpActionResult CreateTeam([FromBody] JTeam team)
         {
             if (ModelState.IsValid)
             {
-                using (IDatabaseRepository<JTeam> repository = new TeamsRepository())
-                {
-                    var retTeam = repository.Post(team);
-                    return Json(retTeam);
-                }
+
+                var retTeam = _teamsRepository.Post(team);
+                return Ok(retTeam);
+
             }
-            return null;
+            return BadRequest(ModelState);
         }
 
+        [HttpPut]
         public IHttpActionResult Put(string id, [FromBody] JTeam team)
         {
             if (ModelState.IsValid)
             {
-                using (IDatabaseRepository<JTeam> repository = new TeamsRepository())
-                {
 
-                    var retTeam = repository.Put(id, team);
-                    return Json(retTeam);
-                }
+
+                var retTeam = _teamsRepository.Put(id, team);
+                return Ok(retTeam);
+
             }
-            return null;
+            return BadRequest(ModelState);
         }
 
+        [HttpPost]
+        [Route("players")]
+        public IHttpActionResult AddPlayer(TeamPlayer teamPlayer)
+        {
+            _teamsRepository.AddPlayer(teamPlayer.PlayerId, teamPlayer.TeamId);
+            return Ok(true);
+        }
+
+
+        [HttpDelete]
+        [Route("players")]
+        public IHttpActionResult RemovePlayer(TeamPlayer teamPlayer)
+        {
+            _teamsRepository.RemovePlayer(teamPlayer.PlayerId, teamPlayer.TeamId);
+            return Ok(true);
+
+        }
+
+        [HttpDelete]
         public IHttpActionResult Delete(string id)
         {
-            using (IDatabaseRepository<JTeam> repository = new TeamsRepository())
-            {
-                repository.Delete(id);
-                return Json(true);
-            }
-        }}
+            _teamsRepository.Delete(id);
+            return Ok(true);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _teamsRepository.Dispose();
+            base.Dispose(disposing);
+        }
+    }
 }

@@ -25,10 +25,14 @@ namespace FootballWebSiteApi.Entities
         public Nullable<System.Guid> userId { get; set; }
         public Nullable<System.Guid> gameId { get; set; }
         public Nullable<System.Guid> seasonId { get; set; }
+        public Nullable<int> articleTypeId { get; set; }
+        public string imageUrl { get; set; }
+        public string subTitle { get; set; }
     
         public virtual Game Game { get; set; }
         public virtual Owner Owner { get; set; }
         public virtual Season Season { get; set; }
         public virtual User User { get; set; }
+        public virtual ArticleType ArticleType { get; set; }
     }
 }

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'fws-list-games',
   templateUrl: './list-games.component.html',
-  styleUrls: ['./list-games.component.scss']
+  styleUrls: ['./list-games.component.scss'],
 })
 export class ListGamesComponent implements OnInit {
   public games$: Observable<Game[]>;
@@ -23,6 +23,6 @@ export class ListGamesComponent implements OnInit {
   }
 
   public goToEditGame(game: Game) {
-    this.router.navigate(['/admin/games', game.Id, 'edit']);
+    this.router.navigate(['/admin/games', game.id, 'edit']);
   }
 }

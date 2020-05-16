@@ -10,7 +10,7 @@ import { Competition } from '../../../shared/models/competition.model';
 @Component({
   selector: 'fws-edit-game',
   templateUrl: './edit-game.component.html',
-  providers: [GamesService, TeamsService]
+  providers: [GamesService, TeamsService],
 })
 export class EditGameComponent implements OnInit {
   public game: Game;
@@ -32,15 +32,15 @@ export class EditGameComponent implements OnInit {
     this.getTeams();
     this.getCompetitions();
 
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       const id = params['id'];
       if (id !== '0') {
         this.getGame(id);
         this.title = 'Editer';
       } else {
         this.game = new Game();
-        this.game.HomeTeamId = '';
-        this.game.AwayTeamId = '';
+        this.game.homeTeamId = '';
+        this.game.awayTeamId = '';
         this.title = 'Ajouter';
       }
     });
@@ -48,28 +48,28 @@ export class EditGameComponent implements OnInit {
 
   public getCompetitions() {
     this.gamesService.getCompetitions().subscribe(
-      competitions => {
+      (competitions) => {
         this.competitions = competitions;
       },
-      error => (this.errorMessage = <any>error)
+      (error) => (this.errorMessage = <any>error)
     );
   }
   public getGame(id: string) {
     this.gamesService.getGame(id).subscribe(
-      game => {
+      (game) => {
         this.game = game;
       },
-      error => (this.errorMessage = <any>error)
+      (error) => (this.errorMessage = <any>error)
     );
   }
 
   public createGame() {
     this.saving = true;
     this.gamesService.createGame(this.game).subscribe(
-      game => {
+      (game) => {
         this.goBack();
       },
-      error => {
+      (error) => {
         this.errorMessage = 'An error occured.';
         this.saving = false;
       },
@@ -81,29 +81,29 @@ export class EditGameComponent implements OnInit {
 
   public saveGame() {
     this.gamesService.updateGame(this.game).subscribe(
-      article => {
+      (article) => {
         this.goBack();
       },
-      error => (this.errorMessage = <any>error)
+      (error) => (this.errorMessage = <any>error)
     );
   }
 
   public getTeams() {
     this.teamsService.getTeams().subscribe(
-      teams => {
+      (teams) => {
         this.teams = teams;
       },
-      error => (this.errorMessage = <any>error)
+      (error) => (this.errorMessage = <any>error)
     );
   }
 
   public deleteGame() {
-    this.gamesService.deleteGame(this.game.Id).subscribe(
-      article => {
+    this.gamesService.deleteGame(this.game.id).subscribe(
+      (article) => {
         this.modalRef.hide();
         this.goBack();
       },
-      error => (this.errorMessage = <any>error)
+      (error) => (this.errorMessage = <any>error)
     );
   }
 

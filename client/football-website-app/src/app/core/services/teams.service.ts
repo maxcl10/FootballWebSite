@@ -16,23 +16,16 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class TeamsService {
-  private teamsUrl = AppConfig.settings.apiServer.url + '/teams';
-  private teamPlayersUrl = AppConfig.settings.apiServer.url + '/ns/teamplayer';
+  private teamsUrl = AppConfig.settings.apiServer.url + 'teams';
 
   constructor(private http: HttpClient) {}
 
   public getPlayers(teamId: string): Observable<Player[]> {
-    return this.http.get<Player[]>(
-      this.teamPlayersUrl + '/getplayers/' + teamId
-    );
-  }
-
-  public getCurrentPlayers(): Observable<Player[]> {
-    return this.http.get<Player[]>(this.teamPlayersUrl + '/getcurrentplayers/');
+    return this.http.get<Player[]>(this.teamsUrl + '/' + teamId + '/players');
   }
 
   public getHomeTeams(): Observable<Team[]> {
-    return this.http.get<Team[]>(this.teamPlayersUrl + '/getHomeTeams');
+    return this.http.get<Team[]>(this.teamsUrl + '/home');
   }
 
   public getTeams(): Observable<Team[]> {
@@ -55,7 +48,7 @@ export class TeamsService {
 
   public addPlayerInTeam(playerId: string, teamId: string) {
     return this.http.post(
-      this.teamPlayersUrl + '/addPlayer/',
+      this.teamsUrl + '/player/',
       '{playerId: ' +
         JSON.stringify(playerId) +
         ', teamId: ' +
@@ -66,13 +59,8 @@ export class TeamsService {
   }
 
   public removePlayerFromTeam(playerId: string, teamId: string) {
-    return this.http.post(
-      this.teamPlayersUrl + '/removePlayer/',
-      '{playerId: ' +
-        JSON.stringify(playerId) +
-        ', teamId: ' +
-        JSON.stringify(teamId) +
-        '}',
+    return this.http.delete(
+      this.teamsUrl + '/' + playerId + '/' + teamId,
       httpOptions
     );
   }

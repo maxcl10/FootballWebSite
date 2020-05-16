@@ -4,7 +4,7 @@ import { Game } from '../../../shared/models/game.model';
 @Component({
   selector: 'fws-game',
   templateUrl: './game.component.html',
-  styleUrls: ['./game.component.scss']
+  styleUrls: ['./game.component.scss'],
 })
 export class GameComponent implements OnInit {
   @Input() game: Game;
@@ -15,7 +15,7 @@ export class GameComponent implements OnInit {
 
   public get isToday(): boolean {
     const today = new Date();
-    const matchDate = new Date(this.game.MatchDate.toString());
+    const matchDate = new Date(this.game.matchDate.toString());
     if (
       matchDate.getDate() === today.getDate() &&
       matchDate.getMonth() === today.getMonth() &&

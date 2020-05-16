@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Article">
           <Key>
             <PropertyRef Name="id" />
@@ -20,6 +20,16 @@
           <Property Name="userId" Type="uniqueidentifier" />
           <Property Name="gameId" Type="uniqueidentifier" />
           <Property Name="seasonId" Type="uniqueidentifier" />
+          <Property Name="articleTypeId" Type="int" />
+          <Property Name="imageUrl" Type="nvarchar(max)" />
+          <Property Name="subTitle" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="ArticleType">
+          <Key>
+            <PropertyRef Name="ArticleTypeId" />
+          </Key>
+          <Property Name="ArticleTypeId" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="ChampionshipTeam">
           <Key>
@@ -282,6 +292,18 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
           <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="lastName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Article_ArticleType">
+          <End Role="ArticleType" Type="Self.ArticleType" Multiplicity="0..1" />
+          <End Role="Article" Type="Self.Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ArticleType">
+              <PropertyRef Name="ArticleTypeId" />
+            </Principal>
+            <Dependent Role="Article">
+              <PropertyRef Name="articleTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Article_Game">
           <End Role="Game" Type="Self.Game" Multiplicity="0..1" />
           <End Role="Article" Type="Self.Article" Multiplicity="*" />
@@ -584,6 +606,7 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
         </Association>
         <EntityContainer Name="StoreContainer">
           <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ArticleType" EntityType="Self.ArticleType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChampionshipTeam" EntityType="Self.ChampionshipTeam" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Competition" EntityType="Self.Competition" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CompetitionSeason" EntityType="Self.CompetitionSeason" Schema="dbo" store:Type="Tables" />
@@ -621,6 +644,10 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     [Ranking].[SeasonId] AS [SeasonId]
     FROM [dbo].[Ranking] AS [Ranking]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK_Article_ArticleType" Association="Self.FK_Article_ArticleType">
+            <End Role="ArticleType" EntitySet="ArticleType" />
+            <End Role="Article" EntitySet="Article" />
+          </AssociationSet>
           <AssociationSet Name="FK_Article_Game" Association="Self.FK_Article_Game">
             <End Role="Game" EntitySet="Game" />
             <End Role="Article" EntitySet="Article" />
@@ -848,6 +875,11 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
             <End Role="Team" EntitySet="Teams" />
             <End Role="TeamCompetitionSeason" EntitySet="TeamCompetitionSeasons" />
           </AssociationSet>
+          <EntitySet Name="ArticleTypes" EntityType="FootballWebSiteDbModel.ArticleType" />
+          <AssociationSet Name="FK_Article_ArticleType" Association="FootballWebSiteDbModel.FK_Article_ArticleType">
+            <End Role="ArticleType" EntitySet="ArticleTypes" />
+            <End Role="Article" EntitySet="Articles" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Article">
           <Key>
@@ -868,6 +900,10 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
           <NavigationProperty Name="Owner" Relationship="FootballWebSiteDbModel.FK_Article_Owner" FromRole="Article" ToRole="Owner" />
           <NavigationProperty Name="Season" Relationship="FootballWebSiteDbModel.FK_Article_Season" FromRole="Article" ToRole="Season" />
           <NavigationProperty Name="User" Relationship="FootballWebSiteDbModel.FK_Article_User" FromRole="Article" ToRole="User" />
+          <Property Name="articleTypeId" Type="Int32" />
+          <Property Name="imageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="subTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ArticleType" Relationship="FootballWebSiteDbModel.FK_Article_ArticleType" FromRole="Article" ToRole="ArticleType" />
         </EntityType>
         <EntityType Name="ChampionshipTeam">
           <Key>
@@ -1474,6 +1510,26 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ArticleType">
+          <Key>
+            <PropertyRef Name="ArticleTypeId" />
+          </Key>
+          <Property Name="ArticleTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Articles" Relationship="FootballWebSiteDbModel.FK_Article_ArticleType" FromRole="ArticleType" ToRole="Article" />
+        </EntityType>
+        <Association Name="FK_Article_ArticleType">
+          <End Type="FootballWebSiteDbModel.ArticleType" Role="ArticleType" Multiplicity="0..1" />
+          <End Type="FootballWebSiteDbModel.Article" Role="Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ArticleType">
+              <PropertyRef Name="ArticleTypeId" />
+            </Principal>
+            <Dependent Role="Article">
+              <PropertyRef Name="articleTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1483,6 +1539,9 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
           <EntitySetMapping Name="Articles">
             <EntityTypeMapping TypeName="FootballWebSiteDbModel.Article">
               <MappingFragment StoreEntitySet="Article">
+                <ScalarProperty Name="subTitle" ColumnName="subTitle" />
+                <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
+                <ScalarProperty Name="articleTypeId" ColumnName="articleTypeId" />
                 <ScalarProperty Name="seasonId" ColumnName="seasonId" />
                 <ScalarProperty Name="gameId" ColumnName="gameId" />
                 <ScalarProperty Name="userId" ColumnName="userId" />
@@ -1761,6 +1820,14 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
                 <ScalarProperty Name="position" ColumnName="position" />
                 <ScalarProperty Name="teamId" ColumnName="teamId" />
                 <ScalarProperty Name="championshipId" ColumnName="championshipId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArticleTypes">
+            <EntityTypeMapping TypeName="FootballWebSiteDbModel.ArticleType">
+              <MappingFragment StoreEntitySet="ArticleType">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ArticleTypeId" ColumnName="ArticleTypeId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

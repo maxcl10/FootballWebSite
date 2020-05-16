@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="8dc4e86a0b264b6d9e874fa859dbf5f2" Name="Diagram1" ZoomLevel="62">
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.Article" Width="1.5" PointX="7.5" PointY="13.75" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.Article" Width="1.5" PointX="8.25" PointY="13.375" />
         <EntityTypeShape EntityType="FootballWebSiteDbModel.ChampionshipTeam" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="FootballWebSiteDbModel.Competition" Width="1.5" PointX="3" PointY="19" />
         <EntityTypeShape EntityType="FootballWebSiteDbModel.CompetitionSeason" Width="1.5" PointX="6" PointY="30.25" />
@@ -51,6 +51,8 @@
         <AssociationConnector Association="FootballWebSiteDbModel.FK_PlayerTeam_Season" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_PlayerTeam_Team" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_TeamCompetitionSeason_Team" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.ArticleType" Width="1.5" PointX="7.375" PointY="0.875" />
+        <AssociationConnector Association="FootballWebSiteDbModel.FK_Article_ArticleType" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

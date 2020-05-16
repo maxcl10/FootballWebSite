@@ -23,11 +23,10 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class GamesService {
-  private gameUrl = AppConfig.settings.apiServer.url + '/games';
-  private competitionsUrl =
-    AppConfig.settings.apiServer.url + '/games/competitions';
-  private nextGameUrl = AppConfig.settings.apiServer.url + '/nextgame';
-  private lastGameUrl = AppConfig.settings.apiServer.url + '/previousgame';
+  private gameUrl = AppConfig.settings.apiServer.url + 'games';
+  private competitionsUrl = this.gameUrl + '/competitions';
+  private nextGameUrl = this.gameUrl + '/next';
+  private lastGameUrl = this.gameUrl + '/previous';
 
   constructor(private http: HttpClient) {}
 
@@ -56,7 +55,7 @@ export class GamesService {
   }
 
   public updateGame(game: Game): Observable<Game> {
-    const url = this.gameUrl + '/' + game.Id;
+    const url = this.gameUrl + '/' + game.id;
     return this.http.put<Game>(url, game, httpOptions);
   }
 

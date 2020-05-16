@@ -20,37 +20,37 @@
   <div style="width: 800px;" #nextGameDiv>
     <fws-poster-base *ngIf="nextgame != null">
       <div class="text-center part subInfo">
-        {{ nextgame.MatchDate | frDate: 'longDateTimeSep' | uppercase }}
+        {{ nextgame.matchDate | frDate: 'longDateTimeSep' | uppercase }}
       </div>
 
       <div class="row">
-        <div class="col-md-6  text-center">
+        <div class="col-md-6 text-center">
           <img
             [src]="nextgame.homeTeamLogoUrl"
-            [title]="nextgame.HomeTeam"
+            [title]="nextgame.homeTeam"
           /><br />
         </div>
 
-        <div class="col-md-6  text-center">
+        <div class="col-md-6 text-center">
           <img
             [src]="nextgame.awayTeamLogoUrl"
-            [title]="nextgame.AwayTeam"
+            [title]="nextgame.awayTeam"
           /><br />
         </div>
       </div>
-      <div class="row" style="margin-top: 20px">
+      <div class="row" style="margin-top: 20px;">
         <div class="col-md-12 text-center teamName">
           <span class="hidden-sm bold">{{
-            nextgame.HomeTeam | teamName | uppercase
+            nextgame.homeTeam | teamName | uppercase
           }}</span>
           /
           <span class="hidden-sm bold">{{
-            nextgame.AwayTeam | teamName | uppercase
+            nextgame.awayTeam | teamName | uppercase
           }}</span>
         </div>
       </div>
       <div class="gameChampionship text-center">
-        <img src="../../../../assets/img/{{ nextgame.CompetitionShort }}.png" />
+        <img src="../../../../assets/img/{{ nextgame.competitionShort }}.png" />
         <fws-competition [game]="nextgame"></fws-competition>
       </div>
     </fws-poster-base>
@@ -60,65 +60,65 @@
   <!-- <fws-poster-base *ngIf="game != null">-->
   <!-- <div class="text-center title">TIRAGE COUPE DE FRANCE</div> -->
   <!-- <div class="text-center part subInfo">
-      {{ game.MatchDate | frDate: 'longDateTimeSep' | uppercase }}
+      {{ game.matchDate | frDate: 'longDateTimeSep' | uppercase }}
     </div>
 
     <div class="row">
       <div class="col-md-6  text-center">
-        <img [src]="game.homeTeamLogoUrl" [title]="game.HomeTeam" /><br />
+        <img [src]="game.homeTeamLogoUrl" [title]="game.homeTeam" /><br />
       </div>
 
       <div class="col-md-6  text-center">
-        <img [src]="game.awayTeamLogoUrl" [title]="game.AwayTeam" /><br />
+        <img [src]="game.awayTeamLogoUrl" [title]="game.awayTeam" /><br />
       </div>
     </div>
     <div class="row" style="margin-top: 20px">
       <div class="col-md-12 text-center teamName">
         <span class="hidden-sm bold">{{
-          game.HomeTeam | teamName | uppercase
+          game.homeTeam | teamName | uppercase
         }}</span>
         /
         <span class="hidden-sm bold">{{
-          game.AwayTeam | teamName | uppercase
+          game.awayTeam | teamName | uppercase
         }}</span>
       </div>
     </div>
     <div class="gameChampionship text-center">
-      <img src="../../../../assets/img/{{ game.CompetitionShort }}.png" />
+      <img src="../../../../assets/img/{{ game.competitionShort }}.png" />
       <fws-competition [game]="game"></fws-competition>
     </div>
   </fws-poster-base>  -->
 
   <br />
-  <div #lastGameDiv style="width: 800px">
+  <div #lastGameDiv style="width: 800px;">
     <fws-poster-base *ngIf="lastgame != null">
       <!-- <div class="text-center title">
       FIN DU MATCH
     </div> -->
 
       <div class="row">
-        <div class="col-md-6  text-center">
+        <div class="col-md-6 text-center">
           <img
             [src]="lastgame.homeTeamLogoUrl"
-            [title]="lastgame.HomeTeam"
+            [title]="lastgame.homeTeam"
           /><br />
         </div>
 
-        <div class="col-md-6  text-center">
+        <div class="col-md-6 text-center">
           <img
             [src]="lastgame.awayTeamLogoUrl"
-            [title]="lastgame.AwayTeam"
+            [title]="lastgame.awayTeam"
           /><br />
         </div>
       </div>
-      <div class="row" style="margin-top: 20px">
+      <div class="row" style="margin-top: 20px;">
         <div class="col-md-12 text-center teamName">
           <span class="hidden-sm bold">{{
-            lastgame.HomeTeam | teamName | uppercase
+            lastgame.homeTeam | teamName | uppercase
           }}</span>
           /
           <span class="hidden-sm bold">{{
-            lastgame.AwayTeam | teamName | uppercase
+            lastgame.awayTeam | teamName | uppercase
           }}</span>
         </div>
       </div>
@@ -136,7 +136,7 @@
         </ul>
       </div>
       <div class="gameChampionship text-center">
-        <img src="../../../../assets/img/{{ lastgame.CompetitionShort }}.png" />
+        <img src="../../../../assets/img/{{ lastgame.competitionShort }}.png" />
         <fws-competition [game]="lastgame"></fws-competition>
       </div>
     </fws-poster-base>
@@ -144,7 +144,7 @@
 
   <br />
 
-  <div #scheduleDiv style="width: 800px">
+  <div #scheduleDiv style="width: 800px;">
     <fws-poster-base *ngIf="nextgames != null">
       <!-- <div class="text-center title">
       PROGRAMME DU WEEK-END
@@ -155,12 +155,12 @@
         style="margin-bottom: 20px;"
       >
         <div class="col-md-4">
-          {{ game.CompetitionShort }}
+          {{ game.competitionShort }}
         </div>
         <div class="col-md-8">
-          {{ game.HomeTeam }} / {{ game.AwayTeam }} <br />
+          {{ game.homeTeam }} / {{ game.awayTeam }} <br />
           <span class="subInfo">
-            {{ game.MatchDate | frDate: 'longDateTimeSep' | uppercase }}
+            {{ game.matchDate | frDate: 'longDateTimeSep' | uppercase }}
           </span>
         </div>
       </div>
@@ -207,36 +207,36 @@
   </fws-poster-base> -->
 
   <br />
-  <div #groupeDiv style="width: 800px">
+  <div #groupeDiv style="width: 800px;">
     <fws-poster-base *ngIf="nextgame != null">
       <div class="text-center title">LE GROUPE</div>
       <div class="text-center part subInfo">
-        {{ nextgame.MatchDate | frDate: 'longDateTimeSep' | uppercase }}
+        {{ nextgame.matchDate | frDate: 'longDateTimeSep' | uppercase }}
       </div>
 
       <!-- <div class="row">
         <div class="col-md-6  text-center">
           <img
             [src]="nextgame.homeTeamLogoUrl"
-            [title]="nextgame.HomeTeam"
+            [title]="nextgame.homeTeam"
           /><br />
         </div>
 
         <div class="col-md-6  text-center">
           <img
             [src]="nextgame.awayTeamLogoUrl"
-            [title]="nextgame.AwayTeam"
+            [title]="nextgame.awayTeam"
           /><br />
         </div>
       </div> -->
-      <div class="row part" style="margin-top: 20px">
+      <div class="row part" style="margin-top: 20px;">
         <div class="col-md-12 text-center teamName">
           <span class="hidden-sm bold">{{
-            nextgame.HomeTeam | teamName | uppercase
+            nextgame.homeTeam | teamName | uppercase
           }}</span>
           /
           <span class="hidden-sm bold">{{
-            nextgame.AwayTeam | teamName | uppercase
+            nextgame.awayTeam | teamName | uppercase
           }}</span>
         </div>
       </div>
@@ -246,7 +246,7 @@
             <li *ngFor="let player of players.slice(0, 7)">
               <img
                 width="40px"
-                style="display: inline-block"
+                style="display: inline-block;"
                 [src]="
                   '../../../assets/img/players/' +
                   player.playerFirstName +
@@ -254,10 +254,10 @@
                   player.playerLastName +
                   '.png'
                 "
-                class="img-responsive img-circle "
+                class="img-responsive img-circle"
                 onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
               />
-              <span style="font-size: 18px">
+              <span style="font-size: 18px;">
                 {{ player.playerLastName }}
                 {{ player.playerFirstName.slice(0, 1) }}.
               </span>
@@ -269,7 +269,7 @@
             <li *ngFor="let player of players.slice(7)">
               <img
                 width="40px"
-                style="display: inline-block"
+                style="display: inline-block;"
                 [src]="
                   '../../../assets/img/players/' +
                   player.playerFirstName +
@@ -280,7 +280,7 @@
                 class="img-responsive img-circle"
                 onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
               />
-              <span style="font-size: 18px">
+              <span style="font-size: 18px;">
                 {{ player.playerLastName }}
                 {{ player.playerFirstName.slice(0, 1) }}.
               </span>
@@ -289,7 +289,7 @@
         </div>
       </div>
       <div class="gameChampionship text-center">
-        <img src="../../../../assets/img/{{ nextgame.CompetitionShort }}.png" />
+        <img src="../../../../assets/img/{{ nextgame.competitionShort }}.png" />
         <fws-competition [game]="nextgame"></fws-competition>
       </div>
     </fws-poster-base>

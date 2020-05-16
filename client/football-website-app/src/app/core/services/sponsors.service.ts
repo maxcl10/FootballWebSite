@@ -18,7 +18,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class SponsorsService {
-  private sponsorsUrl = AppConfig.settings.apiServer.url + '/sponsors';
+  private sponsorsUrl = AppConfig.settings.apiServer.url + 'sponsors';
 
   constructor(private http: HttpClient) {}
 

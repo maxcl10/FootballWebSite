@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Player } from '../../shared/models/player.model';
 import { TeamsService } from '../../core/services/teams.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PlayersService } from '../../core/services/players.service';
 
 @Component({
   selector: 'fws-players-carousel',
@@ -14,7 +15,7 @@ export class PlayersCarouselComponent implements OnInit {
   errorMessage: string;
 
   constructor(
-    private playerService: TeamsService,
+    private playerService: PlayersService,
     private route: ActivatedRoute,
     private router: Router
   ) {}

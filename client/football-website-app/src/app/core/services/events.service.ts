@@ -5,15 +5,15 @@ import { AppConfig } from '../../app.config';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
+    'Content-Type': 'application/json',
+  }),
 };
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class EventsService {
-  private eventUrl = AppConfig.settings.apiServer.url + '/events';
+  private eventUrl = AppConfig.settings.apiServer.url + 'events';
 
   /**
    *

@@ -11,7 +11,7 @@ declare let html2canvas: any;
 @Component({
   selector: 'fws-game-poster',
   templateUrl: './game-poster.component.html',
-  styleUrls: ['./game-poster.component.scss']
+  styleUrls: ['./game-poster.component.scss'],
 })
 export class GamePosterComponent implements OnInit {
   public nextgame: Game;
@@ -44,7 +44,7 @@ export class GamePosterComponent implements OnInit {
   }
 
   public downloadScheduleImage() {
-    const matchDate = new Date(this.lastgame.MatchDate);
+    const matchDate = new Date(this.lastgame.matchDate);
     const name =
       matchDate.getFullYear() +
       '' +
@@ -56,7 +56,7 @@ export class GamePosterComponent implements OnInit {
   }
 
   public downloadPreviousGameImage() {
-    const matchDate = new Date(this.lastgame.MatchDate);
+    const matchDate = new Date(this.lastgame.matchDate);
     const name =
       matchDate.getFullYear() +
       '' +
@@ -68,7 +68,7 @@ export class GamePosterComponent implements OnInit {
     this.downloadImage(this.lastGameDiv, name);
   }
   public downloadNextGameImage() {
-    const matchDate = new Date(this.nextgame.MatchDate);
+    const matchDate = new Date(this.nextgame.matchDate);
     const name =
       matchDate.getFullYear() +
       '' +
@@ -80,7 +80,7 @@ export class GamePosterComponent implements OnInit {
   }
 
   public downloadGroupImage() {
-    const matchDate = new Date(this.nextgame.MatchDate);
+    const matchDate = new Date(this.nextgame.matchDate);
     const name =
       matchDate.getFullYear() +
       '' +
@@ -92,11 +92,11 @@ export class GamePosterComponent implements OnInit {
   }
 
   public downloadImage(elementRef: ElementRef, fileName: string) {
-    html2canvas(elementRef.nativeElement).then(function(canvas) {
+    html2canvas(elementRef.nativeElement).then(function (canvas) {
       // document.body.appendChild(canvas);
 
       // Works only with chrome
-      canvas.toBlob(function(blob) {
+      canvas.toBlob(function (blob) {
         // To download directly on browser default 'downloads' location
         const link = document.createElement('a');
         link.download = fileName + '.png';
@@ -141,30 +141,30 @@ export class GamePosterComponent implements OnInit {
 
   public getLastGame() {
     this.gamesService.getLastGame().subscribe(
-      game => {
+      (game) => {
         this.lastgame = game;
         this.lastgame.awayTeamLogoUrl = this.logoService.getLogoPath(
-          this.lastgame.AwayTeam,
+          this.lastgame.awayTeam,
           100
         );
         this.lastgame.homeTeamLogoUrl = this.logoService.getLogoPath(
-          this.lastgame.HomeTeam,
+          this.lastgame.homeTeam,
           100
         );
-        this.gamesService.getGameEvents(game.Id).subscribe(events => {
+        this.gamesService.getGameEvents(game.id).subscribe((events) => {
           this.goals = events
-            .filter(o => o.eventTypeId === 0)
+            .filter((o) => o.eventTypeId === 0)
             .sort((a, b) => {
               return a.time - b.time;
             });
         });
       },
-      error => (this.errorMessage = <any>error)
+      (error) => (this.errorMessage = <any>error)
     );
   }
 
   public getNextGames() {
-    this.gamesService.getNextGames().subscribe(games => {
+    this.gamesService.getNextGames().subscribe((games) => {
       this.nextgames = games;
       this.nextgames.push(games[0]);
     });
@@ -172,46 +172,46 @@ export class GamePosterComponent implements OnInit {
 
   private getGame(gameId: string) {
     this.gamesService.getGame(gameId).subscribe(
-      game => {
+      (game) => {
         this.game = game;
         if (this.game != null) {
           this.game.awayTeamLogoUrl = this.logoService.getLogoPath(
-            this.game.AwayTeam,
+            this.game.awayTeam,
             100
           );
           this.game.homeTeamLogoUrl = this.logoService.getLogoPath(
-            this.game.HomeTeam,
+            this.game.homeTeam,
             100
           );
         }
       },
-      error => (this.errorMessage = <any>error)
+      (error) => (this.errorMessage = <any>error)
     );
   }
 
   private getNextGame() {
     this.gamesService.getNextGame().subscribe(
-      game => {
+      (game) => {
         this.nextgame = game;
         if (this.nextgame != null) {
           this.nextgame.awayTeamLogoUrl = this.logoService.getLogoPath(
-            this.nextgame.AwayTeam,
+            this.nextgame.awayTeam,
             100
           );
           this.nextgame.homeTeamLogoUrl = this.logoService.getLogoPath(
-            this.nextgame.HomeTeam,
+            this.nextgame.homeTeam,
             100
           );
         }
 
-        this.gamesService.getGamePlayers(this.nextgame.Id).subscribe(
-          players => {
+        this.gamesService.getGamePlayers(this.nextgame.id).subscribe(
+          (players) => {
             this.players = players;
           },
-          error => (this.errorMessage = <any>error)
+          (error) => (this.errorMessage = <any>error)
         );
       },
-      error => (this.errorMessage = <any>error)
+      (error) => (this.errorMessage = <any>error)
     );
   }
 }

@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace FootballWebSiteApi.Models
+﻿namespace FootballWebSiteApi.Models
 {
     public class TeamPlayer
     {
-        public string playerId
-        {
-            get; set;
-            
-        }
-        public string teamId { get; set; }
+        public string PlayerId { get; set; }
 
-        
+        public string TeamId { get; set; }
+
+
     }
 }

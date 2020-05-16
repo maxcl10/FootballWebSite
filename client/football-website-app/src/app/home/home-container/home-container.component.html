@@ -1,95 +1,85 @@
-<div class="container">
+<div class="container-fluid bg-gradient-secondary">
   <div class="row">
-    <div class="col-md-8 col-sm-12 col-xs-12">
-      <div
-        id="carouselExampleIndicators"
-        class="carousel slide shadow"
-        data-ride="carousel"
-      >
-        <ol class="carousel-indicators">
-          <li
-            data-target="#carouselExampleIndicators"
-            *ngFor="let url of imageUrls; let i = index"
-            data-slide-to="i"
-            [ngClass]="i == 0 ? 'active' : ''"
-          ></li>
-        </ol>
-        <div class="carousel-inner">
-          <div
-            *ngFor="let url of imageUrls; let i = index"
-            [ngClass]="i == 0 ? 'carousel-item active' : 'carousel-item'"
-          >
-            <img class="d-block w-100" src="{{ url }}" alt="First slide" />
+    <div class="container">
+      <div class="row">
+        <div
+          id="carouselExampleIndicators"
+          class="carousel slide shadow"
+          data-ride="carousel"
+        >
+          <ol class="carousel-indicators">
+            <li
+              data-target="#carouselExampleIndicators"
+              *ngFor="let url of imageUrls; let i = index"
+              data-slide-to="i"
+              [ngClass]="i == 0 ? 'active' : ''"
+            ></li>
+          </ol>
+          <div class="carousel-inner">
+            <div
+              *ngFor="let url of imageUrls; let i = index"
+              [ngClass]="i == 0 ? 'carousel-item active' : 'carousel-item'"
+            >
+              <img class="d-block w-100" src="{{ url }}" alt="First slide" />
+            </div>
           </div>
+          <a
+            class="carousel-control-prev"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
-        <a
-          class="carousel-control-prev"
-          href="#carouselExampleIndicators"
-          role="button"
-          data-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a
-          class="carousel-control-next"
-          href="#carouselExampleIndicators"
-          role="button"
-          data-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
       </div>
-
-      <!-- <fws-today-game></fws-today-game>
-
-      <div class="d-block d-sm-none">
-        <fws-widget headerText="Prochain match">
-          <fws-game [game]="nextGame"></fws-game>
-        </fws-widget>
-
-        <fws-widget headerText="Dernier match">
-          <fws-game [game]="lastGame"></fws-game>
-        </fws-widget>
-      </div>
-
-      <br />
-      <div *ngIf="loaded == true" class="animated fadeIn">
-        <h2 class="d-block d-sm-none">News</h2>
-        <div>
-          <fws-article
-            *ngFor="let article of articles"
-            [article]="article"
-          ></fws-article>
-        </div>
-      </div> -->
     </div>
-    <!-- Side -->
-    <div class="col-md-4 col-sm-3 hidden-xs hidden-sm">
-      <!-- <fws-widget headerText="Prochain match">
-        <fws-game [game]="nextGame"></fws-game>
-      </fws-widget>
+  </div>
+</div>
 
-      <fws-widget headerText="Classement">
-        <fws-league-table-small></fws-league-table-small>
-      </fws-widget>
+<fws-widget headerText="NEWS"> </fws-widget>
 
-      <fws-widget headerText="Dernier match">
-        <fws-game [game]="lastGame"></fws-game>
-      </fws-widget>
+<div class="container text-center pt-5 pb-5">
+  <h4>ABOUT US</h4>
 
-      <fws-widget headerText="Championnat">
-        <fws-season-summary></fws-season-summary>
-      </fws-widget>
+  <p>Club aux valueurs famillales alliant le sportif à l'agréable.</p>
+</div>
 
-      <fws-widget headerText="Présentation joueur">
-        <fws-players-carousel></fws-players-carousel>
-      </fws-widget>
-
-      <fws-widget headerText="Stats">
-        <fws-games-pie-chart></fws-games-pie-chart>
-      </fws-widget> -->
+<div class="container-fluid bg-secondary text-white pt-4 pb-4">
+  <div class="row">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-lg-6">
+          <fws-widget
+            headerText="Dernier Match"
+            [loading]="loadLastGame"
+            [contentMargin]="false"
+            [transparent]="true"
+          >
+            <fws-game-widget [game]="lastGame"></fws-game-widget>
+          </fws-widget>
+        </div>
+        <div class="col-xs-12 col-lg-6 mt-4 mt-lg-0">
+          <fws-widget
+            headerText="Prochain Match"
+            [loading]="loadLastGame"
+            [contentMargin]="false"
+            [transparent]="true"
+          >
+            <fws-game-widget [game]="nextGame"></fws-game-widget>
+          </fws-widget>
+        </div>
+      </div>
     </div>
   </div>
 </div>

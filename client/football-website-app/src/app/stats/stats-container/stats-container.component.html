@@ -1,51 +1,64 @@
-<div class="container">
-  <h2 class="pageHeader">Statistiques</h2>
-  <div class="row">
-    <div class="col-md-6">
-      <fws-widget headerText="Résultats" [loading]="loadingShape">
-        <fws-stats-pie-chart [shape]="shape"></fws-stats-pie-chart>
-      </fws-widget>
-    </div>
-    <div class="col-md-6">
-      <fws-widget headerText="5 Derniers Matchs" [loading]="loadingShape">
-        <fws-stats-last-results [shape]="shape"></fws-stats-last-results>
-      </fws-widget>
-      <div class="row">
-        <div class="col-md-6">
-          <fws-widget headerText="Défense" [loading]="loadingConcededGoals">
-            <div class="text-center">
-              <b> {{ concededGoalsPerGame | number: '1.1-1' }}</b>
-              <br />
-              buts / match
-            </div>
-          </fws-widget>
-        </div>
-        <div class="col-md-6">
-          <fws-widget headerText="Attaque" [loading]="loadingScoredGoals">
-            <div class="text-center">
-              <b>{{ scoredGoalsPerGame | number: '1.1-1' }} </b> <br />
-              buts / match
-            </div>
-          </fws-widget>
+<div class="bg-grey">
+  <fws-page-header>
+    Stats Equipe
+  </fws-page-header>
+
+  <div class="container mt-3 mb-3">
+    <div class="row">
+      <div class="col-md-6">
+        <fws-widget headerText="Résultats" [loading]="loadingShape">
+          <fws-stats-pie-chart [shape]="shape"></fws-stats-pie-chart>
+        </fws-widget>
+      </div>
+      <div class="col-md-6">
+        <fws-widget headerText="5 Derniers Matchs" [loading]="loadingShape">
+          <fws-stats-last-results [shape]="shape"></fws-stats-last-results>
+        </fws-widget>
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <fws-widget headerText="Défense" [loading]="loadingConcededGoals">
+              <div class="text-center">
+                <b> {{ concededGoalsPerGame | number: '1.1-1' }}</b>
+                <br />
+                buts / match
+              </div>
+            </fws-widget>
+          </div>
+          <div class="col-md-6">
+            <fws-widget headerText="Attaque" [loading]="loadingScoredGoals">
+              <div class="text-center">
+                <b>{{ scoredGoalsPerGame | number: '1.1-1' }} </b> <br />
+                buts / match
+              </div>
+            </fws-widget>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-6">
-      <fws-widget
-        headerText="Buteurs"
-        [loading]="loadingPlayerStats"
-        loadingText="Trop de pépites"
-      >
-        <fws-stats-strickers [playerStats]="playerStats"></fws-stats-strickers>
-      </fws-widget>
-    </div>
-    <div class="col-md-6">
-      <fws-widget headerText="Passeurs" [loading]="loadingPlayerStats">
-        <fws-stats-assists [playerStats]="playerStats"></fws-stats-assists>
-      </fws-widget>
+  <fws-page-header>
+    Stats Joueurs
+  </fws-page-header>
+
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-md-6">
+        <fws-widget
+          headerText="Buteurs"
+          [loading]="loadingPlayerStats"
+          loadingText="Trop de pépites"
+        >
+          <fws-stats-strickers
+            [playerStats]="playerStats"
+          ></fws-stats-strickers>
+        </fws-widget>
+      </div>
+      <div class="col-md-6">
+        <fws-widget headerText="Passeurs" [loading]="loadingPlayerStats">
+          <fws-stats-assists [playerStats]="playerStats"></fws-stats-assists>
+        </fws-widget>
+      </div>
     </div>
   </div>
 </div>

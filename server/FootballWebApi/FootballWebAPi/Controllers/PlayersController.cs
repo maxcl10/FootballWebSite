@@ -1,39 +1,45 @@
-﻿using FootballWebSiteApi.Entities;
-using FootballWebSiteApi.Models;
-using FootballWebSiteApi.Repository;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using FootballWebSiteApi.Entities;
+using FootballWebSiteApi.Interfaces;
+using FootballWebSiteApi.Models;
+using FootballWebSiteApi.Repository;
 
 namespace FootballWebSiteApi.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "GET, POST, PUT, DELETE, OPTIONS")]
-    public class PlayersController : ApiController, ICrudApi<Player>
+    [RoutePrefix("api/players")]
+    public class PlayersController : ApiController
     {
-        // GET: api/Players
-        public IHttpActionResult Get()
+        private readonly IPlayersRepository _playersRepository;
+
+        public PlayersController(IPlayersRepository playersRepository)
         {
-            using (PlayerRepository repository = new PlayerRepository())
-            {
-                var players = repository.Get().ToList();
-                return Json(players);
-            }
+            _playersRepository = playersRepository;
+        }
+
+        // GET: api/Players
+        public IHttpActionResult GetPlayers()
+        {
+            var players = _playersRepository.GetPlayers().ToList();
+            return Ok(players);
+        }
+
+        [HttpGet]
+        [Route("current")]
+        public IHttpActionResult GetCurrentPlayers()
+        {
+            var players = _playersRepository.GetPlayers(true).ToList();
+            return Ok(players);
         }
 
 
+
         // GET: api/Players/5
-        public IHttpActionResult Get(string id)
+        public IHttpActionResult GetPlayer(string id)
         {
-            using (PlayerRepository repository = new PlayerRepository())
-            {
-                if (id == "current")
-                {
-                    var players = repository.Get(true).ToList();
-                    return Json(players);
-                }
-                var player = repository.Get(id);
-                return Json(player);
-            }
+            var player = _playersRepository.GetPlayer(id);
+            return Ok(player);
         }
 
         // POST: api/Players
@@ -41,13 +47,11 @@ namespace FootballWebSiteApi.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (PlayerRepository repository = new PlayerRepository())
-                {
-                    var retPlayer = repository.Post(player);
-                    return Json(retPlayer);
-                }
+                var retPlayer = _playersRepository.CreatePlayer(player);
+                return Ok(retPlayer);
+
             }
-            return null;
+            return Ok(ModelState);
         }
 
         // PUT: api/Players/5
@@ -55,24 +59,20 @@ namespace FootballWebSiteApi.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (PlayerRepository repository = new PlayerRepository())
-                {
-
-                    var retPlayer = repository.Put(id, player);
-                    return Json(retPlayer);
-                }
+                var retPlayer = _playersRepository.UpdatePlayer(id, player);
+                return Ok(retPlayer);
             }
-            return null;
+
+            return Ok(ModelState);
         }
 
         // DELETE: api/Players/5
         public IHttpActionResult Delete(string id)
         {
-            using (PlayerRepository repository = new PlayerRepository())
-            {
-                repository.Delete(id);
-                return Json(true);
-            }
+
+            _playersRepository.DeletePlayer(id);
+            return Ok(true);
+
         }
 
 

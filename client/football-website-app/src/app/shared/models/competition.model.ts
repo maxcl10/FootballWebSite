@@ -1,7 +1,7 @@
 export interface Competition {
-  CompetitionId: string;
-  Season: string;
-  Name: string;
-  Group: string;
-  ShortName: string;
+  competitionId: string;
+  season: string;
+  name: string;
+  group: string;
+  shortName: string;
 }

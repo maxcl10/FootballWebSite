@@ -24,9 +24,9 @@ export class StatsPieChartComponent {
   @Input()
   set shape(val: string[]) {
     if (val) {
-      const lossCount = val.filter((o) => o === 'P').length;
-      const drawCount = val.filter((o) => o === 'N').length;
-      const wonCount = val.filter((o) => o === 'G').length;
+      const lossCount = val.filter((o) => o === 'L').length;
+      const drawCount = val.filter((o) => o === 'D').length;
+      const wonCount = val.filter((o) => o === 'W').length;
       this.doughnutChartData = [wonCount, drawCount, lossCount];
 
       this.doughnutChartType = 'doughnut';
@@ -35,7 +35,7 @@ export class StatsPieChartComponent {
           backgroundColor: [
             AppConfig.settings.properties.mainColor,
             '#ECF0F1',
-            '#E74C3C',
+            '#9b2816',
           ],
           borderColor: 'rgba(255,255,255,1)',
           pointBackgroundColor: 'rgba(148,159,177,1)',

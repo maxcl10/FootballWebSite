@@ -21,71 +21,73 @@ import { EditGamePlayersComponent } from './games/edit-game-players/edit-game-pl
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent,
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-  },
-  {
-    path: 'articles',
-    component: ListArticlesComponent,
-  },
-  {
-    path: 'articles/:id/edit',
-    component: EditArticleComponent,
-  },
-  {
-    path: 'games',
-    component: ListGamesComponent,
-  },
-  {
-    path: 'games/:id/edit',
-    component: EditGameComponent,
-  },
-  {
-    path: 'games/:id/players',
-    component: EditGamePlayersComponent,
-  },
-  {
-    path: 'players',
-    component: ListPlayersComponent,
-  },
-  {
-    path: 'players/:id/edit',
-    component: EditPlayerComponent,
-  },
-  {
-    path: 'players/:id/editstats',
-    component: EditPlayerStatsComponent,
-  },
-  {
-    path: 'players/stats',
-    component: PlayerStatsListComponent,
-  },
-  {
-    path: 'teams/edit',
-    component: EditTeamComponent,
-  },
-  {
-    path: 'clubs',
-    component: ClubsListComponent,
-  },
-  {
-    path: 'clubs/:id/edit',
-    component: EditClubComponent,
-  },
-  {
-    path: 'ranking',
-    component: UploadRankingComponent,
-  },
-  {
-    path: 'sponsors',
-    component: ListSponsorsComponent,
-  },
-  {
-    path: 'sponsors/:id/edit',
-    component: EditSponsorComponent,
+    component: AdminComponent,
+    children: [
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+      },
+      {
+        path: 'articles',
+        component: ListArticlesComponent,
+      },
+      {
+        path: 'articles/:id/edit',
+        component: EditArticleComponent,
+      },
+      {
+        path: 'games',
+        component: ListGamesComponent,
+      },
+      {
+        path: 'games/:id/edit',
+        component: EditGameComponent,
+      },
+      {
+        path: 'games/:id/players',
+        component: EditGamePlayersComponent,
+      },
+      {
+        path: 'players',
+        component: ListPlayersComponent,
+      },
+      {
+        path: 'players/:id/edit',
+        component: EditPlayerComponent,
+      },
+      {
+        path: 'players/:id/editstats',
+        component: EditPlayerStatsComponent,
+      },
+      {
+        path: 'players/stats',
+        component: PlayerStatsListComponent,
+      },
+      {
+        path: 'teams/edit',
+        component: EditTeamComponent,
+      },
+      {
+        path: 'clubs',
+        component: ClubsListComponent,
+      },
+      {
+        path: 'clubs/:id/edit',
+        component: EditClubComponent,
+      },
+      {
+        path: 'ranking',
+        component: UploadRankingComponent,
+      },
+      {
+        path: 'sponsors',
+        component: ListSponsorsComponent,
+      },
+      {
+        path: 'sponsors/:id/edit',
+        component: EditSponsorComponent,
+      },
+    ],
   },
 ];
 

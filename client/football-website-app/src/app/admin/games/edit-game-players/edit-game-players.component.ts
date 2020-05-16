@@ -7,11 +7,12 @@ import { TeamsService } from '../../../core/services/teams.service';
 import { GamePlayer } from '../../../shared/models/game-player.model';
 import { Event } from '../../../shared/models/event.model';
 import { EventsService } from '../../../core/services/events.service';
+import { PlayersService } from '../../../core/services/players.service';
 
 @Component({
   selector: 'fws-edit-game-players',
   templateUrl: './edit-game-players.component.html',
-  styleUrls: ['./edit-game-players.component.scss']
+  styleUrls: ['./edit-game-players.component.scss'],
 })
 export class EditGamePlayersComponent implements OnInit {
   gamePlayers: GamePlayer[];
@@ -27,7 +28,8 @@ export class EditGamePlayersComponent implements OnInit {
 
   constructor(
     private gamesService: GamesService,
-    private playerService: TeamsService,
+    private teamsService: TeamsService,
+    private playersService: PlayersService,
     private route: ActivatedRoute,
     private eventsService: EventsService
   ) {}
@@ -59,38 +61,38 @@ export class EditGamePlayersComponent implements OnInit {
     'R2',
     'R3',
     'R4',
-    'R5'
+    'R5',
   ];
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       this.newGamePlayer = new GamePlayer();
 
       const id = params['id'];
-      this.gamesService.getGamePlayers(id).subscribe(players => {
+      this.gamesService.getGamePlayers(id).subscribe((players) => {
         this.gamePlayers = players.sort((a, b) => {
           return (
-            this.order.findIndex(o => o === a.position) -
-            this.order.findIndex(o => o === b.position)
+            this.order.findIndex((o) => o === a.position) -
+            this.order.findIndex((o) => o === b.position)
           );
         });
 
-        this.gamesService.getGameEvents(id).subscribe(events => {
+        this.gamesService.getGameEvents(id).subscribe((events) => {
           this.events = events;
 
-          this.gamePlayers.forEach(element => {
+          this.gamePlayers.forEach((element) => {
             element.events = this.events.filter(
-              o => o.gamePlayerId === element.id
+              (o) => o.gamePlayerId === element.id
             );
           });
         });
       });
 
-      this.gamesService.getGame(id).subscribe(game => {
+      this.gamesService.getGame(id).subscribe((game) => {
         this.game = game;
       });
 
-      this.playerService.getCurrentPlayers().subscribe(players => {
+      this.playersService.getCurrentPlayers().subscribe((players) => {
         this.players = players;
       });
     });
@@ -98,8 +100,8 @@ export class EditGamePlayersComponent implements OnInit {
 
   addPlayer() {
     this.gamesService
-      .addGamePlayer(this.game.Id, this.newGamePlayer)
-      .subscribe(result => {
+      .addGamePlayer(this.game.id, this.newGamePlayer)
+      .subscribe((result) => {
         this.gamePlayers.push(result);
         this.newGamePlayer = new GamePlayer();
       });
@@ -112,13 +114,13 @@ export class EditGamePlayersComponent implements OnInit {
     this.newEvent.playerFirstName = gamePlayer.playerFirstName;
     this.newEvent.playerLastName = gamePlayer.playerLastName;
     this.selectedGamePlayerEvents = this.events.filter(
-      o => o.gamePlayerId === gamePlayer.id
+      (o) => o.gamePlayerId === gamePlayer.id
     );
   }
 
   removePlayer(player: GamePlayer) {
     this.gamesService
-      .deleteGamePlayer(this.game.Id, player.playerId)
+      .deleteGamePlayer(this.game.id, player.playerId)
       .subscribe(() => {
         const index = this.gamePlayers.indexOf(player);
         this.gamePlayers.splice(index, 1);
@@ -127,12 +129,12 @@ export class EditGamePlayersComponent implements OnInit {
 
   addEvent() {
     this.newEvent.gamePlayerId = this.selectedGamePlayer.id;
-    this.eventsService.addEvent(this.newEvent).subscribe(result => {
+    this.eventsService.addEvent(this.newEvent).subscribe((result) => {
       this.events.push(result);
       this.selectedGamePlayerEvents.push(result);
 
       this.gamePlayers
-        .find(o => o.playerId === this.selectedGamePlayer.playerId)
+        .find((o) => o.playerId === this.selectedGamePlayer.playerId)
         .events.push(result);
     });
   }
@@ -149,7 +151,7 @@ export class EditGamePlayersComponent implements OnInit {
 
       // Remove from the table
       const selectedGamePlayer = this.gamePlayers.find(
-        o => o.playerId === this.selectedGamePlayer.playerId
+        (o) => o.playerId === this.selectedGamePlayer.playerId
       );
 
       index = selectedGamePlayer.events.indexOf(event);

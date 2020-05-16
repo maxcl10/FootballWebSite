@@ -3,13 +3,13 @@ import {
   CanActivate,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
-  Router
+  Router,
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthenticationService } from '../core/services/authentication.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
   /**
@@ -33,7 +33,7 @@ export class AuthGuard implements CanActivate {
     }
 
     this.authService.redirectUrl = url;
-    this.router.navigate(['/login']);
+    this.router.navigate(['login']);
     return false;
   }
 }

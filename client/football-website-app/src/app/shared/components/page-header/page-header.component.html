@@ -1,0 +1,15 @@
+<div
+  class="bg-secondary shadow box"
+  [ngClass]="{ 'bg-grey text-center': white }"
+>
+  <div class="container h-100">
+    <div class="row h-100">
+      <h4
+        class="text-white my-auto text-uppercase w-100 text-center"
+        [ngClass]="{ 'text-primary ': white }"
+      >
+        <ng-content> </ng-content>
+      </h4>
+    </div>
+  </div>
+</div>

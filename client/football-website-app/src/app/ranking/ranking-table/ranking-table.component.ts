@@ -9,6 +9,7 @@ import { Ranking } from '../../shared/models/league-table.model';
 
 @Component({
   selector: 'fws-ranking-table',
+  styleUrls: ['./ranking-table.component.scss'],
   templateUrl: './ranking-table.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -4,22 +4,22 @@ namespace FootballWebSiteApi.Models
 {
     public class JEvent
     {
-        public Guid eventId { get; set; }
-        public Guid gamePlayerId { get; set; }
+        public Guid EventId { get; set; }
+        public Guid GamePlayerId { get; set; }
 
-        public Guid playerId { get; set; }
+        public Guid PlayerId { get; set; }
 
-        public Guid gameId { get; set; }
+        public Guid GameId { get; set; }
 
-        public int eventTypeId { get; set; }
+        public int EventTypeId { get; set; }
 
-        public string eventType { get; set; }
+        public string EventType { get; set; }
 
-        public int time { get; set; }
+        public int Time { get; set; }
 
-        public string playerFirstName { get; set; }
+        public string PlayerFirstName { get; set; }
 
-        public string playerLastName { get; set; }
+        public string PlayerLastName { get; set; }
 
     }
 }

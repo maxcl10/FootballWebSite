@@ -4,7 +4,9 @@ import { Observable } from 'rxjs/internal/Observable';
 import { User } from '../../shared/models/user.model';
 import { AppConfig } from '../../app.config';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class AuthenticationService {
   private playerUrl = AppConfig.settings.apiServer.url + '/authentication';
   redirectUrl: string;

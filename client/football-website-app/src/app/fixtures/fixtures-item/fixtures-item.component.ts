@@ -16,7 +16,7 @@ export class FixturesItemComponent implements OnInit {
   // todo: move in service
   public get isToday(): boolean {
     const today = new Date();
-    const matchDate = new Date(this.game.MatchDate.toString());
+    const matchDate = new Date(this.game.matchDate.toString());
     if (
       matchDate.getDate() === today.getDate() &&
       matchDate.getMonth() === today.getMonth() &&

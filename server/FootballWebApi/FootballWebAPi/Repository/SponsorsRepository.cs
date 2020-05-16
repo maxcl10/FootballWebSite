@@ -1,75 +1,107 @@
-﻿using FootballWebSiteApi.Entities;
-using FootballWebSiteApi.Helpers;
-using FootballWebSiteApi.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using FootballWebSiteApi.Entities;
+using FootballWebSiteApi.Helpers;
+using FootballWebSiteApi.Interface;
+using FootballWebSiteApi.Models;
 
 namespace FootballWebSiteApi.Repository
 {
-    public class SponsorsRepository : IDisposable
+    public class SponsorsRepository : ISponsorsRepository
     {
-        private FootballWebSiteDbEntities entities;
+        private FootballWebSiteDbEntities _entities;
 
         public SponsorsRepository()
         {
-            entities = new FootballWebSiteDbEntities();
+            _entities = new FootballWebSiteDbEntities();
         }
 
-        public IEnumerable<JSponsor> Get()
+        public IEnumerable<JSponsor> GetSponsors()
         {
-            var sponsors = Mapper.Map(entities.Sponsors.Where(o => o.ownerId.ToString() == Properties.Settings.Default.OwnerId)
+            var sponsors = Mapper.Map(_entities.Sponsors.Where(o => o.ownerId.ToString() == Properties.Settings.Default.OwnerId)
                 .OrderBy(o => o.orderIndex));
             return sponsors;
         }
 
-        public JSponsor Get(string id)
+        public JSponsor GetSponsor(string id)
         {
-            var sponsors = Mapper.Map(entities.Sponsors.Single(o => o.ownerId.ToString() == Properties.Settings.Default.OwnerId
+            var sponsors = Mapper.Map(_entities.Sponsors.Single(o => o.ownerId.ToString() == Properties.Settings.Default.OwnerId
             && o.sponsorId.ToString() == id));
             return sponsors;
         }
 
-        public JSponsor Post(JSponsor jsponsor)
+        public JSponsor CreateSponsor(JSponsor jsponsor)
         {
-            var index = entities.Sponsors.Where(o => o.ownerId.ToString() == Properties.Settings.Default.OwnerId).Max(o => o.orderIndex);
+            var index = _entities.Sponsors.Where(o => o.ownerId.ToString() == Properties.Settings.Default.OwnerId).Max(o => o.orderIndex);
             var sponsor = new Sponsor
             {
                 sponsorId = Guid.NewGuid(),
-                logoUrl = jsponsor.logoUrl,
-                name = jsponsor.name,
+                logoUrl = jsponsor.LogoUrl,
+                name = jsponsor.Name,
                 orderIndex = index + 1,
-                siteUrl = jsponsor.siteUrl,
+                siteUrl = jsponsor.SiteUrl,
                 ownerId = new Guid(Properties.Settings.Default.OwnerId)
             };
 
-            entities.Sponsors.Add(sponsor);
-            entities.SaveChanges();
+            _entities.Sponsors.Add(sponsor);
+            _entities.SaveChanges();
             return jsponsor;
 
         }
 
-        public JSponsor Put(string id, JSponsor sponsor)
+        public JSponsor UpdateSponsor(string id, JSponsor sponsor)
         {
-            var corresponding = entities.Sponsors.Single(o => o.sponsorId.ToString() == id);
-            corresponding.name = sponsor.name;
-            corresponding.siteUrl = sponsor.siteUrl;
-            corresponding.logoUrl = sponsor.logoUrl;
+            var corresponding = _entities.Sponsors.Single(o => o.sponsorId.ToString() == id);
+            corresponding.name = sponsor.Name;
+            corresponding.siteUrl = sponsor.SiteUrl;
+            corresponding.logoUrl = sponsor.LogoUrl;
 
-            entities.SaveChanges();
+            _entities.SaveChanges();
             return sponsor;
         }
 
-        public void Delete(string id)
+        public void DeleteSponsor(string id)
         {
-            var toDelete = entities.Sponsors.Single(o => o.sponsorId.ToString() == id);
-            entities.Sponsors.Remove(toDelete);
-            entities.SaveChanges();
+            var toDelete = _entities.Sponsors.Single(o => o.sponsorId.ToString() == id);
+            _entities.Sponsors.Remove(toDelete);
+            _entities.SaveChanges();
         }
 
+
+        #region Dispose 
+
+        // Flag: Has Dispose already been called?
+        bool disposed = false;
+
+        /// <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
         public void Dispose()
         {
-            entities.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
+
+        // Protected implementation of Dispose pattern.
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposed)
+                return;
+
+            if (disposing)
+            {
+                _entities?.Dispose();
+            }
+
+            // Free any unmanaged objects here.
+            //
+            disposed = true;
+        }
+
+        ~SponsorsRepository()
+        {
+            Dispose(false);
+        }
+
+        #endregion
     }
 }

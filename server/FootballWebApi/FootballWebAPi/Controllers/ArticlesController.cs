@@ -1,86 +1,94 @@
-﻿using FootballWebSiteApi.Models;
-using FootballWebSiteApi.Repository;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Cors;
+using System.Web.Http.Description;
+using System.Web.Routing;
+using FootballWebSiteApi.Interfaces;
+using FootballWebSiteApi.Models;
+using FootballWebSiteApi.Repository;
 
 namespace FootballWebSiteApi.Controllers
 {
-
-
-    [EnableCors(origins: "*", headers: "*", methods: "GET, POST, PUT, DELETE, OPTIONS")]
-
-    public class ArticlesController : ApiController, ICrudApi<JArticle>
+    [RoutePrefix("api/articles")]
+    public class ArticlesController : ApiController
     {
-        // GET: api/Articles
-        public IHttpActionResult Get()
-        {
-            using (IDatabaseRepository<JArticle> repository = new ArticleRepository())
-            {
-                var articles = repository.Get().Take(25).ToList();
-                
-                return Json(articles);
-            }
+        private readonly IArticleRepository _repository;
 
+        public ArticlesController(IArticleRepository articleRepository)
+        {
+            _repository = articleRepository;
         }
 
+        [HttpGet]
+        [ResponseType(typeof(IEnumerable<JArticle>))]
+        public async Task<IHttpActionResult> GetArticles(int count = 25)
+        {
+            var articles = await _repository.GetArticles();
+            articles = articles.Take(count).ToList();
+            return Ok(articles);
+        }
+
+        [HttpGet]
+        [ResponseType(typeof(JArticle))]
+        [Route("{id}")]
+        public async Task<IHttpActionResult> GetArticle(Guid id)
+        {
+            var article = await _repository.GetArticle(id);
+
+            if (article == null)
+            {
+                return NotFound();
+            }
+            return Ok(article);
+        }
+
+        [HttpGet]
+        [Route("game/{gameId}")]
         public IHttpActionResult GetGameArticle(Guid gameId)
         {
-            using (ArticleRepository repository = new ArticleRepository())
-            {
-                return Json(repository.GetArticlePerGame(gameId));
-            }
+            return Ok(_repository.GetArticlePerGame(gameId));
         }
 
-        // GET: api/Articles/5
-        public IHttpActionResult Get(string id)
-        {
-            using (IDatabaseRepository<JArticle> repository = new ArticleRepository())
-            {
-                var article = repository.Get(id);
-                return Json(article);
-            }
-        }
 
-        // POST: api/Articles
-        public IHttpActionResult Post([FromBody]JArticle article)
+
+        [HttpPost]
+        public IHttpActionResult CreateArticle([FromBody]JArticle article)
         {
             if (ModelState.IsValid)
             {
-                using (IDatabaseRepository<JArticle> repository = new ArticleRepository())
-                {
-                    var retArticle = repository.Post(article);
-                    return Json(retArticle);
-                }
+                var retArticle = _repository.CreateArticle(article);
+                return Ok(retArticle);
             }
-            return null;
+
+            return BadRequest(ModelState);
         }
 
 
-        // PUT: api/Articles/5
-        public IHttpActionResult Put(string id, [FromBody]JArticle article)
+        [HttpPut]
+        public IHttpActionResult SaveArticle(Guid id, [FromBody]JArticle article)
         {
             if (ModelState.IsValid)
             {
-                using (IDatabaseRepository<JArticle> repository = new ArticleRepository())
-                {
-
-                    var retArticle = repository.Put(id, article);
-                    return Json(retArticle);
-                }
+                var retArticle = _repository.SaveArticle(id, article);
+                return Ok(retArticle);
             }
-            return null;
+
+            return BadRequest(ModelState);
         }
 
-        // DELETE: api/Articles/5
-        public IHttpActionResult Delete(string id)
+        [HttpDelete]
+        public IHttpActionResult DeleteArticle(Guid id)
         {
-            using (IDatabaseRepository<JArticle> repository = new ArticleRepository())
-            {
-                repository.Delete(id);
-                return Json(true);
-            }
+            _repository.DeleteArticle(id);
+            return Ok();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _repository.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

@@ -1,27 +1,27 @@
-﻿using FootballWebSiteApi.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using System.Web.Http.Cors;
+﻿using System.Web.Http;
 using FootballWebSiteApi.Helpers;
+using FootballWebSiteApi.Interfaces;
+using FootballWebSiteApi.Repository;
 
 namespace FootballWebSiteApi.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "GET, POST, PUT, DELETE, OPTIONS")]
+
+    [RoutePrefix("api/authentication")]
     public class AuthenticationController : ApiController
     {
+        private readonly IAuthenticationRepository _authenticationRepository;
+
+        public AuthenticationController(IAuthenticationRepository authenticationRepository)
+        {
+            this._authenticationRepository = authenticationRepository;
+        }
+
         [HttpGet]
-        [Route("api/authentication/{alias}/{password}")]
+        [Route("{alias}/{password}")]
         public IHttpActionResult UserAllowed(string alias, string password)
         {
-            using (AuthenticationRepository repository = new AuthenticationRepository())
-            {
-                var user = Mapper.Map(repository.IsAuthorized(alias, password));
-                return Json(user);
-            }
+            var user = Mapper.Map(_authenticationRepository.IsAuthorized(alias, password));
+            return Ok(user);
         }
     }
 }

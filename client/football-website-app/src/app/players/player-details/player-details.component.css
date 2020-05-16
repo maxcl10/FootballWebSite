@@ -31,8 +31,6 @@
 .back {
   grid-area: frontAndBack;
   transform: rotateY(-180deg);
-  background: #097343;
-  background: linear-gradient(0deg, #0e9c5b 0%, #097343 100%);
   color: white;
 }
 

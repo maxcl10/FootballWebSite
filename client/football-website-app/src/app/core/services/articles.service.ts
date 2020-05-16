@@ -15,7 +15,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class ArticlesService {
-  private articleUrl = AppConfig.settings.apiServer.url + '/articles';
+  private articleUrl = AppConfig.settings.apiServer.url + 'articles';
 
   constructor(private http: HttpClient) {}
 

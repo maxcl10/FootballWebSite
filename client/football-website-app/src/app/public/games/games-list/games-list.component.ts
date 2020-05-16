@@ -13,7 +13,7 @@ import {
   toArray,
   flatMap,
   map,
-  switchMap
+  switchMap,
 } from 'rxjs/operators';
 import { Observable, from, merge, of } from 'rxjs';
 import { group } from '@angular/animations';
@@ -21,7 +21,7 @@ import { group } from '@angular/animations';
 @Component({
   selector: 'fws-games-list',
   templateUrl: './games-list.component.html',
-  providers: [GamesService, LogoService, TeamsService]
+  providers: [GamesService, LogoService, TeamsService],
 })
 export class GamesComponent implements OnInit {
   public errorMessage: string;
@@ -46,10 +46,10 @@ export class GamesComponent implements OnInit {
     this.getGames();
 
     this.teamsService.getHomeTeams().subscribe(
-      homeTeams => {
+      (homeTeams) => {
         this.homeTeam = homeTeams[0].name;
       },
-      error => (this.errorMessage = <any>error)
+      (error) => (this.errorMessage = <any>error)
     );
   }
 
@@ -57,14 +57,14 @@ export class GamesComponent implements OnInit {
     this.gamesPerMonth = new Array();
 
     this.gamesService.getGames().subscribe(
-      games => {
-        games.forEach(element => {
+      (games) => {
+        games.forEach((element) => {
           element.homeTeamLogoUrl = this.logoService.getLogoPath(
-            element.HomeTeam,
+            element.homeTeam,
             60
           );
           element.awayTeamLogoUrl = this.logoService.getLogoPath(
-            element.AwayTeam,
+            element.awayTeam,
             60
           );
         });
@@ -73,23 +73,23 @@ export class GamesComponent implements OnInit {
           .pipe(
             // Groups by date
             groupBy(
-              game =>
-                new Date(game.MatchDate).getMonth() +
+              (game) =>
+                new Date(game.matchDate).getMonth() +
                 '-' +
-                new Date(game.MatchDate).getFullYear()
+                new Date(game.matchDate).getFullYear()
             ),
             // return each item in group as array
-            mergeMap(grouped => grouped.pipe(toArray()))
+            mergeMap((grouped) => grouped.pipe(toArray()))
           )
-          .subscribe(val => {
+          .subscribe((val) => {
             this.gamesPerMonth.push(val);
           });
       },
-      error => (this.errorMessage = <any>error)
+      (error) => (this.errorMessage = <any>error)
     );
   }
 
   public getWeb(game: Game) {
-    return game.MatchDate.getMonth();
+    return game.matchDate.getMonth();
   }
 }

@@ -1,53 +1,55 @@
-﻿using FootballWebSiteApi.Models;
-using FootballWebSiteApi.Repository;
-using System;
+﻿using System;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using FootballWebSiteApi.Interfaces;
+using FootballWebSiteApi.Models;
+using FootballWebSiteApi.Repository;
 
 namespace FootballWebSiteApi.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "GET, POST, PUT, DELETE, OPTIONS")]
+    [RoutePrefix("api/gamesPlayers")]
     public class GamesPlayersController : ApiController
     {
+        private readonly IPlayersRepository _playersRepository;
+
+        public GamesPlayersController(IPlayersRepository playersRepository)
+        {
+            this._playersRepository = playersRepository;
+        }
+
         // GET: api/games/ec84f223-a489-473a-9fb1-57ee6f610688/players
         public IHttpActionResult Get(Guid gameId)
         {
-            using (PlayerRepository repository = new PlayerRepository())
-            {
-                var players = repository.GetGamePlayers(gameId);
-                return Json(players);
-            }
+            var players = _playersRepository.GetGamePlayers(gameId);
+            return Ok(players);
         }
 
 
         // POST: api/GamesPlayers
         public IHttpActionResult Post(Guid gameId, [FromBody] JGamePlayer player)
         {
-            using (PlayerRepository repository = new PlayerRepository())
-            {
-                var retPlayer = repository.AddGamePlayer(gameId, player);
-                return Created<JGamePlayer>(Request.RequestUri + retPlayer.id.ToString(), retPlayer);
-            }
+
+            var retPlayer = _playersRepository.AddGamePlayer(gameId, player);
+            return Created<JGamePlayer>(Request.RequestUri + retPlayer.Id.ToString(), retPlayer);
+
         }
 
         public IHttpActionResult Put(Guid gameId, Guid id, [FromBody] JGamePlayer player)
         {
-            using (PlayerRepository repository = new PlayerRepository())
-            {
-                repository.EditGamePlayer(gameId, id, player);
-                return Ok();
-            }
+
+            _playersRepository.UpdateGamePlayer(gameId, id, player);
+            return Ok();
+
         }
 
 
         // DELETE: api/GamesPlayers/5
         public IHttpActionResult Delete(Guid gameId, Guid id)
         {
-            using (PlayerRepository repository = new PlayerRepository())
-            {
-                repository.DeleteGamePlayer(gameId, id);
-                return Ok();
-            }
+
+            _playersRepository.DeleteGamePlayer(gameId, id);
+            return Ok();
+
         }
     }
 }

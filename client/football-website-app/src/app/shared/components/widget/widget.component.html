@@ -1,8 +1,18 @@
 <div
-  class="card shadow mb-3"
-  [ngClass]="{ 'bg-transparent shadow-none': transparent }"
+  class="card shadow"
+  [ngClass]="{ 'w-100 bg-transparent shadow-none': transparent }"
 >
-  <h5 class="card-header" *ngIf="headerText">{{ headerText }}</h5>
+  <h5
+    [ngClass]="{
+      'bg-transparent text-white': transparent,
+      'card-header': contentMargin == true
+    }"
+    class="text-uppercase"
+    *ngIf="headerText"
+  >
+    {{ headerText }}
+    <div style="margin-top: -45px;" class="display-4">_</div>
+  </h5>
 
   <div
     [ngClass]="{

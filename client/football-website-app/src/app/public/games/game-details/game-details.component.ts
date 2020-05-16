@@ -13,7 +13,7 @@ import { PlayerEvents } from '../../../shared/models/player-event.model';
 @Component({
   selector: 'fws-game-details',
   templateUrl: './game-details.component.html',
-  styleUrls: ['./game-details.component.scss']
+  styleUrls: ['./game-details.component.scss'],
 })
 export class GameDetailsComponent implements OnInit {
   game: Game;
@@ -55,46 +55,46 @@ export class GameDetailsComponent implements OnInit {
     'R2',
     'R3',
     'R4',
-    'R5'
+    'R5',
   ];
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       const id = params['id'];
 
-      this.gameService.getGame(id).subscribe(game => {
+      this.gameService.getGame(id).subscribe((game) => {
         this.game = game;
 
         this.game.homeTeamLogoUrl = this.logoService.getLogoPath(
-          game.HomeTeam,
+          game.homeTeam,
           100
         );
         this.game.awayTeamLogoUrl = this.logoService.getLogoPath(
-          game.AwayTeam,
+          game.awayTeam,
           100
         );
       });
 
-      this.gameService.getGamePlayers(id).subscribe(players => {
+      this.gameService.getGamePlayers(id).subscribe((players) => {
         this.players = players.sort((a, b) => {
           return (
-            this.order.findIndex(o => o === a.position) -
-            this.order.findIndex(o => o === b.position)
+            this.order.findIndex((o) => o === a.position) -
+            this.order.findIndex((o) => o === b.position)
           );
         });
       });
 
       this.groupByPlayer = new Array();
 
-      this.gameService.getGameEvents(id).subscribe(events => {
+      this.gameService.getGameEvents(id).subscribe((events) => {
         events
-          .filter(o => o.eventTypeId === 0)
+          .filter((o) => o.eventTypeId === 0)
           .sort((a, b) => {
             return a.time - b.time;
           })
-          .forEach(event => {
+          .forEach((event) => {
             const item = this.groupByPlayer.find(
-              o => o.playerId === event.playerId
+              (o) => o.playerId === event.playerId
             );
             if (item) {
               item.goals.push(event);
@@ -116,12 +116,12 @@ export class GameDetailsComponent implements OnInit {
         //   });
 
         this.goals = events
-          .filter(o => o.eventTypeId === 0)
+          .filter((o) => o.eventTypeId === 0)
           .sort((a, b) => {
             return a.time - b.time;
           });
 
-        this.gameService.getGameArticle(id).subscribe(article => {
+        this.gameService.getGameArticle(id).subscribe((article) => {
           this.article = article;
         });
       });

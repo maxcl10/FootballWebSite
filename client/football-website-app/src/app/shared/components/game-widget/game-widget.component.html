@@ -1,0 +1,52 @@
+<div class="d-flex bg-grey" *ngIf="game">
+  <!-- Home -->
+  <div class="text-center">
+    <div class="flex-column">
+      <div class="p-2 p-lg-5">
+        <img class="img" src="{{ game.homeTeamLogoUrl }}" />
+      </div>
+      <div class="bg-primary p-2 small font-weight-bold">
+        {{ game.HomeTeam }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Score -->
+  <div class="text-center flex-grow-1">
+    <div class="d-flex flex-column h-100">
+      <div class="bg-primary p-2 font-weight-bold">{{ game.Championship }}</div>
+      <div class="text-primary h-75">
+        <div class="d-flex h-100 bg-white">
+          <div class="flex-fill align-self-center font-weight-bold display-4">
+            <span
+              *ngIf="game.HomeTeamScore != null && game.AwayTeamScore != null"
+            >
+              <span class="text-success">{{ game.HomeTeamScore }}</span
+              >:<span class="text-black-50">{{ game.AwayTeamScore }}</span>
+            </span>
+            <span
+              *ngIf="game.HomeTeamScore == null && game.AwayTeamScore == null"
+            >
+              vs
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-tertiary p-2 text-grey small">
+        {{ game.MatchDate | frDate: 'veryShortDateTime' }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Away -->
+  <div class="text-center">
+    <div class="flex-column">
+      <div class="p-2 p-lg-5">
+        <img class="img" src="{{ game.awayTeamLogoUrl }}" />
+      </div>
+      <div class="bg-primary p-2 small font-weight-bold">
+        {{ game.AwayTeam }}
+      </div>
+    </div>
+  </div>
+</div>

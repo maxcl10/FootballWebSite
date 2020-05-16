@@ -16,29 +16,29 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class StatsService {
-  private statsUrl = AppConfig.settings.apiServer.url + '/ns/stats';
+  private statsUrl = AppConfig.settings.apiServer.url + 'stats';
   private strickers: Observable<Stricker[]>;
 
   constructor(private http: HttpClient) {}
 
   public getShape(): Observable<string[]> {
-    return this.http.get<string[]>(this.statsUrl + '/getShape');
+    return this.http.get<string[]>(this.statsUrl + '/shape');
   }
 
   public getStricker(id: string): Observable<Stricker> {
-    return this.http.get<Stricker>(this.statsUrl + '/getStricker/' + id);
+    return this.http.get<Stricker>(this.statsUrl + '/strickers' + id);
   }
 
   public getStrickers(): Observable<Stricker[]> {
-    return this.http.get<Stricker[]>(this.statsUrl + '/getStrickers2');
+    return this.http.get<Stricker[]>(this.statsUrl + '/strickers');
   }
 
   public getScoredGoalsPerGame(): Observable<number> {
-    return this.http.get<number>(this.statsUrl + '/getScoredGoalsPerGame');
+    return this.http.get<number>(this.statsUrl + '/scoredPerGame');
   }
 
   public getConcededGoalsPerGame(): Observable<number> {
-    return this.http.get<number>(this.statsUrl + '/getConcededGoalsPerGame');
+    return this.http.get<number>(this.statsUrl + '/concededPerGame');
   }
 
   public getTeamStrickers(): Observable<Stricker[]> {
@@ -46,7 +46,7 @@ export class StatsService {
       return this.strickers;
     }
     this.strickers = this.http.get<Stricker[]>(
-      this.statsUrl + '/getTeamStrickers'
+      this.statsUrl + '/team/strickers'
     );
     return this.strickers;
   }
@@ -56,6 +56,7 @@ export class StatsService {
       this.statsUrl + '/getRankingHistory'
     );
   }
+
   public saveStricker(stricker: Stricker): Observable<Stricker> {
     return this.http.post<Stricker>(
       this.statsUrl + '/SetStricker/',

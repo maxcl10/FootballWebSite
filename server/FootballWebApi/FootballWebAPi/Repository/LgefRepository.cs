@@ -1,17 +1,16 @@
-﻿using FootballWebSiteApi.Entities;
-using FootballWebSiteApi.Models;
-using HtmlAgilityPack;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
-using System.Web;
+using FootballWebSiteApi.Interfaces;
+using FootballWebSiteApi.Models;
+using HtmlAgilityPack;
 
 namespace FootballWebSiteApi.Repository
 {
-    public class LgefRepository
+    public class LgefRepository : ILgefRepository
     {
         public List<JGame> GetGames(string url, int clubId)
         {
@@ -64,8 +63,8 @@ namespace FootballWebSiteApi.Repository
 
                             var rankingList = GetRanking(rankingdoc);
 
-                            game.HomeTeamScore = rankingList.Single(o => o.team == homeTeam).position;
-                            game.AwayTeamScore = rankingList.Single(o => o.team == awayTeam).position;
+                            game.HomeTeamScore = rankingList.Single(o => o.Team == homeTeam).Position;
+                            game.AwayTeamScore = rankingList.Single(o => o.Team == awayTeam).Position;
                         }
                         catch (Exception)
                         {
@@ -185,18 +184,18 @@ namespace FootballWebSiteApi.Repository
                         continue;
                     }
 
-                    ranking.position = int.Parse(cells[0].InnerText);
-                    ranking.team = cells[1].InnerText.Trim();
-                    ranking.points = int.Parse(cells[2].InnerText);
-                    ranking.matchPlayed = int.Parse(cells[3].InnerText);
-                    ranking.matchWon = int.Parse(cells[4].InnerText);
-                    ranking.matchDraw = int.Parse(cells[5].InnerText);
-                    ranking.matchLost = int.Parse(cells[6].InnerText);
-                    ranking.withdaw = int.Parse(cells[7].InnerText);
-                    ranking.goalsScored = int.Parse(cells[8].InnerText);
-                    ranking.goalsAgainst = int.Parse(cells[9].InnerText);
-                    ranking.penality = int.Parse(cells[10].InnerText);
-                    ranking.goalDifference = int.Parse(cells[11].InnerText);
+                    ranking.Position = int.Parse(cells[0].InnerText);
+                    ranking.Team = cells[1].InnerText.Trim();
+                    ranking.Points = int.Parse(cells[2].InnerText);
+                    ranking.MatchPlayed = int.Parse(cells[3].InnerText);
+                    ranking.MatchWon = int.Parse(cells[4].InnerText);
+                    ranking.MatchDraw = int.Parse(cells[5].InnerText);
+                    ranking.MatchLost = int.Parse(cells[6].InnerText);
+                    ranking.Withdaw = int.Parse(cells[7].InnerText);
+                    ranking.GoalsScored = int.Parse(cells[8].InnerText);
+                    ranking.GoalsAgainst = int.Parse(cells[9].InnerText);
+                    ranking.Penality = int.Parse(cells[10].InnerText);
+                    ranking.GoalDifference = int.Parse(cells[11].InnerText);
 
 
                     rankings.Add(ranking);

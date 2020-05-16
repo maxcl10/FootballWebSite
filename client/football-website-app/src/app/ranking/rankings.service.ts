@@ -10,7 +10,7 @@ import { Competition } from '../shared/models/competition.model';
   providedIn: 'root',
 })
 export class RankingsService {
-  private rankingUrl = AppConfig.settings.apiServer.url + '/ranking';
+  private rankingUrl = AppConfig.settings.apiServer.url + '/rankings';
   private updateLafaRankingUrl =
     AppConfig.settings.apiServer.url + '/UpdateRankingFromLafa';
 

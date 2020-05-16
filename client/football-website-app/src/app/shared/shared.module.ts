@@ -13,6 +13,8 @@ import { WidgetComponent } from './components/widget/widget.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { GameWidgetComponent } from './components/game-widget/game-widget.component';
+import { PageHeaderComponent } from './components/page-header/page-header.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, HttpClientModule, ReactiveFormsModule],
@@ -27,6 +29,8 @@ import { BrowserModule } from '@angular/platform-browser';
     CompetitionComponent,
     PitchComponent,
     WidgetComponent,
+    GameWidgetComponent,
+    PageHeaderComponent,
   ],
   exports: [
     SearchPipe,
@@ -37,6 +41,8 @@ import { BrowserModule } from '@angular/platform-browser';
     CompetitionComponent,
     PitchComponent,
     WidgetComponent,
+    GameWidgetComponent,
+    PageHeaderComponent,
   ],
 })
 

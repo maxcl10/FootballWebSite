@@ -15,7 +15,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class PlayersService {
-  private playerUrl = AppConfig.settings.apiServer.url + '/players';
+  private playerUrl = AppConfig.settings.apiServer.url + 'players';
 
   constructor(private http: HttpClient) {}
 
@@ -29,6 +29,10 @@ export class PlayersService {
 
   public createplayer(player: Player): Observable<Player> {
     return this.http.post<Player>(this.playerUrl, player, httpOptions);
+  }
+
+  public getCurrentPlayers(): Observable<Player[]> {
+    return this.http.get<Player[]>(this.playerUrl + '/current');
   }
 
   public updateplayer(player: Player): Observable<Player> {

@@ -1,7 +1,7 @@
 import { Component, Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'frDate'
+  name: 'frDate',
 })
 export class FrDatePipe implements PipeTransform {
   private timeSeparator = 'h';
@@ -78,6 +78,17 @@ export class FrDatePipe implements PipeTransform {
       return (
         this.getShortFrDay(myDate.getDay()) +
         ' ' +
+        this.padStr(myDate.getDate()) +
+        ' ' +
+        this.getShortFrMonth(myDate.getMonth()) +
+        ' ' +
+        this.padStr(myDate.getHours()) +
+        this.timeSeparator +
+        this.padStr(myDate.getMinutes().toString())
+      );
+    }
+    if (args === 'veryShortDateTime') {
+      return (
         this.padStr(myDate.getDate()) +
         ' ' +
         this.getShortFrMonth(myDate.getMonth()) +

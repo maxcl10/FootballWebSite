@@ -361,7 +361,6 @@ C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWeb
 C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\System.Web.Cors.dll
 C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\System.Web.Helpers.dll
 C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\System.Web.Http.Cors.dll
-C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\System.Web.Http.dll
 C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\System.Web.Http.WebHost.dll
 C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\System.Web.Mvc.dll
 C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\System.Web.Optimization.dll
@@ -391,7 +390,6 @@ C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWeb
 C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\System.Web.WebPages.Deployment.xml
 C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\System.Web.WebPages.Razor.xml
 C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\System.Net.Http.Formatting.xml
-C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\System.Web.Http.xml
 C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\System.Web.Http.WebHost.xml
 C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\obj\Release\FootballWebSiteAPI.csprojAssemblyReference.cache
 C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\obj\Release\FootballWebSiteAPI.csproj.CopyComplete
@@ -424,3 +422,14 @@ C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWeb
 C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\System.Memory.xml
 C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\System.Numerics.Vectors.xml
 C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\System.Web.Http.dll
+C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\System.Web.Http.xml
+C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\AutoMapper.dll
+C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\Unity.Abstractions.dll
+C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\Unity.Container.dll
+C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\Unity.WebApi.dll
+C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\AutoMapper.pdb
+C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\AutoMapper.xml
+C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\Unity.Abstractions.pdb
+C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\Unity.Container.pdb
+C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\obj\Release\FootballWebSiteAPI.csproj.CoreCompileInputs.cache

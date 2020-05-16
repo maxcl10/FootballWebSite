@@ -3,14 +3,14 @@
     "name": "FCB"
   },
   "apiServer": {
-    "url": "https://fcbwebapi.azurewebsites.net/api/"
+    "url": "https://marez.fr/services/football/api/"
   },
   "properties": {
     "siteName": "F.C Bartenheim",
     "mainColor": "#1e824c",
     "siteUrl": "https://fcbartenheim.com",
     "homeImageUrls": [
-      "../../../assets/img/Fcb_2018_2019.jpg",
+      "../../../assets/img/Fcb_2019_2020.jpg",
       "../../../assets/img/Fcb2_2018_2019.jpg"
     ]
   }

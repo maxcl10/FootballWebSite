@@ -1,12 +1,16 @@
-<span *ngFor="let stat of shape" style="display: inline;">
-  <span
-    class="badge"
-    [ngClass]="{
-      'badge-success': stat == 'G',
-      'badge-danger': stat == 'P',
-      'badge-default': stat == 'N'
-    }"
-  >
-    {{ stat }}
+<div class="d-flex">
+  <span *ngFor="let stat of shape">
+    <h3 class="mr-2">
+      <span
+        class="badge"
+        [ngClass]="{
+          'badge-success': stat == 'W',
+          'badge-danger': stat == 'L',
+          'badge-default': stat == 'D'
+        }"
+      >
+        {{ stat }}
+      </span>
+    </h3>
   </span>
-</span>
+</div>

@@ -5,7 +5,7 @@ import { AuthGuard } from './user/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
@@ -48,6 +48,11 @@ const routes: Routes = [
       import('./contacts/contacts.module').then((m) => m.ContactsModule),
   },
   {
+    path: 'login',
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginModule),
+  },
+  {
     path: 'admin',
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminModule),
@@ -57,7 +62,10 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+      scrollPositionRestoration: 'enabled',
+    }),
   ],
   exports: [RouterModule],
 })

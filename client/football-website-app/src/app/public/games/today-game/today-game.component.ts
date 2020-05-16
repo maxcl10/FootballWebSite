@@ -6,7 +6,7 @@ import { Game } from '../../../shared/models/game.model';
 @Component({
   selector: 'fws-today-game',
   templateUrl: './today-game.component.html',
-  providers: [GamesService, LogoService]
+  providers: [GamesService, LogoService],
 })
 export class TodayGameComponent implements OnInit {
   public game: Game;
@@ -29,7 +29,7 @@ export class TodayGameComponent implements OnInit {
       return false;
     }
 
-    const matchDate = new Date(this.game.MatchDate.toString());
+    const matchDate = new Date(this.game.matchDate.toString());
     if (
       matchDate.getDate() === today.getDate() &&
       matchDate.getMonth() === today.getMonth() &&
@@ -42,15 +42,15 @@ export class TodayGameComponent implements OnInit {
 
   public getNextGame() {
     this.gamesService.getNextGame().subscribe(
-      game => {
+      (game) => {
         this.game = game;
         if (game != null) {
           this.game.awayTeamLogoUrl = this.logoService.getLogoPath(
-            this.game.AwayTeam,
+            this.game.awayTeam,
             100
           );
           this.game.homeTeamLogoUrl = this.logoService.getLogoPath(
-            this.game.HomeTeam,
+            this.game.homeTeam,
             100
           );
         }
@@ -58,16 +58,16 @@ export class TodayGameComponent implements OnInit {
         this.isToday = this.isGameToday();
         this.gameType = this.GetGameType(game);
       },
-      error => (this.errorMessage = <any>error)
+      (error) => (this.errorMessage = <any>error)
     );
   }
 
   private GetGameType(game: Game): string {
     // championnat contain JXX. Therefore I have to use the conatain
-    if (game.Championship.includes('Championnat')) {
+    if (game.championship.includes('Championnat')) {
       return 'Championnat';
     } else {
-      return game.Championship;
+      return game.championship;
     }
   }
 }

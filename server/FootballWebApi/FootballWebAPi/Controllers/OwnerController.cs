@@ -1,27 +1,28 @@
-﻿using FootballWebSiteApi.Entities;
-using FootballWebSiteApi.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Http.Cors;
+using FootballWebSiteApi.Interfaces;
+using FootballWebSiteApi.Repository;
 
 namespace FootballWebSiteApi.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "GET, POST, PUT, DELETE, OPTIONS")]
+    [RoutePrefix("api/owner")]
     public class OwnerController : ApiController
     {
+        private readonly IOwnerRepository _ownerRepository;
+
+        public OwnerController(IOwnerRepository ownerRepository)
+        {
+            this._ownerRepository = ownerRepository;
+        }
+
         // GET: api/Owner
         public IHttpActionResult Get()
         {
-            using (OwnerRepository repository = new OwnerRepository())
-            {
-                var owner = repository.Get();
-                return Json(owner);
-            }
+
+            var owner = _ownerRepository.GetCurrentOwner();
+            return Ok(owner);
+
         }
-      
+
     }
 }

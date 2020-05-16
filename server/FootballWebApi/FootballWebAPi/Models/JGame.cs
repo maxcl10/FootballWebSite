@@ -29,6 +29,6 @@ namespace FootballWebSiteApi.Models
 
         public string Result { get; set; }
 
-      
+
     }
 }

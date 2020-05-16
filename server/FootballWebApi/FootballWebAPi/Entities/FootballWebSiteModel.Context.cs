@@ -46,5 +46,6 @@ namespace FootballWebSiteApi.Entities
         public virtual DbSet<TeamCompetitionSeason> TeamCompetitionSeasons { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Ranking> Rankings { get; set; }
+        public virtual DbSet<ArticleType> ArticleTypes { get; set; }
     }
 }

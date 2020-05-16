@@ -122,6 +122,11 @@
       <End Role="Team" EntitySet="Teams" />
       <End Role="TeamCompetitionSeason" EntitySet="TeamCompetitionSeasons" />
     </AssociationSet>
+    <EntitySet Name="ArticleTypes" EntityType="FootballWebSiteDbModel.ArticleType" />
+    <AssociationSet Name="FK_Article_ArticleType" Association="FootballWebSiteDbModel.FK_Article_ArticleType">
+      <End Role="ArticleType" EntitySet="ArticleTypes" />
+      <End Role="Article" EntitySet="Articles" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Article">
     <Key>
@@ -142,6 +147,10 @@
     <NavigationProperty Name="Owner" Relationship="FootballWebSiteDbModel.FK_Article_Owner" FromRole="Article" ToRole="Owner" />
     <NavigationProperty Name="Season" Relationship="FootballWebSiteDbModel.FK_Article_Season" FromRole="Article" ToRole="Season" />
     <NavigationProperty Name="User" Relationship="FootballWebSiteDbModel.FK_Article_User" FromRole="Article" ToRole="User" />
+    <Property Name="articleTypeId" Type="Int32" />
+    <Property Name="imageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="subTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ArticleType" Relationship="FootballWebSiteDbModel.FK_Article_ArticleType" FromRole="Article" ToRole="ArticleType" />
   </EntityType>
   <EntityType Name="ChampionshipTeam">
     <Key>
@@ -745,6 +754,26 @@
       </Principal>
       <Dependent Role="TeamCompetitionSeason">
         <PropertyRef Name="teamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ArticleType">
+    <Key>
+      <PropertyRef Name="ArticleTypeId" />
+    </Key>
+    <Property Name="ArticleTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Articles" Relationship="FootballWebSiteDbModel.FK_Article_ArticleType" FromRole="ArticleType" ToRole="Article" />
+  </EntityType>
+  <Association Name="FK_Article_ArticleType">
+    <End Type="FootballWebSiteDbModel.ArticleType" Role="ArticleType" Multiplicity="0..1" />
+    <End Type="FootballWebSiteDbModel.Article" Role="Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ArticleType">
+        <PropertyRef Name="ArticleTypeId" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="articleTypeId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -1,9 +1,6 @@
-﻿using FootballWebSiteApi.Entities;
+﻿using System;
+using FootballWebSiteApi.Entities;
 using FootballWebSiteApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace FootballWebSiteApi.Helpers
 {

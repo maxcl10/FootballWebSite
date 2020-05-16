@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.3.5.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.3.5.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -50,6 +50,9 @@
   <ItemGroup>
     <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=9.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.9.0.0\lib\net461\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
@@ -137,6 +140,7 @@
     </Reference>
     <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
@@ -167,6 +171,15 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Unity.Abstractions, Version=5.11.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.6\lib\net47\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.6\lib\net47\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.WebApi, Version=5.4.0.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.WebAPI.5.4.0\lib\net45\Unity.WebApi.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
     </Reference>
@@ -174,13 +187,6 @@
   <ItemGroup>
     <Content Include="App_Data\Articles.xml" />
     <Content Include="App_Data\teams.xml" />
-    <Content Include="Content\bootstrap-grid.css" />
-    <Content Include="Content\bootstrap-grid.min.css" />
-    <Content Include="Content\bootstrap-reboot.css" />
-    <Content Include="Content\bootstrap-reboot.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Entities\FootballWebSiteModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -192,127 +198,22 @@
       <DependentUpon>FootballWebSiteModel.edmx</DependentUpon>
       <LastGenOutput>FootballWebSiteModel.cs</LastGenOutput>
     </Content>
-    <Content Include="scripts\ai.0.22.9-build00167.js" />
-    <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-reboot.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.css.map" />
-    <Content Include="Content\bootstrap-grid.min.css.map" />
-    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include=".editorconfig" />
+    <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\fcbWebApi - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\fcbWebApi - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\fcbWebApi - Web Deploy1.pubxml" />
     <None Include="Properties\PublishProfiles\fcuWebApi - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\fcuWebApi - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\fcuWebApi - Web Deploy1.pubxml" />
-    <Content Include="scripts\bootstrap.bundle.js" />
-    <Content Include="scripts\bootstrap.bundle.min.js" />
-    <Content Include="scripts\bootstrap.js" />
-    <Content Include="scripts\bootstrap.min.js" />
-    <Content Include="scripts\bootstrap.min.js.map" />
-    <Content Include="scripts\bootstrap.js.map" />
-    <Content Include="scripts\bootstrap.bundle.min.js.map" />
-    <Content Include="scripts\bootstrap.bundle.js.map" />
-    <Content Include="scripts\esm\popper-utils.js" />
-    <Content Include="scripts\esm\popper-utils.min.js" />
-    <Content Include="scripts\esm\popper.js" />
-    <Content Include="scripts\esm\popper.min.js" />
-    <Content Include="scripts\index.js.flow" />
-    <Content Include="scripts\esm\popper.min.js.map" />
-    <Content Include="scripts\esm\popper.js.map" />
-    <Content Include="scripts\esm\popper-utils.min.js.map" />
-    <Content Include="scripts\esm\popper-utils.js.map" />
-    <None Include="scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="scripts\jquery-3.4.1.js" />
-    <Content Include="scripts\jquery-3.4.1.min.js" />
-    <Content Include="scripts\jquery-3.4.1.slim.js" />
-    <Content Include="scripts\jquery-3.4.1.slim.min.js" />
-    <None Include="scripts\jquery.validate-vsdoc.js" />
-    <Content Include="scripts\jquery.validate.js" />
-    <Content Include="scripts\jquery.validate.min.js" />
-    <Content Include="scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="scripts\modernizr-2.8.3.js" />
-    <Content Include="scripts\popper-utils.js" />
-    <Content Include="scripts\popper-utils.min.js" />
-    <Content Include="scripts\popper.js" />
-    <Content Include="scripts\popper.min.js" />
-    <Content Include="scripts\src\index.js" />
-    <Content Include="scripts\src\methods\defaults.js" />
-    <Content Include="scripts\src\methods\destroy.js" />
-    <Content Include="scripts\src\methods\disableEventListeners.js" />
-    <Content Include="scripts\src\methods\enableEventListeners.js" />
-    <Content Include="scripts\src\methods\placements.js" />
-    <Content Include="scripts\src\methods\update.js" />
-    <Content Include="scripts\src\modifiers\applyStyle.js" />
-    <Content Include="scripts\src\modifiers\arrow.js" />
-    <Content Include="scripts\src\modifiers\computeStyle.js" />
-    <Content Include="scripts\src\modifiers\flip.js" />
-    <Content Include="scripts\src\modifiers\hide.js" />
-    <Content Include="scripts\src\modifiers\index.js" />
-    <Content Include="scripts\src\modifiers\inner.js" />
-    <Content Include="scripts\src\modifiers\keepTogether.js" />
-    <Content Include="scripts\src\modifiers\offset.js" />
-    <Content Include="scripts\src\modifiers\preventOverflow.js" />
-    <Content Include="scripts\src\modifiers\shift.js" />
-    <Content Include="scripts\src\utils\clockwise.js" />
-    <Content Include="scripts\src\utils\computeAutoPlacement.js" />
-    <Content Include="scripts\src\utils\debounce.js" />
-    <Content Include="scripts\src\utils\find.js" />
-    <Content Include="scripts\src\utils\findCommonOffsetParent.js" />
-    <Content Include="scripts\src\utils\findIndex.js" />
-    <Content Include="scripts\src\utils\getBordersSize.js" />
-    <Content Include="scripts\src\utils\getBoundaries.js" />
-    <Content Include="scripts\src\utils\getBoundingClientRect.js" />
-    <Content Include="scripts\src\utils\getClientRect.js" />
-    <Content Include="scripts\src\utils\getFixedPositionOffsetParent.js" />
-    <Content Include="scripts\src\utils\getOffsetParent.js" />
-    <Content Include="scripts\src\utils\getOffsetRect.js" />
-    <Content Include="scripts\src\utils\getOffsetRectRelativeToArbitraryNode.js" />
-    <Content Include="scripts\src\utils\getOppositePlacement.js" />
-    <Content Include="scripts\src\utils\getOppositeVariation.js" />
-    <Content Include="scripts\src\utils\getOuterSizes.js" />
-    <Content Include="scripts\src\utils\getParentNode.js" />
-    <Content Include="scripts\src\utils\getPopperOffsets.js" />
-    <Content Include="scripts\src\utils\getReferenceNode.js" />
-    <Content Include="scripts\src\utils\getReferenceOffsets.js" />
-    <Content Include="scripts\src\utils\getRoot.js" />
-    <Content Include="scripts\src\utils\getRoundedOffsets.js" />
-    <Content Include="scripts\src\utils\getScroll.js" />
-    <Content Include="scripts\src\utils\getScrollParent.js" />
-    <Content Include="scripts\src\utils\getStyleComputedProperty.js" />
-    <Content Include="scripts\src\utils\getSupportedPropertyName.js" />
-    <Content Include="scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
-    <Content Include="scripts\src\utils\getWindow.js" />
-    <Content Include="scripts\src\utils\getWindowSizes.js" />
-    <Content Include="scripts\src\utils\includeScroll.js" />
-    <Content Include="scripts\src\utils\index.js" />
-    <Content Include="scripts\src\utils\isBrowser.js" />
-    <Content Include="scripts\src\utils\isFixed.js" />
-    <Content Include="scripts\src\utils\isFunction.js" />
-    <Content Include="scripts\src\utils\isIE.js" />
-    <Content Include="scripts\src\utils\isModifierEnabled.js" />
-    <Content Include="scripts\src\utils\isModifierRequired.js" />
-    <Content Include="scripts\src\utils\isNumeric.js" />
-    <Content Include="scripts\src\utils\isOffsetContainer.js" />
-    <Content Include="scripts\src\utils\removeEventListeners.js" />
-    <Content Include="scripts\src\utils\runModifiers.js" />
-    <Content Include="scripts\src\utils\setAttributes.js" />
-    <Content Include="scripts\src\utils\setStyles.js" />
-    <Content Include="scripts\src\utils\setupEventListeners.js" />
-    <Content Include="scripts\umd\popper-utils.js" />
-    <Content Include="scripts\umd\popper-utils.min.js" />
-    <Content Include="scripts\umd\popper.js" />
-    <Content Include="scripts\umd\popper.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CompetitionsController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
@@ -320,16 +221,16 @@
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="Controllers\GamesPlayersController.cs" />
-    <Compile Include="Controllers\NextGameController.cs" />
     <Compile Include="Controllers\OwnerController.cs" />
     <Compile Include="Controllers\PlayersController.cs" />
-    <Compile Include="Controllers\PreviousGameController.cs" />
-    <Compile Include="Controllers\RankingController.cs" />
+    <Compile Include="Controllers\RankingsController.cs" />
     <Compile Include="Controllers\SponsorsController.cs" />
     <Compile Include="Controllers\StatsController.cs" />
-    <Compile Include="Controllers\TeamPlayerController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Entities\ArticleType.cs">
+      <DependentUpon>FootballWebSiteModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Competition.cs">
       <DependentUpon>FootballWebSiteModel.tt</DependentUpon>
     </Compile>
@@ -389,7 +290,6 @@
     <Compile Include="Entities\Game.cs">
       <DependentUpon>FootballWebSiteModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\ICrudApi.cs" />
     <Compile Include="Models\JArticle.cs" />
     <Compile Include="Models\JCompetition.cs" />
     <Compile Include="Models\JEvent.cs" />
@@ -435,25 +335,37 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Repository\ArticleRepository.cs" />
+    <Compile Include="Repository\ArticlesRepository.cs" />
     <Compile Include="Repository\AuthenticationRepository.cs" />
     <Compile Include="Repository\CompetitionsRepository.cs" />
     <Compile Include="Repository\EventsRepository.cs" />
-    <Compile Include="Repository\GameRepository.cs" />
-    <Compile Include="Repository\IDatabaseRepository.cs" />
+    <Compile Include="Repository\GamesRepository.cs" />
+    <Compile Include="Interfaces\IArticleRepository.cs" />
     <Compile Include="Models\JStricker.cs" />
+    <Compile Include="Interfaces\ILazyRankingRepository.cs" />
+    <Compile Include="Interfaces\IGamesRepository.cs" />
+    <Compile Include="Interfaces\ITeamsRepository.cs" />
+    <Compile Include="Interfaces\ICompetitionsRepository.cs" />
+    <Compile Include="Interfaces\IEventsRepository.cs" />
+    <Compile Include="Interfaces\IOwnerRepository.cs" />
+    <Compile Include="Interfaces\IPlayersRepository.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
+    <Compile Include="Interfaces\IStatsRepository.cs" />
+    <Compile Include="Interfaces\ISponsorsRepository.cs" />
+    <Compile Include="Interfaces\ISeasonRepository.cs" />
+    <Compile Include="Interfaces\IAuthenticationRepository.cs" />
+    <Compile Include="Interfaces\ILgefRepository.cs" />
     <Compile Include="Repository\LazyRankingRepository.cs" />
     <Compile Include="Repository\LgefRepository.cs" />
     <Compile Include="Repository\OwnerRepository.cs" />
-    <Compile Include="Repository\PlayerRepository.cs" />
+    <Compile Include="Repository\PlayersRepository.cs" />
     <Compile Include="Repository\SeasonRepository.cs" />
     <Compile Include="Repository\SponsorsRepository.cs" />
     <Compile Include="Repository\StatsRepository.cs" />
     <Compile Include="Repository\TeamsRepository.cs" />
-    <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Repository\UsersRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -469,22 +381,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\web.config" />
-    <Content Include="scripts\jquery-3.4.1.slim.min.map" />
-    <Content Include="scripts\jquery-3.4.1.min.map" />
-    <Content Include="scripts\umd\popper.min.js.map" />
-    <Content Include="scripts\umd\popper.js.map" />
-    <Content Include="scripts\umd\popper.js.flow" />
-    <Content Include="scripts\umd\popper-utils.min.js.map" />
-    <Content Include="scripts\umd\popper-utils.js.map" />
-    <Content Include="scripts\README.md" />
-    <Content Include="scripts\popper.min.js.map" />
-    <Content Include="scripts\popper.js.map" />
-    <Content Include="scripts\popper-utils.min.js.map" />
-    <Content Include="scripts\popper-utils.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -494,7 +390,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Users\" />
+    <Folder Include="Views\Competitions\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
@@ -503,9 +399,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="scripts\index.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

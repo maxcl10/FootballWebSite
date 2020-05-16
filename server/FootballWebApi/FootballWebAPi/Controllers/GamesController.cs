@@ -1,83 +1,90 @@
-﻿using FootballWebSiteApi.Models;
-using FootballWebSiteApi.Repository;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using FootballWebSiteApi.Interfaces;
+using FootballWebSiteApi.Models;
+using FootballWebSiteApi.Repository;
 
 namespace FootballWebSiteApi.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "GET, POST, PUT, DELETE, OPTIONS")]
+    [RoutePrefix("api/games")]
     public class GamesController : ApiController
     {
+        private readonly IGamesRepository _gamesRepository;
+        private readonly ILgefRepository _lgefRepository;
+
+        public GamesController(IGamesRepository gamesRepository, ILgefRepository lgefRepository)
+        {
+            this._gamesRepository = gamesRepository;
+            this._lgefRepository = lgefRepository;
+        }
+
         [HttpGet]
-        public IHttpActionResult Get()
+        public IHttpActionResult GetGames()
         {
-            using (IDatabaseRepository<JGame> repository = new GameRepository())
-            {
-                var games = repository.Get().ToList();
-                return Json(games);
-            }
+            var games = _gamesRepository.GetGames().ToList();
+            return Ok(games);
         }
 
-        public IHttpActionResult Get(string id)
+        [HttpGet]
+        public IHttpActionResult GetGame(string id)
         {
-            using (IDatabaseRepository<JGame> repository = new GameRepository())
-            {
-                var games = repository.Get(id);
-                return Json(games);
-            }
+            var games = _gamesRepository.GetGame(id);
+            return Ok(games);
         }
 
 
-        public IHttpActionResult Post(JGame value)
+        public IHttpActionResult Post(JGame game)
         {
-            using (IDatabaseRepository<JGame> repository = new GameRepository())
+            if (ModelState.IsValid)
             {
-                var game = repository.Post(value);
-                return Json(game);
+                var retGame = _gamesRepository.CreateGame(game);
+                return Created("", retGame);
             }
+
+            return BadRequest(ModelState);
+
         }
 
-        public IHttpActionResult Put(string id, JGame value)
+        public IHttpActionResult Put(string id, JGame game)
         {
-            using (IDatabaseRepository<JGame> repository = new GameRepository())
+            if (ModelState.IsValid)
             {
-                var game = repository.Put(id, value);
-                return Json(game);
+                var retGame = _gamesRepository.SaveGame(id, game);
+                return Ok(retGame);
             }
+
+            return BadRequest(ModelState);
         }
 
         public IHttpActionResult Delete(string id)
         {
-            using (IDatabaseRepository<JGame> repository = new GameRepository())
-            {
-                repository.Delete(id);
-                return Ok(true);
-            }
+            _gamesRepository.DeleteGame(id);
+            return Ok(true);
         }
 
 
-        [Route("api/games/competitions")]
-        [HttpGet]
-        public IHttpActionResult GetCompetitions()
-        {
-            using (LazyRankingRepository repository = new LazyRankingRepository())
-            {
-                var result = repository.GetSeasonCompetitions();
-                return Ok(result);
-            }
-
-           
-        }
-
-        [Route("api/games/lgef")]
+        [Route("lgef")]
         [HttpGet]
         public IHttpActionResult GetChampionshipData()
         {
-            var repo = new LgefRepository();
-            return Ok( repo.GetGames("https://lgef.fff.fr/recherche-clubs/?scl={0}&tab=resultats&subtab=agenda", 9504));
+            var retGames = _lgefRepository.GetGames("https://lgef.fff.fr/recherche-clubs/?scl={0}&tab=resultats&subtab=agenda", 9504);
+            return Ok(retGames);
+        }
 
+        [Route("next")]
+        // GET: api/NextGame
+        public IHttpActionResult GetNextGame()
+        {
+            var nextGame = _gamesRepository.GetNextGame();
+            return Ok(nextGame);
+        }
 
+        [Route("previous")]
+        public IHttpActionResult GetPreviousGame()
+        {
+            var nextGame = _gamesRepository.GetPreviousGame();
+            return Ok(nextGame);
         }
 
     }

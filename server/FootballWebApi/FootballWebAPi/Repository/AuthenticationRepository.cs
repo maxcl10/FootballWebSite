@@ -1,26 +1,22 @@
-﻿using FootballWebSiteApi.Entities;
-using FootballWebSiteApi.Models;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Web;
-using System.Web.Http;
-using FootballWebSiteApi.Helpers;
+using FootballWebSiteApi.Entities;
+using FootballWebSiteApi.Interfaces;
 
 namespace FootballWebSiteApi.Repository
 {
-    public class AuthenticationRepository : IDisposable
+    public class AuthenticationRepository : IAuthenticationRepository
     {
-        private FootballWebSiteDbEntities entities;
+        private FootballWebSiteDbEntities _entities;
 
         public AuthenticationRepository()
         {
-            entities = new FootballWebSiteDbEntities();
+            _entities = new FootballWebSiteDbEntities();
         }
 
         public User IsAuthorized(string alias, string password)
         {
-            var user = entities.Users.SingleOrDefault(o => o.alias == alias && o.password == password && o.ownerId.ToString() == Properties.Settings.Default.OwnerId);
+            var user = _entities.Users.SingleOrDefault(o => o.alias == alias && o.password == password && o.ownerId.ToString() == Properties.Settings.Default.OwnerId);
             if (user == null)
             {
                 return null;
@@ -28,9 +24,39 @@ namespace FootballWebSiteApi.Repository
             return user;
         }
 
+        #region Dispose 
+
+        // Flag: Has Dispose already been called?
+        bool disposed = false;
+
+        /// <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
         public void Dispose()
         {
-            entities.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
+
+        // Protected implementation of Dispose pattern.
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposed)
+                return;
+
+            if (disposing)
+            {
+                _entities?.Dispose();
+            }
+
+            // Free any unmanaged objects here.
+            //
+            disposed = true;
+        }
+
+        ~AuthenticationRepository()
+        {
+            Dispose(false);
+        }
+
+        #endregion
     }
 }

@@ -8,7 +8,7 @@ import { Router, Event, NavigationEnd } from '@angular/router';
 import { fadeAnimation } from './shared/animations/animation';
 
 declare let ga: any;
-
+declare var $: any;
 /*
  * App Component
  * Top Level Component
@@ -31,14 +31,9 @@ export class AppComponent implements OnInit {
     });
 
     // Method to close the nav bar when clicking on a link on small screens
-    // $(document).on('click', '.navbar-collapse.in', function (e) {
-    //   if (
-    //     $(e.target).is('a') &&
-    //     $(e.target).attr('class') !== 'dropdown-toggle'
-    //   ) {
-    //     $(this).collapse('hide');
-    //   }
-    // });
+    $('.navbar-nav>li>a').on('click', function () {
+      $('.navbar-collapse').collapse('hide');
+    });
   }
 
   public ngOnInit() {}

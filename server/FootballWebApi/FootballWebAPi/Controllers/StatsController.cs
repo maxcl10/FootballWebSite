@@ -1,118 +1,113 @@
-﻿using FootballWebSiteApi.Models;
-using FootballWebSiteApi.Repository;
-using System;
+﻿using System;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using FootballWebSiteApi.Interfaces;
+using FootballWebSiteApi.Models;
+using FootballWebSiteApi.Repository;
 
 namespace FootballWebSiteApi.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "GET, POST, PUT, DELETE, OPTIONS")]
+    [RoutePrefix("api/stats")]
     public class StatsController : ApiController
     {
+        private readonly IStatsRepository _statsRepository;
+
+        public StatsController(IStatsRepository statsRepository)
+        {
+            _statsRepository = statsRepository;
+        }
+
         [HttpGet]
-        //[Route("api/Stats")]
+        [Route("shape")]
         public IHttpActionResult GetShape()
         {
-            using (StatsRepository repository = new StatsRepository())
-            {
-                var articles = repository.GetShape();
-                return Json(articles);
-            }
+            var res = _statsRepository.GetShape();
+            return Ok(res);
         }
 
         [HttpGet]
-        public IHttpActionResult GetStrickers()
-        {
-            using (StatsRepository repository = new StatsRepository())
-            {
-                var strikers = repository.GetStrikers().Where(o => o.totalGoals.HasValue && o.totalGoals.Value > 0).OrderByDescending(o => o.totalGoals).ThenByDescending(o => o.championshipGoals);
-                return Json(strikers);
-            }
-        }
-
+        [Route("strickers")]
         public IHttpActionResult GetStrickers2()
         {
-            using (StatsRepository repository = new StatsRepository())
-            {
-                var strikers = repository.GetStrikers2().Where(o => o.totalGames.HasValue && o.totalGames.Value > 0).OrderByDescending(o => o.totalGoals).ThenByDescending(o => o.championshipGoals);
-                return Json(strikers);
-            }
+            var strikers = _statsRepository.GetStrikers2().Where(o => o.TotalGames.HasValue && o.TotalGames.Value > 0).OrderByDescending(o => o.TotalGoals).ThenByDescending(o => o.ChampionshipGoals);
+            return Ok(strikers);
         }
 
-
-
-
         [HttpGet]
+        [Route("shape/{id}")]
         public IHttpActionResult GetStricker(Guid id)
         {
-            using (StatsRepository repository = new StatsRepository())
-            {
-                var stricker = repository.GetPlayerStats(id);
-                return Json(stricker);
-            }
+            var stricker = _statsRepository.GetPlayerStats(id);
+            return Ok(stricker);
         }
+
 
         [HttpGet]
-        public IHttpActionResult GetTeamStrickers()
-        {
-            using (StatsRepository repository = new StatsRepository())
-            {
-                var strickers = repository.GetStrikers().OrderByDescending(o => o.totalGoals).ThenByDescending(o => o.championshipGoals);
-                return Json(strickers);
-            }
-        }
-
+        [Route("team/strickers")]
         public IHttpActionResult GetTeamStrickers2()
         {
-            using (StatsRepository repository = new StatsRepository())
-            {
-                var strickers = repository.GetStrikers2().OrderByDescending(o => o.totalGoals).ThenByDescending(o => o.championshipGoals);
-                return Json(strickers);
-            }
+            var strickers = _statsRepository.GetStrikers2().OrderByDescending(o => o.TotalGoals).ThenByDescending(o => o.ChampionshipGoals);
+            return Ok(strickers);
         }
 
         [HttpGet]
+        [Route("scoredPerGame")]
         public IHttpActionResult GetScoredGoalsPerGame()
         {
-            using (StatsRepository repository = new StatsRepository())
-            {
-                var scored = repository.ScoredGoalPerGame();
-                return Json(scored);
-            }
+            var scored = _statsRepository.ScoredGoalPerGame();
+            return Ok(scored);
         }
 
         [HttpGet]
+        [Route("concededPerGame")]
         public IHttpActionResult GetConcededGoalsPerGame()
         {
-            using (StatsRepository repository = new StatsRepository())
-            {
-                var scored = repository.ConcededGoalPerGame();
-                return Json(scored);
-            }
+            var scored = _statsRepository.ConcededGoalPerGame();
+            return Ok(scored);
         }
 
+        //[HttpGet]
+        //[Route("strickerOld")]
+        //public IHttpActionResult GetStrickers()
+        //{
+        //    using (StatsRepository repository = new StatsRepository())
+        //    {
+        //        var strikers = repository.GetStrikers().Where(o => o.TotalGoals.HasValue && o.TotalGoals.Value > 0).OrderByDescending(o => o.TotalGoals).ThenByDescending(o => o.ChampionshipGoals);
+        //        return Ok(strikers);
+        //    }
+        //}
 
+        //[HttpGet]
+        //[Route("team/strickerOld")]
+        //public IHttpActionResult GetTeamStrickers()
+        //{
+        //    using (StatsRepository repository = new StatsRepository())
+        //    {
+        //        var strickers = repository.GetStrikers().OrderByDescending(o => o.TotalGoals).ThenByDescending(o => o.ChampionshipGoals);
+        //        return Ok(strickers);
+        //    }
+        //}
 
-        [HttpPost]
-        public IHttpActionResult SetStricker([FromBody]JStricker stricker)
-        {
-            using (StatsRepository repository = new StatsRepository())
-            {
-                repository.SetStricker(stricker);
-                return Json(true);
-            }
-        }
+        //[HttpPost]
+        //public IHttpActionResult SetStricker([FromBody]JStricker stricker)
+        //{
+        //    using (StatsRepository repository = new StatsRepository())
+        //    {
+        //        repository.SetStricker(stricker);
+        //        return Ok(true);
+        //    }
+        //}
 
-        [HttpGet]
-        //[Route("api/Stats")]
-        public IHttpActionResult GetRankingHistory()
-        {
-            using (StatsRepository repository = new StatsRepository())
-            {
-                var articles = repository.GetRankingHistory();
-                return Json(articles);
-            }
-        }
+        //[HttpGet]
+        ////[Route("api/Stats")]
+        //public IHttpActionResult GetRankingHistory()
+        //{
+        //    using (StatsRepository repository = new StatsRepository())
+        //    {
+        //        var articles = repository.GetRankingHistory();
+        //        return Ok(articles);
+        //    }
+        //}
     }
 }

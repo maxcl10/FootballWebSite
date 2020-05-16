@@ -1,41 +1,48 @@
-﻿using FootballWebSiteApi.Models;
-using FootballWebSiteApi.Repository;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Http.Cors;
+using FootballWebSiteApi.Interface;
+using FootballWebSiteApi.Models;
+using FootballWebSiteApi.Repository;
 
 namespace FootballWebSiteApi.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "GET, POST, PUT, DELETE, OPTIONS")]
+    [RoutePrefix("api/sponsors")]
     public class SponsorsController : ApiController
     {
+        private readonly ISponsorsRepository _sponsorsRepository;
+
+        public SponsorsController(ISponsorsRepository sponsorsRepository)
+        {
+            this._sponsorsRepository = sponsorsRepository;
+        }
+
         // GET: api/Sponsors
         public IHttpActionResult Get()
         {
-            using (SponsorsRepository repository = new SponsorsRepository())
-            {
-                var sponsors = repository.Get();
-                return Json(sponsors);
-            }
+
+            var sponsors = _sponsorsRepository.GetSponsors();
+            return Ok(sponsors);
+
         }
 
         // GET: api/Sponsors/5
         public IHttpActionResult Get(string id)
         {
-            using (SponsorsRepository repository = new SponsorsRepository())
-            {
-                var sponsor = repository.Get(id);
-                return Json(sponsor);
-            }
+
+            var sponsor = _sponsorsRepository.GetSponsor(id);
+            return Ok(sponsor);
+
         }
 
         // POST: api/Sponsors
         public IHttpActionResult Post([FromBody]JSponsor sponsor)
         {
-            using (SponsorsRepository repository = new SponsorsRepository())
+            if (ModelState.IsValid)
             {
-                var sponsors = repository.Post(sponsor);
-                return Json(sponsors);
+                var sponsors = _sponsorsRepository.CreateSponsor(sponsor);
+                return Ok(sponsors);
             }
+            return BadRequest(ModelState);
         }
 
 
@@ -45,24 +52,21 @@ namespace FootballWebSiteApi.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (SponsorsRepository repository = new SponsorsRepository())
-                {
 
-                    var ret = repository.Put(id, sponsor);
-                    return Json(ret);
-                }
+                var ret = _sponsorsRepository.UpdateSponsor(id, sponsor);
+                return Ok(ret);
+
             }
-            return null;
+            return BadRequest(ModelState);
         }
 
         // DELETE: api/Sponsors/5
         public IHttpActionResult Delete(string id)
         {
-            using (SponsorsRepository repository = new SponsorsRepository())
-            {
-                repository.Delete(id);
-                return Json(true);
-            }
+
+            _sponsorsRepository.DeleteSponsor(id);
+            return Ok(true);
+
         }
     }
 }

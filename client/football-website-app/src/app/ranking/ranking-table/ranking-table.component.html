@@ -1,4 +1,4 @@
-<table id="leagueTable" class="table table-striped table-borderless">
+<table id="leagueTable" class="table table-borderless bg-secondary text-white">
   <thead>
     <tr>
       <th></th>
@@ -17,13 +17,14 @@
     <tr
       *ngFor="let item of ranking"
       [ngClass]="{
-        'bg-primary text-white': item.team == homeTeam,
+        'bg-white text-primary': item.team == homeTeam,
         'border-bottom': item.position == 1,
         'border-top': item.position == 12
       }"
     >
-      <td>{{ item.position }}</td>
-      <td>
+      <td class="font-weight-bold" font-we>{{ item.position }}</td>
+
+      <td [ngClass]="{ 'font-weight-bold': item.team == homeTeam }">
         <img [src]="item.imageUrl" />
         <span class="d-inline d-sm-none">
           {{ item.team.substr(0, item.team.indexOf(' ')) }}
@@ -32,15 +33,19 @@
           {{ item.team }}
         </span>
       </td>
-      <td>
+      <td style="font-size: 18px;" class="text-primary">
         <b>{{ item.points }}</b>
       </td>
-      <td>{{ item.matchPlayed }}</td>
+      <td class="font-weight-bold">{{ item.matchPlayed }}</td>
       <td>{{ item.matchWon }}</td>
       <td>{{ item.matchDraw }}</td>
       <td>{{ item.matchLost }}</td>
-      <td class="d-none d-sm-table-cell">{{ item.goalsScored }}</td>
-      <td class="d-none d-sm-table-cell">{{ item.goalsAgainst }}</td>
+      <td class="d-none d-sm-table-cell">
+        {{ item.goalsScored }}
+      </td>
+      <td class="d-none d-sm-table-cell">
+        {{ item.goalsAgainst }}
+      </td>
       <td class="d-none d-sm-table-cell">{{ item.goalDifference }}</td>
     </tr>
   </tbody>

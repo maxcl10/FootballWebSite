@@ -1,7 +1,4 @@
-﻿using FootballWebSiteApi.Repository;
-using System.Linq;
-using System.Web.Http;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 
 namespace FootballWebSiteApi.Controllers
@@ -14,7 +11,7 @@ namespace FootballWebSiteApi.Controllers
         //    using (UserRepository repository = new UserRepository())
         //    {
         //        var users = repository.GetAllUsers().ToList();
-        //        return Json(users);
+        //        return Ok(users);
         //    }
         //}
     }

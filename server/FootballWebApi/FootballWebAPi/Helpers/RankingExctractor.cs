@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
-using System.Web;
-using System.Web.UI.WebControls;
 using FootballWebSiteApi.Entities;
-using FootballWebSiteApi.Models;
 using HtmlAgilityPack;
-using Newtonsoft.Json;
 
 namespace FootballWebSiteApi.Helpers
 {

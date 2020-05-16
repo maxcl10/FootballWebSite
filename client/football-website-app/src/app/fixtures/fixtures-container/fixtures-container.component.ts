@@ -10,6 +10,8 @@ import { Game } from '../../shared/models/game.model';
 import { SeoService } from '../../core/services/seo.service';
 import { AppConfig } from '../../app.config';
 import { SubSink } from 'subsink';
+import { RankingsService } from '../../ranking/rankings.service';
+import { Competition } from '../../shared/models/competition.model';
 
 @Component({
   selector: 'fws-fixtures-container',
@@ -26,12 +28,14 @@ export class FixturesContainerComponent implements OnInit, OnDestroy {
     new Date().getFullYear() +
     '-' +
     (new Date().getMonth() + 1).toString().padStart(2, '0');
+  championshipData: Competition;
 
   constructor(
     private gamesService: GamesService,
     private teamsService: TeamsService,
     private logoService: LogoService,
-    private seoService: SeoService
+    private seoService: SeoService,
+    private rankingServce: RankingsService
   ) {}
 
   public ngOnInit() {
@@ -48,6 +52,12 @@ export class FixturesContainerComponent implements OnInit, OnDestroy {
       },
       (error) => (this.errorMessage = <any>error)
     );
+
+    this.subs.sink = this.rankingServce
+      .getChampionshipData()
+      .subscribe((res) => {
+        this.championshipData = res;
+      });
   }
 
   public getGames() {
@@ -57,11 +67,11 @@ export class FixturesContainerComponent implements OnInit, OnDestroy {
       (games) => {
         games.forEach((element) => {
           element.homeTeamLogoUrl = this.logoService.getLogoPath(
-            element.HomeTeam,
+            element.homeTeam,
             60
           );
           element.awayTeamLogoUrl = this.logoService.getLogoPath(
-            element.AwayTeam,
+            element.awayTeam,
             60
           );
         });
@@ -71,9 +81,9 @@ export class FixturesContainerComponent implements OnInit, OnDestroy {
             // Groups by date
             groupBy(
               (game) =>
-                new Date(game.MatchDate).getMonth() +
+                new Date(game.matchDate).getMonth() +
                 '-' +
-                new Date(game.MatchDate).getFullYear()
+                new Date(game.matchDate).getFullYear()
             ),
             // return each item in group as array
             mergeMap((grouped) => grouped.pipe(toArray()))
@@ -88,7 +98,7 @@ export class FixturesContainerComponent implements OnInit, OnDestroy {
   }
 
   public getWeb(game: Game) {
-    return game.MatchDate.getMonth();
+    return game.matchDate.getMonth();
   }
 
   ngOnDestroy(): void {

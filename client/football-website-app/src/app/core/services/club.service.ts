@@ -20,7 +20,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class ClubService {
-  private ownerUrl = AppConfig.settings.apiServer.url + '/owner';
+  private ownerUrl = AppConfig.settings.apiServer.url + 'owner';
 
   constructor(private http: HttpClient) {}
 
