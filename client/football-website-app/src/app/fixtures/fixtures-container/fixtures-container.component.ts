@@ -1,4 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  AfterViewInit,
+  ViewChild,
+  ElementRef,
+  AfterContentInit,
+  AfterViewChecked,
+} from '@angular/core';
 
 import { groupBy, mergeMap, toArray } from 'rxjs/operators';
 import { Observable, from, merge, of } from 'rxjs';
@@ -17,11 +26,13 @@ import { Competition } from '../../shared/models/competition.model';
   selector: 'fws-fixtures-container',
   templateUrl: './fixtures-container.component.html',
 })
-export class FixturesContainerComponent implements OnInit, OnDestroy {
+export class FixturesContainerComponent
+  implements OnInit, OnDestroy, AfterViewChecked {
   errorMessage: string;
   homeTeam: string;
   subs = new SubSink();
 
+  scrolled = false;
   gamesPerMonth: Game[][];
   loading: boolean;
   currentMonth =
@@ -37,6 +48,17 @@ export class FixturesContainerComponent implements OnInit, OnDestroy {
     private seoService: SeoService,
     private rankingServce: RankingsService
   ) {}
+
+  ngAfterViewChecked(): void {
+    const element = document.querySelector('#heading' + this.currentMonth);
+
+    if (element && !this.scrolled) {
+      console.log('scroll: ' + element.id + ' height: ' + element.scrollTop);
+      // window.scrollTo(0, element.scrollHeight);
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      this.scrolled = true;
+    }
+  }
 
   public ngOnInit() {
     this.seoService.setTitle(
@@ -103,5 +125,6 @@ export class FixturesContainerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subs.unsubscribe();
+    this.scrolled = false;
   }
 }

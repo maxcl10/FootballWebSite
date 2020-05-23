@@ -13,41 +13,51 @@
   </div>
 </div> -->
 
-<fws-page-header [white]="true">
-  Equipe
+<fws-page-header>
+  {{ team.name }}
 </fws-page-header>
 
-<div class="bg-secondary">
+<div class="container my-4">
   <div class="row">
-    <div class="container">
-      <fws-team-position-block
-        title="Staff"
-        [players]="coaches"
-        [loading]="loading"
-      ></fws-team-position-block>
-      <fws-team-position-block
-        title="Gardiens"
-        [players]="goalkeeperPlayers"
-        [loading]="loading"
-      ></fws-team-position-block>
+    <div class="container col-12">
+      <div class="mb-4">
+        <fws-team-position-block
+          title="Gardiens"
+          [players]="goalkeeperPlayers"
+          [loading]="loading"
+        ></fws-team-position-block>
+      </div>
 
-      <fws-team-position-block
-        title="Defenseurs"
-        [players]="defenderPlayers"
-        [loading]="loading"
-      ></fws-team-position-block>
+      <div class="mb-4">
+        <fws-team-position-block
+          title="Defenseurs"
+          [players]="defenderPlayers"
+          [loading]="loading"
+        ></fws-team-position-block>
+      </div>
 
-      <fws-team-position-block
-        title="Milieux"
-        [players]="midfieldPlayers"
-        [loading]="loading"
-      ></fws-team-position-block>
+      <div class="mb-4">
+        <fws-team-position-block
+          title="Milieux"
+          [players]="midfieldPlayers"
+          [loading]="loading"
+        ></fws-team-position-block>
+      </div>
 
-      <fws-team-position-block
-        title="Attaquants"
-        [players]="attackerPlayers"
-        [loading]="loading"
-      ></fws-team-position-block>
+      <div class="mb-4">
+        <fws-team-position-block
+          title="Attaquants"
+          [players]="attackerPlayers"
+          [loading]="loading"
+        ></fws-team-position-block>
+      </div>
+      <div class="mb-4">
+        <fws-team-position-block
+          title="Staff"
+          [players]="coaches"
+          [loading]="loading"
+        ></fws-team-position-block>
+      </div>
     </div>
   </div>
 </div>

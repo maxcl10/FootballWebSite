@@ -1,0 +1,22 @@
+<span *ngIf="event.eventTypeId == 0" style="margin-right: 4px;">
+  <i class="fa fa-futbol-o" aria-hidden="true" [title]="event.time + '\''"></i>
+</span>
+<span *ngIf="event.eventTypeId == 1" style="margin-right: 4px;">
+  <i class="fa fa-eye" aria-hidden="true" [title]="event.time"></i>
+</span>
+<span *ngIf="event.eventTypeId == 2" style="margin-right: 4px;">
+  <i
+    class="fa fa-square"
+    style="color: gold;"
+    aria-hidden="true"
+    [title]="event.time"
+  ></i>
+</span>
+<span *ngIf="event.eventTypeId == 3" style="margin-right: 4px;">
+  <i
+    class="fa fa-square"
+    style="color: red;"
+    aria-hidden="true"
+    [title]="event.time"
+  ></i>
+</span>

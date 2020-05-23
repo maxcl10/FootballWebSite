@@ -1,0 +1,24 @@
+<div
+  *ngIf="article"
+  class="card shadow mb-3 zoom"
+  style="border-top: #404f37 4px solid;"
+>
+  <a href="#" [routerLink]="['/articles', article.id]">
+    <img
+      class="card-img-top"
+      style="object-fit: cover; height: 200px;"
+      [src]="article.imageUrl"
+    />
+    <div class="card-body" style="height: 150px;">
+      <h5 class="card-title mt-2">
+        {{ article.title }}
+      </h5>
+      <p class="card-subtitle text-muted">
+        {{ article.subTitle }}
+      </p>
+      <p class="text-primary">
+        {{ article.publishedDate | date: 'dd LLLL yyyy' }}
+      </p>
+    </div>
+  </a>
+</div>

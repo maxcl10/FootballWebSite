@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using FootballWebSiteApi.Entities;
+using FootballWebSiteApi.Helpers;
 using FootballWebSiteApi.Interfaces;
 using FootballWebSiteApi.Repository;
 using Newtonsoft.Json;
@@ -19,28 +20,29 @@ namespace FootballWebSiteApi.Controllers
         : ApiController
     {
         private readonly ILazyRankingRepository _lazyRankingRepository;
+        private readonly ITeamsRepository _teamsRepository;
 
-        public RankingsController(ILazyRankingRepository lazyRankingRepository)
+        public RankingsController(ILazyRankingRepository lazyRankingRepository, ITeamsRepository teamsRepository)
         {
             this._lazyRankingRepository = lazyRankingRepository;
+            this._teamsRepository = teamsRepository;
         }
 
         public IHttpActionResult Get()
         {
-
-            return Ok(_lazyRankingRepository.Get().ToList());
+            var ownerId = Request.Headers.GetOwnerId();
+            return Ok(_lazyRankingRepository.GetRanking(ownerId).ToList());
 
         }
 
         public IHttpActionResult Get(string id)
         {
-            using (TeamsRepository teamRepository = new TeamsRepository())
+            var ownerId = Request.Headers.GetOwnerId();
+            var team = _teamsRepository.GetHomeTeams(ownerId).Single(o => o.Id.ToString() == id);
             {
-                var team = teamRepository.GetHomeTeams().Single(o => o.Id.ToString() == id);
-                {
-                    return Ok(_lazyRankingRepository.Get(team.RankingUrl).ToList());
-                }
+                return Ok(_lazyRankingRepository.GetRankingFromUrl(team.RankingUrl).ToList());
             }
+
         }
 
         public async Task<IHttpActionResult> Post()
@@ -78,7 +80,8 @@ namespace FootballWebSiteApi.Controllers
         [HttpGet]
         public IHttpActionResult GetChampionshipData()
         {
-            var data = _lazyRankingRepository.GetChampionshipData();
+            var ownerId = Request.Headers.GetOwnerId();
+            var data = _lazyRankingRepository.GetChampionshipData(ownerId);
             return Ok(data);
         }
 
@@ -87,7 +90,8 @@ namespace FootballWebSiteApi.Controllers
         [HttpGet]
         public IHttpActionResult UpdateRankingFromLafa()
         {
-            _lazyRankingRepository.UpdateRanking();
+            var ownerId = Request.Headers.GetOwnerId();
+            _lazyRankingRepository.UpdateRanking(ownerId);
             return Ok();
         }
 

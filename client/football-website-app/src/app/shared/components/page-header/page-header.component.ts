@@ -7,9 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PageHeaderComponent implements OnInit {
   @Input()
-  white: boolean;
+  hideBackButton;
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  public goBack() {
+    window.history.back();
+  }
 }

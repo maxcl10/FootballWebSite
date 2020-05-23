@@ -23,6 +23,7 @@ export class TeamContainerComponent implements OnInit {
   public players: Player[];
   public errorMessage: string;
   private sub: any;
+  team: import('c:/Users/mmax/Documents/GitHub/FootballWebSite/client/football-website-app/src/app/shared/models/team.model').Team;
 
   constructor(
     private playersService: PlayersService,
@@ -75,7 +76,12 @@ export class TeamContainerComponent implements OnInit {
         },
         (error) => (this.errorMessage = <any>error)
       );
+
+      this.teamService.getTeam(id).subscribe((res) => {
+        this.team = res;
+      });
     });
+
     // this.getPlayers();
   }
 

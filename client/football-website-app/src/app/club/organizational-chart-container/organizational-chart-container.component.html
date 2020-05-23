@@ -4,7 +4,49 @@
 
 <div class="container mt-3">
   <div *ngIf="organizationChart$ | async as organizationChart">
-    <div
+    <div class="row">
+      <div class="col-12">
+        <div *ngFor="let group of organizationChart" class="mb-3">
+          <fws-widget [headerText]="group.title">
+            <div class="row">
+              <div *ngFor="let person of group.persons" class="p-1 box">
+                <div class="card mb-2">
+                  <div class="bg-grey">
+                    <img
+                      [src]="
+                        '../../../assets/img/players/' +
+                        person.firstName +
+                        '_' +
+                        person.lastName +
+                        '.png'
+                      "
+                      class="img-fluid card-img-top mb-2"
+                      onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
+                    />
+                    <div class="text-center">
+                      <h5 class="card-title text-primary">
+                        <label class="text-uppercase font-weight-bold">{{
+                          person.lastName
+                        }}</label
+                        ><br />
+                        {{ person.firstName }}
+                      </h5>
+
+                      <div class="bg-primary" *ngIf="person.title">
+                        <h6 class="card-subtitle text-white p-2">
+                          {{ person.title }}
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fws-widget>
+        </div>
+      </div>
+    </div>
+    <!-- <div
       *ngFor="let group of organizationChart; let i = index"
       class="card-block"
     >
@@ -40,7 +82,7 @@
                 '.png'
               "
               onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
-              class="img img-responsive"
+              class="img img-fluid"
             />
             <div class="text-center">
               <div class="title">
@@ -54,6 +96,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>

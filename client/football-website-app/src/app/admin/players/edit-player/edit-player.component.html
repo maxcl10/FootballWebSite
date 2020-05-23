@@ -1,178 +1,187 @@
-<div *ngIf="player">
-  <h2>{{ title }} joueur {{ player.firstName }} {{ player.lastName }}</h2>
+<fws-page-header>
+  <span class="mr-4"> {{ title }} Joueur </span>
+  <img
+    [src]="
+      '../../../assets/img/players/' +
+      player.firstName +
+      '_' +
+      player.lastName +
+      '.png'
+    "
+    style="height: 30px;"
+    class="rounded-circle float-right"
+  />
+</fws-page-header>
 
-  <div class="card">
-    <div class="card-body">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label>Prénom</label>
-            <input
-              class="form-control"
-              placeholder="Prénom"
-              [(ngModel)]="player.firstName"
-              type="text"
-            />
-          </div>
-          <div class="form-group ">
-            <label>Nom</label>
-            <input
-              class="form-control"
-              placeholder="Nom"
-              [(ngModel)]="player.lastName"
-              type="text"
-            />
-          </div>
-          <div class="form-group ">
-            <label>Poste</label>
-            <select class="form-control" [(ngModel)]="player.position">
-              <option value="">Select</option>
-              <option value="Gardien">Gardien</option>
-              <option value="Defenseur">Defenseur</option>
-              <option value="Milieu">Milieu</option>
-              <option value="Attaquant">Attaquant</option>
-              <option value="Entraineur">Entraineur</option>
-              <option value="Entraineur Adjoint">Entraineur Adjoint</option>
-              <option value="Entraineur Gardiens">Entraineur Gardiens</option>
-              <option value="Dirigeant">Dirigeant</option>
-            </select>
-          </div>
-          <div class="form-group ">
-            <label>Date de Naissance</label>
-            <input
-              class="form-control"
-              placeholder="Date de Naissance"
-              [(ngModel)]="player.dateOfBirth"
-              type="datetime-local"
-            />
-          </div>
-          <div class="form-group ">
-            <label>Taille (cm)</label>
-            <input
-              class="form-control"
-              placeholder="Taille (cm)"
-              [(ngModel)]="player.height"
-              type="number"
-            />
-          </div>
-          <div class="form-group ">
-            <label>Poids (kg)</label>
-            <input
-              class="form-control"
-              placeholder="Poids (kg) "
-              [(ngModel)]="player.weight"
-              type="number"
-            />
-          </div>
+<div *ngIf="player" class="mt-4">
+  <fws-widget
+    [headerText]="player?.firstName + ' ' + player?.lastName"
+    [error]="errorMessage"
+  >
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Prénom</label>
+          <input
+            class="form-control"
+            placeholder="Prénom"
+            [(ngModel)]="player.firstName"
+            type="text"
+          />
         </div>
-        <div class="col-md-6">
-          <div class="form-group ">
-            <label>Nationalité</label>
-            <input
-              class="form-control"
-              placeholder="Nationalité"
-              [(ngModel)]="player.nationality"
-              type="text"
-            />
-          </div>
-          <div class="form-group ">
-            <label>Surnom</label>
-            <input
-              class="form-control"
-              placeholder="Surnom"
-              [(ngModel)]="player.nickname"
-              type="text"
-            />
-          </div>
-          <div class="form-group ">
-            <label>Joueur préféré</label>
-            <input
-              class="form-control"
-              placeholder="Joueur préféré"
-              [(ngModel)]="player.favoritePlayer"
-              type="text"
-            />
-          </div>
-          <div class="form-group ">
-            <label>Equipe préférée</label>
-            <input
-              class="form-control"
-              placeholder="Equipe préférée"
-              [(ngModel)]="player.favoriteTeam"
-              type="text"
-            />
-          </div>
-          <div class="form-group ">
-            <label>Numéro préféré</label>
-            <input
-              class="form-control"
-              placeholder="Numéro préféré"
-              [(ngModel)]="player.favoriteNumber"
-              type="text"
-            />
-          </div>
-          <div class="form-group ">
-            <label>Clubs précédents</label>
-            <input
-              class="form-control"
-              placeholder="Clubs précédents"
-              [(ngModel)]="player.previousClubs"
-              type="text"
-            />
-          </div>
+        <div class="form-group">
+          <label>Nom</label>
+          <input
+            class="form-control"
+            placeholder="Nom"
+            [(ngModel)]="player.lastName"
+            type="text"
+          />
+        </div>
+        <div class="form-group">
+          <label>Poste</label>
+          <select class="form-control" [(ngModel)]="player.position">
+            <option value="">Select</option>
+            <option value="Gardien">Gardien</option>
+            <option value="Defenseur">Defenseur</option>
+            <option value="Milieu">Milieu</option>
+            <option value="Attaquant">Attaquant</option>
+            <option value="Entraineur">Entraineur</option>
+            <option value="Entraineur Adjoint">Entraineur Adjoint</option>
+            <option value="Entraineur Gardiens">Entraineur Gardiens</option>
+            <option value="Dirigeant">Dirigeant</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Date de Naissance</label>
+          <input
+            class="form-control"
+            placeholder="Date de Naissance"
+            [(ngModel)]="player.dateOfBirth"
+            type="datetime-local"
+          />
+        </div>
+        <div class="form-group">
+          <label>Taille (cm)</label>
+          <input
+            class="form-control"
+            placeholder="Taille (cm)"
+            [(ngModel)]="player.height"
+            type="number"
+          />
+        </div>
+        <div class="form-group">
+          <label>Poids (kg)</label>
+          <input
+            class="form-control"
+            placeholder="Poids (kg) "
+            [(ngModel)]="player.weight"
+            type="number"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Nationalité</label>
+          <input
+            class="form-control"
+            placeholder="Nationalité"
+            [(ngModel)]="player.nationality"
+            type="text"
+          />
+        </div>
+        <div class="form-group">
+          <label>Surnom</label>
+          <input
+            class="form-control"
+            placeholder="Surnom"
+            [(ngModel)]="player.nickname"
+            type="text"
+          />
+        </div>
+        <div class="form-group">
+          <label>Joueur préféré</label>
+          <input
+            class="form-control"
+            placeholder="Joueur préféré"
+            [(ngModel)]="player.favoritePlayer"
+            type="text"
+          />
+        </div>
+        <div class="form-group">
+          <label>Equipe préférée</label>
+          <input
+            class="form-control"
+            placeholder="Equipe préférée"
+            [(ngModel)]="player.favoriteTeam"
+            type="text"
+          />
+        </div>
+        <div class="form-group">
+          <label>Numéro préféré</label>
+          <input
+            class="form-control"
+            placeholder="Numéro préféré"
+            [(ngModel)]="player.favoriteNumber"
+            type="text"
+          />
+        </div>
+        <div class="form-group">
+          <label>Clubs précédents</label>
+          <input
+            class="form-control"
+            placeholder="Clubs précédents"
+            [(ngModel)]="player.previousClubs"
+            type="text"
+          />
         </div>
       </div>
     </div>
-  </div>
-  <div class="alert alert-danger" *ngIf="errorMessage">
-    {{ errorMessage }}
-  </div>
-  <div>
-    <button (click)="goBack()" class="btn btn-default">
-      <span class="glyphicon glyphicon-arrow-left"></span> Retour
-    </button>
-    <div class="pull-right btn-toolbar">
-      <button
-        *ngIf="player.id"
-        (click)="openModal(template)"
-        class="btn btn-danger "
-      >
-        <span class="glyphicon  glyphicon-remove"></span> Supprimer
+    <div>
+      <button (click)="goBack()" class="btn btn-grey">
+        <span class="fa fa-arrow-left"></span> Retour
       </button>
-      <button
-        *ngIf="player.id"
-        (click)="savePlayer()"
-        type="submit "
-        class="btn btn-success "
-      >
-        <span class="glyphicon  glyphicon-floppy-save"></span>
-        Sauvegarder
-      </button>
-      <button
-        *ngIf="!player.id"
-        (click)="createPlayer()"
-        type="submit "
-        class="btn btn-success "
-      >
-        <span class="glyphicon  glyphicon-plus-sign"></span>
-        Ajouter
-      </button>
+      <div class="pull-right btn-toolbar">
+        <button
+          *ngIf="player.id"
+          (click)="openModal(template)"
+          class="btn btn-danger mr-2"
+        >
+          <span class="fa fa-trash"></span> Supprimer
+        </button>
+        <button
+          *ngIf="player.id"
+          (click)="savePlayer()"
+          type="submit "
+          class="btn btn-primary"
+        >
+          <span class="fa fa-floppy-o"></span>
+          Sauvegarder
+        </button>
+        <button
+          *ngIf="!player.id"
+          (click)="createPlayer()"
+          type="submit "
+          class="btn btn-primary"
+        >
+          <span class="fa fa-plus"></span>
+          Ajouter
+        </button>
+      </div>
     </div>
-  </div>
+  </fws-widget>
 
   <ng-template #template>
     <div class="modal-header">
-      <div class="modal-title">
-        <span class="glyphicon glyphicon-trash>"></span> Delete
-      </div>
+      <div class="modal-title"><span class="fa fa-trash>"></span> Delete</div>
     </div>
-    <div class="modal-body ">
+    <div class="modal-body">
       <p>
         Etes-vous sûr de vouloir supprimer le joueur
         <b>{{ player.lastName }} ?</b>
       </p>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" (click)="cancel()">
+        <button type="button" class="btn btn-grey" (click)="cancel()">
           Non
         </button>
         <button type="button" class="btn btn-danger" (click)="deletePlayer()">

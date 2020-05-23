@@ -1,23 +1,22 @@
-<h3>Clubs</h3>
-
-<div class="card">
-  <div class="card-header">
-    <a
-      class="btn btn-success pull-right"
-      href=""
-      [routerLink]="['/admin/clubs/0/edit']"
-    >
-      <span class="glyphicon glyphicon-plus"></span> Club
-    </a>
-    <h4>{{ teams.length }} clubs</h4>
-  </div>
-  <div class="card-body">
+<fws-page-header>
+  Clubs
+</fws-page-header>
+<a
+  class="btn btn-primary pull-right mt-2"
+  href=""
+  [routerLink]="['/admin/clubs/0/edit']"
+>
+  <span class="fa fa-plus"></span> Club
+</a>
+<div class="mt-4">
+  <fws-widget [headerText]="teams.length + ' clubs'">
     <ul class="list-group">
       <li *ngFor="let team of teams" class="list-group-item">
         <a [routerLink]="[team.id, 'edit']">
+          <img [src]="getLogo(team.name)" />
           {{ team.name }} / {{ team.shortName }}</a
         >
       </li>
     </ul>
-  </div>
+  </fws-widget>
 </div>

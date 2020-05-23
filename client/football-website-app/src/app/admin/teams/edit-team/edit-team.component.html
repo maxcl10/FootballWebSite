@@ -1,55 +1,56 @@
-<h2>Equipes</h2>
+<fws-page-header>
+  Editer les Equipes
+</fws-page-header>
 
-<div *ngIf="errorMessage" class="alert alert-danger">
-  {{ errorMessage }}
-</div>
-<div class="card">
-  <div class="card-body">
-    <h4>Selectionner l'équipe à éditer.</h4>
-    <select
-      [(ngModel)]="selectedTeam"
-      (change)="onTeamChange($event)"
-      class="form-control"
-    >
-      <option *ngFor="let team of localTeams" [value]="team.id">{{
-        team.name
-      }}</option>
-    </select>
+<fws-widget [error]="errorMessage">
+  <h5>Selectionner l'équipe à éditer.</h5>
+  <select
+    [(ngModel)]="selectedTeam"
+    (change)="onTeamChange($event)"
+    class="form-control"
+  >
+    <option *ngFor="let team of localTeams" [value]="team.id">{{
+      team.name
+    }}</option>
+  </select>
 
-    <hr />
-    <h4>
-      Cliquez sur les joueurs à déplacer.
-    </h4>
-    <div *ngIf="teamPlayers != null">
-      <div class="wrapper">
-        <div class="row">
-          <div class="col-md-4">
-            <h4>Equipe</h4>
+  <hr />
+  <h5>
+    Cliquez sur les joueurs à déplacer.
+  </h5>
+  <div *ngIf="teamPlayers != null">
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-md-4">
+          <h4 class="text-muted">Equipe</h4>
 
-            <div
-              *ngFor="let player of teamPlayers"
-              (click)="remove(player)"
-              class="pointer"
-            >
-              {{ player.firstName }} {{ player.lastName }}
-            </div>
+          <div
+            *ngFor="let player of teamPlayers"
+            (click)="remove(player)"
+            class="pointer"
+          >
+            {{ player.firstName }} {{ player.lastName }}
           </div>
-          <div class="col-md-4"></div>
-          <div class="col-md-4">
-            <h4>Joueurs</h4>
-            <input [(ngModel)]="query" />
-            <div
-              *ngFor="
-                let player of (poolPlayers | search: 'firstName,lastName':query)
-              "
-              (click)="add(player)"
-              class="pointer"
-            >
-              {{ player.firstName }} {{ player.lastName }}
-            </div>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <h4 class="text-muted">Joueurs</h4>
+          <input
+            [(ngModel)]="query"
+            class="form-control"
+            placeholder="Filtre"
+          />
+          <div
+            *ngFor="
+              let player of poolPlayers | search: 'firstName,lastName':query
+            "
+            (click)="add(player)"
+            class="pointer"
+          >
+            {{ player.firstName }} {{ player.lastName }}
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</fws-widget>

@@ -7,8 +7,8 @@ import { StatsAssistsComponent } from './stats-assists/stats-assists.component';
 import { StatsStrickersComponent } from './stats-strickers/stats-strickers.component';
 import { StatsLastResultsComponent } from './stats-last-results/stats-last-results.component';
 import { StatsPieChartComponent } from './stats-pie-chart/stats-pie-chart.component';
-import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { SharedModule } from '../shared/shared.module';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [

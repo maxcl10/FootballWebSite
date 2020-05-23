@@ -14,9 +14,9 @@ namespace FootballWebSiteApi.Repository
             _entities = new FootballWebSiteDbEntities();
         }
 
-        public User IsAuthorized(string alias, string password)
+        public User IsAuthorized(Guid ownerId, string alias, string password)
         {
-            var user = _entities.Users.SingleOrDefault(o => o.alias == alias && o.password == password && o.ownerId.ToString() == Properties.Settings.Default.OwnerId);
+            var user = _entities.Users.SingleOrDefault(o => o.alias == alias && o.password == password && o.ownerId == ownerId);
             if (user == null)
             {
                 return null;

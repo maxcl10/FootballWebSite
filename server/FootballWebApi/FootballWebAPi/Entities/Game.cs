@@ -35,6 +35,7 @@ namespace FootballWebSiteApi.Entities
         public Nullable<int> PenaltyAwayTeamScore { get; set; }
         public Nullable<System.Guid> ownerId { get; set; }
         public Nullable<System.Guid> CompetitionId { get; set; }
+        public Nullable<bool> Postponed { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Article> Articles { get; set; }

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using FootballWebSiteApi.Helpers;
 using FootballWebSiteApi.Interfaces;
 using FootballWebSiteApi.Models;
 using FootballWebSiteApi.Repository;
@@ -22,32 +23,36 @@ namespace FootballWebSiteApi.Controllers
         [Route("shape")]
         public IHttpActionResult GetShape()
         {
-            var res = _statsRepository.GetShape();
+            var ownerId = Request.Headers.GetOwnerId();
+            var res = _statsRepository.GetShape(ownerId);
             return Ok(res);
         }
 
         [HttpGet]
-        [Route("strickers")]
-        public IHttpActionResult GetStrickers2()
+        [Route("players")]
+        public IHttpActionResult GetPlayersStats()
         {
-            var strikers = _statsRepository.GetStrikers2().Where(o => o.TotalGames.HasValue && o.TotalGames.Value > 0).OrderByDescending(o => o.TotalGoals).ThenByDescending(o => o.ChampionshipGoals);
+            var ownerId = Request.Headers.GetOwnerId();
+            var strikers = _statsRepository.GetPlayersStats(ownerId).Where(o => o.TotalGames.HasValue && o.TotalGames.Value > 0).OrderByDescending(o => o.TotalGoals).ThenByDescending(o => o.ChampionshipGoals);
             return Ok(strikers);
         }
 
         [HttpGet]
-        [Route("shape/{id}")]
-        public IHttpActionResult GetStricker(Guid id)
+        [Route("players/{playerId}")]
+        public IHttpActionResult GetPlayerStats(Guid playerId)
         {
-            var stricker = _statsRepository.GetPlayerStats(id);
+            var ownerId = Request.Headers.GetOwnerId();
+            var stricker = _statsRepository.GetPlayerStats(ownerId, playerId);
             return Ok(stricker);
         }
 
 
         [HttpGet]
-        [Route("team/strickers")]
-        public IHttpActionResult GetTeamStrickers2()
+        [Route("team/players")]
+        public IHttpActionResult GetTeamStats()
         {
-            var strickers = _statsRepository.GetStrikers2().OrderByDescending(o => o.TotalGoals).ThenByDescending(o => o.ChampionshipGoals);
+            var ownerId = Request.Headers.GetOwnerId();
+            var strickers = _statsRepository.GetPlayersStats(ownerId).OrderByDescending(o => o.TotalGoals).ThenByDescending(o => o.ChampionshipGoals);
             return Ok(strickers);
         }
 
@@ -55,7 +60,8 @@ namespace FootballWebSiteApi.Controllers
         [Route("scoredPerGame")]
         public IHttpActionResult GetScoredGoalsPerGame()
         {
-            var scored = _statsRepository.ScoredGoalPerGame();
+            var ownerId = Request.Headers.GetOwnerId();
+            var scored = _statsRepository.ScoredGoalPerGame(ownerId);
             return Ok(scored);
         }
 
@@ -63,7 +69,8 @@ namespace FootballWebSiteApi.Controllers
         [Route("concededPerGame")]
         public IHttpActionResult GetConcededGoalsPerGame()
         {
-            var scored = _statsRepository.ConcededGoalPerGame();
+            var ownerId = Request.Headers.GetOwnerId();
+            var scored = _statsRepository.ConcededGoalPerGame(ownerId);
             return Ok(scored);
         }
 

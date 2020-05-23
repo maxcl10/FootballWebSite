@@ -1,20 +1,28 @@
 <span
-  *ngIf="game.HomeTeamScore != null && game.AwayTeamScore != null"
+  *ngIf="game.homeTeamScore != null && game.awayTeamScore != null"
   class="badge"
   [ngClass]="{
-    'badge-success': game.Result == 'W',
-    'badge-danger': game.Result == 'L',
-    'badge-default': game.Result == 'D'
+    'badge-success': game.result == 'W',
+    'badge-danger': game.result == 'L',
+    'badge-default': game.result == 'D'
   }"
 >
   <span style="font-size: 18px;"
-    >{{ game.HomeTeamScore }} - {{ game.AwayTeamScore }}</span
+    >{{ game.homeTeamScore }} - {{ game.awayTeamScore }}</span
   >
 
   <div
-    style="margin-top: 5px"
-    *ngIf="game.HomePenaltyScore != null && game.AwayPenaltyScore != null"
+    style="margin-top: 5px;"
+    *ngIf="game.homePenaltyScore != null && game.awayPenaltyScore != null"
   >
-    TAB {{ game.HomePenaltyScore }} - {{ game.AwayPenaltyScore }}
+    TAB {{ game.homePenaltyScore }} - {{ game.awayPenaltyScore }}
   </div>
+</span>
+
+<span
+  *ngIf="game.postponed"
+  class="badge badge-warning"
+  style="font-size: 18px;"
+>
+  remis
 </span>

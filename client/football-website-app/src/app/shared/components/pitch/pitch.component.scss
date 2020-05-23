@@ -1,9 +1,9 @@
 .football-pitch {
   width: 640px;
-  height: 380px;
+  height: 420px;
   position: relative;
   margin: 0 auto;
-  top: calc(50% - 380px / 2);
+  top: calc(50% - 420px / 2);
   overflow: hidden;
 }
 .marking {
@@ -304,3 +304,11 @@ $player-item-size: 70px;
   color: white;
   font-weight: bold;
 }
+
+// .tourne {
+//   transform: rotate(90deg); /* Équivalent à rotateZ(45deg) */
+// }
+
+// .playerTourne {
+//   transform: rotate(-90deg);
+// }

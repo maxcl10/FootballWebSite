@@ -1,6 +1,8 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using FootballWebSiteApi.Helpers;
 using FootballWebSiteApi.Interfaces;
 using FootballWebSiteApi.Models;
 using FootballWebSiteApi.Repository;
@@ -22,23 +24,28 @@ namespace FootballWebSiteApi.Controllers
         [HttpGet]
         public IHttpActionResult GetGames()
         {
-            var games = _gamesRepository.GetGames().ToList();
+            var ownerId = Request.Headers.GetOwnerId();
+            var games = _gamesRepository.GetGames(ownerId).ToList();
             return Ok(games);
         }
 
+
         [HttpGet]
-        public IHttpActionResult GetGame(string id)
+        [Route("{id}")]
+        public IHttpActionResult GetGame(Guid id)
         {
-            var games = _gamesRepository.GetGame(id);
+            var ownerId = Request.Headers.GetOwnerId();
+            var games = _gamesRepository.GetGame(ownerId, id);
             return Ok(games);
         }
 
 
         public IHttpActionResult Post(JGame game)
         {
+            var ownerId = Request.Headers.GetOwnerId();
             if (ModelState.IsValid)
             {
-                var retGame = _gamesRepository.CreateGame(game);
+                var retGame = _gamesRepository.CreateGame(ownerId, game);
                 return Created("", retGame);
             }
 
@@ -46,20 +53,24 @@ namespace FootballWebSiteApi.Controllers
 
         }
 
-        public IHttpActionResult Put(string id, JGame game)
+        [HttpPut]
+        [Route("{id}")]
+        public IHttpActionResult Put(Guid id, JGame game)
         {
+            var ownerId = Request.Headers.GetOwnerId();
             if (ModelState.IsValid)
             {
-                var retGame = _gamesRepository.SaveGame(id, game);
+                var retGame = _gamesRepository.SaveGame(ownerId, id, game);
                 return Ok(retGame);
             }
 
             return BadRequest(ModelState);
         }
 
-        public IHttpActionResult Delete(string id)
+        public IHttpActionResult Delete(Guid id)
         {
-            _gamesRepository.DeleteGame(id);
+            var ownerId = Request.Headers.GetOwnerId();
+            _gamesRepository.DeleteGame(ownerId, id);
             return Ok(true);
         }
 
@@ -76,14 +87,16 @@ namespace FootballWebSiteApi.Controllers
         // GET: api/NextGame
         public IHttpActionResult GetNextGame()
         {
-            var nextGame = _gamesRepository.GetNextGame();
+            var ownerId = Request.Headers.GetOwnerId();
+            var nextGame = _gamesRepository.GetNextGame(ownerId);
             return Ok(nextGame);
         }
 
         [Route("previous")]
         public IHttpActionResult GetPreviousGame()
         {
-            var nextGame = _gamesRepository.GetPreviousGame();
+            var ownerId = Request.Headers.GetOwnerId();
+            var nextGame = _gamesRepository.GetPreviousGame(ownerId);
             return Ok(nextGame);
         }
 

@@ -7,11 +7,11 @@ namespace FootballWebSiteApi.Interfaces
 {
     public interface IArticleRepository : IDisposable
     {
-        JArticle CreateArticle(JArticle jArticle);
-        void DeleteArticle(Guid id);
-        Task<JArticle> GetArticle(Guid id);
-        JArticle GetArticlePerGame(Guid gameId);
-        Task<IEnumerable<JArticle>> GetArticles();
-        JArticle SaveArticle(Guid id, JArticle article);
+        JArticle CreateArticle(Guid ownerId, JArticle jArticle);
+        void DeleteArticle(Guid ownerId, Guid id);
+        Task<JArticle> GetArticle(Guid ownerId, Guid articleId);
+        JArticle GetArticlePerGame(Guid ownerId, Guid gameId);
+        Task<IEnumerable<JArticle>> GetArticles(Guid ownerId);
+        JArticle UpdateArticle(Guid ownerId, Guid id, JArticle article);
     }
 }

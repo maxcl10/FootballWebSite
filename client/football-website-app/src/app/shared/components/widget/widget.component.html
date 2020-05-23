@@ -1,19 +1,15 @@
+<h5 class="text-uppercase mb-2 ml-2" *ngIf="headerText">
+  {{ headerText }}
+  <!-- <div style="margin-top: -45px;" class="display-4">_</div> -->
+</h5>
+
 <div
   class="card shadow"
-  [ngClass]="{ 'w-100 bg-transparent shadow-none': transparent }"
+  [ngClass]="{
+    'w-100 bg-transparent shadow-none': transparent,
+    'card-border-top': !transparent
+  }"
 >
-  <h5
-    [ngClass]="{
-      'bg-transparent text-white': transparent,
-      'card-header': contentMargin == true
-    }"
-    class="text-uppercase"
-    *ngIf="headerText"
-  >
-    {{ headerText }}
-    <div style="margin-top: -45px;" class="display-4">_</div>
-  </h5>
-
   <div
     [ngClass]="{
       'card-body': contentMargin == true,
@@ -25,16 +21,11 @@
       <i class="fa fa-futbol-o fa-spin"></i>
       {{ loadingText }}
     </div>
-  </div>
-  <div *ngIf="error">
-    <div
-      class="alert alert-danger"
-      [ngClass]="{
-        '': contentMargin == false,
-        ' alert-margin ': contentMargin == true
-      }"
-    >
-      {{ error }}
+
+    <div *ngIf="error">
+      <div class="alert alert-danger mt-2">
+        {{ error }}
+      </div>
     </div>
   </div>
 </div>

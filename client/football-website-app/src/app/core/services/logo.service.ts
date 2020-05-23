@@ -20,6 +20,8 @@ export class LogoService {
       case 'Cernay S.C.':
         return baseUrl + 'Cernay/cernay_' + size + 'x' + size + '.png';
       case 'Uffheim F.C.':
+      case 'Uffheim F.C. 2':
+      case 'Uffheim F.C. 3':
         return baseUrl + 'Uffheim/uffheim_' + size + 'x' + size + '.png';
       case 'Hagenthal-Wentwiller F.C.':
       case 'Hagenthal-Wentzwill':
@@ -45,6 +47,7 @@ export class LogoService {
       case 'Sundhoffen A.S.':
         return baseUrl + 'Sundhoffen/sundhoffen_' + size + 'x' + size + '.png';
       case 'St Louis Neuweg F.C. 2':
+      case 'Saint-Louis Neuweg F.C.':
       case 'Saint-Louis Neuweg F.C. 2':
         return (
           baseUrl + 'Saint-Louis/saint_louis_' + size + 'x' + size + '.png'
@@ -71,6 +74,8 @@ export class LogoService {
       case 'Tagsdorf F.C. ':
         return baseUrl + 'Tagsdorf/tagsdorf_' + size + 'x' + size + '.png';
       case 'Bartenheim F.C.':
+      case 'Bartenheim F.C. 2':
+      case 'Bartenheim F.C. 3':
         return baseUrl + 'Bartenheim/bartenheim_' + size + 'x' + size + '.png';
       case 'Us Azzurri Mulhouse':
       case 'Azzurri Mulhouse U.S.':
@@ -182,6 +187,8 @@ export class LogoService {
         return baseUrl + 'Hausgauen/hausgauen_' + size + 'x' + size + '.png';
       case 'Brunstatt F.C.':
         return baseUrl + 'Brunstatt/brunstatt_' + size + 'x' + size + '.png';
+      case 'Seppois F.C.':
+        return baseUrl + 'Seppois/seppois_' + size + 'x' + size + '.png';
       case 'Mulhouse Mouloudia':
         return (
           baseUrl +

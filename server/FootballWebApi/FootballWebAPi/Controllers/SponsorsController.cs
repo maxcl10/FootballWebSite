@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using System.Web.Http.Cors;
+using FootballWebSiteApi.Helpers;
 using FootballWebSiteApi.Interface;
 using FootballWebSiteApi.Models;
 using FootballWebSiteApi.Repository;
@@ -19,8 +20,8 @@ namespace FootballWebSiteApi.Controllers
         // GET: api/Sponsors
         public IHttpActionResult Get()
         {
-
-            var sponsors = _sponsorsRepository.GetSponsors();
+            var ownerId = Request.Headers.GetOwnerId();
+            var sponsors = _sponsorsRepository.GetSponsors(ownerId);
             return Ok(sponsors);
 
         }
@@ -28,8 +29,8 @@ namespace FootballWebSiteApi.Controllers
         // GET: api/Sponsors/5
         public IHttpActionResult Get(string id)
         {
-
-            var sponsor = _sponsorsRepository.GetSponsor(id);
+            var ownerId = Request.Headers.GetOwnerId();
+            var sponsor = _sponsorsRepository.GetSponsor(ownerId, id);
             return Ok(sponsor);
 
         }
@@ -37,9 +38,10 @@ namespace FootballWebSiteApi.Controllers
         // POST: api/Sponsors
         public IHttpActionResult Post([FromBody]JSponsor sponsor)
         {
+            var ownerId = Request.Headers.GetOwnerId();
             if (ModelState.IsValid)
             {
-                var sponsors = _sponsorsRepository.CreateSponsor(sponsor);
+                var sponsors = _sponsorsRepository.CreateSponsor(ownerId, sponsor);
                 return Ok(sponsors);
             }
             return BadRequest(ModelState);
@@ -50,10 +52,11 @@ namespace FootballWebSiteApi.Controllers
         // PUT: api/Sponsors/5
         public IHttpActionResult Put(string id, [FromBody]JSponsor sponsor)
         {
+            var ownerId = Request.Headers.GetOwnerId();
             if (ModelState.IsValid)
             {
 
-                var ret = _sponsorsRepository.UpdateSponsor(id, sponsor);
+                var ret = _sponsorsRepository.UpdateSponsor(ownerId, id, sponsor);
                 return Ok(ret);
 
             }
@@ -63,8 +66,8 @@ namespace FootballWebSiteApi.Controllers
         // DELETE: api/Sponsors/5
         public IHttpActionResult Delete(string id)
         {
-
-            _sponsorsRepository.DeleteSponsor(id);
+            var ownerId = Request.Headers.GetOwnerId();
+            _sponsorsRepository.DeleteSponsor(ownerId, id);
             return Ok(true);
 
         }

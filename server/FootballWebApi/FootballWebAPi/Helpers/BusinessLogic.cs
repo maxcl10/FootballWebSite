@@ -51,5 +51,23 @@ namespace FootballWebSiteApi.Helpers
             return null;
         }
 
+        public static int GetPositionOrder(string position)
+        {
+            switch (position)
+            {
+                case "Gardien":
+                    return 0;
+                case "Defenseur":
+                    return 1;
+                case "Milieu":
+                    return 2;
+                case "Attaquant":
+                    return 3;
+                default:
+                    return 4;
+            }
+        }
+
+
     }
 }

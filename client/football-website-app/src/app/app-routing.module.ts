@@ -9,6 +9,15 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
+    path: 'articles',
+    loadChildren: () =>
+      import('./articles/articles.module').then((m) => m.ArticlesModule),
+  },
+  {
+    path: 'news',
+    loadChildren: () => import('./news/news.module').then((m) => m.NewsModule),
+  },
+  {
     path: 'team',
     loadChildren: () =>
       import('./teams/teams.module').then((m) => m.TeamsModule),
@@ -32,6 +41,11 @@ const routes: Routes = [
     path: 'stats',
     loadChildren: () =>
       import('./stats/stats.module').then((m) => m.StatsModule),
+  },
+  {
+    path: 'games',
+    loadChildren: () =>
+      import('./games/games.module').then((m) => m.GamesModule),
   },
   {
     path: 'sponsors',

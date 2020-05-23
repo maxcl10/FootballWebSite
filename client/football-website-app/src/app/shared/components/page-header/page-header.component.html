@@ -1,15 +1,23 @@
-<div
-  class="bg-secondary shadow box"
-  [ngClass]="{ 'bg-grey text-center': white }"
->
+<div class="bg-secondary shadow box">
   <div class="container h-100">
-    <div class="row h-100">
-      <h4
-        class="text-white my-auto text-uppercase w-100 text-center"
-        [ngClass]="{ 'text-primary ': white }"
-      >
-        <ng-content> </ng-content>
-      </h4>
+    <div class="row h-100 d-flex justify-content-between">
+      <div class="text-white my-auto">
+        <a
+          *ngIf="!hideBackButton"
+          (click)="goBack()"
+          class="btn btn-default float-left d-none d-sm-inline"
+        >
+          <span class="fa fa-arrow-left"></span>
+        </a>
+      </div>
+      <div class="text-white my-auto">
+        <h4>
+          <ng-content> </ng-content>
+        </h4>
+      </div>
+      <div>
+        <!-- Fake div -->
+      </div>
     </div>
   </div>
 </div>

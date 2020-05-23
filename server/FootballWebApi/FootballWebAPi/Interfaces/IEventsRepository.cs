@@ -9,5 +9,7 @@ namespace FootballWebSiteApi.Interfaces
         JEvent CreateEvent(JEvent gameEvent);
         void DeleteEvent(Guid eventId);
         List<JEvent> GetEventsByGame(Guid gameId);
+
+        IEnumerable<JEventType> GetGameEventTypes();
     }
 }

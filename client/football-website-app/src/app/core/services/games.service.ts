@@ -12,6 +12,7 @@ import { Event } from '../../shared/models/event.model';
 import { GamePlayer } from '../../shared/models/game-player.model';
 import { Article } from '../../shared/models/article.model';
 import { Competition } from '../../shared/models/competition.model';
+import { EventType } from '../../shared/models/eventType.model';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -24,7 +25,8 @@ const httpOptions = {
 })
 export class GamesService {
   private gameUrl = AppConfig.settings.apiServer.url + 'games';
-  private competitionsUrl = this.gameUrl + '/competitions';
+  private eventsUrl = AppConfig.settings.apiServer.url + 'eventTypes';
+  private competitionsUrl = AppConfig.settings.apiServer.url + 'competitions';
   private nextGameUrl = this.gameUrl + '/next';
   private lastGameUrl = this.gameUrl + '/previous';
 
@@ -40,6 +42,10 @@ export class GamesService {
 
   public getGames(): Observable<Game[]> {
     return this.http.get<Game[]>(this.gameUrl);
+  }
+
+  public getEventTypes(): Observable<EventType[]> {
+    return this.http.get<EventType[]>(this.eventsUrl);
   }
 
   public getNextGame(): Observable<Game> {
@@ -71,7 +77,7 @@ export class GamesService {
   }
 
   public getGameArticle(gameId: string): Observable<Article> {
-    return this.http.get<Article>(this.gameUrl + '/' + gameId + '/articles');
+    return this.http.get<Article>(this.gameUrl + '/' + gameId + '/article');
   }
 
   public getGameEvents(gameId: string): Observable<Event[]> {
@@ -94,7 +100,7 @@ export class GamesService {
 
   public deleteGamePlayer(gameId: string, playerId: string) {
     return this.http.delete(
-      this.gameUrl + '/' + gameId + '/players/' + playerId
+      this.gameUrl + '/' + gameId + '/player/' + playerId
     );
   }
 

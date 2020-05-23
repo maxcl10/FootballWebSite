@@ -10,7 +10,7 @@
           player.lastName +
           '.png'
         "
-        class="img-responsive img-thumbnail"
+        class="img-fluid img-thumbnail"
         onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
       />
     </div>
@@ -19,7 +19,7 @@
         <li>{{ player.position }}</li>
         <li *ngIf="player.nickname != null">Alias {{ player.nickname }}</li>
         <li *ngIf="playerAge != 0">
-          {{ player.dateOfBirth | frDate: 'dd/MM/yyyy' }} ({{ playerAge }} ans)
+          {{ player.dateOfBirth | date: 'dd/MM/yyyy' }} ({{ playerAge }} ans)
         </li>
         <li *ngIf="player.height != null && player.height != 0">
           {{ player.height / 100 }} m

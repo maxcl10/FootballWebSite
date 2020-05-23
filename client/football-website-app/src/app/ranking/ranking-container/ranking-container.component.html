@@ -1,4 +1,4 @@
-<fws-page-header [white]="true">
+<fws-page-header>
   <img
     style="margin-top: -8px;"
     src="../../../assets/img/{{ competition?.shortName }}.png"
@@ -10,14 +10,13 @@
   </span>
 </fws-page-header>
 
-<div class="bg-secondary pt-4">
+<div class="my-4">
   <div class="container" *ngIf="competition">
     <div class="row">
       <fws-widget
         [loading]="loading"
         [contentMargin]="false"
         class="w-100"
-        [transparent]="true"
         [headerText]="
           competition?.name +
           ' -  Poule ' +

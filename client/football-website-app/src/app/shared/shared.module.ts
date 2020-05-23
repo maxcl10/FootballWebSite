@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchPipe } from './pipes/search.pipe';
-import { FrDatePipe } from './pipes/fr-date-pipe';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { GameComponent } from './components/game/game.component';
 import { GameScoreComponent } from './components/game-score/game-score.component';
@@ -15,12 +14,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { GameWidgetComponent } from './components/game-widget/game-widget.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
+import { ArticleComponent } from './components/article/article.component';
+import { RouterModule } from '@angular/router';
+import { EventTypeComponent } from './components/event-type/event-type.component';
+import { LogoComponent } from './components/logo/logo.component';
+import { GameLetterPipe } from './pipes/game-letter.pipe';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, HttpClientModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, RouterModule, ReactiveFormsModule],
   declarations: [
     SearchPipe,
-    FrDatePipe,
     TeamNamePipe,
     LoadingSpinnerComponent,
     GameComponent,
@@ -31,10 +34,13 @@ import { PageHeaderComponent } from './components/page-header/page-header.compon
     WidgetComponent,
     GameWidgetComponent,
     PageHeaderComponent,
+    ArticleComponent,
+    EventTypeComponent,
+    LogoComponent,
+    GameLetterPipe,
   ],
   exports: [
     SearchPipe,
-    FrDatePipe,
     TeamNamePipe,
     GameComponent,
     GameScoreComponent,
@@ -43,6 +49,10 @@ import { PageHeaderComponent } from './components/page-header/page-header.compon
     WidgetComponent,
     GameWidgetComponent,
     PageHeaderComponent,
+    ArticleComponent,
+    EventTypeComponent,
+    LogoComponent,
+    GameLetterPipe,
   ],
 })
 

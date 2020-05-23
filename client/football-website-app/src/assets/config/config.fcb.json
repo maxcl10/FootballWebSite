@@ -3,7 +3,7 @@
     "name": "FCB"
   },
   "apiServer": {
-    "url": "https://fcbwebapi.azurewebsites.net/api"
+    "url": "https://marez.fr/services/football/api/"
   },
   "properties": {
     "siteName": "F.C Bartenheim",

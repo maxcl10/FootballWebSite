@@ -6,10 +6,10 @@
         [ngClass]="{
           'badge-success': stat == 'W',
           'badge-danger': stat == 'L',
-          'badge-default': stat == 'D'
+          'badge-grey': stat == 'D'
         }"
       >
-        {{ stat }}
+        {{ stat | gameLetter }}
       </span>
     </h3>
   </span>

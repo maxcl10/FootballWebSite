@@ -1,21 +1,21 @@
 <div *ngIf="game != null">
   <div class="text-center text-muted">
     <label *ngIf="isToday == false">
-      {{ game.MatchDate | frDate: 'longDateTime' }}
+      {{ game.matchDate | date: 'EEEE dd LLLL hh:mm' }}
     </label>
     <label *ngIf="isToday == true">
-      Aujourd'hui à {{ game.MatchDate | frDate: 'time' }}
+      Aujourd'hui à {{ game.matchDate | date: 'HH:mm' }}
     </label>
   </div>
   <div class="container">
     <div class="row">
       <div class="col text-center">
-        <img [src]="game.homeTeamLogoUrl" [title]="game.HomeTeam" /><br />
-        <div class="hidden-sm bold">{{ game.HomeTeam }}</div>
+        <img [src]="game.homeTeamLogoUrl" [title]="game.homeTeam" /><br />
+        <div class="hidden-sm bold">{{ game.homeTeam }}</div>
       </div>
       <div class="col text-center">
-        <img [src]="game.awayTeamLogoUrl" [title]="game.AwayTeam" /><br />
-        <div class="hidden-sm bold">{{ game.AwayTeam }}</div>
+        <img [src]="game.awayTeamLogoUrl" [title]="game.awayTeam" /><br />
+        <div class="hidden-sm bold">{{ game.awayTeam }}</div>
       </div>
     </div>
   </div>

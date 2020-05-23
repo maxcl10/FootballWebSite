@@ -1,9 +1,9 @@
-<span *ngIf="game.Competition && game.Championship">
-  {{ game.Competition }} - {{ game.Championship }}
+<span *ngIf="game.competition && game.championship">
+  {{ game.competition }} - {{ game.championship }}
 </span>
-<span *ngIf="game.Championship && !game.Competition">{{
-  game.Championship
+<span *ngIf="game.championship && !game.competition">{{
+  game.championship
 }}</span>
-<span *ngIf="!game.Championship && game.Competition">{{
-  game.Championship
+<span *ngIf="!game.championship && game.competition">{{
+  game.championship
 }}</span>

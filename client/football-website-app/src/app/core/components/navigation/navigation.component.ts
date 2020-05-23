@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamsService } from '../../services/teams.service';
 import { Team } from '../../../shared/models/team.model';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'fws-navigation',
@@ -20,5 +21,9 @@ export class NavigationComponent implements OnInit {
       },
       (error) => (this.errorMessage = <any>error)
     );
+
+    // $('.navbar-nav>li>a').on('click', function () {
+    //   $('.navbar-collapse').collapse('hide');
+    // });
   }
 }

@@ -1,17 +1,16 @@
-<h2>Joueurs</h2>
-<div class="card" *ngIf="players$ | async as players; else loading">
-  <div class="card-header">
-    <a
-      class="btn btn-success pull-right"
-      href=""
-      [routerLink]="['/admin/players/0/edit']"
-    >
-      <span class="glyphicon glyphicon-plus"></span> Joueur
-    </a>
-    <h4>{{ players?.length }} joueurs</h4>
-  </div>
-  <div class="card-body">
-    <table class="table table-hover table-clickable">
+<fws-page-header>Joueurs</fws-page-header>
+
+<a
+  class="btn btn-primary float-right mt-2"
+  href=""
+  [routerLink]="['/admin/players/0/edit']"
+>
+  <span class="fa fa-plus mr-2"></span> Joueur
+</a>
+
+<div *ngIf="players$ | async as players" class="mt-4">
+  <fws-widget [headerText]="players?.length + ' joueurs'">
+    <table class="table table-hover table-clickable table-borderless">
       <thead>
         <tr>
           <th></th>
@@ -34,8 +33,8 @@
                 player.lastName +
                 '.png'
               "
-              style="height: 30px"
-              class="img-circle"
+              style="height: 30px;"
+              class="rounded-circle"
             />
           </td>
           <td>{{ player.lastName }} {{ player.firstName }}</td>
@@ -48,8 +47,5 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </fws-widget>
 </div>
-<ng-template #loading>
-  Chargement des matches...
-</ng-template>

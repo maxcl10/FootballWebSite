@@ -19,4 +19,6 @@ export class Game {
   public homeTeamLogoUrl: string;
   public awayTeamLogoUrl: string;
   public result: string;
+  public ownerTeam: string;
+  public postponed: boolean;
 }

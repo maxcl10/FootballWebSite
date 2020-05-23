@@ -8,6 +8,7 @@ import { User } from '../../shared/models/user.model';
 @Component({
   selector: 'fws-admin',
   templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.scss'],
   providers: [
     ArticlesService,
     AuthenticationService,

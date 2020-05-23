@@ -69,6 +69,7 @@
     <EntitySetMapping Name="Games">
       <EntityTypeMapping TypeName="FootballWebSiteDbModel.Game">
         <MappingFragment StoreEntitySet="Game">
+          <ScalarProperty Name="Postponed" ColumnName="Postponed" />
           <ScalarProperty Name="CompetitionId" ColumnName="CompetitionId" />
           <ScalarProperty Name="ownerId" ColumnName="ownerId" />
           <ScalarProperty Name="PenaltyAwayTeamScore" ColumnName="PenaltyAwayTeamScore" />

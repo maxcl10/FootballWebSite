@@ -1,16 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Article } from '../../../shared/models/article.model';
+import { Article } from '../../models/article.model';
 
 @Component({
   selector: 'fws-article',
   templateUrl: './article.component.html',
-  styleUrls: ['./article.component.scss']
+  styleUrls: ['./article.component.css'],
 })
 export class ArticleComponent implements OnInit {
+  @Input() article: Article;
+
   constructor() {}
 
-  @Input()
-  public article: Article;
-
-  ngOnInit() {}
+  ngOnInit(): void {}
 }

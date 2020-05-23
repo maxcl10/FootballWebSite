@@ -1,4 +1,4 @@
-<div class="football-pitch">
+<div class="football-pitch tourne">
   <div class="outline marking"></div>
   <div class="box left marking"></div>
   <div class="box-d left marking"></div>
@@ -17,7 +17,7 @@
   <div class="corner bottom right marking"></div>
   <div class="grass"></div>
   <div *ngFor="let player of players" class="{{ player.position }} player">
-    <div class="text-center" style="width: 120px">
+    <div class="text-center playerTourne" style="width: 120px;">
       <img
         [src]="
           '../../../assets/img/players/' +
@@ -26,8 +26,8 @@
           player.playerLastName +
           '.png'
         "
-        style="height: 50px"
-        class="img-circle"
+        style="height: 50px;"
+        class="rounded-circle"
       />
       <br />
       {{ player.playerFirstName.slice(0, 1) }}.

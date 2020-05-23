@@ -1,99 +1,95 @@
-<div *ngIf="sponsor">
-  <h2>{{ title }} sponsor {{ sponsor.name }}</h2>
+<fws-page-header> {{ title }} sponsor {{ sponsor.name }} </fws-page-header>
 
-  <div class="card">
-    <div class="card-body">
-      <div class="form-group">
-        <label>Nom</label>
-        <input
-          required
-          class="form-control"
-          placeholder="Nom"
-          [(ngModel)]="sponsor.name"
-          type="text"
-          ngControl="title"
-        />
-      </div>
-      <div class="form-group">
-        <label>Site Web</label>
-        <input
-          required
-          class="form-control"
-          placeholder="URL"
-          [(ngModel)]="sponsor.siteUrl"
-          type="text"
-          ngControl="title"
-        />
-      </div>
-      <div class="form-group">
-        <label>Logo</label>
-        <input
-          required
-          class="form-control"
-          placeholder="URL"
-          [(ngModel)]="sponsor.logoUrl"
-          type="text"
-          ngControl="title"
-        />
-      </div>
-    </div>
+<fws-widget>
+  <div class="form-group">
+    <label>Nom</label>
+    <input
+      required
+      class="form-control"
+      placeholder="Nom"
+      [(ngModel)]="sponsor.name"
+      type="text"
+      ngControl="title"
+    />
+  </div>
+  <div class="form-group">
+    <label>Site Web</label>
+    <input
+      required
+      class="form-control"
+      placeholder="URL"
+      [(ngModel)]="sponsor.siteUrl"
+      type="text"
+      ngControl="title"
+    />
+  </div>
+  <div class="form-group">
+    <label>Logo</label>
+    <input
+      required
+      class="form-control"
+      placeholder="URL"
+      [(ngModel)]="sponsor.logoUrl"
+      type="text"
+      ngControl="title"
+    />
   </div>
 
   <div class="alert alert-danger" *ngIf="errorMessage">
     {{ errorMessage }}
   </div>
   <div>
-    <button (click)="goBack()" class="btn btn-default">
-      <span class="glyphicon glyphicon-arrow-left"></span> Retour
+    <button (click)="goBack()" class="btn btn-grey">
+      <span class="fa fa-arrow-left"></span> Retour
     </button>
     <div class="pull-right btn-toolbar">
       <button
         *ngIf="sponsor.sponsorId"
         (click)="openModal(template)"
-        class="btn btn-danger "
+        class="btn btn-danger mr-2"
       >
-        <span class="glyphicon  glyphicon-remove"></span> Supprimer
+        <span class="fa fa-trash"></span> Supprimer
       </button>
       <button
         *ngIf="sponsor.sponsorId"
         (click)="saveSponsor()"
         type="submit "
-        class="btn btn-success "
+        class="btn btn-primary"
       >
-        <span class="glyphicon  glyphicon-floppy-save"></span>
+        <span class="fa fa-floppy-o"></span>
         Sauvegarder
       </button>
       <button
         *ngIf="!sponsor.sponsorId"
         (click)="createSponsor()"
         type="submit "
-        class="btn btn-success "
+        class="btn btn-primary"
       >
-        <span class="glyphicon  glyphicon-plus-sign"></span>
+        <span class="fa fa-plus"></span>
         Ajouter
       </button>
     </div>
   </div>
+</fws-widget>
 
-  <ng-template #template>
-    <div class="modal-header">
-      <div class="modal-title">
-        <span class="glyphicon glyphicon-trash>"></span> Delete
-      </div>
+<ng-template #template>
+  <div class="modal-header">
+    <div class="modal-title">
+      <span class="fa fa-trash>"></span> Supprimer partenaire?
     </div>
-    <div class="modal-body ">
-      <p>
-        Etes-vous sûr de vouloir supprimer le match
-        <b>{{ sponsor.name }}?</b>
-      </p>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" (click)="cancel()">
-          Non
-        </button>
-        <button type="button" class="btn btn-danger" (click)="deleteSponsor()">
-          Supprimer
-        </button>
-      </div>
+  </div>
+  <div class="modal-body">
+    <p>
+      Etes-vous sûr de vouloir supprimer le partenaire
+      <b>{{ sponsor.name }}?</b>
+    </p>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-grey" (click)="cancel()">
+        Non
+      </button>
+      <button type="button" class="btn btn-danger" (click)="deleteSponsor()">
+        Supprimer
+      </button>
     </div>
-  </ng-template>
-</div>
+  </div>
+</ng-template>

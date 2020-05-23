@@ -20,20 +20,20 @@ namespace FootballWebSiteApi.Repository
             _entities = new FootballWebSiteDbEntities();
         }
 
-        public async Task<IEnumerable<JArticle>> GetArticles()
+        public async Task<IEnumerable<JArticle>> GetArticles(Guid ownerId)
         {
             var currentSeasonId = _entities.Seasons.Single(o => o.currentSeason).id;
 
             var articles = await _entities.Articles.Where(o => o.deletedDate.HasValue == false
-            && o.ownerId.ToString() == Properties.Settings.Default.OwnerId
+            && o.ownerId == ownerId
             && o.seasonId == currentSeasonId).OrderByDescending(o => o.creationDate).ToListAsync();
 
             return Mapper.Map(articles);
         }
 
-        public async Task<JArticle> GetArticle(Guid id)
+        public async Task<JArticle> GetArticle(Guid ownerId, Guid articleId)
         {
-            var article = await _entities.Articles.SingleOrDefaultAsync(o => o.deletedDate.HasValue == false && o.id == id);
+            var article = await _entities.Articles.SingleOrDefaultAsync(o => o.deletedDate.HasValue == false && o.id == articleId && o.ownerId == ownerId);
             if (article != null)
             {
                 return Mapper.Map(article);
@@ -42,9 +42,9 @@ namespace FootballWebSiteApi.Repository
             return null;
         }
 
-        public JArticle GetArticlePerGame(Guid gameId)
+        public JArticle GetArticlePerGame(Guid ownerId, Guid gameId)
         {
-            var article = _entities.Articles.SingleOrDefault(o => o.gameId == gameId);
+            var article = _entities.Articles.SingleOrDefault(o => o.gameId == gameId && o.ownerId == ownerId);
             if (article != null)
             {
                 return Mapper.Map(article);
@@ -52,7 +52,7 @@ namespace FootballWebSiteApi.Repository
             return null;
         }
 
-        public JArticle CreateArticle(JArticle jArticle)
+        public JArticle CreateArticle(Guid ownerId, JArticle jArticle)
         {
             var currentSeasonId = _entities.Seasons.Single(o => o.currentSeason).id;
             var article = new Article
@@ -64,8 +64,11 @@ namespace FootballWebSiteApi.Repository
                 title = jArticle.Title,
                 body = jArticle.Body,
                 gameId = jArticle.GameId,
-                ownerId = new Guid(Properties.Settings.Default.OwnerId),
-                seasonId = currentSeasonId
+                ownerId = ownerId,
+                seasonId = currentSeasonId,
+                subTitle = jArticle.SubTitle,
+                imageUrl = jArticle.ImageUrl,
+                articleTypeId = jArticle.Type,
             };
 
             _entities.Articles.Add(article);
@@ -74,15 +77,16 @@ namespace FootballWebSiteApi.Repository
 
         }
 
-        public JArticle SaveArticle(Guid id, JArticle article)
+        public JArticle UpdateArticle(Guid ownerId, Guid id, JArticle article)
         {
             article.ModifiedDate = DateTime.Now;
 
-            var correspondingArticle = _entities.Articles.Where(o => o.deletedDate.HasValue == false).Single(o => o.id == id);
+            var correspondingArticle = _entities.Articles.Where(o => o.deletedDate.HasValue == false).Single(o => o.id == id && o.ownerId == ownerId);
             correspondingArticle.title = article.Title;
             correspondingArticle.body = article.Body;
             correspondingArticle.gameId = article.GameId;
             correspondingArticle.modifiedDate = article.ModifiedDate;
+            correspondingArticle.imageUrl = article.ImageUrl;
 
             if (article.Published && correspondingArticle.publishedDate.HasValue == false)
             {
@@ -99,9 +103,9 @@ namespace FootballWebSiteApi.Repository
             return Mapper.Map(correspondingArticle);
         }
 
-        public void DeleteArticle(Guid id)
+        public void DeleteArticle(Guid ownerId, Guid id)
         {
-            var correspondingArticle = _entities.Articles.Where(o => o.deletedDate.HasValue == false).Single(o => o.id == id);
+            var correspondingArticle = _entities.Articles.Where(o => o.deletedDate.HasValue == false).Single(o => o.id == id && o.ownerId == ownerId);
             correspondingArticle.deletedDate = DateTime.Now;
             _entities.SaveChanges();
         }

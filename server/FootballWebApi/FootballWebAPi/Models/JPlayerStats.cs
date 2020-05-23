@@ -2,7 +2,7 @@
 
 namespace FootballWebSiteApi.Models
 {
-    public class JStricker
+    public class JPlayerStats
     {
         public string PlayerName { get; set; }
 
@@ -31,6 +31,13 @@ namespace FootballWebSiteApi.Models
         public int? TotalGames { get; set; }
 
         public int? ChampionshipGames { get; set; }
+
+        public int? NationalCupGames { get; set; }
+
+        public int? RegionalCupGames { get; set; }
+
+        public int? OtherCupGames { get; set; }
+
 
         public string PlayerFirstName { get; set; }
 

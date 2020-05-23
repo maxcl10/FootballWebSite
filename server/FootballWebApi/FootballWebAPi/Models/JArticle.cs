@@ -13,7 +13,7 @@ namespace FootballWebSiteApi.Models
 
         public string Body { get; set; }
 
-        public int? ArticleType { get; set; }
+        public int? Type { get; set; }
 
         public string Publisher { get; set; }
 

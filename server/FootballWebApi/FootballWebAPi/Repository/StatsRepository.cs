@@ -17,29 +17,29 @@ namespace FootballWebSiteApi.Repository
             _entities = new FootballWebSiteDbEntities();
         }
 
-        public List<JStricker> GetStrikers()
+        public List<JPlayerStats> GetStrikers(Guid ownerId)
         {
             var currentSeasonId = _entities.Seasons.Single(o => o.currentSeason).id;
 
             var stats = _entities.PlayerTeams.Where(o => o.seasonId == currentSeasonId &&
-                                                        o.Team.ownerId.ToString() == Properties.Settings.Default.OwnerId &&
+                                                        o.Team.ownerId == ownerId &&
                                                         o.Player.position != "Entraineur");
 
             return Mapper.Map(stats);
         }
 
-        public List<JStricker> GetStrikers2()
+        public List<JPlayerStats> GetPlayersStats(Guid ownerId)
         {
-            List<JStricker> stats = new List<JStricker>();
+            List<JPlayerStats> stats = new List<JPlayerStats>();
             var currentSeasonId = _entities.Seasons.Single(o => o.currentSeason).id;
 
-            var playerGames = _entities.PlayerGames.Include("GameEvents").Where(o => o.Game.SeasonId == currentSeasonId && o.Game.ownerId.ToString() == Properties.Settings.Default.OwnerId);
+            var playerGames = _entities.PlayerGames.Include("GameEvents").Where(o => o.Game.SeasonId == currentSeasonId && o.Game.ownerId == ownerId);
             foreach (var playerGame in playerGames)
             {
                 var playerStat = stats.SingleOrDefault(o => o.PlayerId == playerGame.PlayerId);
                 if (playerStat == null)
                 {
-                    playerStat = new JStricker
+                    playerStat = new JPlayerStats
                     {
                         PlayerId = playerGame.PlayerId,
                         PlayerFirstName = playerGame.Player.firstName,
@@ -53,7 +53,11 @@ namespace FootballWebSiteApi.Repository
                         RegionalCupGoals = 0,
                         RegionalCupAssists = 0,
                         OtherCupGoals = 0,
-                        OtherCupAssists = 0
+                        OtherCupAssists = 0,
+                        ChampionshipGames = 0,
+                        NationalCupGames = 0,
+                        RegionalCupGames = 0,
+                        OtherCupGames = 0
                     };
                     stats.Add(playerStat);
                 }
@@ -61,7 +65,25 @@ namespace FootballWebSiteApi.Repository
                 {
                     playerStat.TotalGames++;
                 }
-                //var localTeam = entities.Teams.Where(o => o.ownerId.ToString() == Properties.Settings.Default.OwnerId);       
+
+                if (playerGame.Game.Competition.competitionType == 0)
+                {
+                    playerStat.ChampionshipGames++;
+                }
+                else if (playerGame.Game.Competition.competitionType == 1)
+                {
+                    playerStat.NationalCupGames++;
+                }
+                else if (playerGame.Game.Competition.competitionType == 2)
+                {
+                    playerStat.RegionalCupGames++;
+                }
+                else if (playerGame.Game.Competition.competitionType == 3)
+                {
+                    playerStat.OtherCupGames++;
+                }
+
+                //var localTeam = entities.Teams.Where(o => o.ownerId == ownerId);       
                 //entities.Competitions.Where(o=>o.
                 //var competitionSeason= entities.CompetitionSeasons.Where(o=>o.seasonId == currentSeasonId && o.r == localTeam.)
 
@@ -100,23 +122,17 @@ namespace FootballWebSiteApi.Repository
         }
 
 
-        public JStricker GetPlayerStats(Guid playerId)
+        public JPlayerStats GetPlayerStats(Guid ownerId, Guid playerId)
         {
-            var currentSeasonId = _entities.Seasons.Single(o => o.currentSeason).id;
-
-            var stats = _entities.PlayerTeams.Single(o => o.seasonId == currentSeasonId &&
-                                                        o.Team.ownerId.ToString() == Properties.Settings.Default.OwnerId &&
-                                                        o.Player.id == playerId);
-
-            return Mapper.Map(stats);
+            return GetPlayersStats(ownerId).SingleOrDefault(o => o.PlayerId == playerId);
         }
 
-        public JStricker SetStricker(JStricker jstricker)
+        public JPlayerStats SetStricker(Guid ownerId, JPlayerStats jstricker)
         {
             var currentSeasonId = _entities.Seasons.Single(o => o.currentSeason).id;
 
             var correspondingData = _entities.PlayerTeams.Single(o => o.Team.ownerId.HasValue
-                                                                     && o.Team.ownerId.Value.ToString() == Properties.Settings.Default.OwnerId
+                                                                     && o.Team.ownerId.Value == ownerId
                                                                      && o.seasonId == currentSeasonId
                                                                      && o.playerId == jstricker.PlayerId);
 
@@ -130,17 +146,17 @@ namespace FootballWebSiteApi.Repository
             return jstricker;
         }
 
-        public List<string> GetShape()
+        public List<string> GetShape(Guid ownerId)
         {
             List<string> shapes = new List<string>();
             var currentSeasonId = _entities.Seasons.Single(o => o.currentSeason).id;
             var games = _entities.Games.Where(o => o.HomeTeamScore != null
             && o.AwayTeamScore != null
-            && o.ownerId.ToString() == Properties.Settings.Default.OwnerId
+            && o.ownerId == ownerId
             && o.SeasonId == currentSeasonId).OrderBy(o => o.MatchDate).ToList();
 
             //Get team Id
-            var localTeamId = _entities.Teams.Where(o => o.ownerId.ToString() == Properties.Settings.Default.OwnerId)
+            var localTeamId = _entities.Teams.Where(o => o.ownerId == ownerId)
                 .OrderBy(o => o.displayOrder).First().id;
 
 
@@ -152,15 +168,15 @@ namespace FootballWebSiteApi.Repository
             return shapes;
         }
 
-        public double ScoredGoalPerGame()
+        public double ScoredGoalPerGame(Guid ownerId)
         {
             var currentSeasonId = _entities.Seasons.Single(o => o.currentSeason).id;
 
             //Get team Id
-            var firstTeamId = _entities.Teams.Where(o => o.ownerId.ToString() == Properties.Settings.Default.OwnerId)
+            var firstTeamId = _entities.Teams.Where(o => o.ownerId == ownerId)
                 .OrderBy(o => o.displayOrder).First().id;
 
-            var myTeamGames = _entities.Games.Where(o => o.Owner.ownerId.ToString() == Properties.Settings.Default.OwnerId && o.SeasonId == currentSeasonId);
+            var myTeamGames = _entities.Games.Where(o => o.Owner.ownerId == ownerId && o.SeasonId == currentSeasonId);
 
             var homeScore = myTeamGames.Where(o => o.Team.id == firstTeamId).Sum(o => o.HomeTeamScore);
 
@@ -169,15 +185,15 @@ namespace FootballWebSiteApi.Repository
             return (homeScore.Value + awayScore.Value) / (double)myTeamGames.Count(o => o.HomeTeamScore != null);
         }
 
-        public double ConcededGoalPerGame()
+        public double ConcededGoalPerGame(Guid ownerId)
         {
             var currentSeasonId = _entities.Seasons.Single(o => o.currentSeason).id;
 
             //Get team Id
-            var firstTeamId = _entities.Teams.Where(o => o.ownerId.ToString() == Properties.Settings.Default.OwnerId)
+            var firstTeamId = _entities.Teams.Where(o => o.ownerId == ownerId)
                 .OrderBy(o => o.displayOrder).First().id;
 
-            var myTeamGames = _entities.Games.Where(o => o.Owner.ownerId.ToString() == Properties.Settings.Default.OwnerId && o.SeasonId == currentSeasonId);
+            var myTeamGames = _entities.Games.Where(o => o.Owner.ownerId == ownerId && o.SeasonId == currentSeasonId);
 
             var homeScore = myTeamGames.Where(o => o.Team.id == firstTeamId).Sum(o => o.AwayTeamScore);
 
@@ -187,15 +203,6 @@ namespace FootballWebSiteApi.Repository
 
         }
 
-        public object GetRankingHistory()
-        {
-            var currentSeasonId = _entities.Seasons.Single(o => o.currentSeason);
-            return _entities.LazyRankings.Where(o => o.team == "Uffheim F.C." && o.uploadDate > currentSeasonId.startDate).OrderBy(o => o.uploadDate).Select(o => new
-            {
-                o.position,
-                o.uploadDate
-            }).ToList();
-        }
 
         #region Dispose 
 

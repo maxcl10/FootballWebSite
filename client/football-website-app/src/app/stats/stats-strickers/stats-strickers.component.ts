@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Stricker } from '../../shared/models/stricker.model';
+import { PlayerStats } from '../../shared/models/stricker.model';
 import { StatsService } from '../../core/services/stats.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { StatsService } from '../../core/services/stats.service';
   styleUrls: ['./stats-strickers.component.css'],
 })
 export class StatsStrickersComponent {
-  private _strickers: Stricker[];
+  private _strickers: PlayerStats[];
 
   public totalGoals = 0;
   public totalChampionshipGoals = 0;
@@ -17,7 +17,7 @@ export class StatsStrickersComponent {
   public totalOtherCupGoals = 0;
 
   @Input()
-  set playerStats(playerStats: Stricker[]) {
+  set playerStats(playerStats: PlayerStats[]) {
     if (playerStats) {
       this._strickers = playerStats.filter((o) => o.totalGoals > 0);
 
@@ -31,7 +31,7 @@ export class StatsStrickersComponent {
     }
   }
 
-  get strickers(): Stricker[] {
+  get strickers(): PlayerStats[] {
     return this._strickers;
   }
 }

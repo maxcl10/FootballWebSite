@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Http;
+using FootballWebSiteApi.Entities;
+using FootballWebSiteApi.Helpers;
 using FootballWebSiteApi.Interfaces;
 using FootballWebSiteApi.Models;
 
@@ -26,7 +28,7 @@ namespace FootballWebSiteApi.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public IHttpActionResult GetTeam(string id)
+        public IHttpActionResult GetTeam(Guid id)
         {
             var team = _teamsRepository.Get(id);
             return Ok(team);
@@ -37,19 +39,11 @@ namespace FootballWebSiteApi.Controllers
         [Route("home")]
         public IHttpActionResult GetHomeTeams()
         {
-            var teams = _teamsRepository.GetHomeTeams().ToList();
+            var ownerId = Request.Headers.GetOwnerId();
+            var teams = _teamsRepository.GetHomeTeams(ownerId).ToList();
             return Ok(teams);
         }
 
-
-
-        [HttpGet]
-        [Route("{id}/players")]
-        public IHttpActionResult GetTeamPlayers(Guid id)
-        {
-            var teams = _teamsRepository.GetPlayers(id).ToList();
-            return Ok(teams);
-        }
 
         [HttpPost]
         public IHttpActionResult CreateTeam([FromBody] JTeam team)
@@ -65,7 +59,7 @@ namespace FootballWebSiteApi.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult Put(string id, [FromBody] JTeam team)
+        public IHttpActionResult Put(Guid id, [FromBody] JTeam team)
         {
             if (ModelState.IsValid)
             {
@@ -79,25 +73,34 @@ namespace FootballWebSiteApi.Controllers
         }
 
         [HttpPost]
-        [Route("players")]
-        public IHttpActionResult AddPlayer(TeamPlayer teamPlayer)
+        [Route("{teamId}/players/{playerId}")]
+        public IHttpActionResult AddPlayer(Guid teamId, Guid playerId)
         {
-            _teamsRepository.AddPlayer(teamPlayer.PlayerId, teamPlayer.TeamId);
+            _teamsRepository.AddPlayer(playerId, teamId);
             return Ok(true);
         }
 
 
         [HttpDelete]
-        [Route("players")]
-        public IHttpActionResult RemovePlayer(TeamPlayer teamPlayer)
+        [Route("{teamId}/players/{playerId}")]
+        public IHttpActionResult RemovePlayer(Guid teamId, Guid playerId)
         {
-            _teamsRepository.RemovePlayer(teamPlayer.PlayerId, teamPlayer.TeamId);
+            _teamsRepository.RemovePlayer(playerId, teamId);
             return Ok(true);
 
         }
 
+        [HttpGet]
+        [Route("{id}/players")]
+        public IHttpActionResult GetTeamPlayers(Guid id)
+        {
+            var ownerId = Request.Headers.GetOwnerId();
+            var teams = _teamsRepository.GetPlayers(ownerId, id).ToList();
+            return Ok(teams);
+        }
+
         [HttpDelete]
-        public IHttpActionResult Delete(string id)
+        public IHttpActionResult Delete(Guid id)
         {
             _teamsRepository.Delete(id);
             return Ok(true);

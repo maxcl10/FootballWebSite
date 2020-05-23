@@ -32,6 +32,10 @@ export class TeamsService {
     return this.http.get<Team[]>(this.teamsUrl);
   }
 
+  public getTeam(teamId: string): Observable<Team> {
+    return this.http.get<Team>(this.teamsUrl + '/' + teamId);
+  }
+
   public createTeam(team: Team): Observable<Team> {
     return this.http.post<Team>(this.teamsUrl, team, httpOptions);
   }
@@ -48,19 +52,14 @@ export class TeamsService {
 
   public addPlayerInTeam(playerId: string, teamId: string) {
     return this.http.post(
-      this.teamsUrl + '/player/',
-      '{playerId: ' +
-        JSON.stringify(playerId) +
-        ', teamId: ' +
-        JSON.stringify(teamId) +
-        '}',
+      this.teamsUrl + '/' + teamId + '/players/' + playerId,
       httpOptions
     );
   }
 
   public removePlayerFromTeam(playerId: string, teamId: string) {
     return this.http.delete(
-      this.teamsUrl + '/' + playerId + '/' + teamId,
+      this.teamsUrl + '/' + teamId + '/players/' + playerId,
       httpOptions
     );
   }

@@ -8,6 +8,7 @@ import { GamePlayer } from '../../../shared/models/game-player.model';
 import { Event } from '../../../shared/models/event.model';
 import { EventsService } from '../../../core/services/events.service';
 import { PlayersService } from '../../../core/services/players.service';
+import { EventType } from '../../../shared/models/eventType.model';
 
 @Component({
   selector: 'fws-edit-game-players',
@@ -25,6 +26,7 @@ export class EditGamePlayersComponent implements OnInit {
   selectedPlayer: Player;
   game: Game;
   position: string;
+  eventTypes: EventType[];
 
   constructor(
     private gamesService: GamesService,
@@ -94,6 +96,10 @@ export class EditGamePlayersComponent implements OnInit {
 
       this.playersService.getCurrentPlayers().subscribe((players) => {
         this.players = players;
+      });
+
+      this.gamesService.getEventTypes().subscribe((eventTypes) => {
+        this.eventTypes = eventTypes;
       });
     });
   }

@@ -1,10 +1,10 @@
 <!-- medium  and large -->
-<div class="d-none d-sm-block">
+<div class="d-none d-md-block">
   <div class="row">
     <div class="col-md-3 col-sm-3">
-      <b> {{ game.MatchDate | frDate: 'shortDate' }}</b> <br />
-      <span class="glyphicon glyphicon-time"></span>
-      {{ game.MatchDate | frDate: 'time' }} <br /><br />
+      <b> {{ game.matchDate | date: 'EEEE dd LLLL' | titlecase }}</b> <br />
+      <span class="fa fa-clock-o"></span>
+      {{ game.matchDate | date: 'HH:mm' }} <br /><br />
       <div class="text-muted">
         <fws-competition [game]="game"></fws-competition>
       </div>
@@ -12,7 +12,7 @@
     <div class="col-md-4 col-sm-4 text-center">
       <img [src]="game.homeTeamLogoUrl" />
       <br />
-      <b>{{ game.HomeTeam }}</b>
+      <b>{{ game.homeTeam }}</b>
     </div>
     <div class="col-md-1 col-sm-1 text-center align-middle">
       <div style="margin-top: 10px; margin-bottom: 5px;">
@@ -21,30 +21,30 @@
     </div>
     <div class="col-md-4 col-sm-4 text-center">
       <img [src]="game.awayTeamLogoUrl" /> <br />
-      <b>{{ game.AwayTeam }}</b>
+      <b>{{ game.awayTeam }}</b>
     </div>
   </div>
 </div>
 
 <!-- small and extra small -->
-<div class="d-block d-sm-none">
+<div class="d-block d-md-none">
   <div class="text-center" style="margin-bottom: 10px;">
-    <b> {{ game.MatchDate | frDate: 'shortDate' }}</b> &nbsp;<span
-      class="glyphicon glyphicon-time"
+    <b> {{ game.matchDate | date: 'EEEE dd LLLL' | titlecase }}</b> &nbsp;<span
+      class="fa fa-clock-o"
     ></span>
-    {{ game.MatchDate | frDate: 'time' }}
+    {{ game.matchDate | date: 'HH:mm' }}
     <div class="text-muted">
       <fws-competition [game]="game"></fws-competition>
     </div>
     <div class="row">
-      <div class="col-xs-6 text-center">
+      <div class="col-6 text-center">
         <img [src]="game.homeTeamLogoUrl" />
         <br />
-        <b>{{ game.HomeTeam }}</b>
+        <b>{{ game.homeTeam }}</b>
       </div>
-      <div class="col-xs-6 text-center">
+      <div class="col-6 text-center">
         <img [src]="game.awayTeamLogoUrl" /> <br />
-        <b>{{ game.AwayTeam }}</b>
+        <b>{{ game.awayTeam }}</b>
       </div>
     </div>
     <div class="text-center align-middle">

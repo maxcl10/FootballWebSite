@@ -1,16 +1,22 @@
 <div
   *ngIf="game"
-  style="background-color: white; margin-top: -19px; margin-bottom: 0px; padding-top: 15px; padding-bottom: 15px"
+  style="
+    background-color: white;
+    margin-top: -19px;
+    margin-bottom: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  "
 >
   <div class="container">
     <div class="row">
       <div class="col-md-4">
         <img [src]="game.homeTeamLogoUrl" />
-        <span class="heading">{{ game.HomeTeam }}</span>
+        <span class="heading">{{ game.homeTeam }}</span>
       </div>
       <div class="col-md-4 text-center align-bottom">
         <div class="text-muted">
-          {{ game.MatchDate | frDate: 'longDateTime' }}
+          {{ game.matchDate | date: 'EEEE dd LLLL hh:mm' }}
         </div>
         <div><fws-game-score [game]="game"></fws-game-score></div>
         <div class="text-muted">
@@ -18,7 +24,7 @@
         </div>
       </div>
       <div class="col-md-4">
-        <span class="heading"> {{ game.AwayTeam }}</span
+        <span class="heading"> {{ game.awayTeam }}</span
         ><img [src]="game.awayTeamLogoUrl" />
       </div>
     </div>
@@ -92,7 +98,7 @@
             *ngFor="let player of players"
             class="{{ player.position }} player"
           >
-            <div class="text-center" style="width: 120px">
+            <div class="text-center" style="width: 120px;">
               <img
                 [src]="
                   '../../../assets/img/players/' +
@@ -101,7 +107,7 @@
                   player.playerLastName +
                   '.png'
                 "
-                style="height: 50px"
+                style="height: 50px;"
                 class="img-circle"
               />
               <br />

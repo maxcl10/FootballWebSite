@@ -1,7 +1,7 @@
-<h2>Classement</h2>
+<fws-page-header>Classement</fws-page-header>
 
-<div class="card">
-  <div class="card-body">
+<div>
+  <fws-widget>
     <div *ngIf="success" class="alert alert-success">
       Le classement a été mis à jour avec succès.
     </div>
@@ -10,14 +10,10 @@
       {{ errorMessage }}
     </div>
 
-    <!-- <div *ngIf="error" class="alert alert-warning">
-    {{ uploadFile | json }}
-</div> -->
-
     <!-- <h4>Mise à jour du Classement par la lafa</h4> -->
     <p>Les données seront mises à jour par le biais du site de la LGEF.</p>
-    <button (click)="updateRankingFromLafa()" class="btn btn-success">
+    <button (click)="updateRankingFromLafa()" class="btn btn-primary">
       Mettre à jour
     </button>
-  </div>
+  </fws-widget>
 </div>

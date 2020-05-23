@@ -15,7 +15,7 @@ export class AppConfig {
       this.http
         .get<IAppConfig>(jsonFile)
         .toPromise()
-        .then(response => {
+        .then((response) => {
           AppConfig.settings = response;
           resolve();
         })

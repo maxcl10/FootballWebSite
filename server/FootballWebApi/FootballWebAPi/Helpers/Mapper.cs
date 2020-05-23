@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using FootballWebSiteApi.Entities;
 using FootballWebSiteApi.Models;
@@ -109,9 +111,9 @@ namespace FootballWebSiteApi.Helpers
             };
         }
 
-        internal static List<JStricker> Map(IQueryable<PlayerTeam> stats)
+        internal static List<JPlayerStats> Map(IQueryable<PlayerTeam> stats)
         {
-            List<JStricker> jStrickers = new List<JStricker>();
+            List<JPlayerStats> jStrickers = new List<JPlayerStats>();
             foreach (PlayerTeam stat in stats)
             {
                 jStrickers.Add(Map(stat));
@@ -154,9 +156,9 @@ namespace FootballWebSiteApi.Helpers
             };
         }
 
-        public static JStricker Map(PlayerTeam stat)
+        public static JPlayerStats Map(PlayerTeam stat)
         {
-            return new JStricker
+            return new JPlayerStats
             {
                 PlayerName = stat.Player.firstName + " " + stat.Player.lastName,
                 PlayerFirstName = stat.Player.firstName,
@@ -209,6 +211,16 @@ namespace FootballWebSiteApi.Helpers
             };
         }
 
+        internal static IEnumerable<JEventType> Map(DbSet<EventType> eventTypes)
+        {
+            return eventTypes.Select(o => new JEventType
+            {
+
+                Id = o.EventTypeId,
+                Name = o.EventName
+            }).ToList();
+        }
+
         public static JGame Map(Entities.Game game)
         {
             return new JGame
@@ -226,7 +238,7 @@ namespace FootballWebSiteApi.Helpers
                 SeasonId = game.SeasonId,
                 HomeTeamScore = game.HomeTeamScore,
                 AwayTeamScore = game.AwayTeamScore,
-
+                Postponed = game.Postponed.GetValueOrDefault(),
                 HomeExtraTimeScore = game.ProlongHomeTeamScore,
                 AwayExtraTimeScore = game.ProlongAwayTeamScore,
 
@@ -258,7 +270,11 @@ namespace FootballWebSiteApi.Helpers
                 Published = article.publishedDate.HasValue,
                 Publisher = article.User.lastName + " " + article.User.firstName,
                 Title = article.title,
-                GameId = article.gameId
+                GameId = article.gameId,
+                ImageUrl = article.imageUrl,
+                SubTitle = article.subTitle,
+                Type = article.articleTypeId,
+
             };
         }
 

@@ -8,16 +8,14 @@ namespace FootballWebSiteApi.Interfaces
 {
     public interface ILazyRankingRepository : IDisposable
     {
-        void Delete(string id);
-        IEnumerable<JRanking> Get();
-        IEnumerable<JRanking> Get(string url);
-        IEnumerable<JCompetitionSeason> GetSeasonCompetitions();
-        JCompetitionSeason GetChampionshipData();
-        JRanking Post(JRanking value);
-        JRanking Post(LazyRanking value);
-        JRanking Put(string id, JRanking value);
-        JRanking Put(string id, LazyRanking value);
+        IEnumerable<JRanking> GetRanking(Guid ownerId);
+        IEnumerable<JRanking> GetRankingFromUrl(string url);
+        IEnumerable<JCompetitionSeason> GetSeasonCompetitions(Guid ownerId);
+
         void SaveRanking(IEnumerable<LazyRanking> items, Guid competitionSeasonId);
-        void UpdateRanking();
+
+        JCompetitionSeason GetChampionshipData(Guid ownerId);
+        void UpdateRanking(Guid ownerId);
+
     }
 }

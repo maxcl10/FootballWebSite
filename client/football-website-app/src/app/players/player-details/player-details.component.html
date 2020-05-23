@@ -58,7 +58,7 @@
         <div class="card-text">
           <ul class="list-unstyled">
             <li *ngIf="playerAge">
-              {{ player.dateOfBirth | frDate: 'dd/MM/yyyy' }} ({{ playerAge }}
+              {{ player.dateOfBirth | date: 'dd/MM/yyyy' }} ({{ playerAge }}
               ans)
             </li>
             <li *ngIf="player.height || player.weight">
@@ -174,7 +174,7 @@
           </li>
           <li *ngIf="player.nickname != null">Alias {{ player.nickname }}</li>
           <li *ngIf="playerAge != 0">
-            {{ player.dateOfBirth | frDate: 'dd/MM/yyyy' }} ({{ playerAge }}
+            {{ player.dateOfBirth | date: 'dd/MM/yyyy' }} ({{ playerAge }}
             ans)
           </li>
           <li *ngIf="player.height != null && player.height != 0">

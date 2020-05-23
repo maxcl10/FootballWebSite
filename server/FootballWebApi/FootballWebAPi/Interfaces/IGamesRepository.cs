@@ -6,12 +6,15 @@ namespace FootballWebSiteApi.Interfaces
 {
     public interface IGamesRepository : IDisposable
     {
-        void DeleteGame(string id);
-        IEnumerable<JGame> GetGames();
-        JGame GetGame(string id);
-        JGame GetNextGame();
-        JGame GetPreviousGame();
-        JGame CreateGame(JGame jgame);
-        JGame SaveGame(string id, JGame jgame);
+        void DeleteGame(Guid ownerId, Guid id);
+
+        JGame GetGame(Guid ownerId, Guid id);
+
+        JGame GetPreviousGame(Guid ownerId);
+        JGame CreateGame(Guid ownerId, JGame jgame);
+        JGame SaveGame(Guid ownerId, Guid id, JGame jgame);
+
+        IEnumerable<JGame> GetGames(Guid ownerId);
+        JGame GetNextGame(Guid ownerId);
     }
 }

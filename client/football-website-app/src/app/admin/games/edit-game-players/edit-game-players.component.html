@@ -1,10 +1,10 @@
-<h3 *ngIf="game">
-  {{ game.HomeTeam }} - {{ game.AwayTeam }}
+<fws-page-header>
+  {{ game.homeTeam }} - {{ game.awayTeam }}
   <fws-game-score [game]="game"></fws-game-score>
-</h3>
+</fws-page-header>
 
-<div class="card">
-  <div class="card-body">
+<div class="my-4">
+  <fws-widget headerText="Ajouter Joueur">
     <form>
       <div class="row">
         <div class="col-md-5">
@@ -12,6 +12,7 @@
             class="form-control"
             [(ngModel)]="newGamePlayer.playerId"
             name="selectedPlayer"
+            title="Joueur"
           >
             <option
               *ngFor="let playerItem of players"
@@ -26,6 +27,7 @@
             class="form-control"
             [(ngModel)]="newGamePlayer.position"
             name="position"
+            title="position"
           >
             <option value="GB">Gardien</option>
             <option value="DD">Défenseur Droit</option>
@@ -57,19 +59,23 @@
           </select>
         </div>
         <div class="col-md-2">
-          <a class="btn btn-default" (click)="addPlayer()">Add</a>
+          <button class="btn btn-primary" (click)="addPlayer()">
+            <span class="fa fa-plus"></span> Ajouter
+          </button>
         </div>
       </div>
     </form>
+  </fws-widget>
+</div>
 
-    <hr />
-    <div class="row">
-      <div class="col-md-6">
-        <h4>Composition</h4>
-        <table
-          class="table table-clickable table-hover table-striped"
-          *ngIf="gamePlayers"
-        >
+<fws-widget headerText="Composition">
+  <div class="row">
+    <div class="col-md-6">
+      <table
+        class="table table-clickable table-hover table-borderless"
+        *ngIf="gamePlayers"
+      >
+        <tbody>
           <tr
             *ngFor="let player of gamePlayers"
             (click)="selectGamePlayer(player)"
@@ -78,92 +84,73 @@
               {{ player.position }}
             </td>
             <td>{{ player.playerLastName }} {{ player.playerFirstName }}</td>
+
             <td>
               <span *ngFor="let event of player.events">
-                <span *ngIf="event.eventTypeId == 0" style="margin-right: 4px">
-                  <i
-                    class="fa fa-futbol-o"
-                    aria-hidden="true"
-                    [title]="event.time"
-                  ></i>
-                </span>
+                <fws-event-type [event]="event"></fws-event-type>
               </span>
             </td>
             <td>
-              <span *ngFor="let event of player.events">
-                <span *ngIf="event.eventTypeId == 1" style="margin-right: 4px">
-                  <i
-                    class="fa fa-eye"
-                    aria-hidden="true"
-                    [title]="event.time"
-                  ></i>
-                </span>
-              </span>
-            </td>
-            <td>
-              <a class="btn btn-xs"
-                ><span
-                  class="glyphicon glyphicon-trash"
-                  (click)="removePlayer(player)"
-                ></span
-              ></a>
+              <a class="btn btn-xs" (click)="removePlayer(player)">
+                <span class="fa fa-trash"></span>
+              </a>
             </td>
           </tr>
-        </table>
-      </div>
-      <div class="col-md-6" *ngIf="newEvent">
-        <h4>
-          Ajouter évènement {{ newEvent.playerFirstName }}
-          {{ newEvent.playerLastName }}
-        </h4>
-        <div class="row">
-          <div class="col-md-6">
-            <select [(ngModel)]="newEvent.eventTypeId" class="form-control">
-              <option value="0">But</option>
-              <option value="1">Passe</option>
-            </select>
-          </div>
-          <div class="col-md-2">
-            <input
-              type="number"
-              [(ngModel)]="newEvent.time"
-              class="form-control"
-              placeholder="Minute"
-            />
-          </div>
-          <div class="col-md-4">
-            <a class="btn btn-primary" (click)="addEvent()">Ajouter</a>
-          </div>
-        </div>
-
-        <h4
-          *ngIf="
-            selectedGamePlayerEvents && selectedGamePlayerEvents.length > 0
-          "
-        >
-          Evenements
-        </h4>
-
-        <ul class="list-unstyled">
-          <li *ngFor="let event of selectedGamePlayerEvents">
-            <span *ngIf="event.eventTypeId == 0" style="margin-right: 4px">
-              <i
-                class="fa fa-futbol-o"
-                aria-hidden="true"
-                [title]="event.time"
-              ></i>
-            </span>
-            <span *ngIf="event.eventTypeId == 1" style="margin-right: 4px">
-              <i class="fa fa-eye" aria-hidden="true" [title]="event.time"></i>
-            </span>
-            {{ event.time }}ème
-            <a class="btn btn-xs" (click)="delete(event)"
-              ><span class="glyphicon glyphicon-trash"></span
-            ></a>
-          </li>
-        </ul>
-      </div>
+        </tbody>
+      </table>
     </div>
+    <div class="col-md-6" *ngIf="newEvent">
+      <h4>
+        Ajouter évènement {{ newEvent.playerFirstName }}
+        {{ newEvent.playerLastName }}
+      </h4>
+      <div class="row">
+        <div class="col-md-4">
+          <select [(ngModel)]="newEvent.eventTypeId" class="form-control">
+            <option
+              *ngFor="let eventType of eventTypes"
+              [value]="eventType.id"
+              >{{ eventType.name }}</option
+            >
+          </select>
+        </div>
+        <div class="col-md-3">
+          <input
+            type="number"
+            [(ngModel)]="newEvent.time"
+            class="form-control"
+            placeholder="Minute"
+          />
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-primary" (click)="addEvent()">
+            <span class="fa fa-plus"></span> Ajouter
+          </button>
+        </div>
+      </div>
+
+      <h4
+        *ngIf="selectedGamePlayerEvents && selectedGamePlayerEvents.length > 0"
+      >
+        Evenements
+      </h4>
+
+      <ul class="list-unstyled">
+        <li *ngFor="let event of selectedGamePlayerEvents">
+          <fws-event-type [event]="event"></fws-event-type>
+          {{ event.time }}ème
+          <a class="btn btn-xs" (click)="delete(event)"
+            ><span class="fa fa-trash"></span
+          ></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</fws-widget>
+
+<div class="card">
+  <div class="card-body">
+    <hr />
   </div>
   <fws-pitch *ngIf="gamePlayers" [players]="gamePlayers"></fws-pitch>
 </div>

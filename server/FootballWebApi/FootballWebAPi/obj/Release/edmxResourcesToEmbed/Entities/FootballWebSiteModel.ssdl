@@ -84,6 +84,7 @@
     <Property Name="PenaltyAwayTeamScore" Type="int" />
     <Property Name="ownerId" Type="uniqueidentifier" />
     <Property Name="CompetitionId" Type="uniqueidentifier" />
+    <Property Name="Postponed" Type="bit" />
   </EntityType>
   <EntityType Name="GameEvent">
     <Key>

@@ -27,6 +27,10 @@ namespace FootballWebSiteApi.Models
         public int? HomePenaltyScore { get; set; }
         public int? AwayPenaltyScore { get; set; }
 
+        public bool Postponed { get; set; }
+
+        public Guid OwnerTeam { get; set; }
+
         public string Result { get; set; }
 
 

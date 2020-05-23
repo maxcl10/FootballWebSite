@@ -1,17 +1,15 @@
-<h2>Matches</h2>
-<div class="card" *ngIf="games$ | async as games; else loading">
-  <div class="card-header">
-    <a
-      class="btn btn-success pull-right"
-      href=""
-      [routerLink]="['/admin/games/0/edit']"
-    >
-      <span class="glyphicon glyphicon-plus"></span> Matches
-    </a>
-    <h4>{{ games.length }} matches</h4>
-  </div>
-  <div class="card-body">
-    <table class="table table-hover table-clickable">
+<fws-page-header>Rencontres</fws-page-header>
+
+<a
+  class="btn btn-primary float-right mt-2"
+  href=""
+  [routerLink]="['/admin/games/0/edit']"
+>
+  <span class="fa fa-plus"></span> Rencontre
+</a>
+<div class="mt-4" *ngIf="games$ | async as games">
+  <fws-widget [headerText]="games.length + ' rencontres'">
+    <table class="table table-hover table-clickable table-borderless">
       <thead>
         <tr>
           <th>Date</th>
@@ -24,22 +22,18 @@
       <tbody>
         <tr *ngFor="let game of games" (click)="onGameSelect(game)">
           <td>
-            {{ game.MatchDate | frDate: 'shortDate' }}
-            {{ game.MatchDate | frDate: 'time' }}
+            {{ game.matchDate | date: 'dd.LL.yyyy HH:mm' }}
           </td>
           <td>
-            {{ game.HomeTeam }}
+            {{ game.homeTeam }}
           </td>
           <td>
-            {{ game.AwayTeam }}
+            {{ game.awayTeam }}
           </td>
           <td><fws-competition [game]="game"></fws-competition></td>
-          <td>{{ game.HomeTeamScore }} - {{ game.AwayTeamScore }}</td>
+          <td><fws-game-score [game]="game"></fws-game-score></td>
         </tr>
       </tbody>
     </table>
-  </div>
+  </fws-widget>
 </div>
-<ng-template #loading>
-  Chargement des matches...
-</ng-template>

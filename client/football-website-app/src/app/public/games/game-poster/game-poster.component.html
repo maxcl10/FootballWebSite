@@ -20,7 +20,7 @@
   <div style="width: 800px;" #nextGameDiv>
     <fws-poster-base *ngIf="nextgame != null">
       <div class="text-center part subInfo">
-        {{ nextgame.matchDate | frDate: 'longDateTimeSep' | uppercase }}
+        {{ nextgame.matchDate | date: 'EEEE dd LLLL yyyy HH:mm' | uppercase }}
       </div>
 
       <div class="row">
@@ -60,7 +60,7 @@
   <!-- <fws-poster-base *ngIf="game != null">-->
   <!-- <div class="text-center title">TIRAGE COUPE DE FRANCE</div> -->
   <!-- <div class="text-center part subInfo">
-      {{ game.matchDate | frDate: 'longDateTimeSep' | uppercase }}
+      {{ game.matchDate | frDate: '|date: 'EEEE dd LLLL yyyy HH:mm'' | uppercase }}
     </div>
 
     <div class="row">
@@ -160,7 +160,7 @@
         <div class="col-md-8">
           {{ game.homeTeam }} / {{ game.awayTeam }} <br />
           <span class="subInfo">
-            {{ game.matchDate | frDate: 'longDateTimeSep' | uppercase }}
+            {{ game.matchDate | date: 'EEEE dd LLLL yyyy HH:mm' | uppercase }}
           </span>
         </div>
       </div>
@@ -179,19 +179,19 @@
     <div class="row part">
       <div class="col-md-4">
         <img
-          class="img-responsive"
+          class="img-fluid"
           src="../../../../assets/img/bourse/bear.png"
         />
       </div>
       <div class="col-md-4">
         <img
-          class="img-responsive"
+          class="img-fluid"
           src="../../../../assets/img/bourse/clothe.png"
         />
       </div>
       <div class="col-md-4">
         <img
-          class="img-responsive"
+          class="img-fluid"
           src="../../../../assets/img/bourse/puzzle.png"
         />
       </div>
@@ -211,7 +211,7 @@
     <fws-poster-base *ngIf="nextgame != null">
       <div class="text-center title">LE GROUPE</div>
       <div class="text-center part subInfo">
-        {{ nextgame.matchDate | frDate: 'longDateTimeSep' | uppercase }}
+        {{ nextgame.matchDate | date: 'EEEE dd LLLL yyyy HH:mm' | uppercase }}
       </div>
 
       <!-- <div class="row">
@@ -254,7 +254,7 @@
                   player.playerLastName +
                   '.png'
                 "
-                class="img-responsive img-circle"
+                class="img-fluid img-circle"
                 onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
               />
               <span style="font-size: 18px;">
@@ -277,7 +277,7 @@
                   player.playerLastName +
                   '.png'
                 "
-                class="img-responsive img-circle"
+                class="img-fluid img-circle"
                 onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
               />
               <span style="font-size: 18px;">

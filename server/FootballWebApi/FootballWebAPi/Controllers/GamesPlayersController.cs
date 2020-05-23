@@ -18,6 +18,7 @@ namespace FootballWebSiteApi.Controllers
         }
 
         // GET: api/games/ec84f223-a489-473a-9fb1-57ee6f610688/players
+        [Route("~/api/games/{gameId}/players")]
         public IHttpActionResult Get(Guid gameId)
         {
             var players = _playersRepository.GetGamePlayers(gameId);
@@ -25,6 +26,7 @@ namespace FootballWebSiteApi.Controllers
         }
 
 
+        [Route("~/api/games/{gameId}/players")]
         // POST: api/GamesPlayers
         public IHttpActionResult Post(Guid gameId, [FromBody] JGamePlayer player)
         {
@@ -42,12 +44,12 @@ namespace FootballWebSiteApi.Controllers
 
         }
 
-
+        [Route("~/api/games/{gameId}/player/{playerId}")]
         // DELETE: api/GamesPlayers/5
-        public IHttpActionResult Delete(Guid gameId, Guid id)
+        public IHttpActionResult Delete(Guid gameId, Guid playerId)
         {
 
-            _playersRepository.DeleteGamePlayer(gameId, id);
+            _playersRepository.DeleteGamePlayer(gameId, playerId);
             return Ok();
 
         }

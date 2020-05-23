@@ -12,7 +12,7 @@ namespace FootballWebSiteApi.Repository
     {
         FootballWebSiteDbEntities _entities = new FootballWebSiteDbEntities();
 
-        public IEnumerable<JRanking> Get()
+        public IEnumerable<JRanking> GetRanking(Guid ownerId)
         {
             //We need to get the competitionseasonId of the owner in order to retrieve the correct ranking
             //Its the current season championship that is playing the first team 
@@ -20,7 +20,7 @@ namespace FootballWebSiteApi.Repository
             //We need to get owner first team. 
             using (TeamsRepository teamRepository = new TeamsRepository())
             {
-                var firstTeam = teamRepository.GetHomeTeams().OrderBy(o => o.DisplayOrder).First();
+                var firstTeam = teamRepository.GetHomeTeams(ownerId).OrderBy(o => o.DisplayOrder).First();
                 var currentSeason = _entities.Seasons.Single(o => o.currentSeason);
 
                 var competitionSeasonId = _entities.TeamCompetitionSeasons.Single(o => o.teamId == firstTeam.Id
@@ -33,26 +33,12 @@ namespace FootballWebSiteApi.Repository
             }
         }
 
-        public IEnumerable<JRanking> Get(string url)
+        public IEnumerable<JRanking> GetRankingFromUrl(string url)
         {
             var ranking = Mapper.Map(RankingExctractor.GetRankigFromLgefUrl(url));
             return ranking;
         }
 
-        public JRanking Post(LazyRanking value)
-        {
-            throw new NotImplementedException();
-        }
-
-        public JRanking Put(string id, LazyRanking value)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(string id)
-        {
-            throw new NotImplementedException();
-        }
 
         public void SaveRanking(IEnumerable<LazyRanking> items, Guid competitionSeasonId)
         {
@@ -73,11 +59,11 @@ namespace FootballWebSiteApi.Repository
             _entities.SaveChanges();
         }
 
-        public JCompetitionSeason GetChampionshipData()
+        public JCompetitionSeason GetChampionshipData(Guid ownerId)
         {
             using (TeamsRepository teamRepository = new TeamsRepository())
             {
-                var firstTeam = teamRepository.GetHomeTeams().OrderBy(o => o.DisplayOrder).First();
+                var firstTeam = teamRepository.GetHomeTeams(ownerId).OrderBy(o => o.DisplayOrder).First();
                 var currentSeason = _entities.Seasons.Single(o => o.currentSeason);
 
                 var teamCompetitionSeason = _entities.TeamCompetitionSeasons.Single(o => o.teamId == firstTeam.Id
@@ -88,11 +74,11 @@ namespace FootballWebSiteApi.Repository
             }
         }
 
-        public IEnumerable<JCompetitionSeason> GetSeasonCompetitions()
+        public IEnumerable<JCompetitionSeason> GetSeasonCompetitions(Guid ownerId)
         {
             using (TeamsRepository teamRepository = new TeamsRepository())
             {
-                var firstTeam = teamRepository.GetHomeTeams().OrderBy(o => o.DisplayOrder).First();
+                var firstTeam = teamRepository.GetHomeTeams(ownerId).OrderBy(o => o.DisplayOrder).First();
                 var currentSeason = _entities.Seasons.Single(o => o.currentSeason);
 
                 var teamCompetitionSeason = _entities.TeamCompetitionSeasons.Where(o => o.teamId == firstTeam.Id
@@ -103,12 +89,12 @@ namespace FootballWebSiteApi.Repository
 
         }
 
-        public void UpdateRanking()
+        public void UpdateRanking(Guid ownerId)
         {
             //Get the LGEF Url
             using (TeamsRepository teamRepository = new TeamsRepository())
             {
-                var firstTeam = teamRepository.GetHomeTeams().OrderBy(o => o.DisplayOrder).First();
+                var firstTeam = teamRepository.GetHomeTeams(ownerId).OrderBy(o => o.DisplayOrder).First();
                 var currentSeason = _entities.Seasons.Single(o => o.currentSeason);
 
                 var teamCompetitionSeason = _entities.TeamCompetitionSeasons.Single(o => o.teamId == firstTeam.Id
@@ -123,15 +109,6 @@ namespace FootballWebSiteApi.Repository
         }
 
 
-        public JRanking Post(JRanking value)
-        {
-            throw new NotImplementedException();
-        }
-
-        public JRanking Put(string id, JRanking value)
-        {
-            throw new NotImplementedException();
-        }
 
         #region Dispose 
 

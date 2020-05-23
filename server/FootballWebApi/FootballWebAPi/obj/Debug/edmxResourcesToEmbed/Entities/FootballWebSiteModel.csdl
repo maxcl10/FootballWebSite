@@ -227,6 +227,7 @@
     <NavigationProperty Name="Team" Relationship="FootballWebSiteDbModel.FK_Game_Team" FromRole="Game" ToRole="Team" />
     <NavigationProperty Name="Team1" Relationship="FootballWebSiteDbModel.FK_Game_Team1" FromRole="Game" ToRole="Team" />
     <NavigationProperty Name="PlayerGames" Relationship="FootballWebSiteDbModel.FK_Playergame_Game" FromRole="Game" ToRole="PlayerGame" />
+    <Property Name="Postponed" Type="Boolean" />
   </EntityType>
   <EntityType Name="GameEvent">
     <Key>

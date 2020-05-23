@@ -11,7 +11,8 @@ import { JsonPipe } from '@angular/common';
 @Component({
   selector: 'fws-edit-article',
   templateUrl: './edit-article.component.html',
-  providers: [ArticlesService]
+  styleUrls: ['./edit-article.component.scss'],
+  providers: [ArticlesService],
 })
 export class EditArticleComponent implements OnInit {
   public article: Article;
@@ -29,7 +30,7 @@ export class EditArticleComponent implements OnInit {
       searchreplace visualblocks code fullscreen insertdatetime media table contextmenu paste code help wordcount`,
     toolbar: `formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter
       | link image media pageembed | alignleft aligncenter alignright alignjustify  |
-      numlist bullist outdent indent | removeformat | addcomment`
+      numlist bullist outdent indent | removeformat | addcomment`,
   };
 
   constructor(
@@ -41,7 +42,7 @@ export class EditArticleComponent implements OnInit {
   ) {}
 
   public ngOnInit() {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       const id = params['id'];
       if (id !== '0') {
         this.title = 'Editer';
@@ -52,46 +53,46 @@ export class EditArticleComponent implements OnInit {
       }
     });
 
-    this.gameService.getGames().subscribe(games => {
+    this.gameService.getGames().subscribe((games) => {
       this.games = games;
     });
   }
 
   public getArticle(id: string) {
     this.articlesService.getArticle(id).subscribe(
-      article => {
+      (article) => {
         this.article = article;
       },
-      error => (this.errorMessage = <any>error)
+      (error) => (this.errorMessage = <any>error)
     );
   }
 
   public createArticle() {
     this.article.userId = this.authenticationService.getLoggedUser().userId;
     this.articlesService.createArticle(this.article).subscribe(
-      article => {
+      (article) => {
         this.goBack();
       },
-      error => (this.errorMessage = <any>error)
+      (error) => (this.errorMessage = error.message)
     );
   }
 
   public saveArticle() {
     this.articlesService.updateArticle(this.article).subscribe(
-      article => {
+      (article) => {
         this.goBack();
       },
-      error => (this.errorMessage = <any>error)
+      (error) => (this.errorMessage = <any>error)
     );
   }
 
   public deleteArticle() {
     this.articlesService.deleteArticle(this.article.id).subscribe(
-      result => {
+      (result) => {
         this.goBack();
         this.modalRef.hide();
       },
-      error => (this.errorMessage = <any>error)
+      (error) => (this.errorMessage = <any>error)
     );
   }
 

@@ -43,6 +43,13 @@ namespace FootballWebSiteApi.Repository
             //return Mapper.Map(entities.GameEvents.Single(o => o.GameEventId == gameEvent.eventId));
         }
 
+        public IEnumerable<JEventType> GetGameEventTypes()
+        {
+            var eventTypes = _entities.EventTypes;
+            return Mapper.Map(eventTypes);
+
+        }
+
         public void DeleteEvent(Guid eventId)
         {
             var corresponding = _entities.GameEvents.Single(o => o.GameEventId == eventId);

@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { RankingHistory } from '../../shared/models/rankingHistory.model';
-import { Stricker } from '../../shared/models/stricker.model';
+import { PlayerStats } from '../../shared/models/stricker.model';
 import { AppConfig } from '../../app.config';
 
 const httpOptions = {
@@ -17,7 +17,6 @@ const httpOptions = {
 })
 export class StatsService {
   private statsUrl = AppConfig.settings.apiServer.url + 'stats';
-  private strickers: Observable<Stricker[]>;
 
   constructor(private http: HttpClient) {}
 
@@ -25,12 +24,12 @@ export class StatsService {
     return this.http.get<string[]>(this.statsUrl + '/shape');
   }
 
-  public getStricker(id: string): Observable<Stricker> {
-    return this.http.get<Stricker>(this.statsUrl + '/strickers' + id);
+  public getPlayerStats(id: string): Observable<PlayerStats> {
+    return this.http.get<PlayerStats>(this.statsUrl + '/players/' + id);
   }
 
-  public getStrickers(): Observable<Stricker[]> {
-    return this.http.get<Stricker[]>(this.statsUrl + '/strickers');
+  public getPlayersStats(): Observable<PlayerStats[]> {
+    return this.http.get<PlayerStats[]>(this.statsUrl + '/players');
   }
 
   public getScoredGoalsPerGame(): Observable<number> {
@@ -41,14 +40,8 @@ export class StatsService {
     return this.http.get<number>(this.statsUrl + '/concededPerGame');
   }
 
-  public getTeamStrickers(): Observable<Stricker[]> {
-    if (this.strickers) {
-      return this.strickers;
-    }
-    this.strickers = this.http.get<Stricker[]>(
-      this.statsUrl + '/team/strickers'
-    );
-    return this.strickers;
+  public getTeamStrickers(): Observable<PlayerStats[]> {
+    return this.http.get<PlayerStats[]>(this.statsUrl + '/team/players');
   }
 
   public getRankingHistory(): Observable<RankingHistory[]> {
@@ -57,8 +50,8 @@ export class StatsService {
     );
   }
 
-  public saveStricker(stricker: Stricker): Observable<Stricker> {
-    return this.http.post<Stricker>(
+  public saveStricker(stricker: PlayerStats): Observable<PlayerStats> {
+    return this.http.post<PlayerStats>(
       this.statsUrl + '/SetStricker/',
       stricker,
       httpOptions

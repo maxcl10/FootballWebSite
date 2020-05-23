@@ -9,8 +9,6 @@ import { SharedModule } from '../shared/shared.module';
 import { PublicRoutingModule } from './public-routing.module';
 
 // My components
-import { ArticleComponent } from './articles/article/article.component';
-import { GamesComponent } from './games/games-list/games-list.component';
 import { TodayGameComponent } from './games/today-game/today-game.component';
 
 import { SeasonSummaryComponent } from './stats/season-summary/season-summary.component';
@@ -20,20 +18,18 @@ import { GameDetailsComponent } from './games/game-details/game-details.componen
 import { GamePosterComponent } from './games/game-poster/game-poster.component';
 import { GamePosterGeneratorComponent } from './games/game-poster-generator/game-poster-generator.component';
 import { PosterBaseComponent } from './games/poster-base/poster-base.component';
-import { ArticleContainerComponent } from './articles/article-container/article-container.component';
+
 import { GameComponent } from './games/game/game.component';
 
 @NgModule({
   declarations: [
-    ArticleComponent,
-    GamesComponent,
     TodayGameComponent,
     SeasonSummaryComponent,
     GameDetailsComponent,
     GamePosterComponent,
     GamePosterGeneratorComponent,
     PosterBaseComponent,
-    ArticleContainerComponent,
+
     GameComponent,
   ],
   imports: [SharedModule, CommonModule, PublicRoutingModule],

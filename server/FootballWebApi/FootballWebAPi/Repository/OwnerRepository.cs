@@ -16,9 +16,9 @@ namespace FootballWebSiteApi.Repository
             _entities = new FootballWebSiteDbEntities();
         }
 
-        public JOwner GetCurrentOwner()
+        public JOwner GetOwner(Guid ownerId)
         {
-            var owner = Mapper.Map(_entities.Owners.Single(o => o.ownerId.ToString() == Properties.Settings.Default.OwnerId));
+            var owner = Mapper.Map(_entities.Owners.Single(o => o.ownerId == ownerId));
             return owner;
         }
 

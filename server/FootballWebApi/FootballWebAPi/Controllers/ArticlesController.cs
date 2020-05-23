@@ -7,7 +7,9 @@ using System.Web.Http.Description;
 using System.Web.Routing;
 using FootballWebSiteApi.Interfaces;
 using FootballWebSiteApi.Models;
+using FootballWebSiteApi.Helpers;
 using FootballWebSiteApi.Repository;
+
 
 namespace FootballWebSiteApi.Controllers
 {
@@ -25,9 +27,11 @@ namespace FootballWebSiteApi.Controllers
         [ResponseType(typeof(IEnumerable<JArticle>))]
         public async Task<IHttpActionResult> GetArticles(int count = 25)
         {
-            var articles = await _repository.GetArticles();
+            var ownerId = Request.Headers.GetOwnerId();
+            var articles = await _repository.GetArticles(ownerId);
             articles = articles.Take(count).ToList();
             return Ok(articles);
+
         }
 
         [HttpGet]
@@ -35,7 +39,8 @@ namespace FootballWebSiteApi.Controllers
         [Route("{id}")]
         public async Task<IHttpActionResult> GetArticle(Guid id)
         {
-            var article = await _repository.GetArticle(id);
+            var ownerId = Request.Headers.GetOwnerId();
+            var article = await _repository.GetArticle(ownerId, id);
 
             if (article == null)
             {
@@ -45,10 +50,11 @@ namespace FootballWebSiteApi.Controllers
         }
 
         [HttpGet]
-        [Route("game/{gameId}")]
+        [Route("~/api/games/{gameId}/article")]
         public IHttpActionResult GetGameArticle(Guid gameId)
         {
-            return Ok(_repository.GetArticlePerGame(gameId));
+            var ownerId = Request.Headers.GetOwnerId();
+            return Ok(_repository.GetArticlePerGame(ownerId, gameId));
         }
 
 
@@ -58,7 +64,8 @@ namespace FootballWebSiteApi.Controllers
         {
             if (ModelState.IsValid)
             {
-                var retArticle = _repository.CreateArticle(article);
+                var ownerId = Request.Headers.GetOwnerId();
+                var retArticle = _repository.CreateArticle(ownerId, article);
                 return Ok(retArticle);
             }
 
@@ -67,11 +74,13 @@ namespace FootballWebSiteApi.Controllers
 
 
         [HttpPut]
+        [Route("{id}")]
         public IHttpActionResult SaveArticle(Guid id, [FromBody]JArticle article)
         {
             if (ModelState.IsValid)
             {
-                var retArticle = _repository.SaveArticle(id, article);
+                var ownerId = Request.Headers.GetOwnerId();
+                var retArticle = _repository.UpdateArticle(ownerId, id, article);
                 return Ok(retArticle);
             }
 
@@ -79,9 +88,11 @@ namespace FootballWebSiteApi.Controllers
         }
 
         [HttpDelete]
+        [Route("{id}")]
         public IHttpActionResult DeleteArticle(Guid id)
         {
-            _repository.DeleteArticle(id);
+            var ownerId = Request.Headers.GetOwnerId();
+            _repository.DeleteArticle(ownerId, id);
             return Ok();
         }
 

@@ -17,43 +17,27 @@ namespace FootballWebSiteApi.Repository
         {
             _entities = new FootballWebSiteDbEntities();
         }
-        public IEnumerable<JPlayer> GetPlayers(bool current = false)
+        public IEnumerable<JPlayer> GetPlayers(Guid ownerId, bool currentSeason = false)
         {
             var currentSeasonId = _entities.Seasons.Single(o => o.currentSeason).id;
-            if (current)
+            if (currentSeason)
             {
-                return Mapper.Map(_entities.Players.Where(o => o.PlayerTeams.Any(s => s.seasonId == currentSeasonId && s.Team.ownerId.ToString() == Properties.Settings.Default.OwnerId))
-                    .ToList().OrderBy(p => GetOrder(p.position)).ThenBy(o => o.lastName));
+                return Mapper.Map(_entities.Players.Where(o => o.PlayerTeams.Any(s => s.seasonId == currentSeasonId && s.Team.ownerId == ownerId))
+                    .ToList().OrderBy(p => BusinessLogic.GetPositionOrder(p.position)).ThenBy(o => o.lastName));
             }
             else
             {
-                return Mapper.Map(_entities.Players.ToList().OrderBy(p => GetOrder(p.position)));
-            }
-        }
-
-
-        private int GetOrder(string position)
-        {
-            switch (position)
-            {
-                case "Gardien":
-                    return 0;
-                case "Defenseur":
-                    return 1;
-                case "Milieu":
-                    return 2;
-                case "Attaquant":
-                    return 3;
-                default:
-                    return 4;
+                return Mapper.Map(_entities.Players.ToList().OrderBy(p => BusinessLogic.GetPositionOrder(p.position)));
             }
         }
 
 
 
-        public JPlayer GetPlayer(string id)
+
+
+        public JPlayer GetPlayer(Guid id)
         {
-            return Mapper.Map(_entities.Players.Single(o => o.id.ToString() == id));
+            return Mapper.Map(_entities.Players.Single(o => o.id == id));
         }
 
         public IEnumerable<JGamePlayer> GetGamePlayers(Guid gameId)
@@ -66,7 +50,7 @@ namespace FootballWebSiteApi.Repository
                 players.Add(Mapper.Map(playerGame));
             }
 
-            return players.OrderBy(o => GetOrder(o.GlobalPosition)).ThenBy(o => o.PlayerLastName);
+            return players.OrderBy(o => BusinessLogic.GetPositionOrder(o.GlobalPosition)).ThenBy(o => o.PlayerLastName);
         }
 
 
@@ -108,9 +92,9 @@ namespace FootballWebSiteApi.Repository
             return player;
         }
 
-        public Player UpdatePlayer(string id, Player player)
+        public Player UpdatePlayer(Guid id, Player player)
         {
-            var correspondingPlayer = _entities.Players.Single(o => o.id.ToString() == id);
+            var correspondingPlayer = _entities.Players.Single(o => o.id == id);
 
             correspondingPlayer.firstName = player.firstName;
             correspondingPlayer.lastName = player.lastName;
@@ -138,9 +122,9 @@ namespace FootballWebSiteApi.Repository
 
         }
 
-        public void DeletePlayer(string id)
+        public void DeletePlayer(Guid id)
         {
-            var playerToDelete = _entities.Players.Single(o => o.id.ToString() == id);
+            var playerToDelete = _entities.Players.Single(o => o.id == id);
             _entities.Players.Remove(playerToDelete);
             _entities.SaveChanges();
         }

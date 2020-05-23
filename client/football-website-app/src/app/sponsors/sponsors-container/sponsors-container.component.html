@@ -1,29 +1,29 @@
 <fws-page-header>
-  Nos Partenaires - Merci à vous!
+  Nos Partenaires <span class="d-none d-sm-inline">- Merci à vous</span> !
 </fws-page-header>
 
-<div class="container mt-3">
+<div class="container my-4">
   <fws-widget [transparent]="true" [contentMargin]="false" [loading]="loading">
     <div class="row">
       <div
         *ngFor="let sponsor of sponsors"
-        class="col-md-2 col-sm-3 col-xs-6 p-1"
+        class="col-xl-2 col-sm-4 col-md-3 col-6 p-1"
         title="{{ sponsor.name }}"
       >
-        <div class="card shadow p-2">
+        <fws-widget>
           <a
             href="{{ sponsor.siteUrl }}"
             target="_blank"
             title="{{ sponsor.name }}"
           >
-            <div class="md-3-square">
+            <div class="md-3-square zoom">
               <img
                 class="img-fluid"
                 src="../../../assets/img/sponsors/{{ sponsor.logoUrl }}"
               />
             </div>
           </a>
-        </div>
+        </fws-widget>
       </div>
     </div>
   </fws-widget>

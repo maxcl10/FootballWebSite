@@ -42,10 +42,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/16/2019 03:00:40</publishTime>
     </File>
     <File Include="bin/FootballWebSiteApi.dll">
-      <publishTime>05/16/2020 23:57:38</publishTime>
+      <publishTime>05/23/2020 23:31:16</publishTime>
     </File>
     <File Include="bin/FootballWebSiteApi.pdb">
-      <publishTime>05/16/2020 23:57:38</publishTime>
+      <publishTime>05/23/2020 23:31:16</publishTime>
     </File>
     <File Include="bin/HtmlAgilityPack.dll">
       <publishTime>03/22/2020 13:46:52</publishTime>
@@ -381,7 +381,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/27/2018 09:10:49</publishTime>
     </File>
     <File Include="Entities/FootballWebSiteModel.edmx.diagram">
-      <publishTime>05/15/2020 22:04:08</publishTime>
+      <publishTime>05/23/2020 17:30:28</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.eot">
       <publishTime>08/27/2018 09:10:49</publishTime>
@@ -762,7 +762,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/27/2018 09:10:49</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/16/2020 22:18:30</publishTime>
+      <publishTime>05/17/2020 09:37:42</publishTime>
     </File>
   </ItemGroup>
 </Project>

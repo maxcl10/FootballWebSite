@@ -5,6 +5,6 @@ namespace FootballWebSiteApi.Interfaces
 {
     public interface IOwnerRepository : IDisposable
     {
-        JOwner GetCurrentOwner();
+        JOwner GetOwner(Guid ownerId);
     }
 }

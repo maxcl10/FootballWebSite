@@ -1,7 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using FootballWebSiteApi.Entities;
+using FootballWebSiteApi.Helpers;
 using FootballWebSiteApi.Interfaces;
 using FootballWebSiteApi.Models;
 using FootballWebSiteApi.Repository;
@@ -21,7 +23,8 @@ namespace FootballWebSiteApi.Controllers
         // GET: api/Players
         public IHttpActionResult GetPlayers()
         {
-            var players = _playersRepository.GetPlayers().ToList();
+            var ownerId = Request.Headers.GetOwnerId();
+            var players = _playersRepository.GetPlayers(ownerId).ToList();
             return Ok(players);
         }
 
@@ -29,14 +32,15 @@ namespace FootballWebSiteApi.Controllers
         [Route("current")]
         public IHttpActionResult GetCurrentPlayers()
         {
-            var players = _playersRepository.GetPlayers(true).ToList();
+            var ownerId = Request.Headers.GetOwnerId();
+            var players = _playersRepository.GetPlayers(ownerId, true).ToList();
             return Ok(players);
         }
 
 
 
         // GET: api/Players/5
-        public IHttpActionResult GetPlayer(string id)
+        public IHttpActionResult GetPlayer(Guid id)
         {
             var player = _playersRepository.GetPlayer(id);
             return Ok(player);
@@ -55,7 +59,7 @@ namespace FootballWebSiteApi.Controllers
         }
 
         // PUT: api/Players/5
-        public IHttpActionResult Put(string id, [FromBody]Player player)
+        public IHttpActionResult Put(Guid id, [FromBody]Player player)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +71,7 @@ namespace FootballWebSiteApi.Controllers
         }
 
         // DELETE: api/Players/5
-        public IHttpActionResult Delete(string id)
+        public IHttpActionResult Delete(Guid id)
         {
 
             _playersRepository.DeletePlayer(id);

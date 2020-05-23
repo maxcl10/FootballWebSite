@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using System.Web.Http.Cors;
+using FootballWebSiteApi.Helpers;
 using FootballWebSiteApi.Interfaces;
 using FootballWebSiteApi.Repository;
 
@@ -18,8 +19,8 @@ namespace FootballWebSiteApi.Controllers
         // GET: api/Owner
         public IHttpActionResult Get()
         {
-
-            var owner = _ownerRepository.GetCurrentOwner();
+            var ownerId = Request.Headers.GetOwnerId();
+            var owner = _ownerRepository.GetOwner(ownerId);
             return Ok(owner);
 
         }

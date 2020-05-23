@@ -5,6 +5,8 @@ import { PlayersService } from '../../core/services/players.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../../core/services/authentication.service';
 import { SeoService } from '../../core/services/seo.service';
+import { StatsService } from '../../core/services/stats.service';
+import { PlayerStats } from '../../shared/models/stricker.model';
 
 @Component({
   selector: 'fws-player-container',
@@ -12,10 +14,11 @@ import { SeoService } from '../../core/services/seo.service';
   styleUrls: ['./player-container.component.css'],
 })
 export class PlayerContainerComponent implements OnInit {
-  public player: Player;
-  public errorMessage: string;
+  player: Player;
+  errorMessage: string;
   private sub: any;
-  public isAuthenticated: boolean;
+  isAuthenticated: boolean;
+  stats: PlayerStats;
 
   public get playerAge(): number {
     return this.getAge(this.player.dateOfBirth);
@@ -23,6 +26,7 @@ export class PlayerContainerComponent implements OnInit {
 
   constructor(
     private playerService: PlayersService,
+    private statsService: StatsService,
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
@@ -35,8 +39,14 @@ export class PlayerContainerComponent implements OnInit {
     this.sub = this.route.params.subscribe((params) => {
       const id = params['id'];
       this.getPlayer(id);
+      this.getStats(id);
     });
     this.isAuthenticated = this.authenticationService.isLoggedIn();
+  }
+  getStats(id: string) {
+    this.statsService.getPlayerStats(id).subscribe((res) => {
+      this.stats = res;
+    });
   }
 
   public getPlayer(id: string) {

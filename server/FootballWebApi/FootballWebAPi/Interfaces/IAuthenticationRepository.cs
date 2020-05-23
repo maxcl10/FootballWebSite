@@ -5,6 +5,6 @@ namespace FootballWebSiteApi.Interfaces
 {
     public interface IAuthenticationRepository : IDisposable
     {
-        User IsAuthorized(string alias, string password);
+        User IsAuthorized(Guid ownerId, string alias, string password);
     }
 }

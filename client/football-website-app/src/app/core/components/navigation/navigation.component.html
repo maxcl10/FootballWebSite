@@ -1,8 +1,6 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
   <div class="container">
-    <!-- <a class="navbar-brand" href="#">
-      <img id="logo" *ngIf="club" src="{{ club.logoUrl }}"
-    /></a> -->
+    <a class="navbar-brand" href="#"></a>
     <button
       class="navbar-toggler"
       type="button"
@@ -17,7 +15,11 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto" style="margin-left: 110px;">
-        <li class="nav-item">
+        <li
+          class="nav-item"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+        >
           <a
             class="nav-link"
             href=""
@@ -26,7 +28,70 @@
             >Accueil</a
           >
         </li>
-        <li class="nav-item dropdown">
+        <li
+          class="nav-item"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+        >
+          <a
+            class="nav-link"
+            href=""
+            routerLinkActive="active"
+            [routerLink]="['news']"
+            >News</a
+          >
+        </li>
+        <li class="nav-item dropdown position-static">
+          <a
+            href="#"
+            class="nav-link dropdown-toggle"
+            data-toggle="dropdown"
+            data-target="#"
+            >EQUIPES</a
+          >
+          <!-- div.w-100 make it mega menu, div.top-auto opens the mega menu exactly as position like other normal menu -->
+          <div class="dropdown-menu w-100 top-auto bg-secondary text-white">
+            <div class="container">
+              <!-- div.w-100 is also needed in certain circumstances to make this menu a mega menu -->
+              <div class="row w-100">
+                <div
+                  class="text-center col-sm-4"
+                  *ngFor="let team of teams; let i = index"
+                >
+                  <h5 class="text-primary">Equipe {{ i + 1 }}</h5>
+                  <li>
+                    <a href="#" [routerLink]="['team', team.id]">Effectif</a>
+                  </li>
+                  <li *ngIf="i == 0">
+                    <a href="" [routerLink]="['ranking']">Classement</a>
+                  </li>
+                  <li *ngIf="i == 0">
+                    <a href="" [routerLink]="['fixtures']">Calendrier</a>
+                  </li>
+                  <li *ngIf="i != 0" class="divider"></li>
+                  <li *ngIf="i != 0" class="text-primary font-weight-bold">
+                    LGEF
+                  </li>
+                  <li *ngIf="i != 0">
+                    <a href="{{ team.rankingUrl }}" target="_blank"
+                      >Classement</a
+                    >
+                  </li>
+                  <li *ngIf="i != 0">
+                    <a href="{{ team.calendarUrl }}" target="_blank"
+                      >Calendrier</a
+                    >
+                  </li>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!-- <li
+          class="nav-item dropdown"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+        >
           <a
             class="nav-link dropdown-toggle"
             href="#"
@@ -47,9 +112,13 @@
               >Equipe {{ i + 1 }}</a
             >
           </div>
-        </li>
+        </li> -->
 
-        <li class="nav-item">
+        <li
+          class="nav-item"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+        >
           <a
             class="nav-link"
             href=""
@@ -58,7 +127,11 @@
             >Classement</a
           >
         </li>
-        <li class="nav-item">
+        <li
+          class="nav-item"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+        >
           <a
             class="nav-link"
             routerLinkActive="active"
@@ -66,12 +139,49 @@
             >Calendrier</a
           >
         </li>
-        <li class="nav-item">
+        <li
+          class="nav-item"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+        >
           <a class="nav-link" routerLinkActive="active" [routerLink]="['stats']"
             >Stats</a
           >
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown position-static">
+          <a
+            href="#"
+            class="nav-link dropdown-toggle"
+            data-toggle="dropdown"
+            data-target="#"
+            >CLUB</a
+          >
+          <!-- div.w-100 make it mega menu, div.top-auto opens the mega menu exactly as position like other normal menu -->
+          <div class="dropdown-menu w-100 top-auto bg-secondary text-white">
+            <div class="container">
+              <!-- div.w-100 is also needed in certain circumstances to make this menu a mega menu -->
+              <div class="row w-100">
+                <a
+                  class="dropdown-item"
+                  href="#"
+                  [routerLink]="['club', 'history']"
+                  >Histoire</a
+                >
+                <a
+                  class="dropdown-item"
+                  href="#"
+                  [routerLink]="['club', 'organizational-chart']"
+                  >Organigramme</a
+                >
+              </div>
+            </div>
+          </div>
+        </li>
+        <!-- <li
+          class="nav-item dropdown"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+        >
           <a
             class="nav-link dropdown-toggle"
             href="#"
@@ -94,9 +204,13 @@
               >Organigramme</a
             >
           </div>
-        </li>
+        </li> -->
 
-        <li class="nav-item">
+        <li
+          class="nav-item"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+        >
           <a
             class="nav-link"
             routerLinkActive="active"
@@ -104,7 +218,11 @@
             >Partenaires</a
           >
         </li>
-        <li class="nav-item">
+        <li
+          class="nav-item"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+        >
           <a
             class="nav-link"
             routerLinkActive="active"

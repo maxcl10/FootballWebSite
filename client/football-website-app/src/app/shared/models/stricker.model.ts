@@ -1,4 +1,4 @@
-export interface Stricker {
+export interface PlayerStats {
   playerName: string;
   playerFirstName: string;
   playerLastName: string;
@@ -8,6 +8,10 @@ export interface Stricker {
   regionalCupGoals: number;
   otherCupGoals: number;
   totalGames: number;
+  nationalCupGames: number;
+  regionalCupGames: number;
+  otherGames: number;
+  championshipGames: number;
   totalGoals: number;
   championshipAssists: number;
   nationalCupAssists: number;

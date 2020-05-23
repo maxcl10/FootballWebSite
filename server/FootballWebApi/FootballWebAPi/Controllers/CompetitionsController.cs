@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using FootballWebSiteApi.Helpers;
 using FootballWebSiteApi.Interfaces;
 
 namespace FootballWebSiteApi.Controllers
@@ -20,7 +21,8 @@ namespace FootballWebSiteApi.Controllers
         [HttpGet]
         public IHttpActionResult GetCompetitions()
         {
-            var result = _lazyRankingRepository.GetSeasonCompetitions();
+            var ownerId = Request.Headers.GetOwnerId();
+            var result = _lazyRankingRepository.GetSeasonCompetitions(ownerId);
             return Ok(result);
         }
 

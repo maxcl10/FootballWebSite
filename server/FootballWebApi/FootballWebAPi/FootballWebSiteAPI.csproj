@@ -200,6 +200,7 @@
     </Content>
     <Content Include=".editorconfig" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\fcbWebApi - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\fcbWebApi - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\fcbWebApi - Web Deploy1.pubxml" />
@@ -262,6 +263,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\BusinessLogic.cs" />
+    <Compile Include="Helpers\ExtensionMethods.cs" />
     <Compile Include="Models\JCompetitionSeason.cs" />
     <Compile Include="Helpers\Mapper.cs" />
     <Compile Include="Helpers\Mapping.cs" />
@@ -293,6 +295,7 @@
     <Compile Include="Models\JArticle.cs" />
     <Compile Include="Models\JCompetition.cs" />
     <Compile Include="Models\JEvent.cs" />
+    <Compile Include="Models\JEventType.cs" />
     <Compile Include="Models\JGame.cs" />
     <Compile Include="Models\JGamePlayer.cs" />
     <Compile Include="Models\JOwner.cs" />
@@ -341,7 +344,7 @@
     <Compile Include="Repository\EventsRepository.cs" />
     <Compile Include="Repository\GamesRepository.cs" />
     <Compile Include="Interfaces\IArticleRepository.cs" />
-    <Compile Include="Models\JStricker.cs" />
+    <Compile Include="Models\JPlayerStats.cs" />
     <Compile Include="Interfaces\ILazyRankingRepository.cs" />
     <Compile Include="Interfaces\IGamesRepository.cs" />
     <Compile Include="Interfaces\ITeamsRepository.cs" />

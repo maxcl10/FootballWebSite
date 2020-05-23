@@ -19,6 +19,10 @@ body {
   cursor: pointer;
 }
 
+.btn {
+  border-radius: 0;
+}
+
 .partialHidden:after {
   position: absolute;
   bottom: 0;

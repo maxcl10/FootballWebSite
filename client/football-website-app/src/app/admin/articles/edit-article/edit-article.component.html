@@ -1,106 +1,107 @@
-<div *ngIf="article">
-  <h2>{{ this.title }} article {{ article.title }}</h2>
+<fws-page-header>
+  Article
+</fws-page-header>
 
-  <div class="card">
-    <div class="card-body">
-      <div class="alert alert-danger" *ngIf="errorMessage">
-        {{ errorMessage }}
-      </div>
-      <div class="form-group">
-        <label>Title</label>
-        <input
-          class="form-control"
-          placeholder="Title"
-          [(ngModel)]="article.title"
-          type="text"
-        />
-      </div>
-      <div class="form-group">
-        <label>Match</label>
-        <select class="form-control" [(ngModel)]="article.gameId">
-          <option *ngFor="let game of games" [ngValue]="game.Id">
-            {{ game.HomeTeam }} - {{ game.AwayTeam }}
-          </option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Publié</label>&nbsp;
-        <input
-          [(ngModel)]="article.published"
-          type="checkbox"
-          ngControl="published"
-        />
-      </div>
-      <div class="form-group">
-        <label>Image</label>&nbsp;
-        <!-- <input
-          [(ngModel)]="article.image"
-          type="file"
-          ngControl="image"
-          (change)="onFileChanged($event)"
-        /> -->
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Content</label>
-        <editor
-          apiKey="x6kya91fxd4udiq2afldv6hr7u1oseggp245bsyzbtpysjey"
-          [(ngModel)]="article.body"
-          [init]="tinyMceSettings"
+<div *ngIf="article" class="mt-4">
+  <fws-widget
+    [headerText]="this.title + ' article ' + article.title"
+    [error]="errorMessage"
+  >
+    <div class="form-group">
+      <label>Titre</label>
+      <input
+        class="form-control"
+        placeholder="Title"
+        [(ngModel)]="article.title"
+        type="text"
+      />
+    </div>
+    <div class="form-group">
+      <label>Sous-Titre</label>
+      <input
+        class="form-control"
+        placeholder="Sous-Titre"
+        [(ngModel)]="article.subTitle"
+        type="text"
+      />
+    </div>
+    <div class="form-group">
+      <label>Match</label>
+      <select class="form-control" [(ngModel)]="article.gameId">
+        <option *ngFor="let game of games" [ngValue]="game.id">
+          {{ game.homeTeam }} - {{ game.awayTeam }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Image Url</label>&nbsp;
+      <input [(ngModel)]="article.imageUrl" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>Publié</label>&nbsp;
+      <input
+        [(ngModel)]="article.published"
+        type="checkbox"
+        ngControl="published"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Content</label>
+      <editor
+        apiKey="x6kya91fxd4udiq2afldv6hr7u1oseggp245bsyzbtpysjey"
+        [(ngModel)]="article.body"
+        [init]="tinyMceSettings"
+      >
+      </editor>
+    </div>
+
+    <div>
+      <button (click)="goBack()" class="btn btn-grey">
+        <span class="fa fa-arrow-left"></span> Retour
+      </button>
+      <div class="pull-right btn-toolbar">
+        <button
+          class="btn btn-danger mr-2"
+          (click)="openModal(template)"
+          *ngIf="article.id"
         >
-        </editor>
+          <span class="fa fa-trash"></span> Supprimer
+        </button>
+
+        <button
+          (click)="saveArticle()"
+          type="submit"
+          class="btn btn-primary"
+          *ngIf="article.id"
+        >
+          <span class="fa fa-floppy-o"></span>
+          Sauvegarder
+        </button>
+        <button
+          (click)="createArticle()"
+          type="submit"
+          class="btn pull-right btn-primary"
+          *ngIf="!article.id"
+        >
+          <span class="fa fa-plus"></span>
+          Ajouter
+        </button>
       </div>
     </div>
-  </div>
-  <div class="alert alert-danger" *ngIf="errorMessage">
-    {{ errorMessage }}
-  </div>
-  <div>
-    <button (click)="goBack()" class="btn btn-default">
-      <span class="glyphicon glyphicon-arrow-left"></span> Retour
-    </button>
-    <div class="pull-right btn-toolbar">
-      <button
-        class="btn btn-danger "
-        (click)="openModal(template)"
-        *ngIf="article.id"
-      >
-        <span class="glyphicon  glyphicon-remove"></span> Supprimer
-      </button>
-
-      <button
-        (click)="saveArticle()"
-        type="submit"
-        class="btn btn-success"
-        *ngIf="article.id"
-      >
-        <span class="glyphicon  glyphicon-floppy-save"></span>
-        Sauvegarder
-      </button>
-      <button
-        (click)="createArticle()"
-        type="submit"
-        class="btn pull-right btn-success"
-        *ngIf="!article.id"
-      >
-        <span class="glyphicon  glyphicon-plus-sign"></span>
-        Ajouter
-      </button>
-    </div>
-  </div>
+  </fws-widget>
 
   <!--Modal confirmation popup-->
   <ng-template #template>
     <div class="modal-header">
-      <div class="modal-title">
-        <span class="glyphicon glyphicon-trash>"></span> Delete
-      </div>
+      <div class="modal-title"><span class="fa fa-trash>"></span> Delete</div>
     </div>
-    <div class="modal-body ">
+    <div class="modal-body">
       <p>
         Etes-vous sûr de vouloir supprimer le club <b>{{ article.title }} ?</b>
       </p>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" (click)="cancel()">
+        <button type="button" class="btn btn-primary" (click)="cancel()">
           Non
         </button>
         <button type="button" class="btn btn-danger" (click)="deleteArticle()">

@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using FootballWebSiteApi.Entities;
 using FootballWebSiteApi.Helpers;
 using FootballWebSiteApi.Interfaces;
 using FootballWebSiteApi.Repository;
@@ -20,7 +21,8 @@ namespace FootballWebSiteApi.Controllers
         [Route("{alias}/{password}")]
         public IHttpActionResult UserAllowed(string alias, string password)
         {
-            var user = Mapper.Map(_authenticationRepository.IsAuthorized(alias, password));
+            var ownerId = Request.Headers.GetOwnerId();
+            var user = Mapper.Map(_authenticationRepository.IsAuthorized(ownerId, alias, password));
             return Ok(user);
         }
     }

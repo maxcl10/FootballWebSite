@@ -8,16 +8,17 @@ import { PromptUpdateService } from './services/prompt-update.service';
 import { LogUpdateService } from './services/log-update.service';
 
 import { CacheInterceptor } from './interceptors/cache-interceptor';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { SharedModule } from '../shared/shared.module';
 import { CoreRoutingModule } from './core-routing.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { HeaderInterceptor } from './interceptors/header-interceptor';
 
 // This module contains all the services and all the top level app components
 @NgModule({
-  imports: [CommonModule, CoreRoutingModule],
+  imports: [CommonModule, CoreRoutingModule, HttpClientModule],
   declarations: [
     NavigationComponent,
     HeaderComponent,
@@ -31,6 +32,7 @@ import { HeaderComponent } from './components/header/header.component';
     PromptUpdateService,
     LogUpdateService,
     { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
   ],
   exports: [HeaderComponent, NavigationComponent, FooterComponent],
 })

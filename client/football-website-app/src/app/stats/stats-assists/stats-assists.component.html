@@ -25,10 +25,15 @@
           style="width: 40px; margin: 2px;"
         />
       </td>
-      <td class="bold">
-        <a href="" [routerLink]="['/player', assist.playerId]">{{
-          assist.playerName
-        }}</a>
+      <td>
+        <a
+          class="font-weight-bold text-muted"
+          href=""
+          [routerLink]="['/player', assist.playerId]"
+        >
+          {{ assist.playerFirstName.slice(0, 1) }}.
+          {{ assist.playerLastName }}
+        </a>
       </td>
       <td class="text-center">
         <b>{{ assist.totalAssists }}</b>

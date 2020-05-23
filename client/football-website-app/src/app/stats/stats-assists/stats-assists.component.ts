@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Stricker } from '../../shared/models/stricker.model';
+import { PlayerStats } from '../../shared/models/stricker.model';
 
 @Component({
   selector: 'fws-stats-assists',
@@ -7,10 +7,10 @@ import { Stricker } from '../../shared/models/stricker.model';
   styleUrls: ['./stats-assists.component.css'],
 })
 export class StatsAssistsComponent {
-  private _assists: Stricker[];
+  private _assists: PlayerStats[];
 
   @Input()
-  set playerStats(playerStats: Stricker[]) {
+  set playerStats(playerStats: PlayerStats[]) {
     if (playerStats) {
       this._assists = playerStats
         .filter((o) => o.totalAssists > 0)
@@ -18,7 +18,7 @@ export class StatsAssistsComponent {
     }
   }
 
-  get assists(): Stricker[] {
+  get assists(): PlayerStats[] {
     return this._assists;
   }
 }

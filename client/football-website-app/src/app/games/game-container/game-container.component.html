@@ -1,1 +1,125 @@
-<p>game-container works!</p>
+<fws-page-header>
+  Info Match
+</fws-page-header>
+<div *ngIf="game" class="bg-white py-3">
+  <div class="container">
+    <div class="text-center text-muted d-sm-none font-weight-bold">
+      {{ game.matchDate | date: 'EEEE dd LLLL HH:mm' | titlecase }} <br />
+      <fws-competition [game]="game"></fws-competition>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div class="text-center ml-xl-5">
+        <fws-logo [team]="game.homeTeam" size="60" class="d-lg-none"></fws-logo>
+        <fws-logo
+          [team]="game.homeTeam"
+          size="100"
+          class="d-none d-lg-inline"
+        ></fws-logo>
+        <br />
+        <span class="font-weight-bold">{{ game.homeTeam }}</span>
+        <!-- Goals -->
+        <ul
+          class="list-inline mt-1 mb-0"
+          *ngIf="groupByPlayer && game.ownerTeam == game.homeTeamId"
+        >
+          <li *ngFor="let player of groupByPlayer" style="margin-left: 10px;">
+            {{ player.firstName.slice(0, 1) }}. {{ player.lastName }}
+            <span *ngFor="let event of player.goals" class="text-muted">
+              {{ event.time }}'
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="text-center">
+        <div class="text-muted text-center d-none d-sm-block font-weight-bold">
+          {{ game.matchDate | date: 'EEEE dd LLLL HH:mm' | titlecase }}
+        </div>
+        <div class="my-3"><fws-game-score [game]="game"></fws-game-score></div>
+        <div class="text-muted text-center d-none d-sm-block">
+          <fws-competition [game]="game"></fws-competition>
+        </div>
+      </div>
+      <div class="text-center mr-xl-5">
+        <fws-logo [team]="game.awayTeam" size="60" class="d-lg-none"></fws-logo>
+        <fws-logo
+          [team]="game.awayTeam"
+          size="100"
+          class="d-none d-lg-inline"
+        ></fws-logo
+        ><br />
+        <span class="font-weight-bold"> {{ game.awayTeam }}</span>
+        <!-- Goals -->
+        <ul
+          class="list-inline mt-1 mb-0"
+          *ngIf="groupByPlayer && game.ownerTeam == game.awayTeamId"
+        >
+          <li *ngFor="let player of groupByPlayer" style="margin-left: 10px;">
+            {{ player.firstName.slice(0, 1) }}. {{ player.lastName }}
+            <span *ngFor="let event of player.goals" class="text-muted">
+              {{ event.time }}'
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Composition block -->
+<div class="my-4" *ngIf="players?.length">
+  <div class="container">
+    <div class="row">
+      <fws-widget class="w-100" headerText="Composition">
+        <div class="row">
+          <div class="col-12 col-xl-4">
+            <table class="table table-borderless">
+              <tbody>
+                <tr *ngFor="let player of players; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>
+                    {{ player.position }}
+                  </td>
+                  <td>
+                    <img
+                      [src]="
+                        '../../../assets/img/players/' +
+                        player.playerFirstName +
+                        '_' +
+                        player.playerLastName +
+                        '.png'
+                      "
+                      style="height: 20px;"
+                      class="rounded-circle d-md-none"
+                      onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
+                    />
+                    {{ player.playerFirstName.slice(0, 1) }}.
+                    {{ player.playerLastName }}
+                  </td>
+                  <td>
+                    <span *ngFor="let event of player.events">
+                      <fws-event-type [event]="event"></fws-event-type>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="d-none d-md-inline-block col-12 col-xl-8">
+            <fws-pitch [players]="players"></fws-pitch>
+          </div>
+        </div>
+      </fws-widget>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="article" class="mt-4">
+  <div class="container">
+    <div class="row">
+      <fws-widget headerText="Résumé">
+        <span [innerHTML]="article.body"></span>
+      </fws-widget>
+    </div>
+  </div>
+</div>

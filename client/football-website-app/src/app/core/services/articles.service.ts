@@ -23,7 +23,11 @@ export class ArticlesService {
     return this.http.get<Article>(this.articleUrl + '/' + id);
   }
 
-  public getArticles(): Observable<Article[]> {
+  public getArticles(count?: number): Observable<Article[]> {
+    if (count) {
+      return this.http.get<Article[]>(this.articleUrl + '?count=' + count);
+    }
+
     return this.http.get<Article[]>(this.articleUrl);
   }
 

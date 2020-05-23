@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { StatsService } from '../../core/services/stats.service';
 import { Observable } from 'rxjs';
-import { Stricker } from '../../shared/models/stricker.model';
+import { PlayerStats } from '../../shared/models/stricker.model';
 import { AppConfig } from '../../app.config';
 import { SubSink } from 'subsink';
 
@@ -16,7 +16,7 @@ export class StatsContainerComponent implements OnInit, OnDestroy {
 
   private subs = new SubSink();
 
-  public playerStats: Stricker[];
+  public playerStats: PlayerStats[];
   public concededGoalsPerGame: number;
   public scoredGoalsPerGame: number;
   public shape: string[];
@@ -32,7 +32,7 @@ export class StatsContainerComponent implements OnInit, OnDestroy {
     );
 
     this.loadingScoredGoals = this.loadingConcededGoals = this.loadingPlayerStats = this.loadingShape = true;
-    this.subs.sink = this.service.getStrickers().subscribe((res) => {
+    this.subs.sink = this.service.getPlayersStats().subscribe((res) => {
       this.playerStats = res;
       this.loadingPlayerStats = false;
     });

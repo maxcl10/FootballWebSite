@@ -1,30 +1,38 @@
-<h2>
+<fws-page-header>
   Partenaires
-</h2>
-<div class="card" *ngIf="(sponsors$ | async) as sponsors">
-  <div class="card-header">
-    <a
-      class="btn btn-success pull-right"
-      href=""
-      [routerLink]="['/admin/sponsors/0/edit']"
-    >
-      <span class="glyphicon glyphicon-plus"></span> Partenaire
-    </a>
-    <h4>{{ sponsors.length }} Partenaires</h4>
-  </div>
-  <div class="card-body">
-    <table class="table table-clickable table-hover">
-      <tr *ngFor="let sponsor of sponsors" (click)="onSponsorSelect(sponsor)">
-        <td>
-          <img
-            style="width: 100px"
-            class="img-responsive"
-            src="../../../assets/img/sponsors/{{ sponsor.logoUrl }}"
-          />
-        </td>
-        <td>{{ sponsor.name }}</td>
-        <td>{{ sponsor.siteUrl }}</td>
-      </tr>
+</fws-page-header>
+
+<a
+  class="btn btn-primary float-right mt-2"
+  href=""
+  [routerLink]="['/admin/sponsors/0/edit']"
+>
+  <span class="fa fa-plus"></span> Partenaire
+</a>
+
+<div class="mt-4" *ngIf="sponsors$ | async as sponsors">
+  <fws-widget [headerText]="sponsors.length + ' partenaires'">
+    <table class="table table-clickable table-hover table-borderless">
+      <thead>
+        <tr>
+          <th>Logo</th>
+          <th>Nom</th>
+          <th>Site web</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sponsor of sponsors" (click)="onSponsorSelect(sponsor)">
+          <td>
+            <img
+              style="width: 100px;"
+              class="img-fluid"
+              src="../../../assets/img/sponsors/{{ sponsor.logoUrl }}"
+            />
+          </td>
+          <td class="align-middle">{{ sponsor.name }}</td>
+          <td class="align-middle">{{ sponsor.siteUrl }}</td>
+        </tr>
+      </tbody>
     </table>
-  </div>
+  </fws-widget>
 </div>
