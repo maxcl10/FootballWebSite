@@ -1,5 +1,4 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
-
 import { NgModule, APP_INITIALIZER, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { registerLocaleData } from '@angular/common';
@@ -48,11 +47,13 @@ registerLocaleData(localeFr, 'fr');
     AppRoutingModule,
     CoreModule,
     SharedModule,
+
     // Service worker
     ServiceWorkerModule.register('/ngsw-worker.js', {
       enabled: environment.production,
     }),
   ],
+  exports: [SharedModule],
   providers: [
     // expose our Services and Providers into Angular's dependency injection
     APP_PROVIDERS,

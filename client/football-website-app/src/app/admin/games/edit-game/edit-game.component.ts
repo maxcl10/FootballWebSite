@@ -10,7 +10,6 @@ import { Competition } from '../../../shared/models/competition.model';
 @Component({
   selector: 'fws-edit-game',
   templateUrl: './edit-game.component.html',
-  providers: [GamesService, TeamsService],
 })
 export class EditGameComponent implements OnInit {
   public game: Game;

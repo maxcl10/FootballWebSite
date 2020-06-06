@@ -2,7 +2,6 @@ import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 
 import { Player } from '../../../shared/models/player.model';
 import { TeamsService } from '../../../core/services/teams.service';
-import { Team } from '../../../shared/models/team.model';
 import { PlayersService } from '../../../core/services/players.service';
 import { ActivatedRoute } from '@angular/router';
 

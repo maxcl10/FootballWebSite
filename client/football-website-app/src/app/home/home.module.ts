@@ -9,5 +9,6 @@ import { LastNewsComponent } from './components/last-news/last-news.component';
 @NgModule({
   declarations: [HomeContainerComponent, LastNewsComponent],
   imports: [CommonModule, HomeRoutingModule, SharedModule],
+  exports: [SharedModule],
 })
 export class HomeModule {}

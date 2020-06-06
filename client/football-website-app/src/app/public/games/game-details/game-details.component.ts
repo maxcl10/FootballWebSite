@@ -6,7 +6,6 @@ import { GamePlayer } from '../../../shared/models/game-player.model';
 import { LogoService } from '../../../core/services/logo.service';
 import { Event } from '../../../shared/models/event.model';
 import { Article } from '../../../shared/models/article.model';
-import { from } from 'rxjs';
 import * as _ from 'lodash';
 import { PlayerEvents } from '../../../shared/models/player-event.model';
 
