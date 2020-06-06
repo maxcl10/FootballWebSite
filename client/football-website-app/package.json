@@ -30,7 +30,6 @@
     "@angular/service-worker": "9.1.1",
     "@tinymce/tinymce-angular": "^3.3.1",
     "@types/html2canvas": "0.0.35",
-    "angular-bootstrap-datetimepicker": "^3.1.0",
     "animate.css": "^3.5.2",
     "bootstrap": "^4.4.1",
     "chart.js": "^2.8.0",
