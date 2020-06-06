@@ -14,11 +14,11 @@ namespace FootballWebSiteApi.Entities
     
     public partial class TeamCompetitionSeason
     {
-        public System.Guid teamCompetitionSeasonId { get; set; }
-        public System.Guid teamId { get; set; }
-        public System.Guid competitionSeasonId { get; set; }
-        public string lafaName { get; set; }
-        public string competitionGroup { get; set; }
+        public System.Guid TeamCompetitionSeasonId { get; set; }
+        public System.Guid TeamId { get; set; }
+        public System.Guid CompetitionSeasonId { get; set; }
+        public string LafaName { get; set; }
+        public string CompetitionGroup { get; set; }
     
         public virtual CompetitionSeason CompetitionSeason { get; set; }
         public virtual Team Team { get; set; }

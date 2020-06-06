@@ -4,8 +4,9 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { AuthGuard } from './user/auth.guard';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
-    path: '',
+    path: 'home',
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
@@ -77,7 +78,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      preloadingStrategy: PreloadAllModules,
+      // preloadingStrategy: PreloadAllModules,
       scrollPositionRestoration: 'enabled',
     }),
   ],

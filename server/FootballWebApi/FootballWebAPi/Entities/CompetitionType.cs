@@ -20,8 +20,8 @@ namespace FootballWebSiteApi.Entities
             this.Competitions = new HashSet<Competition>();
         }
     
-        public int competitionTypeId { get; set; }
-        public string description { get; set; }
+        public int CompetitionTypeId { get; set; }
+        public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Competition> Competitions { get; set; }

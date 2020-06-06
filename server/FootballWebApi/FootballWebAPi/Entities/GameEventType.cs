@@ -12,15 +12,15 @@ namespace FootballWebSiteApi.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class EventType
+    public partial class GameEventType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EventType()
+        public GameEventType()
         {
             this.GameEvents = new HashSet<GameEvent>();
         }
     
-        public int EventTypeId { get; set; }
+        public int GameEventTypeId { get; set; }
         public string EventName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -1,5 +1,5 @@
-<div class="d-flex">
-  <span *ngFor="let stat of shape">
+<div class="d-flex" *ngIf="displayShape">
+  <span *ngFor="let stat of displayShape">
     <h3 class="mr-2">
       <span
         class="badge"

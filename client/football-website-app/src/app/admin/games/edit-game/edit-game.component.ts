@@ -58,6 +58,7 @@ export class EditGameComponent implements OnInit {
     this.gamesService.getGame(id).subscribe(
       (game) => {
         this.game = game;
+        this.game.matchDate = this.game.matchDate;
       },
       (error) => (this.errorMessage = <any>error)
     );

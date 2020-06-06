@@ -21,7 +21,7 @@ namespace FootballWebSiteApi.Entities
             this.PlayerGames = new HashSet<PlayerGame>();
         }
     
-        public System.Guid Id { get; set; }
+        public System.Guid GameId { get; set; }
         public System.Guid HomeTeam { get; set; }
         public System.Guid AwayTeam { get; set; }
         public System.DateTime MatchDate { get; set; }

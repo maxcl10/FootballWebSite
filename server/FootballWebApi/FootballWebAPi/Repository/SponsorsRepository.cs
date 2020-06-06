@@ -19,29 +19,29 @@ namespace FootballWebSiteApi.Repository
 
         public IEnumerable<JSponsor> GetSponsors(Guid ownerId)
         {
-            var sponsors = Mapper.Map(_entities.Sponsors.Where(o => o.ownerId == ownerId)
-                .OrderBy(o => o.orderIndex));
+            var sponsors = Mapper.Map(_entities.Sponsors.Where(o => o.OwnerId == ownerId)
+                .OrderBy(o => o.OrderIndex));
             return sponsors;
         }
 
         public JSponsor GetSponsor(Guid ownerId, string id)
         {
-            var sponsors = Mapper.Map(_entities.Sponsors.Single(o => o.ownerId == ownerId
-            && o.sponsorId.ToString() == id));
+            var sponsors = Mapper.Map(_entities.Sponsors.Single(o => o.OwnerId == ownerId
+            && o.SponsorId.ToString() == id));
             return sponsors;
         }
 
         public JSponsor CreateSponsor(Guid ownerId, JSponsor jsponsor)
         {
-            var index = _entities.Sponsors.Where(o => o.ownerId == ownerId).Max(o => o.orderIndex);
+            var index = _entities.Sponsors.Where(o => o.OwnerId == ownerId).Max(o => o.OrderIndex);
             var sponsor = new Sponsor
             {
-                sponsorId = Guid.NewGuid(),
-                logoUrl = jsponsor.LogoUrl,
-                name = jsponsor.Name,
-                orderIndex = index + 1,
-                siteUrl = jsponsor.SiteUrl,
-                ownerId = ownerId
+                SponsorId = Guid.NewGuid(),
+                LogoUrl = jsponsor.LogoUrl,
+                Name = jsponsor.Name,
+                OrderIndex = index + 1,
+                SiteUrl = jsponsor.SiteUrl,
+                OwnerId = ownerId
             };
 
             _entities.Sponsors.Add(sponsor);
@@ -52,10 +52,10 @@ namespace FootballWebSiteApi.Repository
 
         public JSponsor UpdateSponsor(Guid ownerId, string id, JSponsor sponsor)
         {
-            var corresponding = _entities.Sponsors.Single(o => o.sponsorId.ToString() == id && o.ownerId == ownerId);
-            corresponding.name = sponsor.Name;
-            corresponding.siteUrl = sponsor.SiteUrl;
-            corresponding.logoUrl = sponsor.LogoUrl;
+            var corresponding = _entities.Sponsors.Single(o => o.SponsorId.ToString() == id && o.OwnerId == ownerId);
+            corresponding.Name = sponsor.Name;
+            corresponding.SiteUrl = sponsor.SiteUrl;
+            corresponding.LogoUrl = sponsor.LogoUrl;
 
             _entities.SaveChanges();
             return sponsor;
@@ -63,7 +63,7 @@ namespace FootballWebSiteApi.Repository
 
         public void DeleteSponsor(Guid ownerId, string id)
         {
-            var toDelete = _entities.Sponsors.Single(o => o.sponsorId.ToString() == id && o.ownerId == ownerId);
+            var toDelete = _entities.Sponsors.Single(o => o.SponsorId.ToString() == id && o.OwnerId == ownerId);
             _entities.Sponsors.Remove(toDelete);
             _entities.SaveChanges();
         }

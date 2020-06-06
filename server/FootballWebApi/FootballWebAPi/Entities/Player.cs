@@ -21,19 +21,19 @@ namespace FootballWebSiteApi.Entities
             this.PlayerTeams = new HashSet<PlayerTeam>();
         }
     
-        public System.Guid id { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public Nullable<System.DateTime> dateOfBirth { get; set; }
-        public Nullable<int> height { get; set; }
-        public Nullable<int> weight { get; set; }
-        public string nationality { get; set; }
-        public string position { get; set; }
-        public string previousClubs { get; set; }
-        public string nickname { get; set; }
-        public string favoritePlayer { get; set; }
-        public string favoriteTeam { get; set; }
-        public string favoriteNumber { get; set; }
+        public System.Guid PlayerId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public Nullable<System.DateTime> DateOfBirth { get; set; }
+        public Nullable<int> Height { get; set; }
+        public Nullable<int> Weight { get; set; }
+        public string Nationality { get; set; }
+        public string Position { get; set; }
+        public string PreviousClubs { get; set; }
+        public string Nickname { get; set; }
+        public string FavoritePlayer { get; set; }
+        public string FavoriteTeam { get; set; }
+        public string FavoriteNumber { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PlayerGame> PlayerGames { get; set; }

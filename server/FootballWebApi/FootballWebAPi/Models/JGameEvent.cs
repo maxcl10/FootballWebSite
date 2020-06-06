@@ -2,7 +2,7 @@
 
 namespace FootballWebSiteApi.Models
 {
-    public class JEvent
+    public class JGameEvent
     {
         public Guid EventId { get; set; }
         public Guid GamePlayerId { get; set; }

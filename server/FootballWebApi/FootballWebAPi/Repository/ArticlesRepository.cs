@@ -22,18 +22,18 @@ namespace FootballWebSiteApi.Repository
 
         public async Task<IEnumerable<JArticle>> GetArticles(Guid ownerId)
         {
-            var currentSeasonId = _entities.Seasons.Single(o => o.currentSeason).id;
+            var currentSeasonId = _entities.Seasons.Single(o => o.CurrentSeason).SeasonId;
 
-            var articles = await _entities.Articles.Where(o => o.deletedDate.HasValue == false
-            && o.ownerId == ownerId
-            && o.seasonId == currentSeasonId).OrderByDescending(o => o.creationDate).ToListAsync();
+            var articles = await _entities.Articles.Where(o => o.DeletedDate.HasValue == false
+            && o.OwnerId == ownerId
+            && o.SeasonId == currentSeasonId).OrderByDescending(o => o.CreationDate).ToListAsync();
 
             return Mapper.Map(articles);
         }
 
         public async Task<JArticle> GetArticle(Guid ownerId, Guid articleId)
         {
-            var article = await _entities.Articles.SingleOrDefaultAsync(o => o.deletedDate.HasValue == false && o.id == articleId && o.ownerId == ownerId);
+            var article = await _entities.Articles.SingleOrDefaultAsync(o => o.DeletedDate.HasValue == false && o.ArticleId == articleId && o.OwnerId == ownerId);
             if (article != null)
             {
                 return Mapper.Map(article);
@@ -44,7 +44,7 @@ namespace FootballWebSiteApi.Repository
 
         public JArticle GetArticlePerGame(Guid ownerId, Guid gameId)
         {
-            var article = _entities.Articles.SingleOrDefault(o => o.gameId == gameId && o.ownerId == ownerId);
+            var article = _entities.Articles.SingleOrDefault(o => o.GameId == gameId && o.OwnerId == ownerId);
             if (article != null)
             {
                 return Mapper.Map(article);
@@ -54,21 +54,23 @@ namespace FootballWebSiteApi.Repository
 
         public JArticle CreateArticle(Guid ownerId, JArticle jArticle)
         {
-            var currentSeasonId = _entities.Seasons.Single(o => o.currentSeason).id;
+            var currentSeasonId = _entities.Seasons.Single(o => o.CurrentSeason).SeasonId;
+            jArticle.Id = Guid.NewGuid();
+
             var article = new Article
             {
-                id = Guid.NewGuid(),
-                creationDate = DateTime.Now,
-                publishedDate = jArticle.Published ? DateTime.Now : (DateTime?)null,
-                userId = jArticle.UserId,
-                title = jArticle.Title,
-                body = jArticle.Body,
-                gameId = jArticle.GameId,
-                ownerId = ownerId,
-                seasonId = currentSeasonId,
-                subTitle = jArticle.SubTitle,
-                imageUrl = jArticle.ImageUrl,
-                articleTypeId = jArticle.Type,
+                ArticleId = jArticle.Id,
+                CreationDate = DateTime.Now,
+                PublishedDate = jArticle.Published ? DateTime.Now : (DateTime?)null,
+                UserId = jArticle.UserId,
+                Title = jArticle.Title,
+                Body = jArticle.Body,
+                GameId = jArticle.GameId,
+                OwnerId = ownerId,
+                SeasonId = currentSeasonId,
+                SubTitle = jArticle.SubTitle,
+                ImageUrl = jArticle.ImageUrl,
+                ArticleTypeId = jArticle.Type,
             };
 
             _entities.Articles.Add(article);
@@ -81,22 +83,22 @@ namespace FootballWebSiteApi.Repository
         {
             article.ModifiedDate = DateTime.Now;
 
-            var correspondingArticle = _entities.Articles.Where(o => o.deletedDate.HasValue == false).Single(o => o.id == id && o.ownerId == ownerId);
-            correspondingArticle.title = article.Title;
-            correspondingArticle.body = article.Body;
-            correspondingArticle.gameId = article.GameId;
-            correspondingArticle.modifiedDate = article.ModifiedDate;
-            correspondingArticle.imageUrl = article.ImageUrl;
+            var correspondingArticle = _entities.Articles.Where(o => o.DeletedDate.HasValue == false).Single(o => o.ArticleId == id && o.OwnerId == ownerId);
+            correspondingArticle.Title = article.Title;
+            correspondingArticle.Body = article.Body;
+            correspondingArticle.GameId = article.GameId;
+            correspondingArticle.ModifiedDate = article.ModifiedDate;
+            correspondingArticle.ImageUrl = article.ImageUrl;
 
-            if (article.Published && correspondingArticle.publishedDate.HasValue == false)
+            if (article.Published && correspondingArticle.PublishedDate.HasValue == false)
             {
                 //Article newly published
-                correspondingArticle.publishedDate = DateTime.Now;
+                correspondingArticle.PublishedDate = DateTime.Now;
             }
-            else if (!article.Published && correspondingArticle.publishedDate.HasValue)
+            else if (!article.Published && correspondingArticle.PublishedDate.HasValue)
             {
                 //unpublish
-                correspondingArticle.publishedDate = null;
+                correspondingArticle.PublishedDate = null;
             }
 
             _entities.SaveChanges();
@@ -105,8 +107,8 @@ namespace FootballWebSiteApi.Repository
 
         public void DeleteArticle(Guid ownerId, Guid id)
         {
-            var correspondingArticle = _entities.Articles.Where(o => o.deletedDate.HasValue == false).Single(o => o.id == id && o.ownerId == ownerId);
-            correspondingArticle.deletedDate = DateTime.Now;
+            var correspondingArticle = _entities.Articles.Where(o => o.DeletedDate.HasValue == false).Single(o => o.ArticleId == id && o.OwnerId == ownerId);
+            correspondingArticle.DeletedDate = DateTime.Now;
             _entities.SaveChanges();
         }
 

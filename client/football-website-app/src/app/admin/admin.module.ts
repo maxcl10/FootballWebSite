@@ -31,6 +31,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClubsListComponent } from './clubs/clubs-list/clubs-list.component';
 import { EditClubComponent } from './clubs/edit-club/edit-club.component';
 import { EditGamePlayersComponent } from './games/edit-game-players/edit-game-players.component';
+import { TeamsContainerComponent } from './teams/teams-container/teams-container.component';
+import { ClubEventsContainerComponent } from './clubEvents/club-events-container/club-events-container.component';
+import { EditClubEventContainerComponent } from './clubEvents/edit-club-event-container/edit-club-event-container.component';
 
 @NgModule({
   imports: [
@@ -58,6 +61,9 @@ import { EditGamePlayersComponent } from './games/edit-game-players/edit-game-pl
     ClubsListComponent,
     EditClubComponent,
     EditGamePlayersComponent,
+    TeamsContainerComponent,
+    ClubEventsContainerComponent,
+    EditClubEventContainerComponent,
   ],
   exports: [RouterModule],
 })

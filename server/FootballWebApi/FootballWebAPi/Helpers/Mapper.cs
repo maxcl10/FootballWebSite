@@ -29,14 +29,52 @@ namespace FootballWebSiteApi.Helpers
             return Jcompetitions;
         }
 
+        public static ClubEvent Map(JClubEvent jClubEvent)
+        {
+            return new ClubEvent
+            {
+                ClubEventId = jClubEvent.Id,
+                Name = jClubEvent.Name,
+                Description = jClubEvent.Description,
+                StartDate = jClubEvent.StartDate,
+                EndDate = jClubEvent.EndDate,
+                Location = jClubEvent.Location,
+                City = jClubEvent.City,
+                ImageUrl = jClubEvent.ImageUrl,
+                Canceled = jClubEvent.Canceled
+
+            };
+        }
+
+        public static JClubEvent Map(ClubEvent clubEvent)
+        {
+            return new JClubEvent
+            {
+                Id = clubEvent.ClubEventId,
+                Name = clubEvent.Name,
+                City = clubEvent.City,
+                Description = clubEvent.Description,
+                EndDate = clubEvent.EndDate,
+                Location = clubEvent.Location,
+                StartDate = clubEvent.StartDate,
+                ImageUrl = clubEvent.ImageUrl,
+                Canceled = clubEvent.Canceled.GetValueOrDefault()
+            };
+        }
+
+        public static IEnumerable<JClubEvent> Map(IEnumerable<ClubEvent> clubEvents)
+        {
+            return clubEvents.Select(o => Map(o));
+        }
+
         private static JCompetition Map(Competition competition)
         {
             return new JCompetition
             {
-                CompetitionId = competition.competitionId,
-                CompetitionType = competition.competitionType,
-                Name = competition.name,
-                ShortName = competition.shortName
+                CompetitionId = competition.CompetitionId,
+                CompetitionType = competition.CompetitionType,
+                Name = competition.Name,
+                ShortName = competition.ShortName
             };
         }
 
@@ -44,17 +82,17 @@ namespace FootballWebSiteApi.Helpers
         {
             return new JSponsor
             {
-                Name = sponsor.name,
-                LogoUrl = sponsor.logoUrl,
-                OrderIndex = sponsor.orderIndex,
-                SiteUrl = sponsor.siteUrl,
-                SponsorId = sponsor.sponsorId
+                Name = sponsor.Name,
+                LogoUrl = sponsor.LogoUrl,
+                OrderIndex = sponsor.OrderIndex,
+                SiteUrl = sponsor.SiteUrl,
+                SponsorId = sponsor.SponsorId
             };
         }
 
-        internal static List<JEvent> Map(IQueryable<GameEvent> events)
+        internal static List<JGameEvent> Map(IQueryable<GameEvent> events)
         {
-            List<JEvent> retEvents = new List<JEvent>();
+            List<JGameEvent> retEvents = new List<JGameEvent>();
             foreach (var eventItem in events)
             {
                 retEvents.Add(Map(eventItem));
@@ -62,19 +100,19 @@ namespace FootballWebSiteApi.Helpers
             return retEvents;
         }
 
-        internal static JEvent Map(GameEvent gameEvent)
+        internal static JGameEvent Map(GameEvent gameEvent)
         {
-            return new JEvent
+            return new JGameEvent
             {
                 EventId = gameEvent.GameEventId,
-                EventType = gameEvent.EventType.EventName,
+                EventType = gameEvent.GameEventType.EventName,
                 EventTypeId = gameEvent.EventTypeId,
                 GameId = gameEvent.PlayerGame.GameId,
                 GamePlayerId = gameEvent.PlayeGameId,
                 PlayerId = gameEvent.PlayerGame.PlayerId,
                 Time = gameEvent.Time,
-                PlayerFirstName = gameEvent.PlayerGame.Player.firstName,
-                PlayerLastName = gameEvent.PlayerGame.Player.lastName
+                PlayerFirstName = gameEvent.PlayerGame.Player.FirstName,
+                PlayerLastName = gameEvent.PlayerGame.Player.LastName
             };
         }
 
@@ -95,18 +133,18 @@ namespace FootballWebSiteApi.Helpers
         {
             return new JRanking
             {
-                Team = lazyRankingitem.team,
-                MatchPlayed = lazyRankingitem.matchPlayed,
-                MatchWon = lazyRankingitem.matchWon,
-                MatchDraw = lazyRankingitem.matchDraw,
-                MatchLost = lazyRankingitem.matchLost,
-                Position = lazyRankingitem.position,
-                Points = lazyRankingitem.points,
-                GoalDifference = lazyRankingitem.goalDifference,
-                GoalsAgainst = lazyRankingitem.goalsAgainst,
-                GoalsScored = lazyRankingitem.goalsScored,
-                Penality = lazyRankingitem.penality,
-                Withdaw = lazyRankingitem.withdaw
+                Team = lazyRankingitem.Team,
+                MatchPlayed = lazyRankingitem.MatchPlayed,
+                MatchWon = lazyRankingitem.MatchWon,
+                MatchDraw = lazyRankingitem.MatchDraw,
+                MatchLost = lazyRankingitem.MatchLost,
+                Position = lazyRankingitem.Position,
+                Points = lazyRankingitem.Points,
+                GoalDifference = lazyRankingitem.GoalDifference,
+                GoalsAgainst = lazyRankingitem.GoalsAgainst,
+                GoalsScored = lazyRankingitem.GoalsScored,
+                Penality = lazyRankingitem.Penality,
+                Withdaw = lazyRankingitem.Withdaw
 
             };
         }
@@ -125,11 +163,11 @@ namespace FootballWebSiteApi.Helpers
         {
             return new JUser
             {
-                UserId = user.id,
-                Email = user.emailAddress.Trim(),
-                Alias = user.alias,
-                FirstName = user.firstName,
-                LastName = user.lastName
+                UserId = user.Id,
+                Email = user.EmailAddress.Trim(),
+                Alias = user.Alias,
+                FirstName = user.FirstName,
+                LastName = user.LastName
             };
         }
 
@@ -148,11 +186,11 @@ namespace FootballWebSiteApi.Helpers
         {
             return new JCompetitionSeason
             {
-                Name = teamCompetitionSeason.CompetitionSeason.Competition.name,
-                Group = teamCompetitionSeason.competitionGroup,
-                Season = teamCompetitionSeason.CompetitionSeason.Season.name,
-                ShortName = teamCompetitionSeason.CompetitionSeason.Competition.shortName,
-                CompetitionId = teamCompetitionSeason.CompetitionSeason.competitionId
+                Name = teamCompetitionSeason.CompetitionSeason.Competition.Name,
+                Group = teamCompetitionSeason.CompetitionGroup,
+                Season = teamCompetitionSeason.CompetitionSeason.Season.Name,
+                ShortName = teamCompetitionSeason.CompetitionSeason.Competition.ShortName,
+                CompetitionId = teamCompetitionSeason.CompetitionSeason.CompetitionId
             };
         }
 
@@ -160,16 +198,16 @@ namespace FootballWebSiteApi.Helpers
         {
             return new JPlayerStats
             {
-                PlayerName = stat.Player.firstName + " " + stat.Player.lastName,
-                PlayerFirstName = stat.Player.firstName,
-                PlayerLastName = stat.Player.lastName,
-                PlayerId = stat.playerId,
-                ChampionshipGoals = stat.championshipGoals ?? 0,
-                NationalCupGoals = stat.nationalCupGoals ?? 0,
-                OtherCupGoals = stat.otherCupGoals ?? 0,
-                RegionalCupGoals = stat.regionalCupGoals ?? 0,
-                ChampionshipAssists = stat.championshipAssists ?? 0,
-                TotalGoals = GetTotalGoals(stat.championshipGoals, stat.nationalCupGoals, stat.regionalCupGoals, stat.otherCupGoals)
+                PlayerName = stat.Player.FirstName + " " + stat.Player.LastName,
+                PlayerFirstName = stat.Player.FirstName,
+                PlayerLastName = stat.Player.LastName,
+                PlayerId = stat.PlayerId,
+                ChampionshipGoals = stat.ChampionshipGoals ?? 0,
+                NationalCupGoals = stat.NationalCupGoals ?? 0,
+                OtherCupGoals = stat.OtherCupGoals ?? 0,
+                RegionalCupGoals = stat.RegionalCupGoals ?? 0,
+                ChampionshipAssists = stat.ChampionshipAssists ?? 0,
+                TotalGoals = GetTotalGoals(stat.ChampionshipGoals, stat.NationalCupGoals, stat.RegionalCupGoals, stat.OtherCupGoals)
             };
         }
 
@@ -192,31 +230,31 @@ namespace FootballWebSiteApi.Helpers
         {
             return new JOwner
             {
-                Address = owner.address,
-                City = owner.city,
-                EmailAddress = owner.emailAddress,
-                Facebook = owner.facebook,
-                History = owner.history,
-                Name = owner.name,
-                LongName = owner.longName,
-                OwnerId = owner.ownerId,
-                PhoneNumber = owner.phoneNumber,
-                Stadium = owner.stadium,
-                Youtube = owner.youtube,
-                ZipCode = owner.zipCode,
-                GoogleMap = owner.googleMap,
-                FacebookLikeUrl = owner.facebookLikeUrl,
-                LogoUrl = owner.logoUrl,
-                Nickname = owner.nickname
+                Address = owner.Address,
+                City = owner.City,
+                EmailAddress = owner.EmailAddress,
+                Facebook = owner.Facebook,
+                History = owner.History,
+                Name = owner.Name,
+                LongName = owner.LongName,
+                OwnerId = owner.OwnerId,
+                PhoneNumber = owner.PhoneNumber,
+                Stadium = owner.Stadium,
+                Youtube = owner.Youtube,
+                ZipCode = owner.ZipCode,
+                GoogleMap = owner.GoogleMap,
+                FacebookLikeUrl = owner.FacebookLikeUrl,
+                LogoUrl = owner.LogoUrl,
+                Nickname = owner.Nickname
             };
         }
 
-        internal static IEnumerable<JEventType> Map(DbSet<EventType> eventTypes)
+        internal static IEnumerable<JEventType> Map(DbSet<GameEventType> eventTypes)
         {
             return eventTypes.Select(o => new JEventType
             {
 
-                Id = o.EventTypeId,
+                Id = o.GameEventTypeId,
                 Name = o.EventName
             }).ToList();
         }
@@ -225,15 +263,15 @@ namespace FootballWebSiteApi.Helpers
         {
             return new JGame
             {
-                Id = game.Id,
+                Id = game.GameId,
                 AwayTeamId = game.AwayTeam,
-                AwayTeam = game.Team1.name,
+                AwayTeam = game.Team1.Name,
                 HomeTeamId = game.HomeTeam,
-                HomeTeam = game.Team.name,
+                HomeTeam = game.Team.Name,
                 Championship = game.Championship,
                 CompetitionId = game.CompetitionId,
-                Competition = game.Competition?.name,
-                CompetitionShort = game.Competition?.shortName,
+                Competition = game.Competition?.Name,
+                CompetitionShort = game.Competition?.ShortName,
                 MatchDate = game.MatchDate,
                 SeasonId = game.SeasonId,
                 HomeTeamScore = game.HomeTeamScore,
@@ -261,19 +299,19 @@ namespace FootballWebSiteApi.Helpers
         {
             return new JArticle
             {
-                Id = article.id,
-                Body = article.body,
-                CreationDate = article.creationDate,
-                DeletedDate = article.deletedDate,
-                ModifiedDate = article.modifiedDate,
-                PublishedDate = article.publishedDate,
-                Published = article.publishedDate.HasValue,
-                Publisher = article.User.lastName + " " + article.User.firstName,
-                Title = article.title,
-                GameId = article.gameId,
-                ImageUrl = article.imageUrl,
-                SubTitle = article.subTitle,
-                Type = article.articleTypeId,
+                Id = article.ArticleId,
+                Body = article.Body,
+                CreationDate = article.CreationDate,
+                DeletedDate = article.DeletedDate,
+                ModifiedDate = article.ModifiedDate,
+                PublishedDate = article.PublishedDate,
+                Published = article.PublishedDate.HasValue,
+                Publisher = article.User.LastName + " " + article.User.FirstName,
+                Title = article.Title,
+                GameId = article.GameId,
+                ImageUrl = article.ImageUrl,
+                SubTitle = article.SubTitle,
+                Type = article.ArticleTypeId,
 
             };
         }
@@ -292,19 +330,19 @@ namespace FootballWebSiteApi.Helpers
         {
             return new JPlayer
             {
-                Id = player.id,
-                Position = player.position,
-                DateOfBirth = player.dateOfBirth,
-                FirstName = player.firstName,
-                Height = player.height,
-                LastName = player.lastName,
-                Nationality = player.nationality,
-                PreviousClubs = player.previousClubs,
-                Weight = player.weight,
-                FavoriteNumber = player.favoriteNumber,
-                FavoritePlayer = player.favoritePlayer,
-                FavoriteTeam = player.favoriteTeam,
-                Nickname = player.nickname
+                Id = player.PlayerId,
+                Position = player.Position,
+                DateOfBirth = player.DateOfBirth,
+                FirstName = player.FirstName,
+                Height = player.Height,
+                LastName = player.LastName,
+                Nationality = player.Nationality,
+                PreviousClubs = player.PreviousClubs,
+                Weight = player.Weight,
+                FavoriteNumber = player.FavoriteNumber,
+                FavoritePlayer = player.FavoritePlayer,
+                FavoriteTeam = player.FavoriteTeam,
+                Nickname = player.Nickname
             };
         }
 
@@ -314,10 +352,10 @@ namespace FootballWebSiteApi.Helpers
             {
                 Id = playerGame.PlayerGameId,
                 PlayerId = playerGame.PlayerId,
-                PlayerFirstName = playerGame.Player.firstName,
-                PlayerLastName = playerGame.Player.lastName,
+                PlayerFirstName = playerGame.Player.FirstName,
+                PlayerLastName = playerGame.Player.LastName,
                 Position = playerGame.Position,
-                GlobalPosition = playerGame.Player.position
+                GlobalPosition = playerGame.Player.Position
             };
         }
 
@@ -325,11 +363,12 @@ namespace FootballWebSiteApi.Helpers
         {
             return new Team
             {
-                id = jteam.Id,
-                name = jteam.Name,
-                shortName = jteam.ShortName,
-                displayName = jteam.DisplayName,
-                displayOrder = jteam.DisplayOrder,
+                TeamId = jteam.Id,
+                Name = jteam.Name,
+                ShortName = jteam.ShortName,
+                DisplayName = jteam.DisplayName,
+                DisplayOrder = jteam.DisplayOrder,
+                OwnerId = jteam.OwnerId,
             };
         }
 
@@ -347,13 +386,14 @@ namespace FootballWebSiteApi.Helpers
         {
             return new JTeam
             {
-                Id = team.id,
-                Name = team.name,
-                ShortName = team.shortName,
-                DisplayOrder = team.displayOrder,
-                DisplayName = team.displayName,
-                CalendarUrl = team.calendarUrl,
-                RankingUrl = team.rankingUrl
+                Id = team.TeamId,
+                Name = team.Name,
+                ShortName = team.ShortName,
+                DisplayOrder = team.DisplayOrder,
+                DisplayName = team.DisplayName,
+                CalendarUrl = team.CalendarUrl,
+                OwnerId = team.OwnerId,
+                RankingUrl = team.RankingUrl
             };
         }
     }

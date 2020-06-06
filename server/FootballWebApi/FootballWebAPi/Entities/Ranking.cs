@@ -14,19 +14,19 @@ namespace FootballWebSiteApi.Entities
     
     public partial class Ranking
     {
-        public System.Guid championshipId { get; set; }
-        public System.Guid teamId { get; set; }
-        public int position { get; set; }
-        public int points { get; set; }
-        public int matchPlayed { get; set; }
-        public int matchWon { get; set; }
-        public int matchDraw { get; set; }
-        public int matchLost { get; set; }
-        public int goalsScored { get; set; }
-        public int goalsAgainst { get; set; }
-        public int goalDifference { get; set; }
-        public int withdraw { get; set; }
-        public int penality { get; set; }
+        public System.Guid ChampionshipId { get; set; }
+        public System.Guid TeamId { get; set; }
+        public int Position { get; set; }
+        public int Points { get; set; }
+        public int MatchPlayed { get; set; }
+        public int MatchWon { get; set; }
+        public int MatchDraw { get; set; }
+        public int MatchLost { get; set; }
+        public int GoalsScored { get; set; }
+        public int GoalsAgainst { get; set; }
+        public int GoalDifference { get; set; }
+        public int Withdraw { get; set; }
+        public int Penality { get; set; }
         public Nullable<System.Guid> SeasonId { get; set; }
     }
 }

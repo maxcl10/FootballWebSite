@@ -8,22 +8,22 @@ using FootballWebSiteApi.Models;
 
 namespace FootballWebSiteApi.Repository
 {
-    public class EventsRepository : IEventsRepository
+    public class GameEventsRepository : IGameEventsRepository
     {
         private FootballWebSiteDbEntities _entities;
 
-        public EventsRepository()
+        public GameEventsRepository()
         {
             _entities = new FootballWebSiteDbEntities();
         }
 
-        public List<JEvent> GetEventsByGame(Guid gameId)
+        public List<JGameEvent> GetEventsByGame(Guid gameId)
         {
             var events = _entities.GameEvents.Where(o => o.PlayerGame.GameId == gameId);
             return Mapper.Map(events);
         }
 
-        public JEvent CreateEvent(JEvent gameEvent)
+        public JGameEvent CreateEvent(JGameEvent gameEvent)
         {
             gameEvent.EventId = Guid.NewGuid();
 
@@ -45,7 +45,7 @@ namespace FootballWebSiteApi.Repository
 
         public IEnumerable<JEventType> GetGameEventTypes()
         {
-            var eventTypes = _entities.EventTypes;
+            var eventTypes = _entities.GameEventTypes;
             return Mapper.Map(eventTypes);
 
         }
@@ -85,7 +85,7 @@ namespace FootballWebSiteApi.Repository
             disposed = true;
         }
 
-        ~EventsRepository()
+        ~GameEventsRepository()
         {
             Dispose(false);
         }

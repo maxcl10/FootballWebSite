@@ -528,6 +528,3 @@ C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\obj\Debug\FootballWebSi
 C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\obj\Debug\FootballWebSiteApi.dll
 C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\obj\Debug\FootballWebSiteApi.pdb
 C:\Users\mmax\Source\Repos\FootballWebApi\FootballWebApi\obj\Debug\FootballWebSiteAPI.csprojAssemblyReference.cache
-C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\bin\roslyn\System.Xml.ReaderWriter.dll
-C:\Users\mmax\Documents\GitHub\FootballWebSite\server\FootballWebApi\FootballWebApi\obj\Debug\FootballWebSiteAPI.csproj.CoreCompileInputs.cache

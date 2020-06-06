@@ -12,12 +12,15 @@ namespace FootballWebSiteApi.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class Survey
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public System.Guid SurveyId { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public System.DateTime StartDate { get; set; }
+        public System.DateTime EndDate { get; set; }
+        public System.Guid OwnerId { get; set; }
+    
+        public virtual Owner Owner { get; set; }
     }
 }

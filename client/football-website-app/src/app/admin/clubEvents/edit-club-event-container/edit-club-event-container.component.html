@@ -1,0 +1,130 @@
+<fws-page-header> {{ this.title }} Club Event </fws-page-header>
+
+<div *ngIf="clubEvent" class="mt-4">
+  <fws-widget [headerText]="clubEvent.name" [error]="errorMessage">
+    <div class="form-group">
+      <label>Nom</label>
+      <input
+        class="form-control"
+        placeholder="Nom de la manifestation"
+        [(ngModel)]="clubEvent.name"
+        type="text"
+      />
+    </div>
+    <div class="form-group">
+      <label>Lieu</label>
+      <input
+        class="form-control"
+        placeholder="Lieu"
+        [(ngModel)]="clubEvent.location"
+        type="text"
+      />
+    </div>
+    <div class="form-group">
+      <label>Ville</label>&nbsp;
+      <input [(ngModel)]="clubEvent.city" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>Image URL</label>&nbsp;
+      <input
+        [(ngModel)]="clubEvent.imageUrl"
+        type="text"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group">
+      <label>Début</label>&nbsp;
+      <input
+        [(ngModel)]="clubEvent.startDate"
+        type="datetime-local"
+        ngControl="startDate"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group">
+      <label>Fin</label>&nbsp;
+      <input
+        [(ngModel)]="clubEvent.endDate"
+        type="datetime-local"
+        ngControl="endDate"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group">
+      <div class="form-check">
+        <input
+          id="ownCheckbox"
+          class="form-check-input"
+          [(ngModel)]="clubEvent.canceled"
+          type="checkbox"
+          ngControl="canceled"
+        />
+        <label class="form-check-label" for="ownCheckbox">Annulée</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Description</label>
+      <editor
+        apiKey="x6kya91fxd4udiq2afldv6hr7u1oseggp245bsyzbtpysjey"
+        [(ngModel)]="clubEvent.description"
+        [init]="tinyMceSettings"
+      >
+      </editor>
+    </div>
+
+    <div>
+      <button (click)="goBack()" class="btn btn-grey">
+        <span class="fa fa-arrow-left"></span> Retour
+      </button>
+      <div class="pull-right btn-toolbar">
+        <button
+          class="btn btn-danger mr-2"
+          (click)="openModal(template)"
+          *ngIf="clubEvent.id"
+        >
+          <span class="fa fa-trash"></span> Supprimer
+        </button>
+
+        <button
+          (click)="saveArticle()"
+          type="submit"
+          class="btn btn-primary"
+          *ngIf="clubEvent.id"
+        >
+          <span class="fa fa-floppy-o"></span>
+          Sauvegarder
+        </button>
+        <button
+          (click)="createArticle()"
+          type="submit"
+          class="btn pull-right btn-primary"
+          *ngIf="!clubEvent.id"
+        >
+          <span class="fa fa-plus"></span>
+          Ajouter
+        </button>
+      </div>
+    </div>
+  </fws-widget>
+
+  <!--Modal confirmation popup-->
+  <ng-template #template>
+    <div class="modal-header">
+      <div class="modal-title"><span class="fa fa-trash>"></span> Delete</div>
+    </div>
+    <div class="modal-body">
+      <p>
+        Etes-vous sûr de vouloir supprimer le club <b>{{ clubEvent.name }} ?</b>
+      </p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="cancel()">
+          Non
+        </button>
+        <button type="button" class="btn btn-danger" (click)="deleteArticle()">
+          Supprimer
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</div>

@@ -46,9 +46,9 @@ export class RankingContainerComponent implements OnInit, OnDestroy {
     );
 
     // Get the home team
-    this.teamsService.getHomeTeams().subscribe(
+    this.teamsService.getOwnerTeams().subscribe(
       (homeTeams) => {
-        this.homeTeam = homeTeams[0].name;
+        this.homeTeam = homeTeams.filter((o) => o.displayOrder > 0)[0].name;
       },
       (error) => (this.errorMessage = <any>error)
     );

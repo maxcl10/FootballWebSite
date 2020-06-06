@@ -1,0 +1,37 @@
+<fws-page-header>
+  Equipes
+</fws-page-header>
+<a
+  class="mt-2 btn btn-primary float-right"
+  href=""
+  [routerLink]="['/admin/clubs/0/edit']"
+>
+  <span class="fa fa-plus"></span> Equipe
+</a>
+
+<div class="mt-4" *ngIf="teams">
+  <fws-widget [headerText]="teams.length + ' équipes'">
+    <table class="table table-hover table-clickable table-borderless">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Nom court</th>
+          <th>Url calendrier</th>
+          <th>Url classement</th>
+          <th>Affichage</th>
+          <th>Ordre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of teams" (click)="onselect(team)">
+          <td>{{ team.name }}</td>
+          <td>{{ team.shortName }}</td>
+          <td><a [href]="team.calendarUrl" target="_blank">Link</a></td>
+          <td><a [href]="team.calendarUrl" target="_blank">Link</a></td>
+          <td>{{ team.displayName }}</td>
+          <td>{{ team.displayOrder }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </fws-widget>
+</div>

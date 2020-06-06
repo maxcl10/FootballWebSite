@@ -18,18 +18,21 @@ namespace FootballWebSiteApi.Entities
         public Season()
         {
             this.Articles = new HashSet<Article>();
+            this.ClubEvents = new HashSet<ClubEvent>();
             this.CompetitionSeasons = new HashSet<CompetitionSeason>();
             this.PlayerTeams = new HashSet<PlayerTeam>();
         }
     
-        public System.Guid id { get; set; }
-        public System.DateTime startDate { get; set; }
-        public System.DateTime endDate { get; set; }
-        public bool currentSeason { get; set; }
-        public string name { get; set; }
+        public System.Guid SeasonId { get; set; }
+        public System.DateTime StartDate { get; set; }
+        public System.DateTime EndDate { get; set; }
+        public bool CurrentSeason { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Article> Articles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ClubEvent> ClubEvents { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CompetitionSeason> CompetitionSeasons { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -42,10 +42,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/16/2019 03:00:40</publishTime>
     </File>
     <File Include="bin/FootballWebSiteApi.dll">
-      <publishTime>05/23/2020 23:31:16</publishTime>
+      <publishTime>05/24/2020 22:35:00</publishTime>
     </File>
     <File Include="bin/FootballWebSiteApi.pdb">
-      <publishTime>05/23/2020 23:31:16</publishTime>
+      <publishTime>05/24/2020 22:35:00</publishTime>
     </File>
     <File Include="bin/HtmlAgilityPack.dll">
       <publishTime>03/22/2020 13:46:52</publishTime>

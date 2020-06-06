@@ -1,0 +1,39 @@
+<fws-page-header>
+  Manifestations
+</fws-page-header>
+<a
+  class="btn btn-primary pull-right mt-2"
+  href=""
+  [routerLink]="['/admin/clubEvents/0/edit']"
+>
+  <span class="fa fa-plus"></span> Manifestation
+</a>
+<div class="mt-4" *ngIf="clubEvents">
+  <fws-widget [headerText]="clubEvents.length + ' Manifestations'">
+    <table class="table table-hover table-clickable table-borderless">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Lieu</th>
+          <th>Début</th>
+          <th>Fin</th>
+          <th>Annulée</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let clubEvent of clubEvents"
+          (click)="goToDetails(clubEvent)"
+        >
+          <td>{{ clubEvent.name }}</td>
+          <td>{{ clubEvent.location }} / {{ clubEvent.city }}</td>
+          <td>{{ clubEvent.startDate | date: 'dd/MM/yyyy HH:mm' }}</td>
+          <td>{{ clubEvent.endDate | date: 'dd/MM/yyyy HH:mm' }}</td>
+          <td>
+            <span class="fa fa-ban" *ngIf="clubEvent.canceled"></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </fws-widget>
+</div>

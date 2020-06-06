@@ -9,12 +9,12 @@ using FootballWebSiteApi.Repository;
 
 namespace FootballWebSiteApi.Controllers
 {
-    [RoutePrefix("api/events")]
+    [RoutePrefix("api/games/events")]
     public class EventsController : ApiController
     {
-        private readonly IEventsRepository _eventsRepository;
+        private readonly IGameEventsRepository _eventsRepository;
 
-        public EventsController(IEventsRepository eventsRepository)
+        public EventsController(IGameEventsRepository eventsRepository)
         {
             this._eventsRepository = eventsRepository;
         }
@@ -36,7 +36,7 @@ namespace FootballWebSiteApi.Controllers
         }
 
         // POST: api/Events
-        public IHttpActionResult Post([FromBody] JEvent gameEvent)
+        public IHttpActionResult Post([FromBody] JGameEvent gameEvent)
         {
             var retEvent = _eventsRepository.CreateEvent(gameEvent);
             return Created(Request.RequestUri + retEvent.EventId.ToString(), retEvent);

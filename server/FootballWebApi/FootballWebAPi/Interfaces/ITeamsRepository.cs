@@ -8,12 +8,12 @@ namespace FootballWebSiteApi.Interfaces
     {
         void AddPlayer(Guid playerId, Guid teamId);
         void Delete(Guid id);
-        JTeam Get(Guid id);
+        JTeam GetTeam(Guid id);
         IEnumerable<JTeam> GetHomeTeams(Guid ownerId);
         IEnumerable<JPlayer> GetPlayers(Guid ownerId, Guid id);
         IEnumerable<JTeam> GetTeams();
-        JTeam Post(JTeam jteam);
-        JTeam Put(Guid id, JTeam team);
+        JTeam CreateTeam(JTeam jteam);
+        JTeam UpdateTeam(Guid id, JTeam team);
         void RemovePlayer(Guid playerId, Guid teamId);
     }
 }

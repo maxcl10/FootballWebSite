@@ -14,12 +14,12 @@ namespace FootballWebSiteApi.Entities
     
     public partial class Sponsor
     {
-        public System.Guid sponsorId { get; set; }
-        public string name { get; set; }
-        public string logoUrl { get; set; }
-        public string siteUrl { get; set; }
-        public int orderIndex { get; set; }
-        public System.Guid ownerId { get; set; }
+        public System.Guid SponsorId { get; set; }
+        public string Name { get; set; }
+        public string LogoUrl { get; set; }
+        public string SiteUrl { get; set; }
+        public int OrderIndex { get; set; }
+        public System.Guid OwnerId { get; set; }
     
         public virtual Owner Owner { get; set; }
     }

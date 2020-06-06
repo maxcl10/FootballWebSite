@@ -38,11 +38,11 @@ namespace FootballWebSiteApi.Helpers
 
                 if (homeGoals > awayGoals)
                 {
-                    return game.Team.id == homeTeamId ? "W" : "L";
+                    return game.Team.TeamId == homeTeamId ? "W" : "L";
                 }
                 else if (homeGoals < awayGoals)
                 {
-                    return game.Team.id == homeTeamId ? "L" : "W";
+                    return game.Team.TeamId == homeTeamId ? "L" : "W";
                 }
 
                 return "D";

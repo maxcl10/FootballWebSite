@@ -19,7 +19,7 @@ namespace FootballWebSiteApi.Entities
         public System.Guid PlayeGameId { get; set; }
         public int Time { get; set; }
     
-        public virtual EventType EventType { get; set; }
+        public virtual GameEventType GameEventType { get; set; }
         public virtual PlayerGame PlayerGame { get; set; }
     }
 }

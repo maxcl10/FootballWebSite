@@ -13,7 +13,6 @@ import { AppRoutingModule } from './app-routing.module';
 // Modules
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { ModalModule } from 'ngx-bootstrap/modal';
 
 // App is our top level component
 import { AppComponent } from './app.component';
@@ -22,6 +21,7 @@ import { AppState } from './app.service';
 
 import { environment } from '../environments/environment';
 import { AppConfig } from './app.config';
+import { RouterModule } from '@angular/router';
 
 // Application wide providers
 const APP_PROVIDERS = [...APP_RESOLVER_PROVIDERS, AppState];
@@ -43,7 +43,7 @@ registerLocaleData(localeFr, 'fr');
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
-    ModalModule.forRoot(),
+    RouterModule,
     // App modules
     AppRoutingModule,
     CoreModule,

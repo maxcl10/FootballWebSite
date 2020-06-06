@@ -20,11 +20,7 @@
           data-toggle="collapse"
           data-target=".navbar-collapse.show"
         >
-          <a
-            class="nav-link"
-            href=""
-            routerLinkActive="active"
-            [routerLink]="['']"
+          <a class="nav-link" href="" routerLinkActive="active" routerLink=""
             >Accueil</a
           >
         </li>
@@ -37,7 +33,7 @@
             class="nav-link"
             href=""
             routerLinkActive="active"
-            [routerLink]="['news']"
+            routerLink="/news"
             >News</a
           >
         </li>
@@ -58,7 +54,7 @@
                   class="text-center col-sm-4"
                   *ngFor="let team of teams; let i = index"
                 >
-                  <h5 class="text-primary">Equipe {{ i + 1 }}</h5>
+                  <h5 class="text-primary">{{ team.displayName }}</h5>
                   <li>
                     <a href="#" [routerLink]="['team', team.id]">Effectif</a>
                   </li>
@@ -172,6 +168,12 @@
                   href="#"
                   [routerLink]="['club', 'organizational-chart']"
                   >Organigramme</a
+                >
+                <a
+                  class="dropdown-item"
+                  href="#"
+                  [routerLink]="['club', 'events']"
+                  >Manifestations</a
                 >
               </div>
             </div>

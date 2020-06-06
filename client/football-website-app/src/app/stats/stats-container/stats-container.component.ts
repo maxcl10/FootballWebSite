@@ -28,7 +28,7 @@ export class StatsContainerComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.titleService.setTitle(
-      AppConfig.settings.properties.siteName + ' - Classement'
+      AppConfig.settings.properties.siteName + ' - Stats'
     );
 
     this.loadingScoredGoals = this.loadingConcededGoals = this.loadingPlayerStats = this.loadingShape = true;
@@ -47,7 +47,7 @@ export class StatsContainerComponent implements OnInit, OnDestroy {
     });
 
     this.subs.sink = this.service.getShape().subscribe((stats) => {
-      this.shape = stats.slice(stats.length - 5);
+      this.shape = stats;
       this.loadingShape = false;
     });
   }

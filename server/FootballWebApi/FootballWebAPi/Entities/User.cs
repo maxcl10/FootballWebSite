@@ -20,13 +20,13 @@ namespace FootballWebSiteApi.Entities
             this.Articles = new HashSet<Article>();
         }
     
-        public System.Guid id { get; set; }
-        public string alias { get; set; }
-        public string emailAddress { get; set; }
-        public string password { get; set; }
-        public System.Guid ownerId { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
+        public System.Guid Id { get; set; }
+        public string Alias { get; set; }
+        public string EmailAddress { get; set; }
+        public string Password { get; set; }
+        public System.Guid OwnerId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Article> Articles { get; set; }

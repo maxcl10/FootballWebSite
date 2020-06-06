@@ -20,7 +20,7 @@ export class SeasonSummaryComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.teamsService.getHomeTeams().subscribe(
+    this.teamsService.getOwnerTeams().subscribe(
       (homeTeams) => {
         this.homeTeam = homeTeams[0].name;
         this.getRankings();

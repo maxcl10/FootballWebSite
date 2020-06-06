@@ -4,65 +4,82 @@
     <EntitySetMapping Name="Articles">
       <EntityTypeMapping TypeName="FootballWebSiteDbModel.Article">
         <MappingFragment StoreEntitySet="Article">
-          <ScalarProperty Name="subTitle" ColumnName="subTitle" />
-          <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
-          <ScalarProperty Name="articleTypeId" ColumnName="articleTypeId" />
-          <ScalarProperty Name="seasonId" ColumnName="seasonId" />
-          <ScalarProperty Name="gameId" ColumnName="gameId" />
-          <ScalarProperty Name="userId" ColumnName="userId" />
-          <ScalarProperty Name="ownerId" ColumnName="ownerId" />
-          <ScalarProperty Name="creationDate" ColumnName="creationDate" />
-          <ScalarProperty Name="deletedDate" ColumnName="deletedDate" />
-          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
-          <ScalarProperty Name="publishedDate" ColumnName="publishedDate" />
-          <ScalarProperty Name="body" ColumnName="body" />
-          <ScalarProperty Name="title" ColumnName="title" />
-          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="ArticleTypeId" ColumnName="ArticleTypeId" />
+          <ScalarProperty Name="SeasonId" ColumnName="SeasonId" />
+          <ScalarProperty Name="GameId" ColumnName="GameId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="PublishedDate" ColumnName="PublishedDate" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArticleTypes">
+      <EntityTypeMapping TypeName="FootballWebSiteDbModel.ArticleType">
+        <MappingFragment StoreEntitySet="ArticleType">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ArticleTypeId" ColumnName="ArticleTypeId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ChampionshipTeams">
       <EntityTypeMapping TypeName="FootballWebSiteDbModel.ChampionshipTeam">
         <MappingFragment StoreEntitySet="ChampionshipTeam">
-          <ScalarProperty Name="teamId" ColumnName="teamId" />
-          <ScalarProperty Name="championshipId" ColumnName="championshipId" />
-          <ScalarProperty Name="championshipTeamId" ColumnName="championshipTeamId" />
+          <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+          <ScalarProperty Name="ChampionshipId" ColumnName="ChampionshipId" />
+          <ScalarProperty Name="ChampionshipTeamId" ColumnName="ChampionshipTeamId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClubEvents">
+      <EntityTypeMapping TypeName="FootballWebSiteDbModel.ClubEvent">
+        <MappingFragment StoreEntitySet="ClubEvent">
+          <ScalarProperty Name="Canceled" ColumnName="Canceled" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="SeasonId" ColumnName="SeasonId" />
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ClubEventId" ColumnName="ClubEventId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Competitions">
       <EntityTypeMapping TypeName="FootballWebSiteDbModel.Competition">
         <MappingFragment StoreEntitySet="Competition">
-          <ScalarProperty Name="shortName" ColumnName="shortName" />
-          <ScalarProperty Name="competitionType" ColumnName="competitionType" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="competitionId" ColumnName="competitionId" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="CompetitionType" ColumnName="CompetitionType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CompetitionId" ColumnName="CompetitionId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CompetitionSeasons">
       <EntityTypeMapping TypeName="FootballWebSiteDbModel.CompetitionSeason">
         <MappingFragment StoreEntitySet="CompetitionSeason">
-          <ScalarProperty Name="lafaUrl" ColumnName="lafaUrl" />
-          <ScalarProperty Name="seasonId" ColumnName="seasonId" />
-          <ScalarProperty Name="competitionId" ColumnName="competitionId" />
-          <ScalarProperty Name="competitionSeasonId" ColumnName="competitionSeasonId" />
+          <ScalarProperty Name="LafaUrl" ColumnName="LafaUrl" />
+          <ScalarProperty Name="SeasonId" ColumnName="SeasonId" />
+          <ScalarProperty Name="CompetitionId" ColumnName="CompetitionId" />
+          <ScalarProperty Name="CompetitionSeasonId" ColumnName="CompetitionSeasonId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CompetitionTypes">
       <EntityTypeMapping TypeName="FootballWebSiteDbModel.CompetitionType">
         <MappingFragment StoreEntitySet="CompetitionType">
-          <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="competitionTypeId" ColumnName="competitionTypeId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="EventTypes">
-      <EntityTypeMapping TypeName="FootballWebSiteDbModel.EventType">
-        <MappingFragment StoreEntitySet="EventType">
-          <ScalarProperty Name="EventName" ColumnName="EventName" />
-          <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CompetitionTypeId" ColumnName="CompetitionTypeId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -83,7 +100,7 @@
           <ScalarProperty Name="MatchDate" ColumnName="MatchDate" />
           <ScalarProperty Name="AwayTeam" ColumnName="AwayTeam" />
           <ScalarProperty Name="HomeTeam" ColumnName="HomeTeam" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GameId" ColumnName="GameId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -97,66 +114,74 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="GameEventTypes">
+      <EntityTypeMapping TypeName="FootballWebSiteDbModel.GameEventType">
+        <MappingFragment StoreEntitySet="GameEventType">
+          <ScalarProperty Name="EventName" ColumnName="EventName" />
+          <ScalarProperty Name="GameEventTypeId" ColumnName="GameEventTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="LazyRankings">
       <EntityTypeMapping TypeName="FootballWebSiteDbModel.LazyRanking">
         <MappingFragment StoreEntitySet="LazyRanking">
-          <ScalarProperty Name="competitionSeasonId" ColumnName="competitionSeasonId" />
-          <ScalarProperty Name="uploadDate" ColumnName="uploadDate" />
-          <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
-          <ScalarProperty Name="rankingId" ColumnName="rankingId" />
-          <ScalarProperty Name="penality" ColumnName="penality" />
-          <ScalarProperty Name="withdaw" ColumnName="withdaw" />
-          <ScalarProperty Name="goalDifference" ColumnName="goalDifference" />
-          <ScalarProperty Name="goalsAgainst" ColumnName="goalsAgainst" />
-          <ScalarProperty Name="goalsScored" ColumnName="goalsScored" />
-          <ScalarProperty Name="matchLost" ColumnName="matchLost" />
-          <ScalarProperty Name="matchDraw" ColumnName="matchDraw" />
-          <ScalarProperty Name="matchWon" ColumnName="matchWon" />
-          <ScalarProperty Name="matchPlayed" ColumnName="matchPlayed" />
-          <ScalarProperty Name="points" ColumnName="points" />
-          <ScalarProperty Name="position" ColumnName="position" />
-          <ScalarProperty Name="team" ColumnName="team" />
+          <ScalarProperty Name="CompetitionSeasonId" ColumnName="CompetitionSeasonId" />
+          <ScalarProperty Name="UploadDate" ColumnName="UploadDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="RankingId" ColumnName="RankingId" />
+          <ScalarProperty Name="Penality" ColumnName="Penality" />
+          <ScalarProperty Name="Withdaw" ColumnName="Withdaw" />
+          <ScalarProperty Name="GoalDifference" ColumnName="GoalDifference" />
+          <ScalarProperty Name="GoalsAgainst" ColumnName="GoalsAgainst" />
+          <ScalarProperty Name="GoalsScored" ColumnName="GoalsScored" />
+          <ScalarProperty Name="MatchLost" ColumnName="MatchLost" />
+          <ScalarProperty Name="MatchDraw" ColumnName="MatchDraw" />
+          <ScalarProperty Name="MatchWon" ColumnName="MatchWon" />
+          <ScalarProperty Name="MatchPlayed" ColumnName="MatchPlayed" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Owners">
       <EntityTypeMapping TypeName="FootballWebSiteDbModel.Owner">
         <MappingFragment StoreEntitySet="Owner">
-          <ScalarProperty Name="nickname" ColumnName="nickname" />
-          <ScalarProperty Name="facebookLikeUrl" ColumnName="facebookLikeUrl" />
-          <ScalarProperty Name="logoUrl" ColumnName="logoUrl" />
-          <ScalarProperty Name="longName" ColumnName="longName" />
-          <ScalarProperty Name="googleMap" ColumnName="googleMap" />
-          <ScalarProperty Name="history" ColumnName="history" />
-          <ScalarProperty Name="stadium" ColumnName="stadium" />
-          <ScalarProperty Name="youtube" ColumnName="youtube" />
-          <ScalarProperty Name="facebook" ColumnName="facebook" />
-          <ScalarProperty Name="emailAddress" ColumnName="emailAddress" />
-          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
-          <ScalarProperty Name="city" ColumnName="city" />
-          <ScalarProperty Name="zipCode" ColumnName="zipCode" />
-          <ScalarProperty Name="address" ColumnName="address" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="ownerId" ColumnName="ownerId" />
+          <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+          <ScalarProperty Name="FacebookLikeUrl" ColumnName="FacebookLikeUrl" />
+          <ScalarProperty Name="LogoUrl" ColumnName="LogoUrl" />
+          <ScalarProperty Name="LongName" ColumnName="LongName" />
+          <ScalarProperty Name="GoogleMap" ColumnName="GoogleMap" />
+          <ScalarProperty Name="History" ColumnName="History" />
+          <ScalarProperty Name="Stadium" ColumnName="Stadium" />
+          <ScalarProperty Name="Youtube" ColumnName="Youtube" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Players">
       <EntityTypeMapping TypeName="FootballWebSiteDbModel.Player">
         <MappingFragment StoreEntitySet="Player">
-          <ScalarProperty Name="favoriteNumber" ColumnName="favoriteNumber" />
-          <ScalarProperty Name="favoriteTeam" ColumnName="favoriteTeam" />
-          <ScalarProperty Name="favoritePlayer" ColumnName="favoritePlayer" />
-          <ScalarProperty Name="nickname" ColumnName="nickname" />
-          <ScalarProperty Name="previousClubs" ColumnName="previousClubs" />
-          <ScalarProperty Name="position" ColumnName="position" />
-          <ScalarProperty Name="nationality" ColumnName="nationality" />
-          <ScalarProperty Name="weight" ColumnName="weight" />
-          <ScalarProperty Name="height" ColumnName="height" />
-          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
-          <ScalarProperty Name="lastName" ColumnName="lastName" />
-          <ScalarProperty Name="firstName" ColumnName="firstName" />
-          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="FavoriteNumber" ColumnName="FavoriteNumber" />
+          <ScalarProperty Name="FavoriteTeam" ColumnName="FavoriteTeam" />
+          <ScalarProperty Name="FavoritePlayer" ColumnName="FavoritePlayer" />
+          <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+          <ScalarProperty Name="PreviousClubs" ColumnName="PreviousClubs" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -173,99 +198,101 @@
     <EntitySetMapping Name="PlayerTeams">
       <EntityTypeMapping TypeName="FootballWebSiteDbModel.PlayerTeam">
         <MappingFragment StoreEntitySet="PlayerTeam">
-          <ScalarProperty Name="championshipAssists" ColumnName="championshipAssists" />
-          <ScalarProperty Name="otherCupGoals" ColumnName="otherCupGoals" />
-          <ScalarProperty Name="regionalCupGoals" ColumnName="regionalCupGoals" />
-          <ScalarProperty Name="nationalCupGoals" ColumnName="nationalCupGoals" />
-          <ScalarProperty Name="championshipGoals" ColumnName="championshipGoals" />
-          <ScalarProperty Name="seasonId" ColumnName="seasonId" />
-          <ScalarProperty Name="teamId" ColumnName="teamId" />
-          <ScalarProperty Name="playerId" ColumnName="playerId" />
-          <ScalarProperty Name="playerTeamId" ColumnName="playerTeamId" />
+          <ScalarProperty Name="ChampionshipAssists" ColumnName="ChampionshipAssists" />
+          <ScalarProperty Name="OtherCupGoals" ColumnName="OtherCupGoals" />
+          <ScalarProperty Name="RegionalCupGoals" ColumnName="RegionalCupGoals" />
+          <ScalarProperty Name="NationalCupGoals" ColumnName="NationalCupGoals" />
+          <ScalarProperty Name="ChampionshipGoals" ColumnName="ChampionshipGoals" />
+          <ScalarProperty Name="SeasonId" ColumnName="SeasonId" />
+          <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="PlayerTeamId" ColumnName="PlayerTeamId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Seasons">
       <EntityTypeMapping TypeName="FootballWebSiteDbModel.Season">
         <MappingFragment StoreEntitySet="Season">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="currentSeason" ColumnName="currentSeason" />
-          <ScalarProperty Name="endDate" ColumnName="endDate" />
-          <ScalarProperty Name="startDate" ColumnName="startDate" />
-          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CurrentSeason" ColumnName="CurrentSeason" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="SeasonId" ColumnName="SeasonId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Sponsors">
       <EntityTypeMapping TypeName="FootballWebSiteDbModel.Sponsor">
         <MappingFragment StoreEntitySet="Sponsor">
-          <ScalarProperty Name="ownerId" ColumnName="ownerId" />
-          <ScalarProperty Name="orderIndex" ColumnName="orderIndex" />
-          <ScalarProperty Name="siteUrl" ColumnName="siteUrl" />
-          <ScalarProperty Name="logoUrl" ColumnName="logoUrl" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="sponsorId" ColumnName="sponsorId" />
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="OrderIndex" ColumnName="OrderIndex" />
+          <ScalarProperty Name="SiteUrl" ColumnName="SiteUrl" />
+          <ScalarProperty Name="LogoUrl" ColumnName="LogoUrl" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SponsorId" ColumnName="SponsorId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Staffs">
       <EntityTypeMapping TypeName="FootballWebSiteDbModel.Staff">
         <MappingFragment StoreEntitySet="Staff">
-          <ScalarProperty Name="position" ColumnName="position" />
-          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
-          <ScalarProperty Name="lastName" ColumnName="lastName" />
-          <ScalarProperty Name="firstName" ColumnName="firstName" />
-          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="StaffId" ColumnName="StaffId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="FootballWebSiteDbModel.sysdiagram">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="definition" ColumnName="definition" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="name" ColumnName="name" />
+    <EntitySetMapping Name="Surveys">
+      <EntityTypeMapping TypeName="FootballWebSiteDbModel.Survey">
+        <MappingFragment StoreEntitySet="Survey">
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SurveyId" ColumnName="SurveyId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Teams">
       <EntityTypeMapping TypeName="FootballWebSiteDbModel.Team">
         <MappingFragment StoreEntitySet="Team">
-          <ScalarProperty Name="rankingUrl" ColumnName="rankingUrl" />
-          <ScalarProperty Name="calendarUrl" ColumnName="calendarUrl" />
-          <ScalarProperty Name="ownerId" ColumnName="ownerId" />
-          <ScalarProperty Name="displayName" ColumnName="displayName" />
-          <ScalarProperty Name="displayOrder" ColumnName="displayOrder" />
-          <ScalarProperty Name="homeTeam" ColumnName="homeTeam" />
-          <ScalarProperty Name="shortName" ColumnName="shortName" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="YouthTeam" ColumnName="YouthTeam" />
+          <ScalarProperty Name="RankingUrl" ColumnName="RankingUrl" />
+          <ScalarProperty Name="CalendarUrl" ColumnName="CalendarUrl" />
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="HomeTeam" ColumnName="HomeTeam" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TeamId" ColumnName="TeamId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TeamCompetitionSeasons">
       <EntityTypeMapping TypeName="FootballWebSiteDbModel.TeamCompetitionSeason">
         <MappingFragment StoreEntitySet="TeamCompetitionSeason">
-          <ScalarProperty Name="competitionGroup" ColumnName="competitionGroup" />
-          <ScalarProperty Name="lafaName" ColumnName="lafaName" />
-          <ScalarProperty Name="competitionSeasonId" ColumnName="competitionSeasonId" />
-          <ScalarProperty Name="teamId" ColumnName="teamId" />
-          <ScalarProperty Name="teamCompetitionSeasonId" ColumnName="teamCompetitionSeasonId" />
+          <ScalarProperty Name="CompetitionGroup" ColumnName="CompetitionGroup" />
+          <ScalarProperty Name="LafaName" ColumnName="LafaName" />
+          <ScalarProperty Name="CompetitionSeasonId" ColumnName="CompetitionSeasonId" />
+          <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+          <ScalarProperty Name="TeamCompetitionSeasonId" ColumnName="TeamCompetitionSeasonId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="FootballWebSiteDbModel.User">
         <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="lastName" ColumnName="lastName" />
-          <ScalarProperty Name="firstName" ColumnName="firstName" />
-          <ScalarProperty Name="ownerId" ColumnName="ownerId" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="emailAddress" ColumnName="emailAddress" />
-          <ScalarProperty Name="alias" ColumnName="alias" />
-          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -273,27 +300,19 @@
       <EntityTypeMapping TypeName="FootballWebSiteDbModel.Ranking">
         <MappingFragment StoreEntitySet="Ranking">
           <ScalarProperty Name="SeasonId" ColumnName="SeasonId" />
-          <ScalarProperty Name="penality" ColumnName="penality" />
-          <ScalarProperty Name="withdraw" ColumnName="withdraw" />
-          <ScalarProperty Name="goalDifference" ColumnName="goalDifference" />
-          <ScalarProperty Name="goalsAgainst" ColumnName="goalsAgainst" />
-          <ScalarProperty Name="goalsScored" ColumnName="goalsScored" />
-          <ScalarProperty Name="matchLost" ColumnName="matchLost" />
-          <ScalarProperty Name="matchDraw" ColumnName="matchDraw" />
-          <ScalarProperty Name="matchWon" ColumnName="matchWon" />
-          <ScalarProperty Name="matchPlayed" ColumnName="matchPlayed" />
-          <ScalarProperty Name="points" ColumnName="points" />
-          <ScalarProperty Name="position" ColumnName="position" />
-          <ScalarProperty Name="teamId" ColumnName="teamId" />
-          <ScalarProperty Name="championshipId" ColumnName="championshipId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ArticleTypes">
-      <EntityTypeMapping TypeName="FootballWebSiteDbModel.ArticleType">
-        <MappingFragment StoreEntitySet="ArticleType">
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="ArticleTypeId" ColumnName="ArticleTypeId" />
+          <ScalarProperty Name="Penality" ColumnName="Penality" />
+          <ScalarProperty Name="Withdraw" ColumnName="Withdraw" />
+          <ScalarProperty Name="GoalDifference" ColumnName="GoalDifference" />
+          <ScalarProperty Name="GoalsAgainst" ColumnName="GoalsAgainst" />
+          <ScalarProperty Name="GoalsScored" ColumnName="GoalsScored" />
+          <ScalarProperty Name="MatchLost" ColumnName="MatchLost" />
+          <ScalarProperty Name="MatchDraw" ColumnName="MatchDraw" />
+          <ScalarProperty Name="MatchWon" ColumnName="MatchWon" />
+          <ScalarProperty Name="MatchPlayed" ColumnName="MatchPlayed" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+          <ScalarProperty Name="ChampionshipId" ColumnName="ChampionshipId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -24,12 +24,12 @@ namespace FootballWebSiteApi.Repository
         /// <returns></returns>
         public IEnumerable<JGame> GetGames(Guid ownerId)
         {
-            var currentSeasonId = _entities.Seasons.Single(o => o.currentSeason).id;
+            var currentSeasonId = _entities.Seasons.Single(o => o.CurrentSeason).SeasonId;
             var games = Mapper.Map(_entities.Games.Where(o => o.SeasonId == currentSeasonId && o.ownerId == ownerId)
             .OrderBy(o => o.MatchDate).Include("Team").Include("Team1"));
 
-            var localTeamId = _entities.Teams.Where(o => o.ownerId == ownerId)
-            .OrderBy(o => o.displayOrder).First().id;
+            var localTeamId = _entities.Teams.Where(o => o.OwnerId == ownerId)
+            .OrderBy(o => o.DisplayOrder).First(o => o.DisplayOrder > 0).TeamId;
 
             foreach (var game in games)
             {
@@ -55,8 +55,8 @@ namespace FootballWebSiteApi.Repository
                 return null;
             }
 
-            var localTeamId = _entities.Teams.Where(o => o.ownerId == ownerId)
-            .OrderBy(o => o.displayOrder).First().id;
+            var localTeamId = _entities.Teams.Where(o => o.OwnerId == ownerId)
+            .OrderBy(o => o.DisplayOrder).First().TeamId;
 
             var game = Mapper.Map(nextGame);
             game.Result = BusinessLogic.GetResultChar(game, localTeamId);
@@ -69,7 +69,7 @@ namespace FootballWebSiteApi.Repository
         /// <returns></returns>
         public JGame GetPreviousGame(Guid ownerId)
         {
-            var currentSeasonId = _entities.Seasons.Single(o => o.currentSeason).id;
+            var currentSeasonId = _entities.Seasons.Single(o => o.CurrentSeason).SeasonId;
 
             var previous = _entities.Games
                 .Where(o => o.MatchDate < DateTime.Now && o.ownerId == ownerId && o.SeasonId == currentSeasonId)
@@ -84,8 +84,8 @@ namespace FootballWebSiteApi.Repository
 
             }
 
-            var localTeamId = _entities.Teams.Where(o => o.ownerId == ownerId)
-            .OrderBy(o => o.displayOrder).First().id;
+            var localTeamId = _entities.Teams.Where(o => o.OwnerId == ownerId)
+            .OrderBy(o => o.DisplayOrder).First().TeamId;
 
             var game = Mapper.Map(previous);
             game.Result = BusinessLogic.GetResultChar(game, localTeamId);
@@ -100,10 +100,10 @@ namespace FootballWebSiteApi.Repository
         /// <exception cref="NotImplementedException"></exception>
         public JGame GetGame(Guid ownerId, Guid id)
         {
-            var localTeamId = _entities.Teams.Where(o => o.ownerId == ownerId)
-            .OrderBy(o => o.displayOrder).First().id;
+            var localTeamId = _entities.Teams.Where(o => o.OwnerId == ownerId)
+            .OrderBy(o => o.DisplayOrder).First().TeamId;
 
-            JGame game = Mapper.Map(_entities.Games.Single(o => o.Id == id));
+            JGame game = Mapper.Map(_entities.Games.Single(o => o.GameId == id));
             game.Result = BusinessLogic.GetResultChar(game, localTeamId);
             game.OwnerTeam = localTeamId;
 
@@ -126,10 +126,10 @@ namespace FootballWebSiteApi.Repository
 
             var game = new Game
             {
-                Id = Guid.NewGuid(),
+                GameId = Guid.NewGuid(),
                 MatchDate = jgame.MatchDate,
                 Championship = jgame.Championship,
-                SeasonId = _entities.Seasons.Single(o => o.currentSeason).id,
+                SeasonId = _entities.Seasons.Single(o => o.CurrentSeason).SeasonId,
                 CompetitionId = jgame.CompetitionId,
                 Team = homeTeam,
                 Team1 = awayTeam,
@@ -151,7 +151,7 @@ namespace FootballWebSiteApi.Repository
         /// <returns></returns>
         public JGame SaveGame(Guid ownerId, Guid id, JGame jgame)
         {
-            var correspondingGame = _entities.Games.Single(o => o.Id == id && o.ownerId == ownerId);
+            var correspondingGame = _entities.Games.Single(o => o.GameId == id && o.ownerId == ownerId);
 
             correspondingGame.Team = _entities.Teams.Find(jgame.HomeTeamId);
             correspondingGame.Team1 = _entities.Teams.Find(jgame.AwayTeamId);
@@ -174,7 +174,7 @@ namespace FootballWebSiteApi.Repository
 
         public void DeleteGame(Guid ownerId, Guid id)
         {
-            var correspondingGame = _entities.Games.Single(o => o.Id == id && o.ownerId == ownerId);
+            var correspondingGame = _entities.Games.Single(o => o.GameId == id && o.ownerId == ownerId);
             _entities.Games.Remove(correspondingGame);
             _entities.SaveChanges();
         }

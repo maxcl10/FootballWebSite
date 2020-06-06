@@ -30,7 +30,7 @@ namespace FootballWebSiteApi.Controllers
         [Route("{id}")]
         public IHttpActionResult GetTeam(Guid id)
         {
-            var team = _teamsRepository.Get(id);
+            var team = _teamsRepository.GetTeam(id);
             return Ok(team);
 
         }
@@ -51,7 +51,7 @@ namespace FootballWebSiteApi.Controllers
             if (ModelState.IsValid)
             {
 
-                var retTeam = _teamsRepository.Post(team);
+                var retTeam = _teamsRepository.CreateTeam(team);
                 return Ok(retTeam);
 
             }
@@ -59,13 +59,14 @@ namespace FootballWebSiteApi.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult Put(Guid id, [FromBody] JTeam team)
+        [Route("{id}")]
+        public IHttpActionResult UpdateTeam(Guid id, [FromBody] JTeam team)
         {
             if (ModelState.IsValid)
             {
 
 
-                var retTeam = _teamsRepository.Put(id, team);
+                var retTeam = _teamsRepository.UpdateTeam(id, team);
                 return Ok(retTeam);
 
             }

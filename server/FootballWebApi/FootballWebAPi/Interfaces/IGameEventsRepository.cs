@@ -4,11 +4,11 @@ using FootballWebSiteApi.Models;
 
 namespace FootballWebSiteApi.Interfaces
 {
-    public interface IEventsRepository : IDisposable
+    public interface IGameEventsRepository : IDisposable
     {
-        JEvent CreateEvent(JEvent gameEvent);
+        JGameEvent CreateEvent(JGameEvent gameEvent);
         void DeleteEvent(Guid eventId);
-        List<JEvent> GetEventsByGame(Guid gameId);
+        List<JGameEvent> GetEventsByGame(Guid gameId);
 
         IEnumerable<JEventType> GetGameEventTypes();
     }

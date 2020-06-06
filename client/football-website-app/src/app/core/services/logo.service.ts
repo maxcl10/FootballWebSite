@@ -198,6 +198,8 @@ export class LogoService {
           size +
           '.png'
         );
+      case 'EJPS U19':
+        return baseUrl + 'Ejps/ejps_' + size + 'x' + size + '.png';
       default:
         break;
     }

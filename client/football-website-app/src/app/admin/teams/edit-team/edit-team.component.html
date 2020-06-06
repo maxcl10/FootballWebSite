@@ -1,20 +1,8 @@
 <fws-page-header>
-  Editer les Equipes
+  Editer équipe
 </fws-page-header>
 
 <fws-widget [error]="errorMessage">
-  <h5>Selectionner l'équipe à éditer.</h5>
-  <select
-    [(ngModel)]="selectedTeam"
-    (change)="onTeamChange($event)"
-    class="form-control"
-  >
-    <option *ngFor="let team of localTeams" [value]="team.id">{{
-      team.name
-    }}</option>
-  </select>
-
-  <hr />
   <h5>
     Cliquez sur les joueurs à déplacer.
   </h5>

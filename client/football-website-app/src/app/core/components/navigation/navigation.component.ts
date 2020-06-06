@@ -15,9 +15,9 @@ export class NavigationComponent implements OnInit {
   public teams: Team[];
 
   ngOnInit(): void {
-    this.teamsService.getHomeTeams().subscribe(
+    this.teamsService.getOwnerTeams().subscribe(
       (homeTeams) => {
-        this.teams = homeTeams;
+        this.teams = homeTeams.filter((o) => o.displayOrder > 0);
       },
       (error) => (this.errorMessage = <any>error)
     );

@@ -23,7 +23,7 @@ export class PlayersService {
     return this.http.get<Player>(this.playerUrl + '/' + id);
   }
 
-  public getplayers(): Observable<Player[]> {
+  public getAllPlayers(): Observable<Player[]> {
     return this.http.get<Player[]>(this.playerUrl);
   }
 

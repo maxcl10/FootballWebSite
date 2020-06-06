@@ -14,15 +14,15 @@ namespace FootballWebSiteApi.Entities
     
     public partial class PlayerTeam
     {
-        public System.Guid playerTeamId { get; set; }
-        public System.Guid playerId { get; set; }
-        public System.Guid teamId { get; set; }
-        public System.Guid seasonId { get; set; }
-        public Nullable<int> championshipGoals { get; set; }
-        public Nullable<int> nationalCupGoals { get; set; }
-        public Nullable<int> regionalCupGoals { get; set; }
-        public Nullable<int> otherCupGoals { get; set; }
-        public Nullable<int> championshipAssists { get; set; }
+        public System.Guid PlayerTeamId { get; set; }
+        public System.Guid PlayerId { get; set; }
+        public System.Guid TeamId { get; set; }
+        public System.Guid SeasonId { get; set; }
+        public Nullable<int> ChampionshipGoals { get; set; }
+        public Nullable<int> NationalCupGoals { get; set; }
+        public Nullable<int> RegionalCupGoals { get; set; }
+        public Nullable<int> OtherCupGoals { get; set; }
+        public Nullable<int> ChampionshipAssists { get; set; }
     
         public virtual Player Player { get; set; }
         public virtual Season Season { get; set; }

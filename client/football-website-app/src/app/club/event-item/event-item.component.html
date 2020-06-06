@@ -1,0 +1,27 @@
+<div class="row bg-grey">
+  <div class="col-md-2 text-center bg-secondary text-white">
+    <div class="display-4">
+      {{ event.startDate | date: 'dd ' | titlecase }}
+    </div>
+    {{ event.startDate | date: 'LLL' | uppercase }}
+  </div>
+  <div class="col-md-8">
+    <h4 class="card-title mt-2 mt-md-0">
+      {{ event.name }}
+    </h4>
+    <p class="text-muted">
+      {{ event.location }} | {{ event.city }} <br />
+      {{ event.startDate | date: 'EEEE dd LLLL yyyy' | titlecase }}
+    </p>
+  </div>
+  <div class="col-md-2">
+    <img
+      class="card-img-top"
+      style="object-fit: cover; height: 100px;"
+      [src]="event.imageUrl"
+    />
+    <div *ngIf="event.canceled" class="rubber">
+      Annulée
+    </div>
+  </div>
+</div>

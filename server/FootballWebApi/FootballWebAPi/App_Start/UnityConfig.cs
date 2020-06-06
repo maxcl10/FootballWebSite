@@ -20,7 +20,7 @@ namespace FootballWebSiteApi
             container.RegisterType<IArticleRepository, ArticlesRepository>();
             container.RegisterType<IAuthenticationRepository, AuthenticationRepository>();
             container.RegisterType<ICompetitionsRepository, CompetitionsRepository>();
-            container.RegisterType<IEventsRepository, EventsRepository>();
+            container.RegisterType<IGameEventsRepository, GameEventsRepository>();
             container.RegisterType<IGamesRepository, GamesRepository>();
             container.RegisterType<ILazyRankingRepository, LazyRankingRepository>();
             container.RegisterType<ILgefRepository, LgefRepository>();
@@ -31,6 +31,7 @@ namespace FootballWebSiteApi
             container.RegisterType<IStatsRepository, StatsRepository>();
             container.RegisterType<ITeamsRepository, TeamsRepository>();
             container.RegisterType<IUserRepository, UsersRepository>();
+            container.RegisterType<IClubEventsRepository, ClubEventsRepository>();
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }

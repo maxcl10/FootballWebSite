@@ -6,14 +6,14 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'fws-list-players',
-  templateUrl: './list-players.component.html'
+  templateUrl: './list-players.component.html',
 })
 export class ListPlayersComponent implements OnInit {
   public players$: Observable<Player[]>;
   constructor(private playersService: PlayersService, private router: Router) {}
 
   ngOnInit() {
-    this.players$ = this.playersService.getplayers();
+    this.players$ = this.playersService.getAllPlayers();
   }
 
   public onPlayerSelect(player: Player) {

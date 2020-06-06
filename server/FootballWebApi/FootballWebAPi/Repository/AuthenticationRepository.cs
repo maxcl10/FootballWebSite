@@ -16,7 +16,7 @@ namespace FootballWebSiteApi.Repository
 
         public User IsAuthorized(Guid ownerId, string alias, string password)
         {
-            var user = _entities.Users.SingleOrDefault(o => o.alias == alias && o.password == password && o.ownerId == ownerId);
+            var user = _entities.Users.SingleOrDefault(o => o.Alias == alias && o.Password == password && o.OwnerId == ownerId);
             if (user == null)
             {
                 return null;

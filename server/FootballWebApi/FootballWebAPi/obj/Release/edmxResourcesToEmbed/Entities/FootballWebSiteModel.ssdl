@@ -2,22 +2,22 @@
 <Schema Namespace="Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Article">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="ArticleId" />
     </Key>
-    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="title" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="body" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="publishedDate" Type="datetime" />
-    <Property Name="modifiedDate" Type="datetime" />
-    <Property Name="deletedDate" Type="datetime" />
-    <Property Name="creationDate" Type="datetime" Nullable="false" />
-    <Property Name="ownerId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="userId" Type="uniqueidentifier" />
-    <Property Name="gameId" Type="uniqueidentifier" />
-    <Property Name="seasonId" Type="uniqueidentifier" />
-    <Property Name="articleTypeId" Type="int" />
-    <Property Name="imageUrl" Type="nvarchar(max)" />
-    <Property Name="subTitle" Type="nvarchar" MaxLength="200" />
+    <Property Name="ArticleId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PublishedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="OwnerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" />
+    <Property Name="GameId" Type="uniqueidentifier" />
+    <Property Name="SeasonId" Type="uniqueidentifier" />
+    <Property Name="ArticleTypeId" Type="int" />
+    <Property Name="ImageUrl" Type="nvarchar(max)" />
+    <Property Name="SubTitle" Type="nvarchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="ArticleType">
     <Key>
@@ -28,49 +28,58 @@
   </EntityType>
   <EntityType Name="ChampionshipTeam">
     <Key>
-      <PropertyRef Name="championshipTeamId" />
+      <PropertyRef Name="ChampionshipTeamId" />
     </Key>
-    <Property Name="championshipTeamId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="championshipId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="teamId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ChampionshipTeamId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ChampionshipId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TeamId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClubEvent">
+    <Key>
+      <PropertyRef Name="ClubEventId" />
+    </Key>
+    <Property Name="ClubEventId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="Location" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="OwnerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SeasonId" Type="uniqueidentifier" />
+    <Property Name="ImageUrl" Type="nvarchar(max)" />
+    <Property Name="Canceled" Type="bit" />
   </EntityType>
   <EntityType Name="Competition">
     <Key>
-      <PropertyRef Name="competitionId" />
+      <PropertyRef Name="CompetitionId" />
     </Key>
-    <Property Name="competitionId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="competitionType" Type="int" />
-    <Property Name="shortName" Type="nvarchar" MaxLength="10" />
+    <Property Name="CompetitionId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CompetitionType" Type="int" />
+    <Property Name="ShortName" Type="nvarchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="CompetitionSeason">
     <Key>
-      <PropertyRef Name="competitionSeasonId" />
+      <PropertyRef Name="CompetitionSeasonId" />
     </Key>
-    <Property Name="competitionSeasonId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="competitionId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="seasonId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="lafaUrl" Type="nvarchar(max)" />
+    <Property Name="CompetitionSeasonId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CompetitionId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SeasonId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LafaUrl" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="CompetitionType">
     <Key>
-      <PropertyRef Name="competitionTypeId" />
+      <PropertyRef Name="CompetitionTypeId" />
     </Key>
-    <Property Name="competitionTypeId" Type="int" Nullable="false" />
-    <Property Name="description" Type="nvarchar" MaxLength="50" Nullable="false" />
-  </EntityType>
-  <EntityType Name="EventType">
-    <Key>
-      <PropertyRef Name="EventTypeId" />
-    </Key>
-    <Property Name="EventTypeId" Type="int" Nullable="false" />
-    <Property Name="EventName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompetitionTypeId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Game">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="GameId" />
     </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="HomeTeam" Type="uniqueidentifier" Nullable="false" />
     <Property Name="AwayTeam" Type="uniqueidentifier" Nullable="false" />
     <Property Name="MatchDate" Type="datetime" Nullable="false" />
@@ -95,65 +104,72 @@
     <Property Name="PlayeGameId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Time" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="GameEventType">
+    <Key>
+      <PropertyRef Name="GameEventTypeId" />
+    </Key>
+    <Property Name="GameEventTypeId" Type="int" Nullable="false" />
+    <Property Name="EventName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="LazyRanking">
     <Key>
-      <PropertyRef Name="rankingId" />
+      <PropertyRef Name="RankingId" />
     </Key>
-    <Property Name="team" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="position" Type="int" />
-    <Property Name="points" Type="int" />
-    <Property Name="matchPlayed" Type="int" />
-    <Property Name="matchWon" Type="int" />
-    <Property Name="matchDraw" Type="int" />
-    <Property Name="matchLost" Type="int" />
-    <Property Name="goalsScored" Type="int" />
-    <Property Name="goalsAgainst" Type="int" />
-    <Property Name="goalDifference" Type="int" />
-    <Property Name="withdaw" Type="int" />
-    <Property Name="penality" Type="int" />
-    <Property Name="rankingId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="updatedDate" Type="datetime" />
-    <Property Name="uploadDate" Type="datetime" />
-    <Property Name="competitionSeasonId" Type="uniqueidentifier" />
+    <Property Name="Team" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Position" Type="int" />
+    <Property Name="Points" Type="int" />
+    <Property Name="MatchPlayed" Type="int" />
+    <Property Name="MatchWon" Type="int" />
+    <Property Name="MatchDraw" Type="int" />
+    <Property Name="MatchLost" Type="int" />
+    <Property Name="GoalsScored" Type="int" />
+    <Property Name="GoalsAgainst" Type="int" />
+    <Property Name="GoalDifference" Type="int" />
+    <Property Name="Withdaw" Type="int" />
+    <Property Name="Penality" Type="int" />
+    <Property Name="RankingId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UploadDate" Type="datetime" />
+    <Property Name="CompetitionSeasonId" Type="uniqueidentifier" />
   </EntityType>
   <EntityType Name="Owner">
     <Key>
-      <PropertyRef Name="ownerId" />
+      <PropertyRef Name="OwnerId" />
     </Key>
-    <Property Name="ownerId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="address" Type="nvarchar" MaxLength="50" />
-    <Property Name="zipCode" Type="nchar" MaxLength="5" />
-    <Property Name="city" Type="nvarchar" MaxLength="30" />
-    <Property Name="phoneNumber" Type="nchar" MaxLength="14" />
-    <Property Name="emailAddress" Type="nvarchar" MaxLength="50" />
-    <Property Name="facebook" Type="nvarchar" MaxLength="100" />
-    <Property Name="youtube" Type="nvarchar" MaxLength="100" />
-    <Property Name="stadium" Type="nvarchar" MaxLength="50" />
-    <Property Name="history" Type="nvarchar(max)" />
-    <Property Name="googleMap" Type="nvarchar" MaxLength="100" />
-    <Property Name="longName" Type="nvarchar" MaxLength="100" />
-    <Property Name="logoUrl" Type="nvarchar" MaxLength="200" />
-    <Property Name="facebookLikeUrl" Type="nvarchar" MaxLength="100" />
-    <Property Name="nickname" Type="nvarchar" MaxLength="50" />
+    <Property Name="OwnerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="ZipCode" Type="nchar" MaxLength="5" />
+    <Property Name="City" Type="nvarchar" MaxLength="30" />
+    <Property Name="PhoneNumber" Type="nchar" MaxLength="14" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="Facebook" Type="nvarchar" MaxLength="100" />
+    <Property Name="Youtube" Type="nvarchar" MaxLength="100" />
+    <Property Name="Stadium" Type="nvarchar" MaxLength="50" />
+    <Property Name="History" Type="nvarchar(max)" />
+    <Property Name="GoogleMap" Type="nvarchar" MaxLength="100" />
+    <Property Name="LongName" Type="nvarchar" MaxLength="100" />
+    <Property Name="LogoUrl" Type="nvarchar" MaxLength="200" />
+    <Property Name="FacebookLikeUrl" Type="nvarchar" MaxLength="100" />
+    <Property Name="Nickname" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Player">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="PlayerId" />
     </Key>
-    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="lastName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="dateOfBirth" Type="datetime" />
-    <Property Name="height" Type="int" />
-    <Property Name="weight" Type="int" />
-    <Property Name="nationality" Type="nvarchar" MaxLength="50" />
-    <Property Name="position" Type="nvarchar" MaxLength="50" />
-    <Property Name="previousClubs" Type="nvarchar" MaxLength="500" />
-    <Property Name="nickname" Type="nvarchar" MaxLength="50" />
-    <Property Name="favoritePlayer" Type="nvarchar" MaxLength="50" />
-    <Property Name="favoriteTeam" Type="nvarchar" MaxLength="50" />
-    <Property Name="favoriteNumber" Type="nchar" MaxLength="10" />
+    <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateOfBirth" Type="datetime" />
+    <Property Name="Height" Type="int" />
+    <Property Name="Weight" Type="int" />
+    <Property Name="Nationality" Type="nvarchar" MaxLength="50" />
+    <Property Name="Position" Type="nvarchar" MaxLength="50" />
+    <Property Name="PreviousClubs" Type="nvarchar" MaxLength="500" />
+    <Property Name="Nickname" Type="nvarchar" MaxLength="50" />
+    <Property Name="FavoritePlayer" Type="nvarchar" MaxLength="50" />
+    <Property Name="FavoriteTeam" Type="nvarchar" MaxLength="50" />
+    <Property Name="FavoriteNumber" Type="nchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="PlayerGame">
     <Key>
@@ -166,127 +182,129 @@
   </EntityType>
   <EntityType Name="PlayerTeam">
     <Key>
-      <PropertyRef Name="playerTeamId" />
+      <PropertyRef Name="PlayerTeamId" />
     </Key>
-    <Property Name="playerTeamId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="playerId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="teamId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="seasonId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="championshipGoals" Type="int" />
-    <Property Name="nationalCupGoals" Type="int" />
-    <Property Name="regionalCupGoals" Type="int" />
-    <Property Name="otherCupGoals" Type="int" />
-    <Property Name="championshipAssists" Type="int" />
+    <Property Name="PlayerTeamId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PlayerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TeamId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SeasonId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ChampionshipGoals" Type="int" />
+    <Property Name="NationalCupGoals" Type="int" />
+    <Property Name="RegionalCupGoals" Type="int" />
+    <Property Name="OtherCupGoals" Type="int" />
+    <Property Name="ChampionshipAssists" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Ranking">
     <Key>
-      <PropertyRef Name="championshipId" />
-      <PropertyRef Name="teamId" />
-      <PropertyRef Name="position" />
-      <PropertyRef Name="points" />
-      <PropertyRef Name="matchPlayed" />
-      <PropertyRef Name="matchWon" />
-      <PropertyRef Name="matchDraw" />
-      <PropertyRef Name="matchLost" />
-      <PropertyRef Name="goalsScored" />
-      <PropertyRef Name="goalsAgainst" />
-      <PropertyRef Name="goalDifference" />
-      <PropertyRef Name="withdraw" />
-      <PropertyRef Name="penality" />
+      <PropertyRef Name="ChampionshipId" />
+      <PropertyRef Name="TeamId" />
+      <PropertyRef Name="Position" />
+      <PropertyRef Name="Points" />
+      <PropertyRef Name="MatchPlayed" />
+      <PropertyRef Name="MatchWon" />
+      <PropertyRef Name="MatchDraw" />
+      <PropertyRef Name="MatchLost" />
+      <PropertyRef Name="GoalsScored" />
+      <PropertyRef Name="GoalsAgainst" />
+      <PropertyRef Name="GoalDifference" />
+      <PropertyRef Name="Withdraw" />
+      <PropertyRef Name="Penality" />
     </Key>
-    <Property Name="championshipId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="teamId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="position" Type="int" Nullable="false" />
-    <Property Name="points" Type="int" Nullable="false" />
-    <Property Name="matchPlayed" Type="int" Nullable="false" />
-    <Property Name="matchWon" Type="int" Nullable="false" />
-    <Property Name="matchDraw" Type="int" Nullable="false" />
-    <Property Name="matchLost" Type="int" Nullable="false" />
-    <Property Name="goalsScored" Type="int" Nullable="false" />
-    <Property Name="goalsAgainst" Type="int" Nullable="false" />
-    <Property Name="goalDifference" Type="int" Nullable="false" />
-    <Property Name="withdraw" Type="int" Nullable="false" />
-    <Property Name="penality" Type="int" Nullable="false" />
+    <Property Name="ChampionshipId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TeamId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Position" Type="int" Nullable="false" />
+    <Property Name="Points" Type="int" Nullable="false" />
+    <Property Name="MatchPlayed" Type="int" Nullable="false" />
+    <Property Name="MatchWon" Type="int" Nullable="false" />
+    <Property Name="MatchDraw" Type="int" Nullable="false" />
+    <Property Name="MatchLost" Type="int" Nullable="false" />
+    <Property Name="GoalsScored" Type="int" Nullable="false" />
+    <Property Name="GoalsAgainst" Type="int" Nullable="false" />
+    <Property Name="GoalDifference" Type="int" Nullable="false" />
+    <Property Name="Withdraw" Type="int" Nullable="false" />
+    <Property Name="Penality" Type="int" Nullable="false" />
     <Property Name="SeasonId" Type="uniqueidentifier" />
   </EntityType>
   <EntityType Name="Season">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="SeasonId" />
     </Key>
-    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="startDate" Type="date" Nullable="false" />
-    <Property Name="endDate" Type="date" Nullable="false" />
-    <Property Name="currentSeason" Type="bit" Nullable="false" />
-    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="SeasonId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="CurrentSeason" Type="bit" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Sponsor">
     <Key>
-      <PropertyRef Name="sponsorId" />
+      <PropertyRef Name="SponsorId" />
     </Key>
-    <Property Name="sponsorId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="logoUrl" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="siteUrl" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="orderIndex" Type="int" Nullable="false" />
-    <Property Name="ownerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SponsorId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LogoUrl" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="SiteUrl" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="OrderIndex" Type="int" Nullable="false" />
+    <Property Name="OwnerId" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="Staff">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="StaffId" />
     </Key>
-    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="lastName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="dateOfBirth" Type="datetime" Nullable="false" />
-    <Property Name="position" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="StaffId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateOfBirth" Type="datetime" Nullable="false" />
+    <Property Name="Position" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
+  <EntityType Name="Survey">
     <Key>
-      <PropertyRef Name="diagram_id" />
+      <PropertyRef Name="SurveyId" />
     </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
+    <Property Name="SurveyId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="OwnerId" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="Team">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="TeamId" />
     </Key>
-    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="shortName" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="homeTeam" Type="bit" />
-    <Property Name="displayOrder" Type="int" />
-    <Property Name="displayName" Type="nvarchar" MaxLength="50" />
-    <Property Name="ownerId" Type="uniqueidentifier" />
-    <Property Name="calendarUrl" Type="nvarchar" MaxLength="300" />
-    <Property Name="rankingUrl" Type="nvarchar" MaxLength="300" />
+    <Property Name="TeamId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ShortName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="HomeTeam" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="50" />
+    <Property Name="OwnerId" Type="uniqueidentifier" />
+    <Property Name="CalendarUrl" Type="nvarchar" MaxLength="300" />
+    <Property Name="RankingUrl" Type="nvarchar" MaxLength="300" />
+    <Property Name="YouthTeam" Type="bit" />
   </EntityType>
   <EntityType Name="TeamCompetitionSeason">
     <Key>
-      <PropertyRef Name="teamCompetitionSeasonId" />
+      <PropertyRef Name="TeamCompetitionSeasonId" />
     </Key>
-    <Property Name="teamCompetitionSeasonId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="teamId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="competitionSeasonId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="lafaName" Type="nvarchar" MaxLength="50" />
-    <Property Name="competitionGroup" Type="nvarchar" MaxLength="2" />
+    <Property Name="TeamCompetitionSeasonId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TeamId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CompetitionSeasonId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LafaName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompetitionGroup" Type="nvarchar" MaxLength="2" />
   </EntityType>
   <EntityType Name="User">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="alias" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="emailAddress" Type="nchar" MaxLength="70" Nullable="false" />
-    <Property Name="password" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="ownerId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="lastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmailAddress" Type="nchar" MaxLength="70" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="OwnerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <Association Name="FK_Article_ArticleType">
     <End Role="ArticleType" Type="Self.ArticleType" Multiplicity="0..1" />
@@ -296,7 +314,7 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
         <PropertyRef Name="ArticleTypeId" />
       </Principal>
       <Dependent Role="Article">
-        <PropertyRef Name="articleTypeId" />
+        <PropertyRef Name="ArticleTypeId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -305,10 +323,10 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="Article" Type="Self.Article" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Game">
-        <PropertyRef Name="Id" />
+        <PropertyRef Name="GameId" />
       </Principal>
       <Dependent Role="Article">
-        <PropertyRef Name="gameId" />
+        <PropertyRef Name="GameId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -317,10 +335,10 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="Article" Type="Self.Article" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Owner">
-        <PropertyRef Name="ownerId" />
+        <PropertyRef Name="OwnerId" />
       </Principal>
       <Dependent Role="Article">
-        <PropertyRef Name="ownerId" />
+        <PropertyRef Name="OwnerId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -329,10 +347,10 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="Article" Type="Self.Article" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Season">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="SeasonId" />
       </Principal>
       <Dependent Role="Article">
-        <PropertyRef Name="seasonId" />
+        <PropertyRef Name="SeasonId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -341,10 +359,34 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="Article" Type="Self.Article" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Article">
-        <PropertyRef Name="userId" />
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClubEvent_Owner">
+    <End Role="Owner" Type="Self.Owner" Multiplicity="1" />
+    <End Role="ClubEvent" Type="Self.ClubEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owner">
+        <PropertyRef Name="OwnerId" />
+      </Principal>
+      <Dependent Role="ClubEvent">
+        <PropertyRef Name="OwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClubEvent_Season">
+    <End Role="Season" Type="Self.Season" Multiplicity="0..1" />
+    <End Role="ClubEvent" Type="Self.ClubEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Season">
+        <PropertyRef Name="SeasonId" />
+      </Principal>
+      <Dependent Role="ClubEvent">
+        <PropertyRef Name="SeasonId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -353,10 +395,10 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="Competition" Type="Self.Competition" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CompetitionType">
-        <PropertyRef Name="competitionTypeId" />
+        <PropertyRef Name="CompetitionTypeId" />
       </Principal>
       <Dependent Role="Competition">
-        <PropertyRef Name="competitionType" />
+        <PropertyRef Name="CompetitionType" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -365,10 +407,10 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="CompetitionSeason" Type="Self.CompetitionSeason" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Competition">
-        <PropertyRef Name="competitionId" />
+        <PropertyRef Name="CompetitionId" />
       </Principal>
       <Dependent Role="CompetitionSeason">
-        <PropertyRef Name="competitionId" />
+        <PropertyRef Name="CompetitionId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -377,10 +419,10 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="CompetitionSeason" Type="Self.CompetitionSeason" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Season">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="SeasonId" />
       </Principal>
       <Dependent Role="CompetitionSeason">
-        <PropertyRef Name="seasonId" />
+        <PropertyRef Name="SeasonId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -389,7 +431,7 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="Game" Type="Self.Game" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Competition">
-        <PropertyRef Name="competitionId" />
+        <PropertyRef Name="CompetitionId" />
       </Principal>
       <Dependent Role="Game">
         <PropertyRef Name="CompetitionId" />
@@ -401,7 +443,7 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="Game" Type="Self.Game" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Competition">
-        <PropertyRef Name="competitionId" />
+        <PropertyRef Name="CompetitionId" />
       </Principal>
       <Dependent Role="Game">
         <PropertyRef Name="CompetitionId" />
@@ -413,7 +455,7 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="Game" Type="Self.Game" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Owner">
-        <PropertyRef Name="ownerId" />
+        <PropertyRef Name="OwnerId" />
       </Principal>
       <Dependent Role="Game">
         <PropertyRef Name="ownerId" />
@@ -425,7 +467,7 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="Game" Type="Self.Game" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Team">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="TeamId" />
       </Principal>
       <Dependent Role="Game">
         <PropertyRef Name="HomeTeam" />
@@ -437,7 +479,7 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="Game" Type="Self.Game" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Team">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="TeamId" />
       </Principal>
       <Dependent Role="Game">
         <PropertyRef Name="AwayTeam" />
@@ -445,11 +487,11 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_GameEvent_EventType">
-    <End Role="EventType" Type="Self.EventType" Multiplicity="1" />
+    <End Role="GameEventType" Type="Self.GameEventType" Multiplicity="1" />
     <End Role="GameEvent" Type="Self.GameEvent" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="EventType">
-        <PropertyRef Name="EventTypeId" />
+      <Principal Role="GameEventType">
+        <PropertyRef Name="GameEventTypeId" />
       </Principal>
       <Dependent Role="GameEvent">
         <PropertyRef Name="EventTypeId" />
@@ -473,10 +515,10 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="LazyRanking" Type="Self.LazyRanking" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CompetitionSeason">
-        <PropertyRef Name="competitionSeasonId" />
+        <PropertyRef Name="CompetitionSeasonId" />
       </Principal>
       <Dependent Role="LazyRanking">
-        <PropertyRef Name="competitionSeasonId" />
+        <PropertyRef Name="CompetitionSeasonId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -485,7 +527,7 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="PlayerGame" Type="Self.PlayerGame" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Game">
-        <PropertyRef Name="Id" />
+        <PropertyRef Name="GameId" />
       </Principal>
       <Dependent Role="PlayerGame">
         <PropertyRef Name="GameId" />
@@ -497,7 +539,7 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="PlayerGame" Type="Self.PlayerGame" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Player">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="PlayerId" />
       </Principal>
       <Dependent Role="PlayerGame">
         <PropertyRef Name="PlayerId" />
@@ -509,10 +551,10 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="PlayerTeam" Type="Self.PlayerTeam" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Player">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="PlayerId" />
       </Principal>
       <Dependent Role="PlayerTeam">
-        <PropertyRef Name="playerId" />
+        <PropertyRef Name="PlayerId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -521,10 +563,10 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="PlayerTeam" Type="Self.PlayerTeam" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Season">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="SeasonId" />
       </Principal>
       <Dependent Role="PlayerTeam">
-        <PropertyRef Name="seasonId" />
+        <PropertyRef Name="SeasonId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -533,10 +575,10 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="PlayerTeam" Type="Self.PlayerTeam" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Team">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="TeamId" />
       </Principal>
       <Dependent Role="PlayerTeam">
-        <PropertyRef Name="teamId" />
+        <PropertyRef Name="TeamId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -545,10 +587,22 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="Sponsor" Type="Self.Sponsor" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Owner">
-        <PropertyRef Name="ownerId" />
+        <PropertyRef Name="OwnerId" />
       </Principal>
       <Dependent Role="Sponsor">
-        <PropertyRef Name="ownerId" />
+        <PropertyRef Name="OwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Survey_Owner">
+    <End Role="Owner" Type="Self.Owner" Multiplicity="1" />
+    <End Role="Survey" Type="Self.Survey" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owner">
+        <PropertyRef Name="OwnerId" />
+      </Principal>
+      <Dependent Role="Survey">
+        <PropertyRef Name="OwnerId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -557,10 +611,10 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="Team" Type="Self.Team" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Owner">
-        <PropertyRef Name="ownerId" />
+        <PropertyRef Name="OwnerId" />
       </Principal>
       <Dependent Role="Team">
-        <PropertyRef Name="ownerId" />
+        <PropertyRef Name="OwnerId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -569,10 +623,10 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="TeamCompetitionSeason" Type="Self.TeamCompetitionSeason" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CompetitionSeason">
-        <PropertyRef Name="competitionSeasonId" />
+        <PropertyRef Name="CompetitionSeasonId" />
       </Principal>
       <Dependent Role="TeamCompetitionSeason">
-        <PropertyRef Name="competitionSeasonId" />
+        <PropertyRef Name="CompetitionSeasonId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -581,10 +635,10 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="TeamCompetitionSeason" Type="Self.TeamCompetitionSeason" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Team">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="TeamId" />
       </Principal>
       <Dependent Role="TeamCompetitionSeason">
-        <PropertyRef Name="teamId" />
+        <PropertyRef Name="TeamId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -593,10 +647,10 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <End Role="User" Type="Self.User" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Owner">
-        <PropertyRef Name="ownerId" />
+        <PropertyRef Name="OwnerId" />
       </Principal>
       <Dependent Role="User">
-        <PropertyRef Name="ownerId" />
+        <PropertyRef Name="OwnerId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -604,12 +658,13 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ArticleType" EntityType="Self.ArticleType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChampionshipTeam" EntityType="Self.ChampionshipTeam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClubEvent" EntityType="Self.ClubEvent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Competition" EntityType="Self.Competition" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CompetitionSeason" EntityType="Self.CompetitionSeason" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CompetitionType" EntityType="Self.CompetitionType" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="EventType" EntityType="Self.EventType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GameEvent" EntityType="Self.GameEvent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GameEventType" EntityType="Self.GameEventType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LazyRanking" EntityType="Self.LazyRanking" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Owner" EntityType="Self.Owner" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Player" EntityType="Self.Player" Schema="dbo" store:Type="Tables" />
@@ -618,25 +673,25 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <EntitySet Name="Season" EntityType="Self.Season" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sponsor" EntityType="Self.Sponsor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Survey" EntityType="Self.Survey" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TeamCompetitionSeason" EntityType="Self.TeamCompetitionSeason" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Ranking" EntityType="Self.Ranking" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [Ranking].[championshipId] AS [championshipId], 
-    [Ranking].[teamId] AS [teamId], 
-    [Ranking].[position] AS [position], 
-    [Ranking].[points] AS [points], 
-    [Ranking].[matchPlayed] AS [matchPlayed], 
-    [Ranking].[matchWon] AS [matchWon], 
-    [Ranking].[matchDraw] AS [matchDraw], 
-    [Ranking].[matchLost] AS [matchLost], 
-    [Ranking].[goalsScored] AS [goalsScored], 
-    [Ranking].[goalsAgainst] AS [goalsAgainst], 
-    [Ranking].[goalDifference] AS [goalDifference], 
-    [Ranking].[withdraw] AS [withdraw], 
-    [Ranking].[penality] AS [penality], 
+    [Ranking].[ChampionshipId] AS [ChampionshipId], 
+    [Ranking].[TeamId] AS [TeamId], 
+    [Ranking].[Position] AS [Position], 
+    [Ranking].[Points] AS [Points], 
+    [Ranking].[MatchPlayed] AS [MatchPlayed], 
+    [Ranking].[MatchWon] AS [MatchWon], 
+    [Ranking].[MatchDraw] AS [MatchDraw], 
+    [Ranking].[MatchLost] AS [MatchLost], 
+    [Ranking].[GoalsScored] AS [GoalsScored], 
+    [Ranking].[GoalsAgainst] AS [GoalsAgainst], 
+    [Ranking].[GoalDifference] AS [GoalDifference], 
+    [Ranking].[Withdraw] AS [Withdraw], 
+    [Ranking].[Penality] AS [Penality], 
     [Ranking].[SeasonId] AS [SeasonId]
     FROM [dbo].[Ranking] AS [Ranking]</DefiningQuery>
     </EntitySet>
@@ -659,6 +714,14 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <AssociationSet Name="FK_Article_User" Association="Self.FK_Article_User">
       <End Role="User" EntitySet="User" />
       <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClubEvent_Owner" Association="Self.FK_ClubEvent_Owner">
+      <End Role="Owner" EntitySet="Owner" />
+      <End Role="ClubEvent" EntitySet="ClubEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClubEvent_Season" Association="Self.FK_ClubEvent_Season">
+      <End Role="Season" EntitySet="Season" />
+      <End Role="ClubEvent" EntitySet="ClubEvent" />
     </AssociationSet>
     <AssociationSet Name="FK_Competition_CompetitionType" Association="Self.FK_Competition_CompetitionType">
       <End Role="CompetitionType" EntitySet="CompetitionType" />
@@ -693,7 +756,7 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
       <End Role="Game" EntitySet="Game" />
     </AssociationSet>
     <AssociationSet Name="FK_GameEvent_EventType" Association="Self.FK_GameEvent_EventType">
-      <End Role="EventType" EntitySet="EventType" />
+      <End Role="GameEventType" EntitySet="GameEventType" />
       <End Role="GameEvent" EntitySet="GameEvent" />
     </AssociationSet>
     <AssociationSet Name="FK_GameEvent_Playergame" Association="Self.FK_GameEvent_Playergame">
@@ -727,6 +790,10 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
     <AssociationSet Name="FK_Sponsor_Owner" Association="Self.FK_Sponsor_Owner">
       <End Role="Owner" EntitySet="Owner" />
       <End Role="Sponsor" EntitySet="Sponsor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Survey_Owner" Association="Self.FK_Survey_Owner">
+      <End Role="Owner" EntitySet="Owner" />
+      <End Role="Survey" EntitySet="Survey" />
     </AssociationSet>
     <AssociationSet Name="FK_Team_Owner" Association="Self.FK_Team_Owner">
       <End Role="Owner" EntitySet="Owner" />

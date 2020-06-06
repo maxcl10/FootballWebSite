@@ -1,6 +1,6 @@
-<fws-page-header> {{ title }} sponsor {{ sponsor.name }} </fws-page-header>
+<fws-page-header> {{ title }} sponsor {{ sponsor?.name }} </fws-page-header>
 
-<fws-widget>
+<fws-widget *ngIf="sponsor">
   <div class="form-group">
     <label>Nom</label>
     <input

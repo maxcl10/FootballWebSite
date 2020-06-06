@@ -23,15 +23,16 @@ namespace FootballWebSiteApi.Entities
             this.TeamCompetitionSeasons = new HashSet<TeamCompetitionSeason>();
         }
     
-        public System.Guid id { get; set; }
-        public string name { get; set; }
-        public string shortName { get; set; }
-        public Nullable<bool> homeTeam { get; set; }
-        public Nullable<int> displayOrder { get; set; }
-        public string displayName { get; set; }
-        public Nullable<System.Guid> ownerId { get; set; }
-        public string calendarUrl { get; set; }
-        public string rankingUrl { get; set; }
+        public System.Guid TeamId { get; set; }
+        public string Name { get; set; }
+        public string ShortName { get; set; }
+        public Nullable<bool> HomeTeam { get; set; }
+        public Nullable<int> DisplayOrder { get; set; }
+        public string DisplayName { get; set; }
+        public Nullable<System.Guid> OwnerId { get; set; }
+        public string CalendarUrl { get; set; }
+        public string RankingUrl { get; set; }
+        public Nullable<bool> YouthTeam { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Game> Games { get; set; }

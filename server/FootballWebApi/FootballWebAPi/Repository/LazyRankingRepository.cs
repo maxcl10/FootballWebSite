@@ -20,16 +20,16 @@ namespace FootballWebSiteApi.Repository
             //We need to get owner first team. 
             using (TeamsRepository teamRepository = new TeamsRepository())
             {
-                var firstTeam = teamRepository.GetHomeTeams(ownerId).OrderBy(o => o.DisplayOrder).First();
-                var currentSeason = _entities.Seasons.Single(o => o.currentSeason);
+                var firstTeam = teamRepository.GetHomeTeams(ownerId).OrderBy(o => o.DisplayOrder).First(o => o.DisplayOrder > 0);
+                var currentSeason = _entities.Seasons.Single(o => o.CurrentSeason);
 
-                var competitionSeasonId = _entities.TeamCompetitionSeasons.Single(o => o.teamId == firstTeam.Id
-                && o.CompetitionSeason.seasonId == currentSeason.id
-                && o.CompetitionSeason.Competition.CompetitionType1.competitionTypeId == 0).competitionSeasonId;
+                var competitionSeasonId = _entities.TeamCompetitionSeasons.Single(o => o.TeamId == firstTeam.Id
+                && o.CompetitionSeason.SeasonId == currentSeason.SeasonId
+                && o.CompetitionSeason.Competition.CompetitionType1.CompetitionTypeId == 0).CompetitionSeasonId;
 
 
-                return Mapper.Map(_entities.LazyRankings.Where(o => o.updatedDate == null
-               && o.competitionSeasonId == competitionSeasonId).OrderBy(o => o.position));
+                return Mapper.Map(_entities.LazyRankings.Where(o => o.UpdatedDate == null
+               && o.CompetitionSeasonId == competitionSeasonId).OrderBy(o => o.Position));
             }
         }
 
@@ -43,16 +43,16 @@ namespace FootballWebSiteApi.Repository
         public void SaveRanking(IEnumerable<LazyRanking> items, Guid competitionSeasonId)
         {
             var now = DateTime.Now;
-            foreach (var lazyRanking in _entities.LazyRankings.Where(o => o.updatedDate == null && o.competitionSeasonId == competitionSeasonId))
+            foreach (var lazyRanking in _entities.LazyRankings.Where(o => o.UpdatedDate == null && o.CompetitionSeasonId == competitionSeasonId))
             {
-                lazyRanking.updatedDate = now;
+                lazyRanking.UpdatedDate = now;
             }
 
             foreach (LazyRanking lazyRanking in items)
             {
-                lazyRanking.rankingId = Guid.NewGuid();
-                lazyRanking.uploadDate = now;
-                lazyRanking.competitionSeasonId = competitionSeasonId;
+                lazyRanking.RankingId = Guid.NewGuid();
+                lazyRanking.UploadDate = now;
+                lazyRanking.CompetitionSeasonId = competitionSeasonId;
                 _entities.LazyRankings.Add(lazyRanking);
             }
 
@@ -63,12 +63,12 @@ namespace FootballWebSiteApi.Repository
         {
             using (TeamsRepository teamRepository = new TeamsRepository())
             {
-                var firstTeam = teamRepository.GetHomeTeams(ownerId).OrderBy(o => o.DisplayOrder).First();
-                var currentSeason = _entities.Seasons.Single(o => o.currentSeason);
+                var firstTeam = teamRepository.GetHomeTeams(ownerId).OrderBy(o => o.DisplayOrder).First(o => o.DisplayOrder > 0);
+                var currentSeason = _entities.Seasons.Single(o => o.CurrentSeason);
 
-                var teamCompetitionSeason = _entities.TeamCompetitionSeasons.Single(o => o.teamId == firstTeam.Id
-                && o.CompetitionSeason.seasonId == currentSeason.id
-                && o.CompetitionSeason.Competition.CompetitionType1.competitionTypeId == 0);
+                var teamCompetitionSeason = _entities.TeamCompetitionSeasons.Single(o => o.TeamId == firstTeam.Id
+                && o.CompetitionSeason.SeasonId == currentSeason.SeasonId
+                && o.CompetitionSeason.Competition.CompetitionType1.CompetitionTypeId == 0);
 
                 return Mapper.Map(teamCompetitionSeason);
             }
@@ -79,10 +79,10 @@ namespace FootballWebSiteApi.Repository
             using (TeamsRepository teamRepository = new TeamsRepository())
             {
                 var firstTeam = teamRepository.GetHomeTeams(ownerId).OrderBy(o => o.DisplayOrder).First();
-                var currentSeason = _entities.Seasons.Single(o => o.currentSeason);
+                var currentSeason = _entities.Seasons.Single(o => o.CurrentSeason);
 
-                var teamCompetitionSeason = _entities.TeamCompetitionSeasons.Where(o => o.teamId == firstTeam.Id
-                && o.CompetitionSeason.seasonId == currentSeason.id);
+                var teamCompetitionSeason = _entities.TeamCompetitionSeasons.Where(o => o.TeamId == firstTeam.Id
+                && o.CompetitionSeason.SeasonId == currentSeason.SeasonId);
 
                 return Mapper.Map(teamCompetitionSeason);
             }
@@ -95,16 +95,16 @@ namespace FootballWebSiteApi.Repository
             using (TeamsRepository teamRepository = new TeamsRepository())
             {
                 var firstTeam = teamRepository.GetHomeTeams(ownerId).OrderBy(o => o.DisplayOrder).First();
-                var currentSeason = _entities.Seasons.Single(o => o.currentSeason);
+                var currentSeason = _entities.Seasons.Single(o => o.CurrentSeason);
 
-                var teamCompetitionSeason = _entities.TeamCompetitionSeasons.Single(o => o.teamId == firstTeam.Id
-                && o.CompetitionSeason.seasonId == currentSeason.id
-                && o.CompetitionSeason.Competition.CompetitionType1.competitionTypeId == 0);
+                var teamCompetitionSeason = _entities.TeamCompetitionSeasons.Single(o => o.TeamId == firstTeam.Id
+                && o.CompetitionSeason.SeasonId == currentSeason.SeasonId
+                && o.CompetitionSeason.Competition.CompetitionType1.CompetitionTypeId == 0);
 
 
-                var items = RankingExctractor.GetRankigFromLgefUrl(teamCompetitionSeason.CompetitionSeason.lafaUrl);
+                var items = RankingExctractor.GetRankigFromLgefUrl(teamCompetitionSeason.CompetitionSeason.LafaUrl);
 
-                SaveRanking(items, teamCompetitionSeason.competitionSeasonId);
+                SaveRanking(items, teamCompetitionSeason.CompetitionSeasonId);
             }
         }
 

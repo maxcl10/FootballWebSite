@@ -104,7 +104,7 @@ export class TeamContainerComponent implements OnInit {
   }
 
   public getPlayers() {
-    this.playersService.getplayers().subscribe(
+    this.playersService.getAllPlayers().subscribe(
       (players) => {
         this.players = players;
         this.players.forEach((element) => {

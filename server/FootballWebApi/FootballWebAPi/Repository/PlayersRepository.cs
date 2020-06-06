@@ -19,15 +19,15 @@ namespace FootballWebSiteApi.Repository
         }
         public IEnumerable<JPlayer> GetPlayers(Guid ownerId, bool currentSeason = false)
         {
-            var currentSeasonId = _entities.Seasons.Single(o => o.currentSeason).id;
+            var currentSeasonId = _entities.Seasons.Single(o => o.CurrentSeason).SeasonId;
             if (currentSeason)
             {
-                return Mapper.Map(_entities.Players.Where(o => o.PlayerTeams.Any(s => s.seasonId == currentSeasonId && s.Team.ownerId == ownerId))
-                    .ToList().OrderBy(p => BusinessLogic.GetPositionOrder(p.position)).ThenBy(o => o.lastName));
+                return Mapper.Map(_entities.Players.Where(o => o.PlayerTeams.Any(s => s.SeasonId == currentSeasonId && s.Team.OwnerId == ownerId))
+                    .ToList().OrderBy(p => BusinessLogic.GetPositionOrder(p.Position)).ThenBy(o => o.LastName));
             }
             else
             {
-                return Mapper.Map(_entities.Players.ToList().OrderBy(p => BusinessLogic.GetPositionOrder(p.position)));
+                return Mapper.Map(_entities.Players.ToList().OrderBy(p => BusinessLogic.GetPositionOrder(p.Position)));
             }
         }
 
@@ -37,13 +37,13 @@ namespace FootballWebSiteApi.Repository
 
         public JPlayer GetPlayer(Guid id)
         {
-            return Mapper.Map(_entities.Players.Single(o => o.id == id));
+            return Mapper.Map(_entities.Players.Single(o => o.PlayerId == id));
         }
 
         public IEnumerable<JGamePlayer> GetGamePlayers(Guid gameId)
         {
             List<JGamePlayer> players = new List<JGamePlayer>();
-            var game = _entities.Games.SingleOrDefault(o => o.Id == gameId);
+            var game = _entities.Games.SingleOrDefault(o => o.GameId == gameId);
 
             foreach (var playerGame in game.PlayerGames)
             {
@@ -56,7 +56,7 @@ namespace FootballWebSiteApi.Repository
 
         public Player CreatePlayer(Player player)
         {
-            player.id = Guid.NewGuid();
+            player.PlayerId = Guid.NewGuid();
             _entities.Players.Add(player);
             _entities.SaveChanges();
             return player;
@@ -85,29 +85,29 @@ namespace FootballWebSiteApi.Repository
             _entities.SaveChanges();
 
             //get the data
-            var playerDB = _entities.Players.Single(o => o.id == player.PlayerId);
-            player.PlayerFirstName = playerDB.firstName;
-            player.PlayerLastName = playerDB.lastName;
+            var playerDB = _entities.Players.Single(o => o.PlayerId == player.PlayerId);
+            player.PlayerFirstName = playerDB.FirstName;
+            player.PlayerLastName = playerDB.LastName;
 
             return player;
         }
 
         public Player UpdatePlayer(Guid id, Player player)
         {
-            var correspondingPlayer = _entities.Players.Single(o => o.id == id);
+            var correspondingPlayer = _entities.Players.Single(o => o.PlayerId == id);
 
-            correspondingPlayer.firstName = player.firstName;
-            correspondingPlayer.lastName = player.lastName;
-            correspondingPlayer.dateOfBirth = player.dateOfBirth;
-            correspondingPlayer.height = player.height;
-            correspondingPlayer.weight = player.weight;
-            correspondingPlayer.nationality = player.nationality;
-            correspondingPlayer.position = player.position;
-            correspondingPlayer.previousClubs = player.previousClubs;
-            correspondingPlayer.favoriteNumber = player.favoriteNumber;
-            correspondingPlayer.nickname = player.nickname;
-            correspondingPlayer.favoritePlayer = player.favoritePlayer;
-            correspondingPlayer.favoriteTeam = player.favoriteTeam;
+            correspondingPlayer.FirstName = player.FirstName;
+            correspondingPlayer.LastName = player.LastName;
+            correspondingPlayer.DateOfBirth = player.DateOfBirth;
+            correspondingPlayer.Height = player.Height;
+            correspondingPlayer.Weight = player.Weight;
+            correspondingPlayer.Nationality = player.Nationality;
+            correspondingPlayer.Position = player.Position;
+            correspondingPlayer.PreviousClubs = player.PreviousClubs;
+            correspondingPlayer.FavoriteNumber = player.FavoriteNumber;
+            correspondingPlayer.Nickname = player.Nickname;
+            correspondingPlayer.FavoritePlayer = player.FavoritePlayer;
+            correspondingPlayer.FavoriteTeam = player.FavoriteTeam;
 
             _entities.SaveChanges();
             return player;
@@ -124,7 +124,7 @@ namespace FootballWebSiteApi.Repository
 
         public void DeletePlayer(Guid id)
         {
-            var playerToDelete = _entities.Players.Single(o => o.id == id);
+            var playerToDelete = _entities.Players.Single(o => o.PlayerId == id);
             _entities.Players.Remove(playerToDelete);
             _entities.SaveChanges();
         }

@@ -21,10 +21,10 @@ namespace FootballWebSiteApi.Entities
             this.TeamCompetitionSeasons = new HashSet<TeamCompetitionSeason>();
         }
     
-        public System.Guid competitionSeasonId { get; set; }
-        public System.Guid competitionId { get; set; }
-        public System.Guid seasonId { get; set; }
-        public string lafaUrl { get; set; }
+        public System.Guid CompetitionSeasonId { get; set; }
+        public System.Guid CompetitionId { get; set; }
+        public System.Guid SeasonId { get; set; }
+        public string LafaUrl { get; set; }
     
         public virtual Competition Competition { get; set; }
         public virtual Season Season { get; set; }

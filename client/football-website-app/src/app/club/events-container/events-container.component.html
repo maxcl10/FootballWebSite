@@ -1,0 +1,19 @@
+<fws-page-header>
+  Nos manifestations
+</fws-page-header>
+
+<div class="container my-4">
+  <fws-widget headerText="Prochaines manifestations" *ngIf="nextEvents">
+    <div class="card mb-4 mb-md-2" *ngFor="let event of nextEvents">
+      <fws-event-item [event]="event"></fws-event-item>
+    </div>
+  </fws-widget>
+
+  <div class="mt-4">
+    <fws-widget headerText="Manifestations passées">
+      <div class="card mb-2 mb-md-2" *ngFor="let event of previousEvents">
+        <fws-event-item [event]="event"></fws-event-item>
+      </div>
+    </fws-widget>
+  </div>
+</div>

@@ -51,18 +51,18 @@ namespace FootballWebSiteApi.Helpers
                         continue;
                     }
 
-                    ranking.position = int.Parse(cells[0].InnerText);
-                    ranking.team = Mapping.GetTeam(cells[1].InnerText);
-                    ranking.points = int.Parse(cells[2].InnerText);
-                    ranking.matchPlayed = int.Parse(cells[3].InnerText);
-                    ranking.matchWon = int.Parse(cells[4].InnerText);
-                    ranking.matchDraw = int.Parse(cells[5].InnerText);
-                    ranking.matchLost = int.Parse(cells[6].InnerText);
-                    ranking.withdaw = int.Parse(cells[7].InnerText);
-                    ranking.goalsScored = int.Parse(cells[8].InnerText);
-                    ranking.goalsAgainst = int.Parse(cells[9].InnerText);
-                    ranking.penality = int.Parse(cells[10].InnerText);
-                    ranking.goalDifference = int.Parse(cells[11].InnerText);
+                    ranking.Position = int.Parse(cells[0].InnerText);
+                    ranking.Team = Mapping.GetTeam(cells[1].InnerText);
+                    ranking.Points = int.Parse(cells[2].InnerText);
+                    ranking.MatchPlayed = int.Parse(cells[3].InnerText);
+                    ranking.MatchWon = int.Parse(cells[4].InnerText);
+                    ranking.MatchDraw = int.Parse(cells[5].InnerText);
+                    ranking.MatchLost = int.Parse(cells[6].InnerText);
+                    ranking.Withdaw = int.Parse(cells[7].InnerText);
+                    ranking.GoalsScored = int.Parse(cells[8].InnerText);
+                    ranking.GoalsAgainst = int.Parse(cells[9].InnerText);
+                    ranking.Penality = int.Parse(cells[10].InnerText);
+                    ranking.GoalDifference = int.Parse(cells[11].InnerText);
 
 
                     rankings.Add(ranking);
@@ -107,18 +107,18 @@ namespace FootballWebSiteApi.Helpers
                         continue;
                     }
 
-                    ranking.position = int.Parse(cells[0].InnerText);
-                    ranking.team = cells[1].InnerText;
-                    ranking.points = int.Parse(cells[2].InnerText);
-                    ranking.matchPlayed = int.Parse(cells[3].InnerText);
-                    ranking.matchWon = int.Parse(cells[4].InnerText);
-                    ranking.matchDraw = int.Parse(cells[5].InnerText);
-                    ranking.matchLost = int.Parse(cells[6].InnerText);
-                    ranking.withdaw = int.Parse(cells[7].InnerText);
-                    ranking.goalsScored = int.Parse(cells[8].InnerText);
-                    ranking.goalsAgainst = int.Parse(cells[9].InnerText);
-                    ranking.penality = int.Parse(cells[10].InnerText);
-                    ranking.goalDifference = int.Parse(cells[11].InnerText);
+                    ranking.Position = int.Parse(cells[0].InnerText);
+                    ranking.Team = cells[1].InnerText;
+                    ranking.Points = int.Parse(cells[2].InnerText);
+                    ranking.MatchPlayed = int.Parse(cells[3].InnerText);
+                    ranking.MatchWon = int.Parse(cells[4].InnerText);
+                    ranking.MatchDraw = int.Parse(cells[5].InnerText);
+                    ranking.MatchLost = int.Parse(cells[6].InnerText);
+                    ranking.Withdaw = int.Parse(cells[7].InnerText);
+                    ranking.GoalsScored = int.Parse(cells[8].InnerText);
+                    ranking.GoalsAgainst = int.Parse(cells[9].InnerText);
+                    ranking.Penality = int.Parse(cells[10].InnerText);
+                    ranking.GoalDifference = int.Parse(cells[11].InnerText);
 
 
                     rankings.Add(ranking);

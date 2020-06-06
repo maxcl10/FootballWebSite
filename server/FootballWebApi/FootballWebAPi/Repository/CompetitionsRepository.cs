@@ -24,18 +24,18 @@ namespace FootballWebSiteApi.Repository
 
         internal void AddTeamToCompetition(Guid teamId, Guid competitionId)
         {
-            var currentSeasonId = _entities.Seasons.Single(o => o.currentSeason).id;
+            var currentSeasonId = _entities.Seasons.Single(o => o.CurrentSeason).SeasonId;
 
-            var competitionSeason = _entities.CompetitionSeasons.SingleOrDefault(o => o.competitionId == competitionId && o.seasonId == currentSeasonId);
+            var competitionSeason = _entities.CompetitionSeasons.SingleOrDefault(o => o.CompetitionId == competitionId && o.SeasonId == currentSeasonId);
 
             if (competitionSeason == null)
             {
                 //We have to create it
                 competitionSeason = new CompetitionSeason
                 {
-                    competitionId = competitionId,
-                    seasonId = currentSeasonId,
-                    competitionSeasonId = Guid.NewGuid()
+                    CompetitionId = competitionId,
+                    SeasonId = currentSeasonId,
+                    CompetitionSeasonId = Guid.NewGuid()
                 };
 
                 _entities.CompetitionSeasons.Add(competitionSeason);
@@ -43,9 +43,9 @@ namespace FootballWebSiteApi.Repository
 
             TeamCompetitionSeason teamCompetitionSeason = new TeamCompetitionSeason
             {
-                teamId = teamId,
-                teamCompetitionSeasonId = Guid.NewGuid(),
-                competitionSeasonId = competitionSeason.competitionSeasonId
+                TeamId = teamId,
+                TeamCompetitionSeasonId = Guid.NewGuid(),
+                CompetitionSeasonId = competitionSeason.CompetitionSeasonId
             };
 
             _entities.TeamCompetitionSeasons.Add(teamCompetitionSeason);

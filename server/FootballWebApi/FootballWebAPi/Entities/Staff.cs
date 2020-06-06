@@ -14,10 +14,10 @@ namespace FootballWebSiteApi.Entities
     
     public partial class Staff
     {
-        public System.Guid id { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public System.DateTime dateOfBirth { get; set; }
-        public string position { get; set; }
+        public System.Guid StaffId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public System.DateTime DateOfBirth { get; set; }
+        public string Position { get; set; }
     }
 }

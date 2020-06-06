@@ -14,25 +14,25 @@ namespace FootballWebSiteApi.Entities
     
     public partial class Article
     {
-        public System.Guid id { get; set; }
-        public string title { get; set; }
-        public string body { get; set; }
-        public Nullable<System.DateTime> publishedDate { get; set; }
-        public Nullable<System.DateTime> modifiedDate { get; set; }
-        public Nullable<System.DateTime> deletedDate { get; set; }
-        public System.DateTime creationDate { get; set; }
-        public System.Guid ownerId { get; set; }
-        public Nullable<System.Guid> userId { get; set; }
-        public Nullable<System.Guid> gameId { get; set; }
-        public Nullable<System.Guid> seasonId { get; set; }
-        public Nullable<int> articleTypeId { get; set; }
-        public string imageUrl { get; set; }
-        public string subTitle { get; set; }
+        public System.Guid ArticleId { get; set; }
+        public string Title { get; set; }
+        public string Body { get; set; }
+        public Nullable<System.DateTime> PublishedDate { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
+        public Nullable<System.DateTime> DeletedDate { get; set; }
+        public System.DateTime CreationDate { get; set; }
+        public System.Guid OwnerId { get; set; }
+        public Nullable<System.Guid> UserId { get; set; }
+        public Nullable<System.Guid> GameId { get; set; }
+        public Nullable<System.Guid> SeasonId { get; set; }
+        public Nullable<int> ArticleTypeId { get; set; }
+        public string ImageUrl { get; set; }
+        public string SubTitle { get; set; }
     
+        public virtual ArticleType ArticleType { get; set; }
         public virtual Game Game { get; set; }
         public virtual Owner Owner { get; set; }
         public virtual Season Season { get; set; }
         public virtual User User { get; set; }
-        public virtual ArticleType ArticleType { get; set; }
     }
 }

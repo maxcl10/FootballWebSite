@@ -1,5 +1,17 @@
 @import './fcu_variables.scss';
 
+$theme-colors: (
+  'primary': #3f2b5d,
+  'secondary': #3f2b5d,
+  'tertiary': #49603b,
+  'success': $green-5,
+  'danger': $red-1,
+  'grey': #ecf0f1,
+);
+
+// import in the bootstrap SASS file
+@import './node_modules/bootstrap/scss/bootstrap';
+
 html {
   position: relative;
   min-height: 100%;

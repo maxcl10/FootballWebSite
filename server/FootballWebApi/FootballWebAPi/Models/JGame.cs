@@ -4,11 +4,11 @@ namespace FootballWebSiteApi.Models
 {
     public class JGame
     {
-        public System.Guid Id { get; set; }
-        public System.Guid HomeTeamId { get; set; }
-        public System.Guid AwayTeamId { get; set; }
-        public System.DateTime MatchDate { get; set; }
-        public System.Guid SeasonId { get; set; }
+        public Guid Id { get; set; }
+        public Guid HomeTeamId { get; set; }
+        public Guid AwayTeamId { get; set; }
+        public DateTime MatchDate { get; set; }
+        public Guid SeasonId { get; set; }
         public string Championship { get; set; }
         public string Competition { get; set; }
 

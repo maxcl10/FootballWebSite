@@ -1,35 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
- <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="8dc4e86a0b264b6d9e874fa859dbf5f2" Name="Diagram1" ZoomLevel="62">
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.Article" Width="1.5" PointX="8.25" PointY="13.375" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.Article" Width="1.5" PointX="10.5" PointY="24" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.ArticleType" Width="1.5" PointX="8.25" PointY="28.5" />
         <EntityTypeShape EntityType="FootballWebSiteDbModel.ChampionshipTeam" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.Competition" Width="1.5" PointX="3" PointY="19" />
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.CompetitionSeason" Width="1.5" PointX="6" PointY="30.25" />
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.CompetitionType" Width="1.5" PointX="0.75" PointY="19.5" />
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.EventType" Width="1.5" PointX="7.5" PointY="22.5" />
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.Game" Width="1.5" PointX="5.25" PointY="17.75" />
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.GameEvent" Width="1.5" PointX="9.75" PointY="19.25" />
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.LazyRanking" Width="1.5" PointX="8.25" PointY="30.375" />
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.Owner" Width="1.5" PointX="0.75" PointY="11.25" />
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.Player" Width="1.5" PointX="5.25" PointY="7.375" />
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.PlayerGame" Width="1.5" PointX="7.5" PointY="19.125" />
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.PlayerTeam" Width="1.5" PointX="5.25" PointY="25.875" />
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.Season" Width="1.5" PointX="5.25" PointY="12.75" />
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.Sponsor" Width="1.5" PointX="3" PointY="22.5" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.ClubEvent" Width="1.5" PointX="3" PointY="16.625" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.Competition" Width="1.5" PointX="3" PointY="29.5" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.CompetitionSeason" Width="1.5" PointX="6" PointY="30" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.CompetitionType" Width="1.5" PointX="0.75" PointY="30" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.Game" Width="1.5" PointX="5.25" PointY="19.25" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.GameEvent" Width="1.5" PointX="9.75" PointY="20.75" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.GameEventType" Width="1.5" PointX="7.5" PointY="18" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.LazyRanking" Width="1.5" PointX="8.25" PointY="31.125" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.Owner" Width="1.5" PointX="0.75" PointY="15.375" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.Player" Width="1.5" PointX="5.25" PointY="13.875" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.PlayerGame" Width="1.5" PointX="7.5" PointY="20.625" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.PlayerTeam" Width="1.5" PointX="5.25" PointY="25.625" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.Season" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.Sponsor" Width="1.5" PointX="3" PointY="37.875" />
         <EntityTypeShape EntityType="FootballWebSiteDbModel.Staff" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.sysdiagram" Width="1.5" PointX="0.75" PointY="3.75" />
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.Team" Width="1.5" PointX="3" PointY="25.625" />
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.TeamCompetitionSeason" Width="1.5" PointX="8.25" PointY="26.375" />
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.User" Width="1.5" PointX="3" PointY="8.625" />
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.Ranking" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.Survey" Width="1.5" PointX="3" PointY="11.375" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.Team" Width="1.5" PointX="3" PointY="24.375" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.TeamCompetitionSeason" Width="1.5" PointX="8.25" PointY="25.125" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.User" Width="1.5" PointX="3" PointY="34.375" />
+        <EntityTypeShape EntityType="FootballWebSiteDbModel.Ranking" Width="1.5" PointX="0.75" PointY="3.75" />
+        <AssociationConnector Association="FootballWebSiteDbModel.FK_Article_ArticleType" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_Article_Game" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_Article_Owner" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_Article_Season" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_Article_User" />
+        <AssociationConnector Association="FootballWebSiteDbModel.FK_ClubEvent_Owner" />
+        <AssociationConnector Association="FootballWebSiteDbModel.FK_ClubEvent_Season" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_Competition_CompetitionType" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_CompetitionSeason_Competition" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_Game_Competition" />
@@ -37,13 +42,14 @@
         <AssociationConnector Association="FootballWebSiteDbModel.FK_CompetitionSeason_Season" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_LazyRanking_CompetitionSeason" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_TeamCompetitionSeason_CompetitionSeason" />
-        <AssociationConnector Association="FootballWebSiteDbModel.FK_GameEvent_EventType" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_Game_Owner" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_Game_Team" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_Game_Team1" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_Playergame_Game" />
+        <AssociationConnector Association="FootballWebSiteDbModel.FK_GameEvent_EventType" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_GameEvent_Playergame" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_Sponsor_Owner" />
+        <AssociationConnector Association="FootballWebSiteDbModel.FK_Survey_Owner" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_Team_Owner" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_User_Owner" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_Playergame_Player" />
@@ -51,8 +57,6 @@
         <AssociationConnector Association="FootballWebSiteDbModel.FK_PlayerTeam_Season" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_PlayerTeam_Team" />
         <AssociationConnector Association="FootballWebSiteDbModel.FK_TeamCompetitionSeason_Team" />
-        <EntityTypeShape EntityType="FootballWebSiteDbModel.ArticleType" Width="1.5" PointX="7.375" PointY="0.875" />
-        <AssociationConnector Association="FootballWebSiteDbModel.FK_Article_ArticleType" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

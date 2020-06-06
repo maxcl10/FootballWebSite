@@ -216,6 +216,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ClubEventsController.cs" />
     <Compile Include="Controllers\CompetitionsController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
@@ -232,6 +233,9 @@
     <Compile Include="Entities\ArticleType.cs">
       <DependentUpon>FootballWebSiteModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\ClubEvent.cs">
+      <DependentUpon>FootballWebSiteModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Competition.cs">
       <DependentUpon>FootballWebSiteModel.tt</DependentUpon>
     </Compile>
@@ -241,10 +245,10 @@
     <Compile Include="Entities\CompetitionType.cs">
       <DependentUpon>FootballWebSiteModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\EventType.cs">
+    <Compile Include="Entities\GameEvent.cs">
       <DependentUpon>FootballWebSiteModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\GameEvent.cs">
+    <Compile Include="Entities\GameEventType.cs">
       <DependentUpon>FootballWebSiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\PlayerGame.cs">
@@ -253,7 +257,7 @@
     <Compile Include="Entities\Sponsor.cs">
       <DependentUpon>FootballWebSiteModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\sysdiagram.cs">
+    <Compile Include="Entities\Survey.cs">
       <DependentUpon>FootballWebSiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\TeamCompetitionSeason.cs">
@@ -294,7 +298,8 @@
     </Compile>
     <Compile Include="Models\JArticle.cs" />
     <Compile Include="Models\JCompetition.cs" />
-    <Compile Include="Models\JEvent.cs" />
+    <Compile Include="Models\JClubEvent.cs" />
+    <Compile Include="Models\JGameEvent.cs" />
     <Compile Include="Models\JEventType.cs" />
     <Compile Include="Models\JGame.cs" />
     <Compile Include="Models\JGamePlayer.cs" />
@@ -341,7 +346,8 @@
     <Compile Include="Repository\ArticlesRepository.cs" />
     <Compile Include="Repository\AuthenticationRepository.cs" />
     <Compile Include="Repository\CompetitionsRepository.cs" />
-    <Compile Include="Repository\EventsRepository.cs" />
+    <Compile Include="Repository\ClubEventRepository.cs" />
+    <Compile Include="Repository\GameEventsRepository.cs" />
     <Compile Include="Repository\GamesRepository.cs" />
     <Compile Include="Interfaces\IArticleRepository.cs" />
     <Compile Include="Models\JPlayerStats.cs" />
@@ -349,7 +355,7 @@
     <Compile Include="Interfaces\IGamesRepository.cs" />
     <Compile Include="Interfaces\ITeamsRepository.cs" />
     <Compile Include="Interfaces\ICompetitionsRepository.cs" />
-    <Compile Include="Interfaces\IEventsRepository.cs" />
+    <Compile Include="Interfaces\IGameEventsRepository.cs" />
     <Compile Include="Interfaces\IOwnerRepository.cs" />
     <Compile Include="Interfaces\IPlayersRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
@@ -358,6 +364,7 @@
     <Compile Include="Interfaces\ISeasonRepository.cs" />
     <Compile Include="Interfaces\IAuthenticationRepository.cs" />
     <Compile Include="Interfaces\ILgefRepository.cs" />
+    <Compile Include="Interfaces\IClubEventRepository.cs" />
     <Compile Include="Repository\LazyRankingRepository.cs" />
     <Compile Include="Repository\LgefRepository.cs" />
     <Compile Include="Repository\OwnerRepository.cs" />
@@ -393,6 +400,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\ClubEvent\" />
     <Folder Include="Views\Competitions\" />
   </ItemGroup>
   <ItemGroup>

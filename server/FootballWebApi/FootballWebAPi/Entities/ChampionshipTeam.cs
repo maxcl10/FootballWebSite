@@ -14,8 +14,8 @@ namespace FootballWebSiteApi.Entities
     
     public partial class ChampionshipTeam
     {
-        public System.Guid championshipTeamId { get; set; }
-        public System.Guid championshipId { get; set; }
-        public System.Guid teamId { get; set; }
+        public System.Guid ChampionshipTeamId { get; set; }
+        public System.Guid ChampionshipId { get; set; }
+        public System.Guid TeamId { get; set; }
     }
 }

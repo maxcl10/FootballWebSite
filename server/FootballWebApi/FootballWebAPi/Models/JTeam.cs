@@ -9,6 +9,7 @@ namespace FootballWebSiteApi.Models
         public string ShortName { get; set; }
         public string DisplayName { get; set; }
 
+        public Guid? OwnerId { get; set; }
         public string CalendarUrl { get; set; }
 
         public string RankingUrl { get; set; }

@@ -14,22 +14,22 @@ namespace FootballWebSiteApi.Entities
     
     public partial class LazyRanking
     {
-        public string team { get; set; }
-        public Nullable<int> position { get; set; }
-        public Nullable<int> points { get; set; }
-        public Nullable<int> matchPlayed { get; set; }
-        public Nullable<int> matchWon { get; set; }
-        public Nullable<int> matchDraw { get; set; }
-        public Nullable<int> matchLost { get; set; }
-        public Nullable<int> goalsScored { get; set; }
-        public Nullable<int> goalsAgainst { get; set; }
-        public Nullable<int> goalDifference { get; set; }
-        public Nullable<int> withdaw { get; set; }
-        public Nullable<int> penality { get; set; }
-        public System.Guid rankingId { get; set; }
-        public Nullable<System.DateTime> updatedDate { get; set; }
-        public Nullable<System.DateTime> uploadDate { get; set; }
-        public Nullable<System.Guid> competitionSeasonId { get; set; }
+        public string Team { get; set; }
+        public Nullable<int> Position { get; set; }
+        public Nullable<int> Points { get; set; }
+        public Nullable<int> MatchPlayed { get; set; }
+        public Nullable<int> MatchWon { get; set; }
+        public Nullable<int> MatchDraw { get; set; }
+        public Nullable<int> MatchLost { get; set; }
+        public Nullable<int> GoalsScored { get; set; }
+        public Nullable<int> GoalsAgainst { get; set; }
+        public Nullable<int> GoalDifference { get; set; }
+        public Nullable<int> Withdaw { get; set; }
+        public Nullable<int> Penality { get; set; }
+        public System.Guid RankingId { get; set; }
+        public Nullable<System.DateTime> UpdatedDate { get; set; }
+        public Nullable<System.DateTime> UploadDate { get; set; }
+        public Nullable<System.Guid> CompetitionSeasonId { get; set; }
     
         public virtual CompetitionSeason CompetitionSeason { get; set; }
     }

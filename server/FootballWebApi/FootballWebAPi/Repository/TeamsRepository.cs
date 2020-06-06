@@ -20,19 +20,19 @@ namespace FootballWebSiteApi.Repository
 
         public IEnumerable<JTeam> GetTeams()
         {
-            return Mapper.Map(_entities.Teams.OrderBy(o => o.name));
+            return Mapper.Map(_entities.Teams.OrderBy(o => o.Name));
         }
 
         public IEnumerable<JTeam> GetHomeTeams(Guid ownerId)
         {
-            return Mapper.Map(_entities.Teams.Where(o => o.ownerId == ownerId).OrderBy(o => o.displayOrder));
+            return Mapper.Map(_entities.Teams.Where(o => o.OwnerId == ownerId).OrderBy(o => o.DisplayOrder));
         }
 
         public IEnumerable<JPlayer> GetPlayers(Guid ownerId, Guid id)
         {
             List<JPlayer> players = new List<JPlayer>();
-            var currentSeason = _entities.Seasons.First(p => p.currentSeason);
-            var playersId = _entities.PlayerTeams.Where(o => o.teamId == id && o.seasonId == currentSeason.id && o.Team.ownerId == ownerId);
+            var currentSeason = _entities.Seasons.First(p => p.CurrentSeason);
+            var playersId = _entities.PlayerTeams.Where(o => o.TeamId == id && o.SeasonId == currentSeason.SeasonId && o.Team.OwnerId == ownerId);
             foreach (PlayerTeam playerTeam in playersId)
             {
                 players.Add(Mapper.Map(playerTeam.Player));
@@ -41,12 +41,12 @@ namespace FootballWebSiteApi.Repository
             return players.OrderBy(o => o.Position);
         }
 
-        public JTeam Get(Guid id)
+        public JTeam GetTeam(Guid id)
         {
-            return Mapper.Map(_entities.Teams.Single(o => o.id == id));
+            return Mapper.Map(_entities.Teams.Single(o => o.TeamId == id));
         }
 
-        public JTeam Post(JTeam jteam)
+        public JTeam CreateTeam(JTeam jteam)
         {
             jteam.Id = Guid.NewGuid();
             Team team = Mapper.Map(jteam);
@@ -57,11 +57,16 @@ namespace FootballWebSiteApi.Repository
             return jteam;
         }
 
-        public JTeam Put(Guid id, JTeam team)
+        public JTeam UpdateTeam(Guid id, JTeam team)
         {
-            var correspondingTeam = _entities.Teams.Single(o => o.id == id);
-            correspondingTeam.name = team.Name;
-            correspondingTeam.shortName = team.ShortName;
+            var correspondingTeam = _entities.Teams.Single(o => o.TeamId == id);
+            correspondingTeam.Name = team.Name;
+            correspondingTeam.ShortName = team.ShortName;
+            correspondingTeam.OwnerId = team.OwnerId;
+            correspondingTeam.DisplayName = team.DisplayName;
+            correspondingTeam.DisplayOrder = team.DisplayOrder;
+            correspondingTeam.CalendarUrl = team.CalendarUrl;
+            correspondingTeam.RankingUrl = team.RankingUrl;
 
             _entities.SaveChanges();
             return team;
@@ -69,7 +74,7 @@ namespace FootballWebSiteApi.Repository
 
         public void Delete(Guid id)
         {
-            var teamToDelete = _entities.Teams.Single(o => o.id == id);
+            var teamToDelete = _entities.Teams.Single(o => o.TeamId == id);
             _entities.Teams.Remove(teamToDelete);
             _entities.SaveChanges();
         }
@@ -77,10 +82,10 @@ namespace FootballWebSiteApi.Repository
 
         public void AddPlayer(Guid playerId, Guid teamId)
         {
-            var currentSeason = _entities.Seasons.First(o => o.currentSeason);
+            var currentSeason = _entities.Seasons.First(o => o.CurrentSeason);
 
             //Check if already exist
-            if (_entities.PlayerTeams.Any(o => o.playerId == playerId && o.teamId == teamId && o.seasonId == currentSeason.id))
+            if (_entities.PlayerTeams.Any(o => o.PlayerId == playerId && o.TeamId == teamId && o.SeasonId == currentSeason.SeasonId))
             {
                 throw new Exception("Player already exists");
             }
@@ -88,10 +93,10 @@ namespace FootballWebSiteApi.Repository
             {
                 PlayerTeam playerTeam = new PlayerTeam
                 {
-                    playerId = playerId,
-                    teamId = teamId,
-                    playerTeamId = Guid.NewGuid(),
-                    seasonId = currentSeason.id
+                    PlayerId = playerId,
+                    TeamId = teamId,
+                    PlayerTeamId = Guid.NewGuid(),
+                    SeasonId = currentSeason.SeasonId
                 };
 
                 _entities.PlayerTeams.Add(playerTeam);
@@ -102,7 +107,7 @@ namespace FootballWebSiteApi.Repository
 
         public void RemovePlayer(Guid playerId, Guid teamId)
         {
-            var entity = _entities.PlayerTeams.FirstOrDefault(o => o.playerId == playerId && o.teamId == teamId);
+            var entity = _entities.PlayerTeams.FirstOrDefault(o => o.PlayerId == playerId && o.TeamId == teamId);
             _entities?.PlayerTeams.Remove(entity);
             _entities.SaveChanges();
         }

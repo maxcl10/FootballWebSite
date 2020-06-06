@@ -1,6 +1,6 @@
 <fws-page-header> {{ title }} Equipe </fws-page-header>
 
-<div class="mt-4">
+<div class="mt-4" *ngIf="team">
   <fws-widget [headerText]="team.name" [error]="errorMessage">
     <div class="form-group">
       <label>Nom</label>
@@ -24,10 +24,65 @@
         ngControl="shortName"
       />
     </div>
+    <div class="form-group">
+      <div class="form-check">
+        <input
+          id="ownCheckbox"
+          class="form-check-input"
+          [(ngModel)]="own"
+          type="checkbox"
+          ngControl="own"
+        />
+        <label class="form-check-label" for="ownCheckbox">Equipe du Club</label>
+      </div>
+    </div>
+    <div class="form-group" *ngIf="own">
+      <label>URL du Calendrier</label>
+      <input
+        class="form-control"
+        [(ngModel)]="team.calendarUrl"
+        type="text"
+        ngControl="calendarUrl"
+      />
+    </div>
+    <div class="form-group" *ngIf="own">
+      <label>URL du classement</label>
+      <input
+        class="form-control"
+        [(ngModel)]="team.rankingUrl"
+        type="text"
+        ngControl="rankingUrl"
+      />
+    </div>
+    <div class="form-group" *ngIf="own">
+      <label>Affichage</label>
+      <input
+        class="form-control"
+        [(ngModel)]="team.displayName"
+        type="text"
+        ngControl="displayName"
+      />
+    </div>
+    <div class="form-group" *ngIf="own">
+      <label>Ordre d'affichage (-1 pour ne pas afficher)</label>
+      <input
+        class="form-control"
+        [(ngModel)]="team.displayOrder"
+        type="number"
+        ngControl="displayOrder"
+      />
+    </div>
     <div>
       <button (click)="goBack()" class="btn btn-grey">
         <span class="fa fa-arrow-left"></span> Retour
       </button>
+      <a
+        [routerLink]="['/admin/teams', team.id, 'edit']"
+        class="btn btn-grey ml-2"
+        *ngIf="own"
+      >
+        <span class="fa fa-edit"></span> Gerer joueurs
+      </a>
       <div class="pull-right btn-toolbar">
         <button
           class="btn btn-danger mr-2"

@@ -18,7 +18,7 @@ namespace FootballWebSiteApi.Repository
 
         public JOwner GetOwner(Guid ownerId)
         {
-            var owner = Mapper.Map(_entities.Owners.Single(o => o.ownerId == ownerId));
+            var owner = Mapper.Map(_entities.Owners.Single(o => o.OwnerId == ownerId));
             return owner;
         }
 
