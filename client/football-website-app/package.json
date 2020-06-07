@@ -11,7 +11,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "gen-stats": "ng build --prod --stats-json",
-    "build:fcb": "ng build --configuration=fcb --prod",
+    "build:fcb": "ng build --configuration=fcb ",
     "build:fcu": "ng build --configuration=fcu",
     "view-stats": "webpack-bundle-analyzer dist/stats.json"
   },

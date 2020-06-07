@@ -46,7 +46,7 @@
             >EQUIPES</a
           >
           <!-- div.w-100 make it mega menu, div.top-auto opens the mega menu exactly as position like other normal menu -->
-          <div class="dropdown-menu w-100 top-auto bg-secondary text-white">
+          <div class="dropdown-menu w-100 top-auto bg-white">
             <div class="container">
               <!-- div.w-100 is also needed in certain circumstances to make this menu a mega menu -->
               <div class="row w-100">
@@ -54,7 +54,7 @@
                   class="text-center col-sm-4"
                   *ngFor="let team of teams; let i = index"
                 >
-                  <h5 class="text-primary">{{ team.displayName }}</h5>
+                  <h5 class="">{{ team.displayName }}</h5>
                   <li
                     data-toggle="collapse"
                     data-target=".navbar-collapse.show"
@@ -81,9 +81,9 @@
                     *ngIf="i != 0"
                     class="divider"
                   ></li>
-                  <li *ngIf="i != 0" class="text-primary font-weight-bold">
+                  <!-- <li *ngIf="i != 0" class="text-muted font-weight-bold">
                     LGEF
-                  </li>
+                  </li> -->
                   <li
                     data-toggle="collapse"
                     data-target=".navbar-collapse.show"
@@ -177,7 +177,7 @@
             >CLUB</a
           >
           <!-- div.w-100 make it mega menu, div.top-auto opens the mega menu exactly as position like other normal menu -->
-          <div class="dropdown-menu w-100 top-auto bg-secondary text-white">
+          <div class="dropdown-menu w-100 top-auto bg-white">
             <div class="container">
               <!-- div.w-100 is also needed in certain circumstances to make this menu a mega menu -->
               <div class="row w-100">

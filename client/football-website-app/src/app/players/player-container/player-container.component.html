@@ -5,17 +5,7 @@
   <fws-widget [headerText]="player.lastName + ' ' + player.firstName">
     <div class="row">
       <div class="col-md-4">
-        <img
-          [src]="
-            '../../../assets/img/players/' +
-            player.firstName +
-            '_' +
-            player.lastName +
-            '.png'
-          "
-          class="img-fluid img-thumbnail"
-          onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
-        />
+        <fws-player-picture [player]="player"></fws-player-picture>
       </div>
       <div class="col-md-8">
         <dl class="dl-horizontal">

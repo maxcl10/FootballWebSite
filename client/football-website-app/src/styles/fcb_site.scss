@@ -7,6 +7,7 @@ $theme-colors: (
   'primary': #404f37,
   'secondary': #65705e,
   'tertiary': #49603b,
+  'dark': #46494c,
   'success': $green-5,
   'danger': $red-1,
   'grey': #ecf0f1,
@@ -32,7 +33,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: $black-1;
-  padding-bottom: 150px;
+  padding-bottom: 200px;
   min-height: 100vh;
   position: relative;
 }

@@ -70,25 +70,20 @@
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.fcb.ts"
-                },
-                {
-                  "replace": "src/index.html",
-                  "with": "src/index.fcb.html"
-                },
-                {
-                  "replace": "src/favicon.ico",
-                  "with": "src/favicon.fcb.ico"
-                },
-                {
-                  "replace": "src/manifest.json",
-                  "with": "src/manifest.fcb.json"
-                },
-                {
-                  "replace": "src/sitemap.xml",
-                  "with": "src/sitemap.fcb.xml"
                 }
               ],
-              "serviceWorker": true
+              "serviceWorker": true,
+              "assets": [
+                "src/assets",
+                "src/web.config",
+                "src/humans.txt",
+                "src/robots.txt",
+                {
+                  "glob": "**/*",
+                  "input": "src/fcb",
+                  "output": "/"
+                }
+              ]
             },
             "fcu": {
               "optimization": true,

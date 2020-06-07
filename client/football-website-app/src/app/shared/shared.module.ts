@@ -20,6 +20,7 @@ import { EventTypeComponent } from './components/event-type/event-type.component
 import { LogoComponent } from './components/logo/logo.component';
 import { GameLetterPipe } from './pipes/game-letter.pipe';
 import { PlayerDetailsComponent } from './components/player-details/player-details.component';
+import { PlayerPictureComponent } from './components/player-picture/player-picture.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, RouterModule, ReactiveFormsModule],
@@ -40,6 +41,7 @@ import { PlayerDetailsComponent } from './components/player-details/player-detai
     LogoComponent,
     PlayerDetailsComponent,
     GameLetterPipe,
+    PlayerPictureComponent,
   ],
   exports: [
     SearchPipe,
@@ -56,6 +58,7 @@ import { PlayerDetailsComponent } from './components/player-details/player-detai
     EventTypeComponent,
     LogoComponent,
     GameLetterPipe,
+    PlayerPictureComponent,
   ],
 })
 
