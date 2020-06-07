@@ -19,6 +19,7 @@ import { ArticleComponent } from './components/article/article.component';
 import { EventTypeComponent } from './components/event-type/event-type.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { GameLetterPipe } from './pipes/game-letter.pipe';
+import { PlayerDetailsComponent } from './components/player-details/player-details.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, RouterModule, ReactiveFormsModule],
@@ -37,6 +38,7 @@ import { GameLetterPipe } from './pipes/game-letter.pipe';
     ArticleComponent,
     EventTypeComponent,
     LogoComponent,
+    PlayerDetailsComponent,
     GameLetterPipe,
   ],
   exports: [
@@ -46,6 +48,7 @@ import { GameLetterPipe } from './pipes/game-letter.pipe';
     GameScoreComponent,
     CompetitionComponent,
     PitchComponent,
+    PlayerDetailsComponent,
     WidgetComponent,
     GameWidgetComponent,
     PageHeaderComponent,

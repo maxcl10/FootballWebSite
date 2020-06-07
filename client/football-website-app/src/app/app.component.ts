@@ -8,7 +8,7 @@ import { Router, Event, NavigationEnd } from '@angular/router';
 import { fadeAnimation } from './shared/animations/animation';
 
 declare let ga: any;
-declare var $: any;
+
 /*
  * App Component
  * Top Level Component
@@ -26,13 +26,9 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
         // comment has been removed
+
         ga('send', 'pageview', event.urlAfterRedirects);
       }
-    });
-
-    // Method to close the nav bar when clicking on a link on small screens
-    $('.navbar-nav>li>a').on('click', function () {
-      $('.navbar-collapse').collapse('hide');
     });
   }
 

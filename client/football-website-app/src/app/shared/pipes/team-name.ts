@@ -1,10 +1,10 @@
 import { Component, Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'teamName'
+  name: 'teamName',
 })
 export class TeamNamePipe implements PipeTransform {
-  public transform(value, args) {
+  public transform(value, args?) {
     if (value == null || value === undefined) {
       return '';
     }

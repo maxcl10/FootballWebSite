@@ -55,25 +55,49 @@
                   *ngFor="let team of teams; let i = index"
                 >
                   <h5 class="text-primary">{{ team.displayName }}</h5>
-                  <li>
+                  <li
+                    data-toggle="collapse"
+                    data-target=".navbar-collapse.show"
+                  >
                     <a href="#" [routerLink]="['team', team.id]">Effectif</a>
                   </li>
-                  <li *ngIf="i == 0">
+                  <li
+                    data-toggle="collapse"
+                    data-target=".navbar-collapse.show"
+                    *ngIf="i == 0"
+                  >
                     <a href="" [routerLink]="['ranking']">Classement</a>
                   </li>
-                  <li *ngIf="i == 0">
+                  <li
+                    data-toggle="collapse"
+                    data-target=".navbar-collapse.show"
+                    *ngIf="i == 0"
+                  >
                     <a href="" [routerLink]="['fixtures']">Calendrier</a>
                   </li>
-                  <li *ngIf="i != 0" class="divider"></li>
+                  <li
+                    data-toggle="collapse"
+                    data-target=".navbar-collapse.show"
+                    *ngIf="i != 0"
+                    class="divider"
+                  ></li>
                   <li *ngIf="i != 0" class="text-primary font-weight-bold">
                     LGEF
                   </li>
-                  <li *ngIf="i != 0">
+                  <li
+                    data-toggle="collapse"
+                    data-target=".navbar-collapse.show"
+                    *ngIf="i != 0"
+                  >
                     <a href="{{ team.rankingUrl }}" target="_blank"
                       >Classement</a
                     >
                   </li>
-                  <li *ngIf="i != 0">
+                  <li
+                    data-toggle="collapse"
+                    data-target=".navbar-collapse.show"
+                    *ngIf="i != 0"
+                  >
                     <a href="{{ team.calendarUrl }}" target="_blank"
                       >Calendrier</a
                     >
@@ -157,24 +181,30 @@
             <div class="container">
               <!-- div.w-100 is also needed in certain circumstances to make this menu a mega menu -->
               <div class="row w-100">
-                <a
-                  class="dropdown-item"
-                  href="#"
-                  [routerLink]="['club', 'history']"
-                  >Histoire</a
-                >
-                <a
-                  class="dropdown-item"
-                  href="#"
-                  [routerLink]="['club', 'organizational-chart']"
-                  >Organigramme</a
-                >
-                <a
-                  class="dropdown-item"
-                  href="#"
-                  [routerLink]="['club', 'events']"
-                  >Manifestations</a
-                >
+                <li data-toggle="collapse" data-target=".navbar-collapse.show">
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    [routerLink]="['club', 'history']"
+                    >Histoire</a
+                  >
+                </li>
+                <li data-toggle="collapse" data-target=".navbar-collapse.show">
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    [routerLink]="['club', 'organizational-chart']"
+                    >Organigramme</a
+                  >
+                </li>
+                <li data-toggle="collapse" data-target=".navbar-collapse.show">
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    [routerLink]="['club', 'events']"
+                    >Manifestations</a
+                  >
+                </li>
               </div>
             </div>
           </div>

@@ -7,7 +7,7 @@ import { TeamsService } from '../../core/services/teams.service';
   selector: 'fws-ranking-table-small',
   templateUrl: './ranking-table-small.component.html',
 })
-export class LeagueTableSmallComponent implements OnInit {
+export class RankingTableSmallComponent implements OnInit {
   public rankings: Ranking[];
   public errorMessage: string;
   public homeTeam: string;

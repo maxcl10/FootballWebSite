@@ -34,6 +34,7 @@ import { EditGamePlayersComponent } from './games/edit-game-players/edit-game-pl
 import { TeamsContainerComponent } from './teams/teams-container/teams-container.component';
 import { ClubEventsContainerComponent } from './clubEvents/club-events-container/club-events-container.component';
 import { EditClubEventContainerComponent } from './clubEvents/edit-club-event-container/edit-club-event-container.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   imports: [
@@ -42,6 +43,7 @@ import { EditClubEventContainerComponent } from './clubEvents/edit-club-event-co
     EditorModule,
     AdminRoutingModule,
     CommonModule,
+    ModalModule.forRoot(),
   ],
   declarations: [
     UploadRankingComponent,
