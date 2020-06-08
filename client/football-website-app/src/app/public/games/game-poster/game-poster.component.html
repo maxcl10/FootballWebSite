@@ -50,7 +50,11 @@
         </div>
       </div>
       <div class="gameChampionship text-center">
-        <img src="../../../../assets/img/{{ nextgame.competitionShort }}.png" />
+        <img
+          src="https://cdn.marez.fr/football/{{
+            nextgame.competitionShort
+          }}.png"
+        />
         <fws-competition [game]="nextgame"></fws-competition>
       </div>
     </fws-poster-base>
@@ -136,7 +140,11 @@
         </ul>
       </div>
       <div class="gameChampionship text-center">
-        <img src="../../../../assets/img/{{ lastgame.competitionShort }}.png" />
+        <img
+          src="https://cdn.marez.fr/football/{{
+            lastgame.competitionShort
+          }}.png"
+        />
         <fws-competition [game]="lastgame"></fws-competition>
       </div>
     </fws-poster-base>
@@ -248,14 +256,14 @@
                 width="40px"
                 style="display: inline-block;"
                 [src]="
-                  '../../../assets/img/players/' +
+                  'https://cdn.marez.fr/football/players/' +
                   player.playerFirstName +
                   '_' +
                   player.playerLastName +
                   '.png'
                 "
                 class="img-fluid img-circle"
-                onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
+                onerror="this.onerror=null;this.src='https\:\/\/cdn.marez.fr/football/players//default.png'"
               />
               <span style="font-size: 18px;">
                 {{ player.playerLastName }}
@@ -271,14 +279,14 @@
                 width="40px"
                 style="display: inline-block;"
                 [src]="
-                  '../../../assets/img/players/' +
+                  'https://cdn.marez.fr/football/players/' +
                   player.playerFirstName +
                   '_' +
                   player.playerLastName +
                   '.png'
                 "
                 class="img-fluid img-circle"
-                onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
+                onerror="this.onerror=null;this.src='https\:\/\/cdn.marez.fr/football/players/default.png'"
               />
               <span style="font-size: 18px;">
                 {{ player.playerLastName }}
@@ -289,7 +297,11 @@
         </div>
       </div>
       <div class="gameChampionship text-center">
-        <img src="../../../../assets/img/{{ nextgame.competitionShort }}.png" />
+        <img
+          src="https://cdn.marez.fr/football/{{
+            nextgame.competitionShort
+          }}.png"
+        />
         <fws-competition [game]="nextgame"></fws-competition>
       </div>
     </fws-poster-base>

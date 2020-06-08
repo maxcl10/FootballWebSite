@@ -10,8 +10,8 @@
     "mainColor": "#1e824c",
     "siteUrl": "https://fcbartenheim.com",
     "homeImageUrls": [
-      "../../../assets/img/Fcb_2019_2020.jpg",
-      "../../../assets/img/Fcb2_2018_2019.jpg"
+      "https://cdn.marez.fr/football/Fcb_2019_2020.jpg",
+      "https://cdn.marez.fr/football/Fcb2_2018_2019.jpg"
     ]
   }
 }

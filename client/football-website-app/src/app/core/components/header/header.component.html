@@ -2,7 +2,11 @@
   <div class="container">
     <div class="header">
       <a href="" [routerLink]="['./admin']">
-        <img id="logo" *ngIf="club" src="{{ club.logoUrl }}" />
+        <img
+          id="logo"
+          *ngIf="club"
+          src="https://cdn.marez.fr/football/{{ club.logoUrl }}"
+        />
       </a>
       <div class="header-title siteTitle">
         <div class="d-none d-sm-inline">

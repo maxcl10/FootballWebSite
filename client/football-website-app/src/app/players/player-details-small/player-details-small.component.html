@@ -2,17 +2,7 @@
   <h4>{{ player.firstName }} {{ player.lastName }}</h4>
   <div class="row">
     <div class="col-md-4">
-      <img
-        [src]="
-          '../../../assets/img/players/' +
-          player.firstName +
-          '_' +
-          player.lastName +
-          '.png'
-        "
-        class="img-fluid img-thumbnail"
-        onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
-      />
+      <fws-player-picture [player]="player"></fws-player-picture>
     </div>
     <div class="col-md-8">
       <ul class="list-unstyled">

@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class LogoService {
   public getLogoPath(team: string, size: number) {
-    const baseUrl = '../../../assets/img/logos/';
+    const baseUrl = 'https://cdn.marez.fr/football/logos/';
     switch (team) {
       case 'Bennwihr F.C.':
         return baseUrl + 'Bennwhir/bennwhir_' + size + 'x' + size + '.png';
