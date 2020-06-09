@@ -15,7 +15,7 @@ git push origin master
 
 In order to deploy the web site, I'm using docker. The following steps has to be done.
 
-### Create the image:
+### Create the image
 
 docker build --rm -f "Dockerfile" -t test .
 --file , -f Name of the Dockerfile (Default is ‘PATH/Dockerfile’)
@@ -30,7 +30,7 @@ docker build --rm -f "Dockerfile" -t test .
 
 Change the id with the correct image id
 
-- docker tag e853b62a1849 maxcl10/football-web-site:test
+- docker tag 15704c75083f maxcl10/football-web-site:test
 
 ### Push the image in the reporsitory
 

@@ -15,25 +15,13 @@
     <meta
       name="keywords"
       content="football, club, bartenheim, fcb, FC Bartenheim, F.C Bartenheim, championnat, coupe, amical,
-  ber, F.C.B, Regional, haut-rhin, matchs, résultats, programme, foot, alsace"
+  ber, F.C.B, Regional, haut-rhin, matchs, résultats, programme, foot, alsace, LGEF"
     />
 
     <!-- base url -->
     <base href="/" />
     <link rel="icon" href="favicon.ico" />
 
-    <!-- required to use jquery to fix the scrollbar -->
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
-      crossorigin="anonymous"
-      defer=""
-    ></script>
-
-    <link
-      href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700"
-      rel="stylesheet"
-    />
     <!--Bing indexation-->
     <meta name="msvalidate.01" content="908CCCEFEA9F5FC59EDF5C17FECE3156" />
 
@@ -41,7 +29,7 @@
       {
         "@context": "http://schema.org",
         "@type": "Organization",
-        "url": "http://www.fcbartenheim.com",
+        "url": "https://www.fcbartenheim.com",
         "contactPoint": [
           {
             "@type": "ContactPoint",
@@ -56,20 +44,6 @@
   </head>
 
   <body>
-    <div id="fb-root"></div>
-    <script>
-      (function (d, s, id) {
-        var js,
-          fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src =
-          'https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.1&appId=1154746151340694&autoLogAppEvents=1';
-        fjs.parentNode.insertBefore(js, fjs);
-      })(document, 'script', 'facebook-jssdk');
-    </script>
-
     <!-- Content -->
     <fws-root>
       <div
@@ -138,26 +112,6 @@
 
       ga('create', 'UA-80977864-2', 'auto');
       ga('send', 'pageview');
-    </script>
-
-    <script>
-      // $(document).ready(function() {
-      //   //fix the top bar when scrolling
-      //   $(document).scroll(function(e) {
-      //     var scrollTop = $(document).scrollTop();
-      //     if (scrollTop > 70) {
-      //       $('.navbar')
-      //         .removeClass('navbar-static-top')
-      //         .addClass('navbar-fixed-top')
-      //         .addClass('affix');
-      //     } else {
-      //       $('.navbar')
-      //         .removeClass('navbar-fixed-top')
-      //         .addClass('navbar-static-top')
-      //         .removeClass('affix');
-      //     }
-      //   });
-      // });
     </script>
   </body>
 </html>

@@ -83,7 +83,8 @@
                   "input": "src/fcb",
                   "output": "/"
                 }
-              ]
+              ],
+              "index": "src/fcb/index.html"
             },
             "fcu": {
               "optimization": true,
@@ -99,24 +100,20 @@
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.fcu.ts"
-                },
-                {
-                  "replace": "src/index.html",
-                  "with": "src/index.fcu.html"
-                },
-                {
-                  "replace": "src/styles/fcb_site.scss",
-                  "with": "src/styles/fcu_site.scss"
-                },
-                {
-                  "replace": "src/assets/fcb_organigramme.json",
-                  "with": "src/assets/fcu_organigramme.json"
-                },
-                {
-                  "replace": "src/assets/img/players/default.png",
-                  "with": "src/assets/img/players/default_fcu.png"
                 }
               ],
+              "assets": [
+                "src/assets",
+                "src/web.config",
+                "src/humans.txt",
+                "src/robots.txt",
+                {
+                  "glob": "**/*",
+                  "input": "src/fcu",
+                  "output": "/"
+                }
+              ],
+
               "serviceWorker": true
             }
           }

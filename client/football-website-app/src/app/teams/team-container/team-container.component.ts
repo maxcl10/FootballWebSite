@@ -5,6 +5,7 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { TeamsService } from '../../core/services/teams.service';
 import { AppConfig } from '../../app.config';
+import { Team } from '../../shared/models/team.model';
 
 @Component({
   selector: 'fws-team-container',
@@ -23,7 +24,7 @@ export class TeamContainerComponent implements OnInit {
   public players: Player[];
   public errorMessage: string;
   private sub: any;
-  team: import('c:/Users/mmax/Documents/GitHub/FootballWebSite/client/football-website-app/src/app/shared/models/team.model').Team;
+  team: Team;
 
   constructor(
     private playersService: PlayersService,
