@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { GamePosterGeneratorComponent } from './game-poster-generator.component';
 
@@ -6,7 +6,7 @@ describe('GamePosterComponent', () => {
   let component: GamePosterGeneratorComponent;
   let fixture: ComponentFixture<GamePosterGeneratorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [GamePosterGeneratorComponent]
     }).compileComponents();

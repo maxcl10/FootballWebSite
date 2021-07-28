@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TeamPositionBlockComponent } from './team-position-block.component';
 
@@ -6,7 +6,7 @@ describe('TeamPositionBlockComponent', () => {
   let component: TeamPositionBlockComponent;
   let fixture: ComponentFixture<TeamPositionBlockComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ TeamPositionBlockComponent ]
     })
