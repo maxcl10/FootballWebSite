@@ -8,6 +8,7 @@ export interface Club {
   phoneNumber: string;
   emailAddress: string;
   facebook: string;
+  instagram: string;
   youtube: string;
   stadium: string;
   history: string;

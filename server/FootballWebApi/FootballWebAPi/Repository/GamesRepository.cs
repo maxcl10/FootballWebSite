@@ -56,10 +56,11 @@ namespace FootballWebSiteApi.Repository
             }
 
             var localTeamId = _entities.Teams.Where(o => o.OwnerId == ownerId)
-            .OrderBy(o => o.DisplayOrder).First().TeamId;
+            .OrderBy(o => o.DisplayOrder).First(o => o.DisplayOrder > 0).TeamId;
 
             var game = Mapper.Map(nextGame);
             game.Result = BusinessLogic.GetResultChar(game, localTeamId);
+            game.OwnerTeam = localTeamId;
             return game;
         }
 
@@ -85,10 +86,11 @@ namespace FootballWebSiteApi.Repository
             }
 
             var localTeamId = _entities.Teams.Where(o => o.OwnerId == ownerId)
-            .OrderBy(o => o.DisplayOrder).First().TeamId;
+            .OrderBy(o => o.DisplayOrder).First(o => o.DisplayOrder > 0).TeamId;
 
             var game = Mapper.Map(previous);
             game.Result = BusinessLogic.GetResultChar(game, localTeamId);
+            game.OwnerTeam = localTeamId;
             return game;
         }
 
@@ -101,7 +103,7 @@ namespace FootballWebSiteApi.Repository
         public JGame GetGame(Guid ownerId, Guid id)
         {
             var localTeamId = _entities.Teams.Where(o => o.OwnerId == ownerId)
-            .OrderBy(o => o.DisplayOrder).First().TeamId;
+            .OrderBy(o => o.DisplayOrder).First(o => o.DisplayOrder > 0).TeamId;
 
             JGame game = Mapper.Map(_entities.Games.Single(o => o.GameId == id));
             game.Result = BusinessLogic.GetResultChar(game, localTeamId);

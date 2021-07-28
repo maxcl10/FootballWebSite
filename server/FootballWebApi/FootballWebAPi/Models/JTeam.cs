@@ -13,6 +13,8 @@ namespace FootballWebSiteApi.Models
         public string CalendarUrl { get; set; }
 
         public string RankingUrl { get; set; }
+
+        public string AffiliationNumber { get; set; }
         public int? DisplayOrder { get; set; }
     }
 }

@@ -16,6 +16,13 @@
           <img [src]="getLogo(team.name)" />
           {{ team.name }} / {{ team.shortName }}</a
         >
+        {{ team.affiliationNumber }}
+        <img
+          style="width: 30px;"
+          src="https://android-apiapp.azureedge.net/common/bib_img/logo/{{
+            team.affiliationNumber
+          }}.jpg"
+        />
       </li>
     </ul>
   </fws-widget>

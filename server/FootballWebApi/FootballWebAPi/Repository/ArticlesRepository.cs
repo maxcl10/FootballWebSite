@@ -20,15 +20,20 @@ namespace FootballWebSiteApi.Repository
             _entities = new FootballWebSiteDbEntities();
         }
 
-        public async Task<IEnumerable<JArticle>> GetArticles(Guid ownerId)
+        public async Task<IEnumerable<JArticle>> GetArticles(Guid ownerId, bool publishedOnly)
         {
             var currentSeasonId = _entities.Seasons.Single(o => o.CurrentSeason).SeasonId;
 
-            var articles = await _entities.Articles.Where(o => o.DeletedDate.HasValue == false
-            && o.OwnerId == ownerId
-            && o.SeasonId == currentSeasonId).OrderByDescending(o => o.CreationDate).ToListAsync();
+            var articles = _entities.Articles.Where(o => o.DeletedDate.HasValue == false
+           && o.OwnerId == ownerId
+           && o.SeasonId == currentSeasonId);
 
-            return Mapper.Map(articles);
+            if (publishedOnly)
+            {
+                articles = articles.Where(o => o.PublishedDate.HasValue);
+            }
+
+            return Mapper.Map(await articles.OrderByDescending(o => o.CreationDate).ToListAsync());
         }
 
         public async Task<JArticle> GetArticle(Guid ownerId, Guid articleId)
@@ -86,6 +91,7 @@ namespace FootballWebSiteApi.Repository
             var correspondingArticle = _entities.Articles.Where(o => o.DeletedDate.HasValue == false).Single(o => o.ArticleId == id && o.OwnerId == ownerId);
             correspondingArticle.Title = article.Title;
             correspondingArticle.Body = article.Body;
+            correspondingArticle.SubTitle = article.SubTitle;
             correspondingArticle.GameId = article.GameId;
             correspondingArticle.ModifiedDate = article.ModifiedDate;
             correspondingArticle.ImageUrl = article.ImageUrl;

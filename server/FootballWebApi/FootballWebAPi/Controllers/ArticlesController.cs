@@ -25,10 +25,10 @@ namespace FootballWebSiteApi.Controllers
 
         [HttpGet]
         [ResponseType(typeof(IEnumerable<JArticle>))]
-        public async Task<IHttpActionResult> GetArticles(int count = 25)
+        public async Task<IHttpActionResult> GetArticles(int count = 25, bool publishedOnly = false)
         {
             var ownerId = Request.Headers.GetOwnerId();
-            var articles = await _repository.GetArticles(ownerId);
+            var articles = await _repository.GetArticles(ownerId, publishedOnly);
             articles = articles.Take(count).ToList();
             return Ok(articles);
 

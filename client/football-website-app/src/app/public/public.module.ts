@@ -14,9 +14,6 @@ import { TodayGameComponent } from './games/today-game/today-game.component';
 import { SeasonSummaryComponent } from './stats/season-summary/season-summary.component';
 
 import { GameDetailsComponent } from './games/game-details/game-details.component';
-import { GamePosterComponent } from './games/game-poster/game-poster.component';
-import { GamePosterGeneratorComponent } from './games/game-poster-generator/game-poster-generator.component';
-import { PosterBaseComponent } from './games/poster-base/poster-base.component';
 
 import { GameComponent } from './games/game/game.component';
 
@@ -25,9 +22,6 @@ import { GameComponent } from './games/game/game.component';
     TodayGameComponent,
     SeasonSummaryComponent,
     GameDetailsComponent,
-    GamePosterComponent,
-    GamePosterGeneratorComponent,
-    PosterBaseComponent,
     GameComponent,
   ],
   imports: [CommonModule, PublicRoutingModule, SharedModule],

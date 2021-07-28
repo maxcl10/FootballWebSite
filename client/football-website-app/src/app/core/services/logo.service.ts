@@ -58,6 +58,7 @@ export class LogoService {
       case 'Wittenheim U.S. 2':
         return baseUrl + 'Wittenheim/wittenheim_' + size + 'x' + size + '.png';
       case 'Colmar S.R.':
+      case 'Colmar S.R. 2':
         return baseUrl + 'Colmar/colmar_' + size + 'x' + size + '.png';
       case 'Pfastatt F.C.':
         return baseUrl + 'Pfastatt/pfastatt_' + size + 'x' + size + '.png';
@@ -200,6 +201,14 @@ export class LogoService {
         );
       case 'EJPS U19':
         return baseUrl + 'Ejps/ejps_' + size + 'x' + size + '.png';
+      case 'Sainte Croix en Plaine F.C.':
+        return baseUrl + 'Ste_croix/ste_croix_' + size + 'x' + size + '.png';
+      case 'Hirtzfelden F.C.':
+        return (
+          baseUrl + 'Hirtzfelden/hirtzfelden_' + size + 'x' + size + '.png'
+        );
+      case 'Illfurth F.C.':
+        return baseUrl + 'Illfurth/illfurth_' + size + 'x' + size + '.png';
       default:
         break;
     }

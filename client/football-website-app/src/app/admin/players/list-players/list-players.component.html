@@ -27,21 +27,22 @@
           <td>
             <img
               [src]="
-                '../../../assets/img/players/' +
+                'https://cdn.marez.fr/football/players/' +
                 player.firstName +
                 '_' +
                 player.lastName +
-                '.png'
+                '.jpg'
               "
               style="height: 30px;"
               class="rounded-circle"
+              onerror="this.onerror=null;this.src='https\:\/\/cdn.marez.fr/football/players/default.jpg'"
             />
           </td>
           <td>{{ player.lastName }} {{ player.firstName }}</td>
           <td>
             {{ player.position }}
           </td>
-          <td class="d-none d-sm-inline">
+          <td class="d-none d-sm-block">
             {{ player.dateOfBirth | date: 'dd/MM/yyyy' }}
           </td>
         </tr>

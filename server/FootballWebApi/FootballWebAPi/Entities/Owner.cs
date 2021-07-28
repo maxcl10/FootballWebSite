@@ -42,6 +42,7 @@ namespace FootballWebSiteApi.Entities
         public string LogoUrl { get; set; }
         public string FacebookLikeUrl { get; set; }
         public string Nickname { get; set; }
+        public string Instagram { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Article> Articles { get; set; }

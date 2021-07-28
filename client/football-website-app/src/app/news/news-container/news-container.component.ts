@@ -18,7 +18,7 @@ export class NewsContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this.articlesService.getArticles().subscribe((res) => {
-      this.articles = res;
+      this.articles = res.filter((o) => o.published);
     });
 
     this.titleService.setTitle(

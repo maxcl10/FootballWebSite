@@ -67,6 +67,7 @@ namespace FootballWebSiteApi.Repository
             correspondingTeam.DisplayOrder = team.DisplayOrder;
             correspondingTeam.CalendarUrl = team.CalendarUrl;
             correspondingTeam.RankingUrl = team.RankingUrl;
+            correspondingTeam.AffiliationNumber = team.AffiliationNumber;
 
             _entities.SaveChanges();
             return team;

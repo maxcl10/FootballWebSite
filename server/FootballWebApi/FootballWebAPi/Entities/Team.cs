@@ -33,6 +33,7 @@ namespace FootballWebSiteApi.Entities
         public string CalendarUrl { get; set; }
         public string RankingUrl { get; set; }
         public Nullable<bool> YouthTeam { get; set; }
+        public string AffiliationNumber { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Game> Games { get; set; }

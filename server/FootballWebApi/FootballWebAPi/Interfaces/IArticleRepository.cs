@@ -11,7 +11,7 @@ namespace FootballWebSiteApi.Interfaces
         void DeleteArticle(Guid ownerId, Guid id);
         Task<JArticle> GetArticle(Guid ownerId, Guid articleId);
         JArticle GetArticlePerGame(Guid ownerId, Guid gameId);
-        Task<IEnumerable<JArticle>> GetArticles(Guid ownerId);
+        Task<IEnumerable<JArticle>> GetArticles(Guid ownerId, bool publishedOnly);
         JArticle UpdateArticle(Guid ownerId, Guid id, JArticle article);
     }
 }

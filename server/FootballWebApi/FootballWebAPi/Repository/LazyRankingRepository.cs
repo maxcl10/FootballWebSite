@@ -78,7 +78,7 @@ namespace FootballWebSiteApi.Repository
         {
             using (TeamsRepository teamRepository = new TeamsRepository())
             {
-                var firstTeam = teamRepository.GetHomeTeams(ownerId).OrderBy(o => o.DisplayOrder).First();
+                var firstTeam = teamRepository.GetHomeTeams(ownerId).OrderBy(o => o.DisplayOrder).First(o => o.DisplayOrder > 0);
                 var currentSeason = _entities.Seasons.Single(o => o.CurrentSeason);
 
                 var teamCompetitionSeason = _entities.TeamCompetitionSeasons.Where(o => o.TeamId == firstTeam.Id
@@ -94,7 +94,7 @@ namespace FootballWebSiteApi.Repository
             //Get the LGEF Url
             using (TeamsRepository teamRepository = new TeamsRepository())
             {
-                var firstTeam = teamRepository.GetHomeTeams(ownerId).OrderBy(o => o.DisplayOrder).First();
+                var firstTeam = teamRepository.GetHomeTeams(ownerId).OrderBy(o => o.DisplayOrder).First(o => o.DisplayOrder > 0);
                 var currentSeason = _entities.Seasons.Single(o => o.CurrentSeason);
 
                 var teamCompetitionSeason = _entities.TeamCompetitionSeasons.Single(o => o.TeamId == firstTeam.Id

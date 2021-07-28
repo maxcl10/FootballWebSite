@@ -234,6 +234,7 @@ namespace FootballWebSiteApi.Helpers
                 City = owner.City,
                 EmailAddress = owner.EmailAddress,
                 Facebook = owner.Facebook,
+                Instagram = owner.Instagram,
                 History = owner.History,
                 Name = owner.Name,
                 LongName = owner.LongName,
@@ -369,6 +370,7 @@ namespace FootballWebSiteApi.Helpers
                 DisplayName = jteam.DisplayName,
                 DisplayOrder = jteam.DisplayOrder,
                 OwnerId = jteam.OwnerId,
+                AffiliationNumber = jteam.AffiliationNumber
             };
         }
 
@@ -393,7 +395,8 @@ namespace FootballWebSiteApi.Helpers
                 DisplayName = team.DisplayName,
                 CalendarUrl = team.CalendarUrl,
                 OwnerId = team.OwnerId,
-                RankingUrl = team.RankingUrl
+                RankingUrl = team.RankingUrl,
+                AffiliationNumber = team.AffiliationNumber
             };
         }
     }

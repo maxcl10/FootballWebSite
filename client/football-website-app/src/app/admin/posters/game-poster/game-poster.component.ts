@@ -166,7 +166,7 @@ export class GamePosterComponent implements OnInit {
   public getNextGames() {
     this.gamesService.getNextGames().subscribe((games) => {
       this.nextgames = games;
-      this.nextgames.push(games[0]);
+      // this.nextgames.push(games[0]);
     });
   }
 

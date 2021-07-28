@@ -49,6 +49,13 @@ export class EditGameComponent implements OnInit {
     this.gamesService.getCompetitions().subscribe(
       (competitions) => {
         this.competitions = competitions;
+        this.competitions.push({
+          name: '',
+          competitionId: null,
+          season: '',
+          group: '',
+          shortName: '',
+        });
       },
       (error) => (this.errorMessage = <any>error)
     );

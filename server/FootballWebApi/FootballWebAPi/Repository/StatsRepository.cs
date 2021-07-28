@@ -66,21 +66,24 @@ namespace FootballWebSiteApi.Repository
                     playerStat.TotalGames++;
                 }
 
-                if (playerGame.Game.Competition.CompetitionType == 0)
+                if (playerGame.Game.Competition != null)
                 {
-                    playerStat.ChampionshipGames++;
-                }
-                else if (playerGame.Game.Competition.CompetitionType == 1)
-                {
-                    playerStat.NationalCupGames++;
-                }
-                else if (playerGame.Game.Competition.CompetitionType == 2)
-                {
-                    playerStat.RegionalCupGames++;
-                }
-                else if (playerGame.Game.Competition.CompetitionType == 3)
-                {
-                    playerStat.OtherCupGames++;
+                    if (playerGame.Game.Competition.CompetitionType == 0)
+                    {
+                        playerStat.ChampionshipGames++;
+                    }
+                    else if (playerGame.Game.Competition.CompetitionType == 1)
+                    {
+                        playerStat.NationalCupGames++;
+                    }
+                    else if (playerGame.Game.Competition.CompetitionType == 2)
+                    {
+                        playerStat.RegionalCupGames++;
+                    }
+                    else if (playerGame.Game.Competition.CompetitionType == 3)
+                    {
+                        playerStat.OtherCupGames++;
+                    }
                 }
 
                 //var localTeam = entities.Teams.Where(o => o.ownerId == ownerId);       
@@ -91,25 +94,29 @@ namespace FootballWebSiteApi.Repository
                 {
                     foreach (var eventItem in playerGame.GameEvents)
                     {
-                        if (playerGame.Game.Competition.CompetitionType == 0)
+
+                        if (playerGame.Game.Competition != null)
                         {
-                            playerStat.ChampionshipGoals += eventItem.EventTypeId == 0 ? 1 : 0;
-                            playerStat.ChampionshipAssists += eventItem.EventTypeId == 1 ? 1 : 0;
-                        }
-                        else if (playerGame.Game.Competition.CompetitionType == 1)
-                        {
-                            playerStat.NationalCupGoals += eventItem.EventTypeId == 0 ? 1 : 0;
-                            playerStat.NationalCupAssists += eventItem.EventTypeId == 1 ? 1 : 0;
-                        }
-                        else if (playerGame.Game.Competition.CompetitionType == 2)
-                        {
-                            playerStat.RegionalCupGoals += eventItem.EventTypeId == 0 ? 1 : 0;
-                            playerStat.RegionalCupAssists += eventItem.EventTypeId == 1 ? 1 : 0;
-                        }
-                        else if (playerGame.Game.Competition.CompetitionType == 3)
-                        {
-                            playerStat.OtherCupGoals += eventItem.EventTypeId == 0 ? 1 : 0;
-                            playerStat.OtherCupAssists += eventItem.EventTypeId == 1 ? 1 : 0;
+                            if (playerGame.Game.Competition.CompetitionType == 0)
+                            {
+                                playerStat.ChampionshipGoals += eventItem.EventTypeId == 0 ? 1 : 0;
+                                playerStat.ChampionshipAssists += eventItem.EventTypeId == 1 ? 1 : 0;
+                            }
+                            else if (playerGame.Game.Competition.CompetitionType == 1)
+                            {
+                                playerStat.NationalCupGoals += eventItem.EventTypeId == 0 ? 1 : 0;
+                                playerStat.NationalCupAssists += eventItem.EventTypeId == 1 ? 1 : 0;
+                            }
+                            else if (playerGame.Game.Competition.CompetitionType == 2)
+                            {
+                                playerStat.RegionalCupGoals += eventItem.EventTypeId == 0 ? 1 : 0;
+                                playerStat.RegionalCupAssists += eventItem.EventTypeId == 1 ? 1 : 0;
+                            }
+                            else if (playerGame.Game.Competition.CompetitionType == 3)
+                            {
+                                playerStat.OtherCupGoals += eventItem.EventTypeId == 0 ? 1 : 0;
+                                playerStat.OtherCupAssists += eventItem.EventTypeId == 1 ? 1 : 0;
+                            }
                         }
                     }
                 }

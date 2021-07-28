@@ -23,9 +23,14 @@ export class ArticlesService {
     return this.http.get<Article>(this.articleUrl + '/' + id);
   }
 
-  public getArticles(count?: number): Observable<Article[]> {
+  public getArticles(
+    count?: number,
+    publishedOnly?: boolean
+  ): Observable<Article[]> {
     if (count) {
-      return this.http.get<Article[]>(this.articleUrl + '?count=' + count);
+      return this.http.get<Article[]>(
+        this.articleUrl + '?count=' + count + '&publishedOnly=' + publishedOnly
+      );
     }
 
     return this.http.get<Article[]>(this.articleUrl);

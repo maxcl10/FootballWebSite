@@ -35,6 +35,9 @@ import { TeamsContainerComponent } from './teams/teams-container/teams-container
 import { ClubEventsContainerComponent } from './clubEvents/club-events-container/club-events-container.component';
 import { EditClubEventContainerComponent } from './clubEvents/edit-club-event-container/edit-club-event-container.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { PosterBaseComponent } from './posters/poster-base/poster-base.component';
+import { GamePosterGeneratorComponent } from './posters/game-poster-generator/game-poster-generator.component';
+import { GamePosterComponent } from './posters/game-poster/game-poster.component';
 
 @NgModule({
   imports: [
@@ -66,6 +69,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     TeamsContainerComponent,
     ClubEventsContainerComponent,
     EditClubEventContainerComponent,
+    GamePosterComponent,
+    GamePosterGeneratorComponent,
+    PosterBaseComponent,
   ],
   exports: [RouterModule],
 })

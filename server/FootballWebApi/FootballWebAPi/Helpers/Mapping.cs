@@ -45,6 +45,8 @@ namespace FootballWebSiteApi.Helpers
                   { "BRUNSTATT F.C.", "Brunstatt F.C." },
                     { "BLOTZHEIM A.S.", "Blotzheim A.S." },
                       { "MULHOUSE MOULOUDIA", "Mulhouse Mouloudia" },
+                        { "OTTMARSHEIM S.C.", "Ottmarsheim S.C." },
+                          { "WITTENHEIM U.S.", "Wittenheim U.S." },
 
 
         };

@@ -69,7 +69,7 @@
 <div class="my-4" *ngIf="players?.length">
   <div class="container">
     <div class="row">
-      <fws-widget class="w-100" headerText="Composition">
+      <fws-widget headerText="Composition">
         <div class="row">
           <div class="col-12 col-xl-4">
             <table class="table table-borderless">
@@ -86,7 +86,7 @@
                         player.playerFirstName +
                         '_' +
                         player.playerLastName +
-                        '.png'
+                        '.jpg'
                       "
                       style="height: 20px;"
                       class="rounded-circle d-md-none"
@@ -114,7 +114,7 @@
   </div>
 </div>
 
-<div *ngIf="article" class="my-4">
+<div *ngIf="article?.body" class="my-4 w-100">
   <div class="container">
     <div class="row">
       <fws-widget headerText="Résumé">

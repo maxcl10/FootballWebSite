@@ -4,6 +4,7 @@ import { Component, OnInit, Input } from '@angular/core';
   selector: 'fws-widget',
   templateUrl: './widget.component.html',
   styleUrls: ['./widget.component.scss'],
+  host: { class: 'w-100' },
 })
 export class WidgetComponent implements OnInit {
   constructor() {}

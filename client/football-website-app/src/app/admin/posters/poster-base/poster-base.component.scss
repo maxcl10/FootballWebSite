@@ -1,0 +1,20 @@
+@import '../../../../styles/fcb_site.scss';
+
+.content-container {
+  padding: 20px;
+  background-color: $primary;
+}
+
+.background {
+  // background-image: url('https://cdn.marez.fr/football/backgroung.png');
+
+  background-color: $secondary;
+  width: 800px;
+  padding: 40px;
+  color: white;
+  font-family: 'Lexend Tera', sans-serif;
+}
+
+.website {
+  margin-top: 10px;
+}

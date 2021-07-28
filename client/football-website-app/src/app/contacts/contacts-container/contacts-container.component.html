@@ -30,13 +30,28 @@
               club.facebook
             }}</a>
           </div>
+          <div *ngIf="club.instagram">
+            <i
+              class="fa fa-instagram"
+              aria-hidden="true"
+              style="margin-right: 14px;"
+            ></i>
+            <a href="{{ club.instagram }}" target="_blank">{{
+              club.instagram
+            }}</a>
+          </div>
           <div *ngIf="club.youtube">
             <i
               class="fa fa-youtube"
               aria-hidden="true"
               style="margin-right: 13px;"
             ></i>
-            <a href="{{ club.youtube }}" target="_blank">{{ club.youtube }}</a>
+            <a
+              href="{{ club.youtube }}"
+              target="_blank"
+              class="d-none d-sm-inline"
+              >{{ club.youtube }}</a
+            >
           </div>
         </div>
       </fws-widget>

@@ -7,4 +7,5 @@ export class Team {
   public rankingUrl: string;
   public displayOrder: number;
   public displayName: string;
+  public affiliationNumber: string;
 }

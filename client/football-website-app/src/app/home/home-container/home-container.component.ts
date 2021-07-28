@@ -29,7 +29,7 @@ export class HomeContainerComponent implements OnInit {
   ) {}
 
   public getArticles() {
-    this.articlesService.getArticles(3).subscribe(
+    this.articlesService.getArticles(3, true).subscribe(
       (articles) => {
         this.articles = articles.filter((o) => o.published);
         this.loaded = true;

@@ -30,7 +30,7 @@ docker build --rm -f "Dockerfile" -t test .
 
 Change the id with the correct image id
 
-- docker tag 15704c75083f maxcl10/football-web-site:test
+- docker tag b4fe8920e14f maxcl10/football-web-site:test
 
 ### Push the image in the reporsitory
 

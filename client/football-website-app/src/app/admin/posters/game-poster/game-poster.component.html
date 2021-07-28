@@ -13,11 +13,9 @@
   <button (click)="downloadScheduleImage()" class="btn btn-default">
     Programme
   </button>
-  <button (click)="downloadGroupImage()" class="btn btn-default">
-    Groupe
-  </button>
+  <button (click)="downloadGroupImage()" class="btn btn-default">Groupe</button>
 
-  <div style="width: 800px;" #nextGameDiv>
+  <div style="width: 800px" #nextGameDiv>
     <fws-poster-base *ngIf="nextgame != null">
       <div class="text-center part subInfo">
         {{ nextgame.matchDate | date: 'EEEE dd LLLL yyyy HH:mm' | uppercase }}
@@ -38,12 +36,12 @@
           /><br />
         </div>
       </div>
-      <div class="row" style="margin-top: 20px;">
+      <div class="row" style="margin-top: 20px">
         <div class="col-md-12 text-center teamName">
           <span class="hidden-sm bold">{{
             nextgame.homeTeam | teamName | uppercase
           }}</span>
-          /
+          <span class="text-muted"> / </span>
           <span class="hidden-sm bold">{{
             nextgame.awayTeam | teamName | uppercase
           }}</span>
@@ -51,6 +49,7 @@
       </div>
       <div class="gameChampionship text-center">
         <img
+          *ngIf="nextgame.competitionShort"
           src="https://cdn.marez.fr/football/{{
             nextgame.competitionShort
           }}.png"
@@ -94,7 +93,7 @@
   </fws-poster-base>  -->
 
   <br />
-  <div #lastGameDiv style="width: 800px;">
+  <div #lastGameDiv style="width: 800px">
     <fws-poster-base *ngIf="lastgame != null">
       <!-- <div class="text-center title">
       FIN DU MATCH
@@ -115,12 +114,12 @@
           /><br />
         </div>
       </div>
-      <div class="row" style="margin-top: 20px;">
+      <div class="row" style="margin-top: 20px">
         <div class="col-md-12 text-center teamName">
           <span class="hidden-sm bold">{{
             lastgame.homeTeam | teamName | uppercase
           }}</span>
-          /
+          <span class="text-muted"> / </span>
           <span class="hidden-sm bold">{{
             lastgame.awayTeam | teamName | uppercase
           }}</span>
@@ -132,15 +131,29 @@
         </div>
       </div>
       <div class="row">
-        <ul>
-          <li *ngFor="let goal of goals">
-            {{ goal.playerLastName }} {{ goal.playerFirstName.slice(0, 1) }}.
-            <span class="subInfo"> {{ goal.time }}'</span>
-          </li>
-        </ul>
+        <div *ngIf="lastgame.homeTeamId == lastgame.ownerTeam">
+          <ul>
+            <li *ngFor="let goal of goals">
+              {{ goal.playerLastName }} {{ goal.playerFirstName.slice(0, 1) }}.
+              <span class="subInfo"> {{ goal.time }}'</span>
+            </li>
+          </ul>
+        </div>
+        <div
+          style="width: 100%; padding-right: 30px"
+          *ngIf="lastgame.homeTeamId != lastgame.ownerTeam"
+        >
+          <ul class="text-right">
+            <li *ngFor="let goal of goals">
+              {{ goal.playerLastName }} {{ goal.playerFirstName.slice(0, 1) }}.
+              <span class="subInfo"> {{ goal.time }}'</span>
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="gameChampionship text-center">
         <img
+          *ngIf="lastgame.competitionShort"
           src="https://cdn.marez.fr/football/{{
             lastgame.competitionShort
           }}.png"
@@ -152,7 +165,7 @@
 
   <br />
 
-  <div #scheduleDiv style="width: 800px;">
+  <div #scheduleDiv style="width: 800px">
     <fws-poster-base *ngIf="nextgames != null">
       <!-- <div class="text-center title">
       PROGRAMME DU WEEK-END
@@ -160,13 +173,14 @@
       <div
         *ngFor="let game of nextgames"
         class="row"
-        style="margin-bottom: 20px;"
+        style="margin-bottom: 20px"
       >
         <div class="col-md-4">
           {{ game.competitionShort }}
         </div>
         <div class="col-md-8">
-          {{ game.homeTeam }} / {{ game.awayTeam }} <br />
+          {{ game.homeTeam }} <span class="text-muted"> / </span>
+          {{ game.awayTeam }} <br />
           <span class="subInfo">
             {{ game.matchDate | date: 'EEEE dd LLLL yyyy HH:mm' | uppercase }}
           </span>
@@ -215,7 +229,7 @@
   </fws-poster-base> -->
 
   <br />
-  <div #groupeDiv style="width: 800px;">
+  <div #groupeDiv style="width: 800px">
     <fws-poster-base *ngIf="nextgame != null">
       <div class="text-center title">LE GROUPE</div>
       <div class="text-center part subInfo">
@@ -223,26 +237,26 @@
       </div>
 
       <!-- <div class="row">
-        <div class="col-md-6  text-center">
+        <div class="col-md-6 text-center">
           <img
             [src]="nextgame.homeTeamLogoUrl"
             [title]="nextgame.homeTeam"
           /><br />
         </div>
 
-        <div class="col-md-6  text-center">
+        <div class="col-md-6 text-center">
           <img
             [src]="nextgame.awayTeamLogoUrl"
             [title]="nextgame.awayTeam"
           /><br />
         </div>
       </div> -->
-      <div class="row part" style="margin-top: 20px;">
+      <div class="row part" style="margin-top: 20px">
         <div class="col-md-12 text-center teamName">
           <span class="hidden-sm bold">{{
             nextgame.homeTeam | teamName | uppercase
           }}</span>
-          /
+          <span class="text-muted"> / </span>
           <span class="hidden-sm bold">{{
             nextgame.awayTeam | teamName | uppercase
           }}</span>
@@ -251,21 +265,21 @@
       <div *ngIf="players" class="row">
         <div class="col-md-6">
           <ul>
-            <li *ngFor="let player of players.slice(0, 7)">
+            <li *ngFor="let player of players.slice(0, players.length / 2)">
               <img
                 width="40px"
-                style="display: inline-block;"
+                style="display: inline-block"
                 [src]="
                   'https://cdn.marez.fr/football/players/' +
                   player.playerFirstName +
                   '_' +
                   player.playerLastName +
-                  '.png'
+                  '.jpg'
                 "
-                class="img-fluid img-circle"
-                onerror="this.onerror=null;this.src='https\:\/\/cdn.marez.fr/football/players//default.png'"
+                class="img-fluid rounded-circle"
+                onerror="this.onerror=null;this.src='https\:\/\/cdn.marez.fr/football/players/default.jpg'"
               />
-              <span style="font-size: 18px;">
+              <span style="font-size: 18px">
                 {{ player.playerLastName }}
                 {{ player.playerFirstName.slice(0, 1) }}.
               </span>
@@ -274,21 +288,21 @@
         </div>
         <div class="col-md-6">
           <ul>
-            <li *ngFor="let player of players.slice(7)">
+            <li *ngFor="let player of players.slice(players.length / 2)">
               <img
                 width="40px"
-                style="display: inline-block;"
+                style="display: inline-block"
                 [src]="
                   'https://cdn.marez.fr/football/players/' +
                   player.playerFirstName +
                   '_' +
                   player.playerLastName +
-                  '.png'
+                  '.jpg'
                 "
-                class="img-fluid img-circle"
-                onerror="this.onerror=null;this.src='https\:\/\/cdn.marez.fr/football/players/default.png'"
+                class="img-fluid rounded-circle"
+                onerror="this.onerror=null;this.src='https\:\/\/cdn.marez.fr/football/players/default.jpg'"
               />
-              <span style="font-size: 18px;">
+              <span style="font-size: 18px">
                 {{ player.playerLastName }}
                 {{ player.playerFirstName.slice(0, 1) }}.
               </span>
@@ -298,6 +312,7 @@
       </div>
       <div class="gameChampionship text-center">
         <img
+          *ngIf="nextgame.competitionShort"
           src="https://cdn.marez.fr/football/{{
             nextgame.competitionShort
           }}.png"

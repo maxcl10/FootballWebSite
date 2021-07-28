@@ -120,6 +120,7 @@
           <Key>
             <PropertyRef Name="RankingId" />
           </Key>
+          <Property Name="RankingId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Team" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Position" Type="int" />
           <Property Name="Points" Type="int" />
@@ -132,7 +133,6 @@
           <Property Name="GoalDifference" Type="int" />
           <Property Name="Withdaw" Type="int" />
           <Property Name="Penality" Type="int" />
-          <Property Name="RankingId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="UploadDate" Type="datetime" />
           <Property Name="CompetitionSeasonId" Type="uniqueidentifier" />
@@ -149,6 +149,7 @@
           <Property Name="PhoneNumber" Type="nchar" MaxLength="14" />
           <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
           <Property Name="Facebook" Type="nvarchar" MaxLength="100" />
+          <Property Name="Instagram" Type="nvarchar" MaxLength="100" />
           <Property Name="Youtube" Type="nvarchar" MaxLength="100" />
           <Property Name="Stadium" Type="nvarchar" MaxLength="50" />
           <Property Name="History" Type="nvarchar(max)" />
@@ -288,6 +289,7 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
           <Property Name="CalendarUrl" Type="nvarchar" MaxLength="300" />
           <Property Name="RankingUrl" Type="nvarchar" MaxLength="300" />
           <Property Name="YouthTeam" Type="bit" />
+          <Property Name="AffiliationNumber" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="TeamCompetitionSeason">
           <Key>
@@ -1149,6 +1151,7 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
           <NavigationProperty Name="Surveys" Relationship="FootballWebSiteDbModel.FK_Survey_Owner" FromRole="Owner" ToRole="Survey" />
           <NavigationProperty Name="Teams" Relationship="FootballWebSiteDbModel.FK_Team_Owner" FromRole="Owner" ToRole="Team" />
           <NavigationProperty Name="Users" Relationship="FootballWebSiteDbModel.FK_User_Owner" FromRole="Owner" ToRole="User" />
+          <Property Name="Instagram" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Player">
           <Key>
@@ -1266,6 +1269,7 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
           <NavigationProperty Name="Owner" Relationship="FootballWebSiteDbModel.FK_Team_Owner" FromRole="Team" ToRole="Owner" />
           <NavigationProperty Name="PlayerTeams" Relationship="FootballWebSiteDbModel.FK_PlayerTeam_Team" FromRole="Team" ToRole="PlayerTeam" />
           <NavigationProperty Name="TeamCompetitionSeasons" Relationship="FootballWebSiteDbModel.FK_TeamCompetitionSeason_Team" FromRole="Team" ToRole="TeamCompetitionSeason" />
+          <Property Name="AffiliationNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TeamCompetitionSeason">
           <Key>
@@ -1824,6 +1828,7 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
           <EntitySetMapping Name="Owners">
             <EntityTypeMapping TypeName="FootballWebSiteDbModel.Owner">
               <MappingFragment StoreEntitySet="Owner">
+                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
                 <ScalarProperty Name="Nickname" ColumnName="Nickname" />
                 <ScalarProperty Name="FacebookLikeUrl" ColumnName="FacebookLikeUrl" />
                 <ScalarProperty Name="LogoUrl" ColumnName="LogoUrl" />
@@ -1936,6 +1941,7 @@ warning 6002: The table/view 'FootballWebSiteDb.dbo.Ranking' does not have a pri
           <EntitySetMapping Name="Teams">
             <EntityTypeMapping TypeName="FootballWebSiteDbModel.Team">
               <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="AffiliationNumber" ColumnName="AffiliationNumber" />
                 <ScalarProperty Name="YouthTeam" ColumnName="YouthTeam" />
                 <ScalarProperty Name="RankingUrl" ColumnName="RankingUrl" />
                 <ScalarProperty Name="CalendarUrl" ColumnName="CalendarUrl" />
